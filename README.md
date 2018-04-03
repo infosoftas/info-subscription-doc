@@ -1,2 +1,2 @@
 # info-subscription-doc
-Contains the markdown source for the public documentation of INFO-Subscription
+Contains the source for the public documentation of INFO-Subscription
