@@ -6,10 +6,16 @@
 Welcome to INFO-Subscription's documentation!
 =============================================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+This is the home of the API documentation for INFO-Subscription. 
 
+If you came here looking for the user documentation please head over to http://www.hereissomedocuemtnation.no
+
+If you have no idea what INFO-Subscription is, then head over to the `product website <https://www.infosoft.as/solutions/info-subscription/>`_ and have a look.
+
+.. toctree::
+    getting-started
+    :maxdepth: 2
+    :caption: Contents
 
 
 Indices and tables
