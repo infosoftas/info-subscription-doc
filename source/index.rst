@@ -12,15 +12,14 @@ If you came here looking for the user documentation please head over to http://w
 
 If you have no idea what INFO-Subscription is, then head over to the `product website <https://www.infosoft.as/solutions/info-subscription/>`_ and have a look.
 
+Please read the introduction about the service and the terminology before you start banging your head against the wall, it might actually contain a pointer or two that will help you.
+
 .. toctree::
-    getting-started
-    :maxdepth: 2
+    :maxdepth: 1
     :caption: Contents
 
+    introduction/what-is-info-subscription
+    introduction/getting-started
+    reporting-bugs
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+This is some text below the TOC.
