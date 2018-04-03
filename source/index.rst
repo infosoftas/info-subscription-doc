@@ -22,4 +22,5 @@ Please read the introduction about the service and the terminology before you st
     introduction/getting-started
     reporting-bugs
 
-This is some text below the TOC.
+
+If you just want the details you can browse the Swagger UI `here <https://api.info-subscription.com/swagger/>`_ or get the OpenAPI/Swagger definition file `here <https://api.info-subscription.com/swagger/v1/swagger.json>`_.
