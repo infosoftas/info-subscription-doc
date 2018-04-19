@@ -25,6 +25,7 @@ If you have no idea what |projectName| is, then head over to the `product websit
     :caption: Contents
 
     introduction/what-is-info-subscription
+    introduction/accessing-api
     introduction/getting-started
     reporting-bugs
     API Reference/Swagger <https://api.info-subscription.com/swagger/>

@@ -189,4 +189,5 @@ todo_include_todos = True
 
 rst_epilog = """
 .. |projectName| replace:: INFO-Subscription
+.. |tenantHeader| replace:: ``S4-TenantId``
 """
