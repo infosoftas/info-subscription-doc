@@ -1,5 +1,7 @@
+.. _getting-started:
+***************
 Getting Started
-===============
+***************
 
 1. register a client with Infosoft
 2. Authenticate with Auth0

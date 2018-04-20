@@ -1,3 +1,4 @@
+.. _accessing-api:
 *****************
 Accessing the API
 *****************
@@ -135,7 +136,3 @@ The APIs expect json as input and returns json unless otherwise noted in the ref
     so there is no doubt for client and server what is requested.
 
 If for some reason you *really really* like XML, Protobuf, Thrift, MessagePack or your own custom content type, then let us know and we might consider implementing it.
-
-Tenant Id Header
-^^^^^^^^^^^^^^^^
-A TenantId is in the form of a UUID/GUID such as ``fe923cfe-2e67-4f7a-960a-d4c36fce22c4`` and at the current time is required in the |tenantHeader| header for all requests to the APIs.

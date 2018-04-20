@@ -26,10 +26,11 @@ Contact Information and Support
 -------------------------------
 Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>` for details on how to contact Infosoft.
 
+.. The following TOC tree directives are here to make sure the side-bar looks like we want it to.
+   If a toc tree does not have a :hidden: tag it will be shown on the index page!
+
 .. toctree::
-   :maxdepth: 50
    :hidden:
-   
 
    self
    introduction/accessing-api
@@ -37,7 +38,12 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
    introduction/what-is-info-subscription
 
 .. toctree::
-    :maxdepth: 2
+    :caption: Subscriptions
+    :hidden:
+
+    subscription/orders/orders
+
+.. toctree::
     :caption: Misc
     :hidden:
    

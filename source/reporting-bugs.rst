@@ -1,3 +1,5 @@
+.. _reporting-bugs:
+
 *****************************
 Support and General Inqueries
 *****************************
@@ -7,10 +9,11 @@ If you are a third party, i.e. not the one with an account/tenant for |projectNa
 
 Reporting Bugs
 ==============
-So it should come as no suprise that |projectName| is not without bugs.
-This section contains a few points on what we would like you to do when submitting bug reports.
+It should come as no suprise that |projectName| is not without bugs.
 
-Bugs can be reported either via :github-issues:`GitHub <>` if you have a purely technical issue, such as an undocumented response, an invalid response for an action or whatever.
+This section contains a few pointers on how to submit bug reports and what we would like you to include in said reports.
+
+Bugs can be reported via :github-issues:`GitHub <>` if you have a purely technical issue, such as an undocumented response, an invalid response for an action or whatever.
 We do not guarantee any response time or SLA on the GitHub issues, but we will try and address issues as best we can when we have the time.
 
 For priority bugs please submit them through the regular support channel as well (perhaps just with a reference to the GitHub issue) and the normal SLA applies.
