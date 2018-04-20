@@ -42,6 +42,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.todo',
     'sphinx.ext.imgmath',
+    'sphinx.ext.extlinks'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -83,7 +84,9 @@ html_theme = 'sphinx_rtd_theme'
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-# html_theme_options = {}
+html_theme_options = {
+    'navigation_depth' : 6,
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -187,7 +190,29 @@ epub_exclude_files = ['search.html']
 todo_include_todos = True
 
 
-rst_epilog = """
+rst_prolog = """
 .. |projectName| replace:: INFO-Subscription
 .. |tenantHeader| replace:: ``S4-TenantId``
+.. |auth0audience| replace:: https://api.info-subscription.com
+.. |tokenUrl| replace:: https://infosubscription.eu.auth0.com/oauth/token
 """
+
+def replacements(app, docname, source):
+    result = source[0]
+    for key in app.config.replacementsTags:
+        result = result.replace(key, app.config.replacementsTags[key])
+    source[0] = result
+
+replacementsTags = {
+    "{PRODUCTWEBSITE}" : "`product website <https://www.infosoft.as/solutions/info-subscription/>`_",
+    "{AUTH0}" : "`Auth0 <https://www.auth0.com/>`_",
+    "{SUPPORTPAGE}" : "https://www.infosoft.as/support/"
+}
+
+def setup(app):
+   app.add_config_value('replacementsTags', {}, True)
+   app.connect('source-read', replacements)
+
+extlinks = {
+    'github-issues': ('https://www.github.com/infosoftas/info-subscription/issues/%s', 'Github Issue '),
+}

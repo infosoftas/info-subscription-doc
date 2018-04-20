@@ -1,8 +1,9 @@
 .. You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-API Documentation for |projectName|
-=======================================
+************
+Introduction
+************
 
 .. ATTENTION::
     This documentation and the API it describes is still very much in a pilot phase and is thus subject to change.
@@ -10,7 +11,7 @@ API Documentation for |projectName|
     We welcome any and all feedback you have on the API, and in the pilot phase the barrier for including changes
     is somewhat smaller than normal (since we don't need to version the API)
 
-This is the home of the API documentation for |projectName|. 
+This is the home of the API documentation for |projectName|.
 
 If you came here looking for the user documentation please head over to http://www.hereissomedocuemtnation.no
 
@@ -19,15 +20,26 @@ If you have no idea what |projectName| is, then head over to the `product websit
 .. IMPORTANT::
     Please read the introduction about the service and the terminology before you start banging your head against the wall, it might actually contain a pointer or two that will help you.
 
+If you just want the gory details you can browse `the Swagger UI <https://api.info-subscription.com/swagger/>`_ or `get the OpenAPI/Swagger definition file <https://api.info-subscription.com/swagger/v1/swagger.json>`_.
+
+Contact Information and Support
+-------------------------------
+Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>` for details on how to contact Infosoft.
 
 .. toctree::
-    :maxdepth: 1
-    :caption: Contents
+   :maxdepth: 50
+   :hidden:
+   
 
-    introduction/what-is-info-subscription
-    introduction/accessing-api
-    introduction/getting-started
+   self
+   introduction/accessing-api
+   introduction/getting-started
+   introduction/what-is-info-subscription
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Misc
+    :hidden:
+   
     reporting-bugs
     API Reference/Swagger <https://api.info-subscription.com/swagger/>
-
-If you just want the details you can browse the Swagger UI `here <https://api.info-subscription.com/swagger/>`_ or get the OpenAPI/Swagger definition file `here <https://api.info-subscription.com/swagger/v1/swagger.json>`_.
