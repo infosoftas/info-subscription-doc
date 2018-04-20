@@ -110,6 +110,11 @@ html_use_opensearch = 'http//docs.info-subscription.com'
 html_show_sphinx = False
 html_experimental_html5_writer = True
 
+html_context = {
+    "display_github": True, # Add 'Edit on Github' link instead of 'View page source'
+    "last_updated": False,
+    "commit": False,
+}
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
