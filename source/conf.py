@@ -103,6 +103,13 @@ html_static_path = ['_static']
 #
 # html_sidebars = {}
 
+html_logo = '_images/icon.png'
+html_favicon = '_images/favicon.ico'
+html_show_copyright = False
+html_use_opensearch = 'http//docs.info-subscription.com'
+html_show_sphinx = False
+html_experimental_html5_writer = True
+
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
@@ -216,3 +223,4 @@ def setup(app):
 extlinks = {
     'github-issues': ('https://www.github.com/infosoftas/info-subscription/issues/%s', 'Github Issue '),
 }
+

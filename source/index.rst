@@ -1,6 +1,12 @@
 .. You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. image:: _images/slogan.png
+    :scale: 50 %
+    :align: center
+    :alt: Infosoft Logo With Slogan Software for subscirption businesses
+    :target: https://www.infosoft.as
+
 ************
 Introduction
 ************
