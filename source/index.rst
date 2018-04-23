@@ -23,10 +23,9 @@ If you came here looking for the user documentation please head over to http://w
 
 If you have no idea what |projectName| is, then head over to the `product website <https://www.infosoft.as/solutions/info-subscription/>`_ and have a look.
 
-.. IMPORTANT::
-    Please read the introduction about the service and the terminology before you start banging your head against the wall, it might actually contain a pointer or two that will help you.
-
 If you just want the gory details you can browse `the Swagger UI <https://api.info-subscription.com/swagger/>`_ or `get the OpenAPI/Swagger definition file <https://api.info-subscription.com/swagger/v1/swagger.json>`_.
+
+Otherwise head over to the :ref:`Getting Started <getting-started>` section
 
 Contact Information and Support
 -------------------------------
@@ -39,8 +38,8 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
    :hidden:
 
    self
-   introduction/accessing-api
    introduction/getting-started
+   introduction/authorization <authorization>
    introduction/what-is-info-subscription
 
 .. toctree::
