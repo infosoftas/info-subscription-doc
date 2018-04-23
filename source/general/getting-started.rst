@@ -24,7 +24,7 @@ In order to actually use the API you will need a couple of things
 * A set of client credentials
 * A TenantId
 
-The client credentials are used for Authentication and Authorization described separately.
+The client credentials are used for Authentication and Authorization which is :ref:`described separately <authorization>`_
 
 While the TenantId is used to ascertain which tenant your application is trying to access.
 
