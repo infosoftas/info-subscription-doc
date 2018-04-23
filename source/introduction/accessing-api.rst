@@ -118,21 +118,3 @@ Endpoint(s)
 The |projectName| APIs are accessed using https://api.info-subscription.com/ as the base url. 
 All paths, names etc that is referenced here will be relative to that base URL.
 
-Requests
-========
-
-In general requests are constructed such that a HTTP verb corresponds to a specific type of action.
-
-* ``GET`` Requests data from a resource
-* ``POST`` Creates a resource or starts a process
-* ``PUT`` Replaces/Completely Updates an existing resource
-* ``DELETE`` Deletes a resource or cancels a process
-* ``PATCH`` Partially updates a resource or state of a process
-
-The APIs expect json as input and returns json unless otherwise noted in the reference documentation.
-
-.. TIP::
-    Even though the APIs Accept ``application/json`` as input and responds with ``application/json`` by default, it is recommended that you set the ``Accept``  and ``Content-Type`` headers
-    so there is no doubt for client and server what is requested.
-
-If for some reason you *really really* like XML, Protobuf, Thrift, MessagePack or your own custom content type, then let us know and we might consider implementing it.
