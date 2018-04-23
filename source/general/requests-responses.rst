@@ -1,6 +1,5 @@
 .. _requests-responses:
 
-
 Building Requests
 =================
 
@@ -23,7 +22,7 @@ If for some reason you *really really* like XML, Protobuf, Thrift, MessagePack o
 Handling Responses
 ==================
 
-Just requests are build around the common HTTP Methods, the API responses are constructed around common `HTTP Status Codes <https://developer.mozilla.org/en-US/docs/Web/HTTP/Status>`_.
+Just as requests are build around the common HTTP Methods, the API responses are constructed around common `HTTP Status Codes <https://developer.mozilla.org/en-US/docs/Web/HTTP/Status>`_.
 Each response contains a code and optionally a body. 
 We strive to follow the same convention throughout the API which should hopefully provide consumers a streamlined experience. 
 Let us know if you discover inconsistencies!
@@ -48,16 +47,16 @@ There are two categories of errors.
     These produces status codes in the **400-499** range.
 
 #.  Errors that is entirely the fault of the server, typically environment errors or implementation errors or other similar unexpected conditions.
-    These produces status in the **500-599** range.
+    These produces status codes in the **500-599** range.
 
 Client Errors
 ~~~~~~~~~~~~~
+As described above these are Errors that the client should handle, typically by displaying some sort of feedback to the user.
 
-``HTTP 400 Bad Request`` response with a `validation error instance <http://s4api-dev.azurewebsites.net/swagger/#model-ValidationResultModel>`_
-
-These should be handled by the client, typically by displaying some sort of error message to the user.
+Typically client errors are validation/format related and generates a ``HTTP 400 Bad Request`` response with a `validation error instance <http://s4api-dev.azurewebsites.net/swagger/#model-ValidationResultModel>`_
 
 Whenever possible multiple validations will be included in a single response, but since some validations are dependant on existance of a given resource this is not always achievable.
+
 The following is an example of a ``BadRequest`` response with multiple validation failures. 
 
 .. code-block:: http
@@ -98,6 +97,8 @@ The following is an example of a ``BadRequest`` response with multiple validatio
         ]
     }
 
+Authentication and Authorization errors are strictly speaking also client errors, but the response and the meaning are covered in the :ref:`authentication section <requests-responses-auth>`
+
 Server Errors
 ~~~~~~~~~~~~~
 Generally speaking the APIs responds with either ``HTTP 500 Internal Server Error`` or ``HTTP 503 Service Unavailable``.
@@ -124,9 +125,10 @@ HTTP 503 Service Unavailable
 
 Typically waiting a few minutes and trying again should work, if not please open a :ref:`bug report <reporting-bugs>` so we can investigate.
 
-
 Authentication and Authorization Responses
 ------------------------------------------
+.. _requests-responses-auth:
+
 There are currently two auth related responses you can expect and should handle.
 
 * ``HTTP 401 Not Authenticated`` - Indicates that no authorization information was found, typically because there is no Authorization header or the content of the header was mal-formed.
@@ -144,7 +146,6 @@ An example `401` response:
     X-Powered-By: ASP.NET
     Date: Mon, 01 Jan 2042 00:13:37 GMT
     Content-Length: 0
-
 
 .. Tip::
     While you are most likely to receive these types of responses during development and testing, we recommend you at least handle and log such errors so you have something to debug.
