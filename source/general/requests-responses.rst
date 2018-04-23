@@ -53,7 +53,7 @@ Client Errors
 ~~~~~~~~~~~~~
 As described above these are Errors that the client should handle, typically by displaying some sort of feedback to the user.
 
-Typically client errors are validation/format related and generates a ``HTTP 400 Bad Request`` response with a `validation error instance <http://s4api-dev.azurewebsites.net/swagger/#model-ValidationResultModel>`_
+Typically client errors are validation/format related and generates a ``HTTP 400 Bad Request`` response with a `validation error instance <https://api.info-subscription.com/swagger/#model-ValidationResultModel>`_
 
 Whenever possible multiple validations will be included in a single response, but since some validations are dependant on existance of a given resource this is not always achievable.
 

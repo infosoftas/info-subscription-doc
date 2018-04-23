@@ -60,3 +60,5 @@ Endpoint(s)
 
 The |projectName| APIs are accessed using https://api.info-subscription.com/ as the base url. 
 All paths, names etc that is referenced here will be relative to that base URL.
+
+.. include:: requests-responses.rst

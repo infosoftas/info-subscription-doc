@@ -38,9 +38,9 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
    :hidden:
 
    self
-   introduction/getting-started
-   introduction/auth
-   introduction/what-is-info-subscription
+   general/getting-started
+   general/auth
+   general/what-is-info-subscription
 
 .. toctree::
     :caption: Subscriptions
