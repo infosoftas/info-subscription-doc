@@ -12,7 +12,12 @@ Depending on your point of view it might be easier to understand what it is by d
 CRM
 ---
 INFO-Subscription contains a small customer management module, that will allow you to manage simple information about a customer. 
-It is not a fully fledged CRM system, neither is it going to attempt to fulfil that role. We do however provide options for integrating with third party CRMs so you can bring your own.
+It is not a fully fledged CRM system, neither is it going to attempt to fulfil that role. We do however plan to provide options for integrating with third party CRMs so you can bring your own.
+
+.. Note::
+    
+    Currently external CRMs are not directly supported, but we are actively working on it! 
+    In the mean time, the existing Customer backend is rather simple and there are no obvious issues with making it a slave to an external sync process.
 
 Delivery, Distribution and Packaging
 ------------------------------------
