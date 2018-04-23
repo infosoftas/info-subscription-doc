@@ -39,7 +39,7 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
 
    self
    introduction/getting-started
-   introduction/authorization <authorization>
+   introduction/auth
    introduction/what-is-info-subscription
 
 .. toctree::
