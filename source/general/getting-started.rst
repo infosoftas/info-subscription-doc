@@ -24,7 +24,7 @@ In order to actually use the API you will need a couple of things
 * A set of client credentials
 * A TenantId
 
-The client credentials are used for Authentication and Authorization which is :ref:`described separately <authorization>`_
+The client credentials are used for Authentication and Authorization which is :ref:`described separately <authorization>`
 
 While the TenantId is used to ascertain which tenant your application is trying to access.
 
@@ -54,6 +54,8 @@ Using the Tenant Id
 -------------------
 
 The TenantId is in the form of a UUID/GUID such as ``fe923cfe-2e67-4f7a-960a-d4c36fce22c4`` and at the current time is required in the |tenantHeader| header for all requests to the API.
+
+A simplification of this requirement is in the pipeline, but we will not be removing the header support so it is safe to rely on it going forward.
 
 Endpoint(s)
 ===========

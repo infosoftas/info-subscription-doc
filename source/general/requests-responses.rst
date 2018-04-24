@@ -11,7 +11,7 @@ In general requests are build such that a `HTTP Method/Verb <https://developer.m
 * ``DELETE`` Deletes a resource or cancels a process
 * ``PATCH`` Partially updates a resource or state of a process
 
-The APIs expect json as input and returns json unless otherwise noted in the reference documentation.
+The APIs expect ``JSON`` as input and outputs ``JSON`` unless otherwise noted in the `reference documentation <https://api.info-subscription.com/swagger/>`_.
 
 .. Tip::
     Even though the APIs Accept ``application/json`` as input and responds with ``application/json`` by default, it is recommended that you set the ``Accept``  and ``Content-Type`` headers
