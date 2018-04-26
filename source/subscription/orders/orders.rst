@@ -77,6 +77,13 @@ Completing the order currently executes a few different tasks
 #. Creates a payment representing the captured amount
 #. Creates a subscription with the created PaymentAgreement as the payment method
 
+.. Attention::
+
+    This series of steps is subject to change before long. The change should not affect the client implementation, and how it interacts with the APIs.
+    However it will affect the expectations that the client has around the end result.
+
+    This document will be updated with the proper information once the change is released.
+
 Once completed the response contains an updated order view with the new status and various Id's that informs the client of what was created.
 
 While not immensely useful the order will persist so you could choose to have a list of *purchases/orders* or some such in the client to show historic orders.
@@ -110,3 +117,22 @@ We recommend that the client implements some sort of callback handling that will
 .. Important::
 
     |projectName| currently has no built in callback handling that can be utilized but it is on the roadmap.
+
+
+.. ALL OF THIS IS NOT VISIBLE BECAUSE IT IS CONSIDERED A COMMENT - This is the initial description of the steps done when an order is completed, and should probably be looked at once the implementation is done.
+
+    #. Builds a custom package for the subscription and verifies the result is valid
+    #. Complete the transaction at the PSP to ensure that the agreement can be used
+    #. Creates a PaymentAgreement for the given payment card
+    #. Creates a subscription with the created PaymentAgreement as the payment method
+    #. Create a payment demand with the amount from the order and a due date which is the same as the subscription start
+    
+    Following these steps another series of steps will be enacted by the billing engine
+
+    #. Create and Issue an Invoice for the Payment Demand
+    #. On the due date, initialize a payment/capture of the demand
+    #. Captures the demand amount on the payment card
+    #. Creates a payment representing the captured amount 
+
+    These additional things happens asynchronous, so don't expect it all to be completed the second the order response is generated. 
+    But it basically means you can direct the user to a payment/invoice overview and within a short time they will see their invoice and/or payment.
