@@ -17,6 +17,10 @@ An order is split into several steps, primarily to ensure consistensy between th
 
 Secondly applications/clients might want to prepare orders, for instance to send out pre-filled order details for acceptance by customers or other similar scenarios.
 
+.. image:: /_images/order-sequence.svg
+    :align: center
+    :alt: Order Sequence Flow
+
 .. Note::
 
     There might be timeout/expiration issues with this approach if using online Payment Service Prodivers (PSPs) such as {payex}.
@@ -107,7 +111,7 @@ The fact that an order was cancelled might be useful to business people to follo
 
 PSP Callbacks
 ==================
-.. _psp-Callbacks
+.. _psp-Callbacks:
 
 Many PSPs have a concept of a `callback` used for ensuring that payments are processed correctly in the event of a client failure. 
 Typically failures are things such as loosing internet connectivity, user closes browser session, browser/machine crashes, appliction errors and the list goes on.
