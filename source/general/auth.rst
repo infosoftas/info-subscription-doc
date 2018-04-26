@@ -1,4 +1,5 @@
 .. _authorization:
+
 ********************************
 Authentication and Authorization
 ********************************
@@ -51,7 +52,7 @@ If you want to look at whats inside the token go to https://jwt.io and have a lo
 
 Once you have a token, it should be included in the ``Authorization`` header as a ``Bearer`` token. It should look something like the following
 
-.. code-block:: http
+.. code::
     
     Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1FVTJOa1pEUWpCRVFUWkNRamxCTTBaRFJUZ3pRVEZHUXpaQ09VVTRNa0k0TURBMlJEVkZNdyJ9.eyJpc3MiOiJodHRwczovL2luZm9zdWJzY3JpcHRpb24uZXUuYXV0aDAuY29tLyIsInN1YiI6Ik5Cc2gyalFVbTE2NXNBWTVmZWQzRThaTnppQkF6MGE0QGNsaWVudHMiLCJhdWQiOiJodHRwczovL2FwaS5pbmZvLXN1YnNjcmlwdGlvbi5jb20vIiwiaWF0IjoxNTI0MTQ2NjE4LCJleHAiOjE1MjQyMzMwMTgsImF6cCI6Ik5Cc2gyalFVbTE2NXNBWTVmZWQzRThaTnppQkF6MGE0IiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.fLiToHzpMzcDkBarLu9MYR-LTYR4V0MCeoG4_sEhoH4ykDu0lhp-cgloJnYR6jEFNcK6u8difFViVSrrAnM7QPCp2eqptZQxkqjX0ZNdNUbkvSnpL7iFHKkEvy7DdRLjHkX6oJq_Le9ww6fKmdhVqvEnbu8h39mMWQPHGk0dh0mketr6tZRxu0WGBYusbeZOH9lkn3mQhAFl1nzqE3sePjTkwe1rah8FKHQhI2xYfd-dwMWAiPiXLRS_H5l9NyjtdcIvtXLnfWTM_eo0qAHPh1Q_4TlEPFptLk37Bx3NE6U5UM9EiQLUP0jdxOr9_2mPST70bIKQxh60YRgOWd8Jug
 

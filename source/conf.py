@@ -218,7 +218,8 @@ def replacements(app, docname, source):
 replacementsTags = {
     "{PRODUCTWEBSITE}" : "`product website <https://www.infosoft.as/solutions/info-subscription/>`_",
     "{AUTH0}" : "`Auth0 <https://www.auth0.com/>`_",
-    "{SUPPORTPAGE}" : "https://www.infosoft.as/support/"
+    "{SUPPORTPAGE}" : "https://www.infosoft.as/support/",
+    "{payex}" : "`PayEx <https://payex.com/>`_"
 }
 
 def setup(app):
