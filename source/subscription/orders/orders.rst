@@ -29,19 +29,19 @@ The main thing to remember about orders, is that they are not actually resources
 
 An order contains information about a few things
 
-* Who/What is subscribing to an offering - the `subscriberId`
-* What offering are they subscribing to - the `templatePackageId`
+* Who/What is subscribing to an offering - the ``subscriberId``
+* What offering are they subscribing to - the ``templatePackageId``
 * How should payment be processed, specified by either of the following:
 
-    * The `paymentAgreementId`
-    * The `payExOrderParameters`
-* Who is offering this subscription - the `organizationId`
+    * The ``paymentAgreementId``
+    * The ``payExOrderParameters``
+* Who is offering this subscription - the ``organizationId``
 
 Package Choices/Overrides
 -------------------------
-As the name implies a TemplatePackages is a template for the package that will be created for a given subscription.
+As the name implies a ``TemplatePackage`` is a template for the package that will be created for a given subscription.
 
-Some of the parameters of a package may require choices by the subscriber (or the sales process), these choices are often optional, but can be defined using the `templatePackageChoices`.
+Some of the parameters of a package may require choices by the subscriber (or the sales process), these choices are often optional, but can be defined using the ``templatePackageChoices``.
 
 To figure out which things are overridable by the user, have a look at the specific template package as it defines the flexibility.
 
@@ -50,8 +50,10 @@ The choices are validated when creating the order, and again when completing it,
 Processing Payments
 -------------------
 Most of the time, there is a need to enact some sort of payment process.
-When an order is created, if it includes `payExOrderParameters` the response will contain a `terminalRedirectUrl`.
-This URL indicates where the client should send the user so he/she can input the payment card details.
+
+When an order is created, if it includes ``payExOrderParameters`` the response will contain a ``terminalRedirectUrl``.
+
+This :abbr:`URL (Uniform Resource Locator)` indicates where the client should send the user so he/she can input the payment card details.
 
 The parameters must contain a return url and a cancel url (they can be the same).
 When the user completes or cancels the payment process, he/she is returned to either of these pages, with an Id in the querystring representing the order.
