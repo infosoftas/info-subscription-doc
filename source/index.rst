@@ -4,7 +4,7 @@
 .. image:: _images/slogan.png
     :scale: 50 %
     :align: center
-    :alt: Infosoft Logo With Slogan Software for subscirption businesses
+    :alt: Infosoft Logo With Slogan Software for subscription businesses
     :target: https://www.infosoft.as
 
 ************
@@ -13,9 +13,14 @@ Introduction
 
 .. ATTENTION::
     This documentation and the API it describes is still very much in a pilot phase and is thus subject to change.
+
+    It is likely that there are discrepancies between the actual implementation and the documentation.
+    Either in the form of concepts documented that does not exist or concepts that have been changed since the documentation was written.
+    We are trying to bring everything up to speed, but as mentioned above this is still a beta/pilot thing. 
+    Let us know by contacting support or creating issues.
     
     We welcome any and all feedback you have on the API, and in the pilot phase the barrier for including changes
-    is somewhat smaller than normal (since we don't need to version the API)
+    is somewhat smaller than normal (since we don't need to version the API).
 
 This is the home of the API documentation for |projectName|.
 
