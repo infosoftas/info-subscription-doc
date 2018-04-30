@@ -46,6 +46,7 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
    general/getting-started
    general/auth
    general/what-is-info-subscription
+   general/terminology.rst
 
 .. toctree::
     :caption: Subscriptions
