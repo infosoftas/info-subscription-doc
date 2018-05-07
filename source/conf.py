@@ -228,5 +228,6 @@ def setup(app):
 
 extlinks = {
     'github-issues': ('https://www.github.com/infosoftas/info-subscription/issues/%s', 'Github Issue '),
+    'api-ref-model': ('https://api.info-subscription.com/swagger/#model-%s', 'API Model '),
 }
 
