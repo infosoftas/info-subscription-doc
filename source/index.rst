@@ -24,7 +24,7 @@ Introduction
 
 This is the home of the API documentation for |projectName|.
 
-If you came here looking for the user documentation please head over to http://www.hereissomedocuemtnation.no
+If you came here looking for the user documentation you are in the wrong place. This is the developer documentation.
 
 If you have no idea what |projectName| is, then head over to the `product website <https://www.infosoft.as/solutions/info-subscription/>`_ and have a look.
 

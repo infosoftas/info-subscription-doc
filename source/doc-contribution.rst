@@ -1,4 +1,5 @@
-.. _doc-contribution
+.. _doc-contribution:
+
 *********************************
 Contributing to the Documentation
 *********************************
