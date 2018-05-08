@@ -9,8 +9,10 @@ This article describes the basics of using the |projectName| provided model.
 
 .. Note::
 
-    At the current time of writing, using the built-in subscriber self-service application 
+    At the current time of writing, using the built-in subscriber self-service application and the administrative application
     requires the use of the |projectName| user model to function.
+
+    If you do not plan to write your own administrative client and you have your own user model, don't worry about the details here!
 
 The user model is based entirely on top of {AUTH0}, meaning that whenever a reference exists to any form of User Id, this is in fact the {AUTH0} representation of said user.
 
