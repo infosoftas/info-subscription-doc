@@ -49,6 +49,13 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
    general/terminology.rst
 
 .. toctree::
+    :caption: Users and Customers
+    :hidden:
+
+    customers
+    users
+
+.. toctree::
     :caption: Subscriptions
     :hidden:
 
