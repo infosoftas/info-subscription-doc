@@ -1,4 +1,4 @@
-.. _events-introduction:
+.. _events:
 
 *******************
 Events and Webhooks
@@ -199,6 +199,7 @@ The following is a short summary of those details, for the full information plea
 Event Grid provides durable delivery, which basically means it will retry if it did not get a proper response from the endpoint.
 
 Success Codes are defined as
+
 * 200 OK
 * 202 Accepted
 
@@ -206,14 +207,14 @@ Failure to respond within 50 seconds will be counted as a delivery failure, and 
 
 If a delivery has failed it will be retried according to the following "timetable"
 
-1. 10 seconds
-1. 30 seconds
-1. 1 minute
-1. 5 minutes
-1. 10 minutes
-1. 30 minutes
-1. 1 hour
-1. Every hour untill 24 hours
+#. 10 seconds
+#. 30 seconds
+#. 1 minute
+#. 5 minutes
+#. 10 minutes
+#. 30 minutes
+#. 1 hour
+#. Every hour untill 24 hours
 
 After 24 hours, the event is considered lost and no futher attempts are made.
 
