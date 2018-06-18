@@ -62,6 +62,12 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     subscription/orders/orders
 
 .. toctree::
+    :caption: Events and Webhooks
+    :hidden:
+
+    events/events-introduction
+
+.. toctree::
     :caption: Misc
     :hidden:
    
