@@ -205,7 +205,7 @@ todo_include_todos = True
 rst_prolog = """
 .. |projectName| replace:: INFO-Subscription
 .. |tenantHeader| replace:: ``S4-TenantId``
-.. |auth0audience| replace:: https://api.info-subscription.com
+.. |auth0audience| replace:: https://api.info-subscription.com/
 .. |tokenUrl| replace:: https://infosubscription.eu.auth0.com/oauth/token
 """
 
