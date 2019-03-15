@@ -9,6 +9,7 @@ New Features and improvements
 * Improvements to the sales poster/order page (see separate section)
 * Invoice Address/Contact administration
 * The Administration overview/dashboard now shows real values for most KPIs (previously they were dummy fields for demonstration purposes)
+* Reporting/KPI data is now generated to a separate reporting database, contact support for access for your tenant.
 * Support for administration of Subscriber Organization Number
 * Support for generating Invoice data to Arvato Factoring
 * Administrative option for specifying number of units on new subscriptions
