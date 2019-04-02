@@ -12,7 +12,9 @@ New Features and improvements
 * Journal/Report for Credit Notes
 * Removed restriction on country when registrering new subscribers from the merchant interface
 * Support for generating EHF Invoices for Subscribers with an Organization Number (Configurable using API only at the current time)
-    * Credit Notes are generated, but they do not conform to the EHF 3.0 Validation Procedure
+
+    * Credit Notes are generated, but they do not conform to the EHF 3.0 validation procedure. This will be fixed in the upcoming release.
+
 * Added handling of password complexity error messages on the SalesPoster
 * Added option for configuring stopping a subscription after the initial period effectively disabling renewals
 
