@@ -1,2 +1,2 @@
-.. _changelog-r54:
+.. include:: r55.inc
 .. include:: r54.inc
