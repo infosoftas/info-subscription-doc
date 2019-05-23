@@ -9,12 +9,13 @@ API and Backend
 ===============
 The following new features and improvements are now available in the API and the backend
 
-* Support for cancelling subscriptions with a future start times
+* Support for cancelling subscriptions with a start time in the future.
 * Support for getting ALL Invoice configurations and not just by a known Id.
 * Removed support for shorter than 1 day billing frequencies as a different billing and dunning concept is needed for these.
-* Simplified contracts that had both Billing Plan and Billing Frequency as input by removing Billing Frequency
-* Extended the payment demand contract with additional properties
-* Credit time is now added properly to the Demand and the Invoice once a demand is credited
+* Simplified contracts that had both Billing Plan and Billing Frequency as input by removing Billing Frequency.
+* Extended the payment demand contract with additional properties.
+* Credit time is now added properly to the PaymentDemand and the Invoice once a demand is credited.
+* PaymentDemands are now included in the reporting data.
 
 Client
 ======
