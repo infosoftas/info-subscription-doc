@@ -207,6 +207,7 @@ rst_prolog = """
 .. |tenantHeader| replace:: ``S4-TenantId``
 .. |auth0audience| replace:: https://api.info-subscription.com/
 .. |tokenUrl| replace:: https://infosubscription.eu.auth0.com/oauth/token
+.. |auth0domain| replace:: infosubscription.eu.auth0.com
 """
 
 def replacements(app, docname, source):

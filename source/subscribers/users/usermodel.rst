@@ -5,7 +5,7 @@ Subscriber User Model
 *********************
 
 |projectName| provides an out-of-the-box solution for managing subscriber credentials/users.
-The model is _optional_, at the time of writing, it is required when using the built in self-service client.
+The model is **optional**, at the time of writing, it is required when using the built in self-service client.
 
 It is important to note that there are in principal two types of users. 
 Those related to subscribers, and those related to administrative users of a tenant.
