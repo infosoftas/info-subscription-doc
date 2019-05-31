@@ -38,11 +38,12 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
    general/terminology.rst
 
 .. toctree::
-    :caption: Subscribers, Users and Customers
+    :caption: Subscribers
     :hidden:
 
-    customers
-    end-user-auth/subscriber-users
+    subscribers/subscribers
+    subscribers/authentication
+    subscribers/authorization
 
 .. toctree::
     :caption: Subscriptions

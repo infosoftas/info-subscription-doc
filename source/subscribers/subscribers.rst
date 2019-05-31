@@ -18,8 +18,3 @@ When ordering subscriptions using the |projectName| Sales Poster, Users and Cust
 It is also possible to connect an existing user to a customer using the :api-ref:`API <Customer/CustomerByIdConnectByIdentityProviderIdPost>`.
 
 Having users, customers and subscribers connected is important to provide a streamlined authentication and authorization experience.
-
-.. include:: authentication.rst
-
-.. include:: authorization.rst
-

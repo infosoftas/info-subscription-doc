@@ -8,11 +8,12 @@ Since the business defines the auhtorization procedure, this documentation will 
 This is an outline of an authorization procedure which will fit many businesses, and it assumes the use of the user model provided with INFO-Subscription.
 
 The process is outlined here:
+
 1. Determine which organization(s) the application is authorizing for (typically determined by the site/context)
-1. Start an interactive login flow with Auth0 and let the user login.
-1. Obtain the SubscriberId from the access token or the id token.
-1. Get all subscriptions for the obtained subscriber id and organization from the first step
-1. If one or more subscriptions covers the current date (between starttime and endtime), the subscriber has access.
+2. Start an interactive login flow with Auth0 and let the user login.
+3. Obtain the SubscriberId from the access token or the id token.
+4. Get all subscriptions for the obtained subscriber id and organization from the first step
+5. If one or more subscriptions covers the current date (between starttime and endtime), the subscriber has access.
 
 .. Important::
     Remember to check that the subscription covering the current date is indeed still valid, i.e. when was it cancelled.
@@ -29,8 +30,9 @@ It is possible for the application which is authorizing to have a list of Plans 
 Plans are typically used for bundling things together and special offers, and as such products typically have a closer relation with authorization needs, but it depends on the business what is most appropriate.
 
 The basic flow would then be adapted with steps:
-1. Let some administrative user map products by presenting them with the products list !!!API GetProducts!!!! and keep the mapped list of product ids.
-1. For all subscriptions thats cover the current date, verify that one/all products in the defined list is included in the subscription.
+
+1. Let some administrative user map products by presenting them with :api-ref:`the products list <Product/ProductGet>` and keep the mapped list of product ids.
+2. For all subscriptions thats cover the current date, verify that one/all products in the defined list is included in the subscription.
 
 .. Note::
     In case of multiple subscriptions decide if a multi-product requirement can be met from different subscriptions or not.
@@ -47,6 +49,6 @@ Some businesses may require historic accuracy when authorizing. Typically that w
 Modifying the basic flow as follows:
 
 1. Determine the date or date-range of the archive item.
-1. Determine if the subscription should fully cover the range, or just overlap partially 
-1. When filtering for subscriptions don't use current time but use the time of the archive item.
+2. Determine if the subscription should fully cover the range, or just overlap partially 
+3. When filtering for subscriptions don't use current time but use the time of the archive item.
 
