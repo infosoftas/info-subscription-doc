@@ -1,4 +1,4 @@
-.. _end-user-authorization:
+.. _subscriber-authorization:
 
 ************************
 Authorizing Subscribers
@@ -11,12 +11,12 @@ The process is outlined here:
 
 1. Determine which organization(s) the application is authorizing for (typically determined by the site/context)
 2. Start an interactive login flow with Auth0 and let the user login.
-3. Obtain the SubscriberId from the access token or the id token.
-4. Get all subscriptions for the obtained subscriber id and organization from the first step
+3. Obtain the `SubscriberId` from the the id token.
+4. :api-ref:`Get all subscriptions <Subscription/SubscriptionGet>` for the obtained `SubscriberId` and `OrganizationId` from the first step
 5. If one or more subscriptions covers the current date (between starttime and endtime), the subscriber has access.
 
 .. Important::
-    Remember to check that the subscription covering the current date is indeed still valid, i.e. when was it cancelled.
+    Remember to check that the subscription covering the current date is indeed still valid, i.e. when was it cancelled if it was cancelled.
 
 Expanding Authorization
 =======================

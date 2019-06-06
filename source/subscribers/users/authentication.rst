@@ -25,13 +25,67 @@ Refer to the table below on how to obtain all of this information, since you do 
     =============      =====
 
 .. Note::
-    It is on our backlog to allow for more administrative control of these settings, but currently settings like these needs to be coordinated with infosoft.
+    It is on our backlog to allow for more administrative control of these settings, but currently settings like these needs to be coordinated with Infosoft.
 
-You may also refer to the :ref:`authorization` section, but keep in mind you need to use an interactive/on-behalf-of grant type 
-and not the `client_credentials` grant type.
+.. Tip::
+    You may also refer to the :ref:`authorization` section, but keep in mind you need to use an interactive/on-behalf-of grant type 
+    and not the `client_credentials` grant type.
 
-Also keep in mind that these are two independent sections of the application, 
-and you should treat the authentication as two separate things as well (i.e. one for admins/machines and another for subscribers).
+    Keep in mind that these are two independent sections of the application with different sets of users, you should treat the authentication as two separate things as well (i.e. one for admins/machines and another for subscribers).
+
+Example Requests for an authorization code flow
+-----------------------------------------------
+The following are sample requests for an authorization code flow, this can get you started, but we recommend learning about Open Id Connect and specifically {AUTH0} to get the most out of your authentication and authorization.
+
+1. Obtaining the authorization code
+
+.. tabs:: 
+
+    .. code-tab:: http http
+
+        GET https://{AUTH0DOMAIN}/authorize?response_type=codelient_id=YOUR_CLIENT_ID&connection=CONNECTION&scope=openid&redirect_uri=https://YOUR_APP/callback&state=YOURSTATE HTTP/1.1
+        Host: {AUTH0DOMAIN}
+        Connection: keep-alive
+        Accept: */*
+
+.. code-block:: HTTP
+    :caption: Sample Response
+
+    HTTP/1.1 302 Found
+    Location: https://YOUR_APP/callback?code=AUTHORIZATION_CODE&state=YOURSTATE
+
+2. Exchanging the code with a token
+
+.. tabs::
+
+   .. code-tab:: bash curl
+
+    curl --request POST \
+        --url 'https://{AUTH0DOMAIN}/oauth/token' \
+        --header 'content-type: application/x-www-form-urlencoded' \
+        --data 'grant_type=authorization_code&client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&code=AUTHORIZATION_CODE&redirect_uri=https://YOUR_APP/callback'
+
+   .. code-tab:: http http
+
+        POST https://{AUTH0DOMAIN}/oauth/token HTTP/1.1
+        Host: {AUTH0DOMAIN}
+        Content-Type: application/x-www-form-urlencoded
+        Accept: application/json
+
+        grant_type=authorization_code&client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&code=AUTHORIZATION_CODE&redirect_uri=https://YOUR_APP/callback
+
+.. code-block:: http
+    :caption: Sample Response
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
+    {
+        "access_token":"eyJz93a...k4laUWw",
+        "id_token":"eyJ0XAi...4faeEoQ",
+        "token_type":"Bearer",
+        "expires_in":86400
+    }
 
 Obtaining the Subscriber Id from the token
 ------------------------------------------
@@ -40,9 +94,37 @@ During the OIDC flow, the client may request an `access_token <http://https://au
 When users are managed using the |projectName| Sales Poster and self-service client, both of these tokens should a custom claim for the subscriber id, similar to the listing below:
 
 .. code-block:: json
+    :caption: Sample Id Token content
 
     {
-        "aud" : "asdasd",
-        "https://api.info-subscription.com/subsriberId" : "12345-12345-12345",
-        "https://api.info-subscription.com/tenantId" : "12345-12345-12345"
+        "https://info-subscription.com/subscriberId": "a9c6b736-dac0-4805-93a2-934ce049551d",
+        "https://info-subscription.com/tenantId": "abb7c92e-b8f2-4ae5-fef0-08d69bbc8a54",
+        "iss": "https://infosubscription.eu.auth0.com/",
+        "sub": "google-oauth2|111745085132080132986",
+        "aud": "https://api.info-subscription.com/",
+        "iat": 1559798200,
+        "exp": 1559805400,
+        "azp": "zMOPVqHu29qTWkzqJ6Ybh3Eudohz45v8",
+        "scope": ""
     }
+
+This basically identifies the logged in user as a specific subscriber.
+It is the subscriber that owns a subscription, not a user.
+In practical terms this means that multiple users can be related to the same subscriber.
+
+.. Important::
+
+    Not all users have subscribers!
+
+When you have obtained a `SubscriberId`, head on to the :ref:`subscriber-authorization` section for details on how to determine if you should let the subscriber access a given resource.
+
+Advanced Scenarios
+------------------
+There are several advanced scenarios such as
+
+* Keeping a user signed in using refresh tokens
+* Not prompting for login if already logged in elsewhere
+* Passwordless signin
+* Probably more!
+
+All of these scenarios are described in detail in the Auth0 documentation, so we recommend you head over to https://auth0.com/docs/ for these advanced scenarios.

@@ -4,22 +4,22 @@
 API Authentication and Authorization
 ************************************
 
-|projectName| APIs uses OAuth2 for Authorization and OpenId Connect for authentication. 
+|projectName| APIs uses OAuth2 for Authorization.
 
-The service is provided by {Auth0}, and thus the gory details may be found at the {Auth0} website, but the following should get you started.
+The service is provided by {AUTH0}, and thus the gory details may be found at the {AUTH0} website, but the following should get you started.
 
 Short Version
 =============
-The quick'n'dirty details for those already familiar with OAuth2/OIDC flows.
+The quick'n'dirty details for those already familiar with OAuth2 flows.
 
 * Token URL: at |tokenUrl|
-* Grant Type: ``client_credentials`` or ``implicit`` are recommended, but anything goes.
+* Grant Type: Typically ``client_credentials`` or ``implicit`` but any of the grant types works
 * Audience: |auth0audience|
 
 Authorization in detail
 =======================
 
-If you are familiar with OAuth terminology we rely on {AUTH0} as the *Authorization server*.
+If you are somewhat familiar with OAuth2 terminology we rely on {AUTH0} as the *Authorization server*.
 If you have no clue what an authorization server is, it is basically the thing that identifies the application for the user and the API.
 
 To access the API you should obtain a token using for instance the ``client_credentials`` grant type.
@@ -59,6 +59,13 @@ Once you have a token, it should be included in the ``Authorization`` header as 
 
 If the client that obatined the token is allowed to communicate with the API, the request will go through, and otherwise you will get an ``403 Forbidden`` error.
 Requests with invalid tokens, or without tokens will be presented with a ``HTTP 401`` error.
+
+Authorization Flows or Grant Types
+----------------------------------
+There are multiple ways to authorize an application to work with an API, in OAuth2 lingo these different flows are called grant types.
+Depending on your use case, you may use the flow you are most comfortable with, but for machine to machine interaction, with no end-users involved, we recommend using `client_credentials` grant type.
+
+
 
 .. Which authentication flow should I choose?
    ------------------------------------------
