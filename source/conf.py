@@ -42,8 +42,11 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.todo',
     'sphinx.ext.imgmath',
-    'sphinx.ext.extlinks'
-]
+    'sphinx.ext.extlinks',
+    'sphinx_tabs.tabs',
+    'sphinxcontrib.contentui'
+    ]
+# extensions = ['sphinx_tabs.tabs']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -219,6 +222,7 @@ def replacements(app, docname, source):
 replacementsTags = {
     "{PRODUCTWEBSITE}" : "`product website <https://www.infosoft.as/solutions/info-subscription/>`_",
     "{AUTH0}" : "`Auth0 <https://www.auth0.com/>`_",
+    "{AUTH0DOMAIN}" : "infosubscription.eu.auth0.com",
     "{SUPPORTPAGE}" : "https://www.infosoft.as/support/",
     "{payex}" : "`PayEx <https://payex.com/>`_"
 }
