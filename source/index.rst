@@ -25,6 +25,8 @@ Contact Information and Support
 -------------------------------
 Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>` for details on how to contact Infosoft.
 
+:ref:`genindex`
+
 .. The following TOC tree directives are here to make sure the side-bar looks like we want it to.
    If a toc tree does not have a :hidden: tag it will be shown on the index page!
 
@@ -38,11 +40,12 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
    general/terminology.rst
 
 .. toctree::
-    :caption: Users and Customers
+    :caption: Subscribers
     :hidden:
 
-    customers
-    users
+    subscribers/users/usermodel
+    subscribers/users/authentication
+    subscribers/users/authorization
 
 .. toctree::
     :caption: Subscriptions
@@ -63,6 +66,7 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     reporting-bugs
     API Reference/Swagger <https://api.info-subscription.com/swagger/>
     doc-contribution
+
 
 .. toctree::
     :caption: Changelog
