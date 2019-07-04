@@ -33,6 +33,8 @@ Refer to the table below on how to obtain all of this information, since you do 
 
     Keep in mind that these are two independent sections of the application with different sets of users, you should treat the authentication as two separate things as well (i.e. one for admins/machines and another for subscribers).
 
+There are a few customizable options for the Login Page, refer to the section :ref:`Login Page Customization` for details.
+
 Example Requests for an authorization code flow
 -----------------------------------------------
 The following are sample requests for an authorization code flow, this can get you started, but we recommend learning about Open Id Connect and specifically {AUTH0} to get the most out of your authentication and authorization.
@@ -117,6 +119,24 @@ In practical terms this means that multiple users can be related to the same sub
     Not all users have subscribers!
 
 When you have obtained a `SubscriberId`, head on to the :ref:`subscriber-authorization` section for details on how to determine if you should let the subscriber access a given resource.
+
+Login Page Customization
+========================
+The Login page that the uses lands on when starting the Authorization flow currently allows for a few customizations that should be added as extra parameters in the query string.
+
+The parameters that you can set are described in the table below together with the effect it creates in the login page.
+
+.. table:: Login Page customizations
+
+    =============      =========================================================================    ==============================================
+    **PARAMETER**      **DESCRIPTION**                                                              **EFFECT**
+    orgname            The name of the organization as defined in INFO-Subscription                 Customized Window Title and Logo on Login Page
+    language            Auth0 language code (https://github.com/auth0/lock/tree/master/src/i18n)    Displays the login page in the specified language
+    =============      =========================================================================    ==============================================
+
+An example for setting the Organization to *Demo* and the Language to *Swedish*:
+
+``https://{AUTH0DOMAIN}/authorize?response_type=code&client_id=YOUR_CLIENT_ID&connection=CONNECTION&scope=openid&redirect_uri=https://YOUR_APP/callback&state=YOURSTATE&language=sv&orgname=demo``
 
 Advanced Scenarios
 ------------------
