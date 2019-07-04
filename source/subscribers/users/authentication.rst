@@ -43,7 +43,7 @@ The following are sample requests for an authorization code flow, this can get y
 
     .. code-tab:: http http
 
-        GET https://{AUTH0DOMAIN}/authorize?response_type=codelient_id=YOUR_CLIENT_ID&connection=CONNECTION&scope=openid&redirect_uri=https://YOUR_APP/callback&state=YOURSTATE HTTP/1.1
+        GET https://{AUTH0DOMAIN}/authorize?response_type=code&client_id=YOUR_CLIENT_ID&connection=CONNECTION&scope=openid&redirect_uri=https://YOUR_APP/callback&state=YOURSTATE HTTP/1.1
         Host: {AUTH0DOMAIN}
         Connection: keep-alive
         Accept: */*
