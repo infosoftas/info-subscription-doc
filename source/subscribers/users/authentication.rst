@@ -124,12 +124,19 @@ Login Page Customization
 ========================
 The Login page that the uses lands on when starting the Authorization flow currently allows for a few customizations that should be added as extra parameters in the query string.
 
-The parameters that you can set are described in the table below
-    =============      ============================================================                 ==============================================
-    *PARAMETER*        *DESCRIPTION*                                                                *EFFECT*
+The parameters that you can set are described in the table below together with the effect it creates in the login page.
+
+.. table:: Login Page customizations
+
+    =============      =========================================================================    ==============================================
+    **PARAMETER**      **DESCRIPTION**                                                              **EFFECT**
     orgname            The name of the organization as defined in INFO-Subscription                 Customized Window Title and Logo on Login Page
     language            Auth0 language code (https://github.com/auth0/lock/tree/master/src/i18n)    Displays the login page in the specified language
-    =============      ============================================================                 ==============================================
+    =============      =========================================================================    ==============================================
+
+An example for setting the Organization to *Demo* and the Language to *Swedish*:
+
+``https://{AUTH0DOMAIN}/authorize?response_type=code&client_id=YOUR_CLIENT_ID&connection=CONNECTION&scope=openid&redirect_uri=https://YOUR_APP/callback&state=YOURSTATE&language=sv&orgname=demo``
 
 Advanced Scenarios
 ------------------
