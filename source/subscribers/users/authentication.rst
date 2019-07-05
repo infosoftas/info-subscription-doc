@@ -54,6 +54,8 @@ The following are sample requests for an authorization code flow, this can get y
     HTTP/1.1 302 Found
     Location: https://YOUR_APP/callback?code=AUTHORIZATION_CODE&state=YOURSTATE
 
+The sample request here uses `connection` as a parameter, please note that this parameter is not required. Refer to the Auth0 documentation for details (see top section).
+
 2. Exchanging the code with a token
 
 .. tabs::
