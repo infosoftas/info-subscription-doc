@@ -12,7 +12,6 @@ The following new features and improvements are now available in the API and the
 * Added support for overriding the price calculation on Orders. If a price is specified all price calculations are ignored.
 * Added support for plan validation with price overrides.
 * Additional filter options for Invoices and creditnotes
-* Added support for getting/querying for Reminders.
 * Added option for defining a custom start date on new orders. If not given the subscription will start immediately.
 * Added support for querying current sequencenumber state for SubscriberNumber and InvoiceNumber sequence
 * Fixed an issue where creating or updating a dunning process with a stop rule would do nothing.
@@ -47,3 +46,4 @@ Known Issues
 ============
 
 * External Invoice Identifiers may be generated in a way that exceeds the allowed length when Subscriber Number and Invoice Number lengths exceeds the max length.
+* Pausing subscriptions twice before being started in the new period causes strange result - recommend to order cancel and order a new subscription instead.
