@@ -29,7 +29,7 @@ The following new features and improvements are now available in the web client
 
     * Create new subscriptions on a plan or connect existing subscribers
     * Display all subscribers on a plan
-    * Plans can now be activated upoen creation
+    * Plans can now be activated upon creation
 
 * Added option to filter subscribers on payment agreement reference and payment agreement expiry date
 * Reminders are now shown on the invoice overview on both the self-service and merchant clients.
