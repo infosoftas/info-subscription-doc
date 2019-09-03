@@ -41,6 +41,6 @@ Refer to the developer and user documentation for details on the various feature
 Known Issues
 ============
 
-* When demands and invoices with reminders (that has fees) are paid, it is not obvious from the API and the client whether the fee has been paid or not.
+* When demands and invoices with reminders (that has fees) are paid, it is not obvious from the API and the client whether the fee on the demand has been settled or not.
 * External Invoice Identifiers may be generated in a way that exceeds the allowed length when Subscriber Number and Invoice Number lengths exceeds the max length.
 * Pausing subscriptions twice before being started in the new period causes strange result - recommend to cancel and order a new subscription instead.
