@@ -13,7 +13,8 @@ The following new features and improvements are now available in the API and the
 * Expanded Payment Demand and related query field with EnterprisPlanId.
 * Removed an unintentional API surface for invoking the renewal engine directly.
 * Fixed an issue related to plan switching that caused a period to remain unbilled.
-* Changed reminder fee implementation so it is now added as a fee if there is only one line on the invoice. In all other cases it remains a separate line.
+* Changed reminder fee handling, if there is only one line on the invoice, the fee is added on that line. In all other cases it is added as a seperate line.
+  The old behaviour was to always add it as a separate line. The change affects any invoice renderers such as EHF, Arvato and possibly external renderers.
 * Fixed an error that caused evaluation of payment stop rules to not work as intended (i.e. not really stop anything).
 * Fixed some robustness issues for the reporting engine.
 * Fixed an error where scheduled payment requests where only partially removed after a cancel or credit.
