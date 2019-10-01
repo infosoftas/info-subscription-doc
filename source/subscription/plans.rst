@@ -16,13 +16,13 @@ The plan encapsulates things such as the agreed price, the products that are inc
 
 Templates, Choices and Subscription Plans (Instances)
 =====================================================
-All subscriptions needs to be assigned a plan. 
-To help alleviate some of the construction pains of build plans, |projectName| has a concept of :api-ref:`template plans </Package/TemplagePackageGet>`
+All subscriptions needs to be assigned a plan that determines its contract/rules. 
+To help alleviate some of the construction pains of building plans, |projectName| has a concept of :api-ref:`template plans </Package>`
 
 As the name suggests, the template plan is a template with a series of predefined settings that a subscription will use for its plan.
-When placing an :ref:`order <subscription-orders>` a template is reffered, and possibly some choices that override the defaults.
+When placing a new :ref:`order <subscription-orders>` a template is referred for the various defaults, and possibly some choices that override those defaults or specify a selection.
 
-The template and the choices together form a plan instance, a Subscription Plan.
-When created the subscription plan does not refer back to the template and the template can be changed at will.
+The template and the choices together form a plan instance, a Subscription Plan, which is associated with the created subscription.
+When created the subscription plan does not refer back to the template and the template can be changed at will without affecting the instance on the subscription.
 
 For more details on choices during orders refer to the  :ref:`order section <subscription-orders>`.
