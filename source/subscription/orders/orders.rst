@@ -5,15 +5,15 @@ Creating new subscriptions using orders
 ***************************************
 
 An order is an encapsulation of a series of steps/stages to help create new subscriptions and keeping the flow in a semi-atomic transaction, meaning that if an order fails to complete (or is never completed by the user)
-there is no clean-up duty for the client, and when an order completes there should be now series of followup steps such as making sure the first invoice is generated etc.
+there is no clean-up duty for the client, and when an order completes there should be no series of followup steps such as making sure the first invoice is generated etc.
 
 While it is possible to create subscriptions without using an order, we recommend that clients use orders to simplify the process.
 
 An order is split into several steps, primarily to ensure consistensy between the various things that an order covers.
 
-#. Order Initialization
-#. Payment Agreement Registration
-#. Order Completion
+#. Order Initialization - Captures and calculate information such as price and which agreement to use
+#. Payment Agreement Registration - Typically defers to third parties for payment processing
+#. Order Completion - Gathers information from the previous steps and finalizes/activates the subscription
 
 Secondly applications/clients might want to prepare orders, for instance to send out pre-filled order details for acceptance by customers or other similar scenarios.
 
@@ -29,7 +29,8 @@ Secondly applications/clients might want to prepare orders, for instance to send
 The anatomy of an Order
 =======================
 
-The main thing to remember about orders, is that they are not actually resources/entities as such, but rather encapsulates parameters of a workflow.
+The main thing to remember about orders, is that they are not actually resources/entities as such, 
+but rather encapsulates parameters of a workflow.
 
 An order contains information about a few things
 
@@ -38,12 +39,14 @@ An order contains information about a few things
 * How should payment be processed, specified by either of the following:
 
     * The ``paymentAgreementId``
-    * The ``payExOrderParameters``
+    * The ``paymentAgreementParameters``
 * Who is offering this subscription - the ``organizationId``
+
+The are other fields, all of which come into play in various scenarios.
 
 Package Choices/Overrides
 -------------------------
-As the name implies a ``TemplatePackage`` is a template for the package that will be created for a given subscription.
+As the name implies a ``TemplatePackage`` is a template for the package/plan that will be created for a given subscription.
 
 Some of the parameters of a package may require choices by the subscriber (or the sales process), these choices are often optional, but can be defined using the ``templatePackageChoices``.
 
@@ -51,11 +54,16 @@ To figure out which things are overridable by the user, have a look at the speci
 
 The choices are validated when creating the order, and again when completing it, so it should not be possible to define an illegal order if for some reason the template is changed.
 
+.. Note ::
+
+    There is some confusion about the terminology related to packages. 
+    The word Package is used in the API while the term Plan is used for the self-service and Merchant UI.
+
 Processing Payments
 -------------------
 Most of the time, there is a need to enact some sort of payment process.
 
-When an order is created, if it includes ``payExOrderParameters`` the response will contain a ``terminalRedirectUrl``.
+When an order is created, if the paymentMethod is set to ``PayEx`` or similar, the response will contain a ``terminalRedirectUrl``.
 
 This :abbr:`URL (Uniform Resource Locator)` indicates where the client should send the user so he/she can input the payment card details.
 
@@ -68,27 +76,44 @@ Depending on where the user was redirected the client can do whatever is needed 
 
  Currently the payment process must always be {payex} processed card payments, but we are working actively on more alternatives.
 
+ Invoice Contact/Address
+ -----------------------
+ |projectName| manages invoice addresses by creating a separate subscriber contact (see: :ref:`Subscribers Section <subscribers>`) and associating it with the subscription.
+ 
+ It is possible to either define an existing contact id in the `invoiceContactId` or by defining details for a new contact (to be associated with the ordering subscriber).
+The details to provide are the same as for a generic subscriber contact.
+
+
+Orders and Subscribers
+======================
+Subscribers can either be created before an order, or during the order flow, if the client creates subscribers the `subscriberId` must be specified with the order.
+
+In case the subscriber should be created with the flow, an `externalSubscriberId` and/or `subscriberNumber` must be provided.
+
 Completing an Order
 ===================
 .. _complete-order:
 
 Completing an order takes a bit of time, so we suggest the client presents the user with some sort of processing feedback.
 
-Completing the order currently executes a few different tasks
+Completing the order currently executes a few different tasks such as
 
 #. Builds a custom package for the subscription and verifies the result is valid
-#. Completes the transaction at the PSP ({payex})
+#. Complete the transaction at the PSP to ensure that the agreement can be used
 #. Creates a PaymentAgreement for the given payment card
-#. Captures the order amount on the payment card
-#. Creates a payment representing the captured amount
 #. Creates a subscription with the created PaymentAgreement as the payment method
+#. Create a payment demand with the amount from the order and a due date which is the same as the subscription start
 
-.. Attention::
+Following these steps another series of steps will be enacted by the billing engine
 
-    This series of steps is subject to change before long. The change should not affect the client implementation, and how it interacts with the APIs.
-    However it will affect the expectations that the client has around the end result.
+#. Create and Issue an Invoice for the Payment Demand
+#. On the due date, initialize a payment/capture of the demand
+#. Captures the demand amount on the payment card
+#. Creates a payment representing the captured amount
+#. Create a draft for the next period 
 
-    This document will be updated with the proper information once the change is released.
+These additional things happens asynchronous, so don't expect it all to be completed the second the order response is generated. 
+But it basically means you can direct the user to a payment/invoice overview and within a short time they will see their invoice and/or payment.
 
 Once completed the response contains an updated order view with the new status and various Id's that informs the client of what was created.
 
@@ -123,22 +148,3 @@ We recommend that the client implements some sort of callback handling that will
 .. Important::
 
     |projectName| currently has no built in callback handling that can be utilized but it is on the roadmap.
-
-
-.. ALL OF THIS IS NOT VISIBLE BECAUSE IT IS CONSIDERED A COMMENT - This is the initial description of the steps done when an order is completed, and should probably be looked at once the implementation is done.
-
-    #. Builds a custom package for the subscription and verifies the result is valid
-    #. Complete the transaction at the PSP to ensure that the agreement can be used
-    #. Creates a PaymentAgreement for the given payment card
-    #. Creates a subscription with the created PaymentAgreement as the payment method
-    #. Create a payment demand with the amount from the order and a due date which is the same as the subscription start
-    
-    Following these steps another series of steps will be enacted by the billing engine
-
-    #. Create and Issue an Invoice for the Payment Demand
-    #. On the due date, initialize a payment/capture of the demand
-    #. Captures the demand amount on the payment card
-    #. Creates a payment representing the captured amount 
-
-    These additional things happens asynchronous, so don't expect it all to be completed the second the order response is generated. 
-    But it basically means you can direct the user to a payment/invoice overview and within a short time they will see their invoice and/or payment.

@@ -14,7 +14,7 @@ Keep this in mind if you have to decide on having one or multiple tenants.
 
     At the current time of writing, using the built-in subscriber self-service application 
     requires the use of the |projectName| customer model to function.
-
+    Work is in progress to move towards a pure subscriber related model.
 
 Creating A New Customer
 =======================
