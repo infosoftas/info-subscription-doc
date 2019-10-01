@@ -35,7 +35,7 @@ but rather encapsulates parameters of a workflow.
 An order contains information about a few things
 
 * Who/What is subscribing to an offering - the ``subscriberId``
-* What offering are they subscribing to - the ``templatePackageId``
+* What offering are they subscribing to - the ``templatePackageId`` (see :ref:`plans <plans>`)
 * How should payment be processed, specified by either of the following:
 
     * The ``paymentAgreementId``

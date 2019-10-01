@@ -49,9 +49,11 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
 
 .. toctree::
     :caption: Subscriptions
+    :glob:
     :hidden:
 
     subscription/orders/orders
+    subscription/*
 
 .. toctree::
     :caption: Events and Webhooks
