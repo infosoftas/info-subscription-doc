@@ -17,7 +17,7 @@ The plan encapsulates things such as the agreed price, the products that are inc
 Templates, Choices and Subscription Plans (Instances)
 =====================================================
 All subscriptions needs to be assigned a plan that determines its contract/rules. 
-To help alleviate some of the construction pains of building plans, |projectName| has a concept of :api-ref:`template plans </Package>`
+To help alleviate some of the construction pains of building plans, |projectName| has a concept of :api-ref:`template plans <Package>`
 
 As the name suggests, the template plan is a template with a series of predefined settings that a subscription will use for its plan.
 When placing a new :ref:`order <subscription-orders>` a template is referred for the various defaults, and possibly some choices that override those defaults or specify a selection.
