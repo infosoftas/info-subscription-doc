@@ -14,6 +14,7 @@ The following new features and improvements are now available in the API and the
 * Added Invoice Reference on Reminders to facilitate simpler backtracking to the original Invoice.
 * Reporting now updates demands upon renewal with the target susbcription id.
 * Fixed multiple issues related billing of Enterprise Plans where the Contact Id was used instead of the Owner Subscriber Id on demands and invoices.
+* Fixed an issue where the Billing Plan was not populated all the way through for Orders, causing stop rules to not be evaluated for the first Subscription period.
 
 Client
 ======
