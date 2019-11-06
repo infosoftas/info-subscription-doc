@@ -10,8 +10,10 @@ API and Backend
 The following new features and improvements are now available in the API and the backend
 
 * Streamlined and expanded filtering options on Invoice, Reminder and CreditNote
+
     * This has introduced a breaking change in the API on how to get Credit Notes and Reminders, please refer to the swagger spec for details.
     * Added new fields MinimumIssuedOnDate and MaximumIssuedOnDate to replace Start and End fields, mostly to make it more clear what the filter does. The old fields will be removed in a later release.
+    
 * Added CancellationTime and CancellationReason to the Subscription details. This allows for clients to prevent access on cancelled subscriptions before they originally expired.
 * Norwegian addressess will now be automatically matched using Kartverket when generating Recurring Deliveries
 * Added handling of subscriptions without a default Subscriber Account (previously various changes such as pausing and crediting would lead to strange result due to missing account).
