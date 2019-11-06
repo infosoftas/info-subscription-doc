@@ -35,7 +35,14 @@ The basic flow would then be adapted with steps:
 2. For all subscriptions thats cover the current date, verify that one/all products in the defined list is included in the subscription.
 
 .. Note::
+
     In case of multiple subscriptions decide if a multi-product requirement can be met from different subscriptions or not.
+
+.. Important::
+
+    A subscription may be cancelled, in which case it will have an indicator of being cancelled and when the cancellation is effective from (`CancellationTime`).
+    Remember to verify these field if access should be removed immediately and not at the end of the original subscription period.
+
 
 Authorizing by Enterprise Plan
 ------------------------------
