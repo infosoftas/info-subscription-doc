@@ -26,6 +26,7 @@ The following new features and improvements are now available in the API and the
 
     This also affects Pause and Plan/Package change as these are currently both implemented as wrappers for "stop" and "start" with new options.
 
+* Added support for "bulk" cancelling of Subscriptions on an Enterprise plan.
 * Fixed issue with a missing Order reference when querying for Payment Demands from Orders.
 * Fixed multiple issues related to Delivery Configuration and Delivery Management.
 * The Billing Engine now supports crediting entire subscriptions on Enterprise Plans when the subscriptions are cancelled in bulk.
