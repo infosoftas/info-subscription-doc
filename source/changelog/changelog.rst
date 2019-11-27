@@ -1,3 +1,4 @@
+.. include:: r66.inc
 .. include:: r65.inc
 .. include:: r64.inc
 .. include:: r63.inc
