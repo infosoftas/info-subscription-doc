@@ -11,7 +11,7 @@ API and Backend
 The following new features and improvements are now available in the API and the backend.
 
 * Reporting datamodel extended with Enterprise Plan information
-* Fixed an issue where creating a new subscriber contact would all historic reporting entries to be overridden with the new contact
+* Fixed an issue where creating a new subscriber contact would cause all historic reporting entries for the subscriber to be overridden with the new contact
 * Fixed an issue in the reporting datamodel where cancelled subscriptions would not be updated correctly in some cases.
 * Added support for changing Payment Agreement on a running subscription (Preview feature)
 * Added support for directly crediting subscriptions on an Enterprise Plan (previously it was only possible to Cancel and thus implicitly credit)
@@ -44,7 +44,7 @@ The following new features and improvements are now available in the web client
 * Option to export invoice from the Invoice view.
 * When cancelling a subscription it is now possible to define the time of cancellation - previously it defaulted to the end of the period.
 * Fixed a redirect error in the salesposter.
-* Fixed an issue where defining an Invoice Contact during registration of an Invoice Contact would lead to the contact not being selectable for existing subscriptions.
+* Fixed an issue where defining an Invoice Contact would lead to the contact not being selectable for existing subscriptions.
 * Fixed an issue in self-service where the subscription start time would be shown as UTC instead of local time.
 * Multiple fixes related to login after completing an Order via the Salesposter
 * Added support for Subscriber authorization without the need for mapping to customer such that the process is more akin to what third parties are recommended to use.
