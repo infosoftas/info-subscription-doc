@@ -14,8 +14,9 @@ The following new features and improvements are now available in the API and the
 * Improved parsing of subscriber organization number for EHF file generation.
 * Expanded reporting:
 
-    * Subscriber Contact Model: Address lines are now exported individually instead of as an JSON String Array
+    * Subscriber Contact Model: Address lines are now exported individually instead of as JSON String Array
     * Orders Model: Now contains StartTime and EnterprisePlanId
+    * Subscriptions Model: Now contains EnterprisePlanId
     * Ledger/Economy Model: Includes marker for stopped demands/subscripions stopped by the billing engine (payment stop).
 
 * Fixed an issue that prevented Reminders to be generated for demands related to Enterprise Plans.
@@ -27,13 +28,13 @@ The following new features and improvements are now available in the web client
 
 * Improvements to filtering of orders in merchant
 * Improvements to filtering of payments in merchant
-* Ledger entries with value 0 er now hidden in the merchant overview on the subscriber so as to not cause confusion.
-* Adjusted the "status" descriptor for subscriptions in merchant so it is possible to differentiate between "is going to be stopped" and "has already been cancelled and is stopped right now"
+* Ledger entries with value 0 are now hidden in the merchant overview on the subscriber so as to not cause confusion.
+* Adjusted the "status" descriptor for subscriptions in merchant so it is possible to differentiate between `is going to be stopped` and `has already been cancelled and is stopped right now`
 * Adjustments to the detailed subscriber view
 * Adjusted Enterprise Plan Demand Details to show creditted and stopped subscriptions.
-* Fixed issue where the wrong duedate was shown on reminders
+* Fixed issue where the wrong due date was shown on reminders
 * Removed the option for profile-registration on non-subscribers in the self-service.
-* Added support to display and switch between payment agreements in self-service and merchant (preview)
+* Added support to display and switch between payment agreements in self-service and merchant (*preview*)
 
 Known Issues
 ============
