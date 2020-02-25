@@ -17,7 +17,7 @@ The following new features and improvements are now available in the API and the
     * Subscriber Contact Model: Address lines are now exported individually instead of as JSON String Array
     * Orders Model: Now contains StartTime and EnterprisePlanId
     * Subscriptions Model: Now contains EnterprisePlanId
-    * Ledger/Economy Model: Includes marker for stopped demands/subscripions stopped by the billing engine (payment stop).
+    * Ledger/Economy Model: Includes marker for stopped demands/subscriptions stopped by the billing engine (payment stop).
 
 * Fixed an issue that prevented Reminders to be generated for demands related to Enterprise Plans.
 * Fixed an issue where subscriptions on enterprise plans would always be created with an empty chain.
