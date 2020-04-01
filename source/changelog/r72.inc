@@ -1,9 +1,9 @@
 .. _changelog-r72:
 
 **************************
-Release March 31st 2020
+Release April 1st 2020
 **************************
-The following changes rolled out to production on March 31th 2020. 
+The following changes rolled out to production on April 1st 2020.
 
 API and Backend
 ===============
@@ -18,11 +18,10 @@ Client
 The following new features and improvements are now available in the self-service and merchant client.
 
 * Added "Number of copies" in the subscriptions list for the merchant.
-* When adding new orders from the merchant, only active subscription plans are shown (previously all plans were shown).
 * Fixed an error where the amount was not included when exporting invoice lists.
 * Multiple navigational adjustments in the merchant system menu.
 * List of payments is now limited to displaying 2 months of data for the merchant.
-* For invoices with an InvoiceContact there are now additional details included about the Invoice Contact for both merchant and subscriber.
+* For invoices with an Invoice Contact there are now additional details included about the Invoice Contact for both merchant and subscriber.
 * Payment Agreement Management and Switching Added (preview).
 * Recurring Deliveries integration for Distribution Innovation (preview).
 
@@ -43,7 +42,6 @@ We mayt look into a hand-of process, where the registration is started by the me
 See the user documentation for more details.
 
 *Contact our support for inclusion in the preview*
-
 
 Recurring Deliveries - Distribution Innovation (Preview)
 --------------------------------------------------------
