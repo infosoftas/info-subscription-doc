@@ -11,8 +11,7 @@ The following new features and improvements are now available in the API and the
 
 * Fixed an issue that would sometimes cause Invoice query models to not be generated resulting in a bad filtering/querying experience.
 * Recurring Deliveries integration for Distribution Innovation (preview).
-* Behaviour change: When matching payments to payment demands and invoices, the payment service now considers the state of the demand. 
-    If a demand is already paid or credited the payment will not be considered a match as it is most likely a duplicate payment and should be assigned the subscriber account or removed.
+* Behaviour change: When matching payments to payment demands and invoices, the payment service now considers the state of the demand. If a demand is already paid or credited the payment will not be considered a match as it is most likely a duplicate payment and should be assigned the subscriber account or removed.
 
 Client
 ======
@@ -29,7 +28,7 @@ The following new features and improvements are now available in the self-servic
 
 
 Managing Payment Agreements (Preview)
-=====================================
+-------------------------------------
 This release includes a feature for managing payment agreements, both as a subscriber (self-service) and as the merchant (admin).
 At the current point in time this feature only makes sense for organizations with a configured Payment Service Provider, but in the future it will be expanded to include additional payment agreement types.
 
@@ -47,7 +46,7 @@ See the user documentation for more details.
 
 
 Recurring Deliveries - Distribution Innovation (Preview)
-========================================================
+--------------------------------------------------------
 This release also feature the preview of an integration with Distribution Innovation.
 It is already possible to configure (map) products for recurring delivery.
 All subscriptions with products thus configured will have a recurring delivery generated when a subscription is created or renewed.
