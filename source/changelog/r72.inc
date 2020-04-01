@@ -43,6 +43,7 @@ See the user documentation for more details.
 
 *Contact our support for inclusion in the preview*
 
+
 Recurring Deliveries - Distribution Innovation (Preview)
 --------------------------------------------------------
 This release also feature the preview of an integration with Distribution Innovation.
