@@ -12,8 +12,8 @@ The following new features and improvements are now available in the API and the
 
 * Added new feature "Reporting Tags" and included support for automatically defining them on new orders.
 * Organizations can now be associated with products and subscription plans. They are not verified and are mostly here for filtering/display purposes for now. This also includes a query filter for products and plans.
-* Added export for registering subscriber ledger correction/balancing transactions to manually adjust for discrepancies or handling of other system-external actions.
-* Recurring deliveries can now be queried using a `CoversDate` filter which the delivery should be within (i.e. the starttime should be ealier than and then endtime should be later than the given value).
+* Added support for registering subscriber ledger correction/balancing transactions to manually adjust for discrepancies or handling of other system-external actions.
+* Recurring deliveries can now be queried using a `CoversDate` filter which the delivery should be within (i.e. the starttime should be earlier than and then endtime should be later than the given value).
 * Fixed an issue where payment demands that were credited would still be subject to evaluation of payment stops, causing subscriptions to be stopped even though the demand was credited.
 
 Merchant Client
@@ -25,7 +25,6 @@ The following new features and improvements are now available in the merchant cl
 * Improved validation and error messages during web hook registration.
 * More filtering options for payments.
 * Fixed an issue that would display the wrong amount for reminders in case of an included reminder fee.
-* It is no longer possible to select and use inactive subscription plans when ordering new subscriptions.
 * Adjusted display of time to consider timezone properly for subscriptions spanning summertime/wintertime changes.
 * Minor layout adjustsments to CSV Exports for payments.
 * Fixed an issue where registering multiple stop rules caused an error.
