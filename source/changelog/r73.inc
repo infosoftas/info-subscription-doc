@@ -25,7 +25,6 @@ The following new features and improvements are now available in the merchant cl
 * Improved validation and error messages during web hook registration.
 * More filtering options for payments.
 * Fixed an issue that would display the wrong amount for reminders in case of an included reminder fee.
-* Adjusted display of time to consider timezone properly for subscriptions spanning summertime/wintertime changes.
 * Minor layout adjustsments to CSV Exports for payments.
 * Fixed an issue where registering multiple stop rules caused an error.
 
