@@ -10,7 +10,6 @@ API and Backend
 ===============
 The following new features and improvements are now available in the API and the backend.
 
-* Support for generating a DI Initialization file to export everything to Distribution Innovation regardless of previous exported state.
 * Added support for specifying text/reason when creating subscriber ledger balancing transactions.
 * Fixed a bug that would generate the wrong distribution date for Distribution Innovation change files.
 * Fixed an issue where subscribers without an organizationnumber in certain edge cases would cause the billing engine to not produce invoices.
@@ -34,7 +33,7 @@ The following new features and improvements are now available in the self-servic
 
 * UI/UX Changes for multiple organizations.
 * Support for using SwedbankPay (PayEx eCommerce).
-* Added support for redirecting to tenant website on logout (contact support for details - requires some configuraiton assistance)
+* Added support for redirecting to tenant website on logout (contact support for details - requires some configuration assistance)
 * Added display of end date for subscription periods.
 
 SwedbankPay/PayEx eCommerce
