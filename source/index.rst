@@ -54,6 +54,7 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
 
     subscription/orders/orders
     subscription/*
+    subscription/paymentagreements/*
 
 .. toctree::
     :caption: Events and Webhooks
