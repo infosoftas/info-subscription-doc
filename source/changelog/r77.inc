@@ -20,10 +20,9 @@ The following new features and improvements are now available in the API and the
 * New API for listing all generated Distribution Innovation transactions
 * Preliminary support for Additional Products
 * Added support for querying demand and reminder schedules, showcasing the planned generation time for Payment Demands and related Reminders.
-* Preiminary support for contracts in Orders (binding the subscriber to a specific set of terms, subject to a fee if cancelled/changed ahead of time).
+* Preliminary support for contracts in Orders (binding the subscriber to a specific set of terms, subject to a fee if cancelled/changed ahead of time).
 * Fixed an issue that allowed ExternalInvoiceIdentifier configuration to be created multiple times.
 * Changed the behaviour of how Distribution Innovation Exports handles Address lines on the Subscriber Contact. Now extra lines are mapped to a separate information field.
-* Extended the Invoice Document model with additional text lines beyond the default Text description.
 * Template Packages with long descriptions will now have their descriptions truncated to the max limit allowed by SwedbankPay (formerly PayEx eCommerce).
 * Fixed an issue in the reporting system leaving subscriber contact information after deleting the subscriber.
 
