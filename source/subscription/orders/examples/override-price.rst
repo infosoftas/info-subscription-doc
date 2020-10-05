@@ -16,7 +16,16 @@ It is possible to override the price during the order like the following
 .. code-block;: json
     :caption: Price Override
 
-    Omg
+    {
+        "subscriberId": "11111111-2222-3333-4444-000000000000",
+        "templatePackageId": "10000000-0000-0000-0000-000000000000",
+        "paymentAgreementId" : "44444444-5555-6666-7777-000000000000",
+        "organizationId" : "20000000-0000-0000-0000-000000000000",
+        "templatePackageChoices": 
+        {
+            "priceOveride": 2000,
+        }
+    }
 
 .. IMPORTANT::
 
