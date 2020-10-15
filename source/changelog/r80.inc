@@ -1,11 +1,10 @@
 .. _changelog-r80:
 
 ***************************
-Release October 14th 2020
+Release October 15th 2020
 ***************************
-The following changes rolled out on October 14th 2020.
+The following changes rolled out on October 15th 2020.
 Again quite a few changes under the covers and work on unreleased features, but there is still a bit of public improvements.
-
 
 API and Backend
 ===============
@@ -36,6 +35,8 @@ The following new features and improvements are now available in the merchant cl
 * Fixed a performance issue on the view for managing unmatched payments.
 * Extended configuration options for Distribution Innovation. **Preview**
 * Fixed an issue where duplicate products would not be shown in the subscription plan.
+* Added option to configure new package/plan rule for allowing selection of any number of available products.
+* Fixed a mapping issue with shared authorizations and updated the authorization routine to look at the shared authorizations to map the subscriber. **Preview**
 
 
 Self-Service and Salesposter
