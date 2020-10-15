@@ -1,3 +1,4 @@
+.. include:: r80.inc
 .. include:: r79.inc
 .. include:: r77.inc
 .. include:: r76.inc
@@ -7,4 +8,3 @@
 .. include:: r71.inc
 .. include:: r70.inc
 .. include:: r69.inc
-.. include:: r67.inc
