@@ -1,4 +1,4 @@
-ReportingService: Documentation of tables
+Reporting Database: Documentation of tables
 =========================================
 Documentation of existing tables per. 20 November 2020. Number of tables / columns documented: 30/446 (see Appendix for further details).
 
@@ -58,12 +58,12 @@ Special fields in Subscribers:
 ---------
 Free text that can be sent with an order, but this is used differently from customer to customer. The idea is to be able to connect to other tables to be able to retrieve information. Information in Tags can also be created manually.
 
-When you send a tag with an order, two tags are currently created in the report layer. One with type Subscriber and one with type SubscriberAccount. Referenceid then correspond henholdsvi s SubscriberId and SubscriberAccount . Thus you can search for all subscribers who have a relationship with for example ShopID = 458. The vast majority of tables in the report layer have a connection to subscriberide and can then be grouped / filtered in relation to Tag.
+When you send a tag with an order, two tags are currently created in the report layer. One with type Subscriber and one with type SubscriberAccount. Referenceid will then correspond to SubscriberId and SubscriberAccount, respectively. Thus you can search for all subscribers who have a relationship with for example ShopID = 458. The vast majority of tables in the report layer have a connection to subscriberide and can then be grouped / filtered in relation to Tag.
  
 
 [economy].[AccountTransaction]
 ----------------------------
-Saldo transactions can, among other things, be used for purchases from agreements. For example, if you agree on a payment claim, which you will later buy out of, then this table will be used.
+Balance-transactions of different types. Will be created if paid too much or too little, if a subscription is cancelled or for imported transactions. 
  
 
 [economy].[Invoices]
@@ -101,15 +101,16 @@ Payment Demand is the basis for payment claims that the system generates, and it
 For orders, there will be a pointer to the order that led to the claim.
  
 
+
 [economy].[SubscriberAmounts]
 -----------------------------
-Information on all amounts paid for a subscriber, divided into different subscriptions.
-
+This is the sum of subscriberledgers grouped by subscriberid, organizationid and currency.
  
+
 
 [economy].[SubscriberLedgers]
 -----------------------------
-Displays the customer ledger and the types of financial transactions that have been performed for the subscriber.
+This is all ledger-entries for all subscribers.
 
 Special fields in SubscriberLedgers:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -133,13 +134,13 @@ Special fields in SubscriberLedgers:
 
 [Order].[OrderAmounts]
 ------------------------
-Displays all orders in total (created, canceled and executed) and the value of these. Formed when an order is created and updated when it is completed or canceled.
+Grouped by date and organization. Formed when the first order of the day is created. Updated when later orders occur.
 
- 
+
 
 [Order].[OrderCompletedAmounts]
 -------------------------------
-Displays the total number of orders executed and the total value of these. The TemplatePackageName field shows which package template was used .
+Grouped by date., templatepackage and organization. Only completed orders.
 
  
 
@@ -161,7 +162,7 @@ All orders, including information about the date when the order was created / ex
 
 [Order].[Products]
 ------------------
-Displays all products ordered.
+Displays products ordered, connected to an order-row.
 
  
 [payment].[DailyPaidAmounts]
@@ -191,7 +192,7 @@ Contains the first date for when a SubscriberAccount was used. This is used for 
 
 [subscription].[SubscriptionPackageProducts]
 --------------------------------------------
-All subscription packages related to product.
+Products included in a subscriptionPackage.
 
 [subscription].[SubscriptionPackages]
 --------------------------------------------
@@ -243,6 +244,6 @@ select TABLE_SCHEMA + '.' + TABLE_NAME as ' TableSchema.Table_Name ' , max ( ORD
 from INFORMATION_SCHEMA . COLUMNS where   TABLE _NAME not in ( '__EFMigrationsHistory' , 'Snapshots' , 'PowerBiConfigurations' , 'Commits' ) and TABLE_SCHEMA <> 'Sys'
 group by TABLE_SCHEMA + '.' + TABLE_NAME order by TABLE_SCHEMA + '.' + TABLE_NAME
 
-.. image:: Tables.png
-  :width: 400
-  :alt: Alternative text
+.. image:: /_images/Tables.png
+:align: center
+:alt: Example list of all accessible tables in the reporting database.
