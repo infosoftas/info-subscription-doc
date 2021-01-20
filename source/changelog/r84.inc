@@ -22,7 +22,7 @@ The following new features and improvements are now available in the API and the
 * Fixed an issue where it was not possible to remove an AvtaleGiro Account configuration.
 * Fixed an issue that would sometimes cause Invoice Lines to be duplicated by the billing routine.
 * Adjusted handling of subscriber address changes in the Delivery subsystem to avoid multiple daily changes to Distribution Innovation **Preview**.
-* Fixed a but where Invoice draft would not use the upcoming Invoice Contact as the address/recipient of the Invoice (it would be corrected for the actual issued invoice).
+* Fixed a bug where Invoice draft would not use the upcoming Invoice Contact as the address/recipient of the Invoice (it would be corrected for the actual issued invoice).
 
 
 Merchant Client
