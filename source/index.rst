@@ -56,6 +56,12 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     subscription/*
 
 .. toctree::
+    :caption: Reporting
+    :hidden:
+
+    reporting/Report database
+
+.. toctree::
     :caption: Events and Webhooks
     :hidden:
 
