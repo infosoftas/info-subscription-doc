@@ -10,7 +10,7 @@ API and Backend
 ===============
 The following new features and improvements are now available in the API and the backend.
 
-* **Breaking** Added additional order and plan validation to prevent orders for products with no price line. This means products that are free of charge now need to register a price of 0. All existing products in production already have price 0 but new ones will break if not configured correctly.
+* **Breaking** Added additional order and plan validation to prevent orders for products with no price line. This means products that are free of charge now need to register a price of 0. All existing products in production already have correct price lines. Third parties must configure new products with a price line.
 * Expanded the API/Swagger reference documentation for Vipps Recurring support.
 * New reports for Subscription Plans and Payments.
 * Changed payment matching to prevent settlement of credited demands/invoices.
