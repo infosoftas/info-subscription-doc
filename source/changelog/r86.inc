@@ -17,7 +17,7 @@ The following new features and improvements are now available in the API and the
   Automatic crediting now handles this case in the similar way as manual crediting so all started days are consumed entirely.
 * Added support for scheduled subscription plan changes, to avoid immediate plan changes causing new demands and invoices when there is a likelyhood additional changes will happen **Preview**.
 * Added support for configuring Default and Swedish External Invoice Identifier providers, this allows to actually generate these types of External Invoice Identifier **Preview**.
-* Fixed serveral issues realted to AvtaleGiro.
+* Fixed serveral issues related to AvtaleGiro.
 * Fixed an issue where draft subscription plans would show the wrong price during orders (directly affected the sales poster). Note this only caused a display error during the order process, the actual plan was correct.
 * Fixed an issue that would sometimes cause wrong tax calculations for subscriptions and payment demands.
 * Data sources are now automatically refreshed for Power BI reporting.
@@ -36,7 +36,7 @@ The following new features and improvements are now available in the merchant cl
 * Fixed an issue where Enterprise plan views would link to the wrong subscriber.
 * Fixed a bug where querying for payments would lead to errors if there were no results for an organization.
 * Adjusted behaviour with date inputs so the timezone is now considered in all cases.
-* Multiple adjustments to interactive Distribution Innovation qury support **Preview**.
+* Multiple adjustments to interactive Distribution Innovation query support **Preview**.
 
 Self-Service and Salesposter
 ============================
@@ -44,4 +44,4 @@ The following new features and improvements are now available in the self-servic
 
 * Removed invoice draft.
 * Fixed an issue where no confirmation/receipt would be shown when cancelling a subscription.
-* Fixed isse with missing order confirmation on the salesposter when completing an order using Swedbank Pay.
+* Fixed issue with missing order confirmation on the salesposter when completing an order using Swedbank Pay.
