@@ -20,7 +20,7 @@ The following new features and improvements are now available in the API and the
 * Additional configuration options for the Distribution Innovation integration **Preview**.
 * Relaxed constraints for generating Payment Agreements to facilitate non-invoice and non-card agreements.
 * Multiple adjustments related to scheduling and due date calculations for AvtaleGiro **Preview**.
-* Changing of subscription plans can now be scheduled in addition to immediate exection. The billing routine behaves differently in that scheduling won't cause immediate billing effects like cancellations and automatic crediting.
+* Changing of subscription plans can now be scheduled in addition to immediate execution. The billing routine behaves differently in that scheduling won't cause immediate billing effects like cancellations and automatic crediting.
 * It is now possible to register configurations for the Default and Bankgirot External Invoice Identifier formats. Both configurations are always fixed, but this now allows the usage of these configuration for invoices.
 * Fixed an issue where registering Avtale Giro agreements on a monthly subscription in late Feburary in a non-leap year would cause the agreement to not be toggled automatically.
 * Fixed an issue in the reporting subsystem where product and tax details would not always be generated for demands.
@@ -34,7 +34,7 @@ The following new features and improvements are now available in the merchant cl
 * Changed how fees are displayed for specific demands.
 * Removed deprecated default reports.
 * Improvements to shared authorizations, specifically for handling more than 1000 authorizations on the same subscription.
-* Improvements to the confirmation page when changing adddress and contact information in general.
+* Improvements to the confirmation page when changing address and contact information in general.
 * The Paid On date for Invoices now shows the organizations accounted time instead of the subscribers payment time.
 * Multiple translation improvements
 
