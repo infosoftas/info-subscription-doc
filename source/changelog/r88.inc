@@ -1,10 +1,10 @@
 .. _changelog-r88:
 
 *************************
-Release April 19th 2021
+Release April 20th 2021
 *************************
-The following changes started rolling out on Monday April 19th 2021.
-The API and backend has been rolled out to all tenants, and the client will be propagated over the next couple of days.
+The following changes started rolling out on Tuesday April 20th 2021.
+The API and backend is being rolled out to all tenants at the same time, and the client will be propagated over the next couple of days.
 
 API and Backend
 ===============
@@ -22,7 +22,7 @@ Merchant Client
 The following new features and improvements are now available in the merchant client.
 
 * Added option for viewing a subscribers known payment agreements, similar to the one available from the Self-Service side of things.
-* Move the option to stop an Enterprise Plan subscription away from the Invoice/Demand and into the general list of subscription on Enterprise Plans, making it possile to cancel subscriptions BEFORE and Invoice is produced.
+* Move the option to stop an Enterprise Plan subscription away from the Invoice/Demand and into the general list of subscription on Enterprise Plans, making it possible to cancel subscriptions BEFORE an Invoice is produced.
 * Changed which dates are shown when searching for Payments. So it aligns with the actual payment booking date.
 
 Self-Service and Salesposter
