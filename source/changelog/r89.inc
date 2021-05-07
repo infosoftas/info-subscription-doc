@@ -34,7 +34,11 @@ The following new features and improvements are now available in the merchant cl
 * Added new view for Payment Agreements and details. **Preview**
 * Payment and Accounting Reports now include Fees.
 * Added multiple Norwegian Newspaper/Magazine related reports for our Norwegian newspaper/magazine related tenants. Detailed information added in a directed e-mail.
-* Fixed an issue where the Subscription Cancellation report would be based on a wrong date range selection.
+* Fixed multiple issues with the Subscription Cancellation report
+
+    * Missing subscriber information
+    * Counting some subscriptions twice
+    * Adjusted date formatting
 
 Payment Agreements
 ------------------
