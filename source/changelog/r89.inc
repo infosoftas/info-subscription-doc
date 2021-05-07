@@ -20,7 +20,7 @@ The following new features and improvements are now available in the API and the
 * Improved error handling for Vipps transactions.
 * The backend will now forcefully cut-off description and product names to the max length to avoid failures. This will lead to weird names in the Vipps App but everything will work otherwise.
 * An issue has been fixed whre subscriptions on an Enterprise Plan would not take price adjustments into consideration when issuing new demands.
-* Subscriptions on Enterprise Plans which have been cancelled are now removed from Payment Demands when issued ** Hotfix Already Deployed **
+* Subscriptions on Enterprise Plans which have been cancelled are now removed from Payment Demands when issued **Hotfix Already Deployed**
 * In previous versions importing Bankgirot BGMAX files would not convert dates to UTC with the right timezone, this has been fixed using swedish time for the timezone to convert from.
 * Ledger entries used the wrong date from payments when importing. Specifically the use of booking/value date and bank date has been switched around.
 * Multiple adjustments to prevent double subscriptions during renewal in high load scenarios.
@@ -47,26 +47,21 @@ A detailed view is available for each agreement making it possible to view the d
 The information available varies from provider to provider.
 
 * Swedbank Pay
-
- * Card Brand (Visa, Mastercard, American Express etc)
- * Card Mask
- * Expiration time
-
+  * Card Brand (Visa, Mastercard, American Express etc)
+  * Card Mask
+  * Expiration time
 * AvtaleGiro
-
- * Account Number
- * Mandate KID as provided by MasterCardPaymentServices
- * Bank Notification
- * Active/InActive
- * Imported
- * Cancelled
-
+  * Account Number
+  * Mandate KID as provided by MasterCardPaymentServices
+  * Bank Notification
+  * Active/InActive
+  * Imported
+  * Cancelled
 * Vipps
-
- * Account Name (Which of the configured accounts is the agreement related to)
- * Vipps Agreement Id as provided by Vipps.
- * Phone Number
- * Status
+  * Account Name (Which of the configured accounts is the agreement related to)
+  * Vipps Agreement Id as provided by Vipps.
+  * Phone Number
+  * Status
 
 Also available with the details is a list of transactions registered on the given agreement. 
 Transactions represents the payment requests sent to the provider, and will often include a reference that can be used with the provider for identification purposes.
