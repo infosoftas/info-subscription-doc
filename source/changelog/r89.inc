@@ -31,6 +31,13 @@ Merchant Client
 ===============
 The following new features and improvements are now available in the merchant client.
 
+* Added new view for Payment Agreements and details. **Preview**
+* Payment and Accounting Reports now include Fees.
+* Added multiple Norwegian Newspaper/Magazine related reports for our Norwegian newspaper/magazine related tenants. Detailed information added in a directed e-mail.
+* Fixed an issue where the Subscription Cancellation report would be based on a wrong date range selection.
+
+Payment Agreements
+------------------
 With this release we are rolling out preview support for a new payment agreement overview for the merchant client.
 
 Using this view it is now possible to get an overview of all the payment agreements registered on a given subscriber.
@@ -39,13 +46,13 @@ It is also possible to create a new Invoice agreement if required.
 A detailed view is available for each agreement making it possible to view the details of that agreement.
 The information available varies from provider to provider.
 
-Swedbank Pay Agreements:
+* Swedbank Pay
 
  * Card Brand (Visa, Mastercard, American Express etc)
  * Card Mask
  * Expiration time
 
-AvtaleGiro:
+* AvtaleGiro
 
  * Account Number
  * Mandate KID as provided by MasterCardPaymentServices
@@ -54,7 +61,7 @@ AvtaleGiro:
  * Imported
  * Cancelled
 
-Vipps:
+* Vipps
 
  * Account Name (Which of the configured accounts is the agreement related to)
  * Vipps Agreement Id as provided by Vipps.
