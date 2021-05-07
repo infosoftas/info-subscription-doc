@@ -47,17 +47,22 @@ A detailed view is available for each agreement making it possible to view the d
 The information available varies from provider to provider.
 
 * Swedbank Pay
+
   * Card Brand (Visa, Mastercard, American Express etc)
   * Card Mask
   * Expiration time
+
 * AvtaleGiro
+
   * Account Number
   * Mandate KID as provided by MasterCardPaymentServices
   * Bank Notification
   * Active/InActive
   * Imported
   * Cancelled
+
 * Vipps
+
   * Account Name (Which of the configured accounts is the agreement related to)
   * Vipps Agreement Id as provided by Vipps.
   * Phone Number
