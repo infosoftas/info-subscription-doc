@@ -3,7 +3,7 @@
 *************************
 Release June 2nd 2021
 *************************
-The following changes started rolling out on Wedensday June 2nd 2021.
+The following changes started rolling out on Wednesday June 2nd 2021.
 The API and backend is being rolled out to all tenants at the same time, and the client will be propagated over the next couple of days.
 
 API and Backend
