@@ -28,7 +28,6 @@ The following new features and improvements are now available in the merchant cl
 * Added option to credit an Enterprise Plan invoice directly from the invoice overview.
 * New styling, details and icons for payment agreement overview in merchant.
 * Multiple bug fixes and adjustments for temporary changes and temporary delivery stops **Preview**.
-* Fixed an issue that would display the wrong details when importing payments and mandates using Mastercard Paymentservices OCR file.
 
 Self-Service and Salesposter
 ============================
