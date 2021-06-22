@@ -4,7 +4,7 @@
 Release June 22nd 2021
 *************************
 The following changes started rolling out on Tuesday June 22nd 2021.
-The API and backend is being rolled out to all tenants at the same time, and the client will be propagated over the next couple of days.
+The API and backend are being rolled out to all tenants at the same time, and the client will be propagated over the next couple of days.
 
 API and Backend
 ===============
@@ -18,7 +18,7 @@ The following new features and improvements are now available in the API and the
 * PayEx POPS related payments are now blocked entirely before being sent to PayEx (where they would sometime actually succeed even though the platform is reported shut down).
 * Fixed an issue where an attempt was made to automatically adjust payment agreements on cancelled subscriptions.
 * Fixed an issue with reminder fees not being accumulated on multiple reminders.
-* Fixed an issue with scheduling for Avtalegiro on the first subscription period would end up issuing demands with an adjusted due date but stil keep Invoice as the provider type. Now it correctly keeps the original due date.
+* Fixed an issue with scheduling for Avtalegiro on the first subscription period would end up issuing demands with an adjusted due date but still keep Invoice as the provider type. Now it correctly keeps the original due date.
 * Fixed an issue where the existence of a contract fee would cause payment demands to not be generated.
 
 Merchant Client
