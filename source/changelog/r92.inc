@@ -1,9 +1,9 @@
 .. _changelog-r92:
 
 *************************
-Release August 26th 2021
+Release August 30th 2021
 *************************
-The following changes started rolling out on August 26th.
+The following changes started rolling out between August 30th and Augst 31st.
 The API and backend are being rolled out to all tenants at the same time, and the client will be propagated over the next couple of days.
 
 This is our first release after the summer, so it has taken a bit more time to get it ready. The team has been working on lots of things, some small, some large.
