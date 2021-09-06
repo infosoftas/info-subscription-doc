@@ -88,15 +88,18 @@ The following is an example of an "approved" response to the above validation ev
         "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
     }
 
-Manual Handshake
-~~~~~~~~~~~~~~~~
+Manual Validation Handshake
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 If you do not have total control over the webhook, validation using the handshake may be hard or imposible,
-typically the case when you use a third party integration service such as Zapier, IFTTT or even Microsoft's own Flow.
+typically the case when you use a third party integration service such as Zapier or IFTTT, where the response is not synchronous but instead always a 200 OK with the real response being generated later.
 
-For these scenarios you can configure the webhook such that you get the event data, and a ``validationUrl`` is included. 
-A manual ``GET`` request (i.e. copy/paste to your favorite browser) will then approve the endpoint.
+For these scenarios you can configure the webhook such that you get the event data, and a ``validationUrl`` is included as part of the data. Look into the event data log of your platform to find the URL.
+A manual ``GET`` request (i.e. copy/paste to your favorite browser) will then approve the endpoint (or you can have your platform visit the URL automatically).
 
-The URL is valid for 10 minutes after registration has started.
+The URL is valid for 5 minutes after registration has started.
+
+It is not possible to do such a manual registrations with the UI, so you need to supply the registration using the :api-ref:`register web hook API <Events/RegisterWebHookAsync>` and supplying the parameter ``disableValidation``.
+If the registration is not approved within 5 minutes it will be rejected.
 
 Direct Event Grid integration
 -----------------------------
