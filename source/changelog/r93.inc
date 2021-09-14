@@ -16,14 +16,14 @@ The following new features and improvements are now available in the API and the
 * Fixed an issue where disabling event hook pre-validation would not have an effect.
 * Improved error message for orders failing creation due to validation issues (such as missing prices or frequencies).
 * Fixed an issue where a cancellation inside a subscription period would not lead to a proper proration (full credit was done instead of a partial).
-* Fixed an issue where contract fee surcharge was calculated based on miliseconds instead of entire days.
+* Fixed an issue where contract fee surcharge was calculated based on milliseconds instead of entire days.
 
 Merchant Client
 ===============
 The following new features and improvements are now available in the merchant client.
 
 * Support for disabling AvtaleGiro bank notifications across the board **Preview**
-* Reduced som clutter in the subscription overview.
+* Reduced some clutter in the subscription overview.
 * Added reminder numbers in order to make it easier to see which reminder is which. Dates where already here, but it may be faster to just see the number.
 * Minor visual adjustments to Payment Agreement overview.
 
