@@ -13,7 +13,7 @@ The following new features and improvements are now available in the API and the
 
 * Added an option that allows defining an alternate billing plan for contract surcharge billing.
 * Introduced an option to allow for multiple charge attempts on Swedbank pay agreement in case the initial charge fails to produce a payment.
-* It is now possible to some updates on Dunning Processes. As always these will only take effect on subscriptions renewed/created AFTER the update, not on an already planned dunning actions.
+* It is now possible to update some properties on a Dunning Processes. As always these will only take effect on subscriptions renewed/created AFTER the update, not on an already planned dunning actions.
 * Added policy support contract surchages calculations, either based on entire frequency or number of remaining/consumed days. The default remains number of remaining/consumed days.
 * Fixed an issue where failed Swedbank pay transactions would be marked as Captured even though they were actually failed (just a display error).
 * Fixed an issue for BgMax payment imports where grosly invalid identifiers would cause the payment import process to stop for the entire file.
