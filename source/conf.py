@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'INFO-Subscription'
-copyright = '2018, Infosoft AS'
+copyright = '2021, Infosoft AS'
 author = 'Infosoft AS'
 
 # The short X.Y version
