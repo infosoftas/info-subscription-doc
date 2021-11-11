@@ -14,7 +14,7 @@ The following new features and improvements are now available in the API and the
 * Fixed an issue where the Vipps Account setup would return the create Id in the wrong format.
 * Removed API for generating orders with PayEx POPS parameters. POPS has been offline for more than a year now.
 * Added support for generating Tax on Fees based on the included products. **Preview**
-* Payment Agreements are can now be deactivated instead of just deleted.
+* Payment Agreements can now be deactivated instead of just deleted.
 * Subscription Plans with multiple products now generates a single line with multiple details on the Invoice, previously multiple lines would be generated which was not the intention.
 * Introduced additional validation for Vipps related parameters in the Order flow to prevent invalid orders getting accepted but failing half-way through.
 * Added the possibility to re-use existing Swedbank Payment Agreements on new orders.
