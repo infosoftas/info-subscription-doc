@@ -62,6 +62,13 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     events/events-introduction
 
 .. toctree::
+    :caption: Payments and Agreements
+    :hiden:
+
+    payments/agreements
+    payments/providers/*
+
+.. toctree::
     :caption: Reporting and Analytics
     :hidden:
 
