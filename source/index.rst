@@ -64,7 +64,7 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
 .. toctree::
     :caption: Payments and Agreements
     :glob:
-    :hiden:
+    :hidden:
 
     payments/agreements
     payments/providers/*
