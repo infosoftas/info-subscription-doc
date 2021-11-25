@@ -1,10 +1,13 @@
-Reporting Database: Documentation of tables
-=========================================
-Documentation of existing tables per. 20 November 2020. Number of tables / columns documented: 30/446 (see Appendix for further details).
+.. _reporting-datamodel:
 
-[billing].[PaymentWithdrawals]
-----------------------------
-PaymentWithdrawals includes credit card debit attempts.
+Reporting Datamodel
+===================
+The following contains a description of the various tables in the reporting SQL database.
+Each section of the model is organized into seperate schemas mostly to indicate their usage area. Though its up to you to be creative.
+
+In general the reporting model, is a semi-realtime shadow copy of the production data, materialized in a way that is suitable for reporting tools to query and analyze on.
+
+By semi-realtime, we means its a few seconds late compared to the production data, and has a lower write priority than production data and thus may be delayed further in stressful situations.
 
 [dbo].[Organizations]
 ---------------------

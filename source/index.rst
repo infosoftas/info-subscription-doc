@@ -63,6 +63,7 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
 
 .. toctree::
     :caption: Payments and Agreements
+    :glob:
     :hiden:
 
     payments/agreements
@@ -72,7 +73,7 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     :caption: Reporting and Analytics
     :hidden:
 
-    reporting/Reporting Datamodel
+    reporting/Report database
 
 .. toctree::
     :caption: Misc
