@@ -1,3 +1,5 @@
+.. include:: r95.inc
+.. include:: r94.inc
 .. include:: r93.inc
 .. include:: r92.inc
 .. include:: r91.inc
@@ -6,5 +8,3 @@
 .. include:: r88.inc
 .. include:: r87.inc
 .. include:: r86.inc
-.. include:: r85.inc
-.. include:: r84.inc
