@@ -1,0 +1,1 @@
+Blah blah AvtaleGiro and Possibly eFaktura Bla bla
