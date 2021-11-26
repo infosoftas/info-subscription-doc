@@ -1,1 +1,10 @@
-Blah blah AvtaleGiro and Possibly eFaktura Bla bla
+.. _provider-avtalegiro:
+
+*********************************
+AvtaleGiro Direct Debit Payments
+*********************************
+
+
+*******************
+eFaktura eInvoices 
+*******************

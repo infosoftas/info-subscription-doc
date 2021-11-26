@@ -36,7 +36,7 @@ Report groups are defined to distinguish between different product types. Exampl
  
 
 [dbo].[SubscriberContacts]
-------------------------
+--------------------------
 All contact addresses: Main addresses, billing addresses and temporary addresses.
 
 Special fields in SubscriberContacts:
@@ -58,29 +58,29 @@ Special fields in Subscribers:
 
  
 [DBO].[Tag]
----------
+-----------
 Free text that can be sent with an order, but this is used differently from customer to customer. The idea is to be able to connect to other tables to be able to retrieve information. Information in Tags can also be created manually.
 
 When you send a tag with an order, two tags are currently created in the report layer. One with type Subscriber and one with type SubscriberAccount. Referenceid will then correspond to SubscriberId and SubscriberAccount, respectively. Thus you can search for all subscribers who have a relationship with for example ShopID = 458. The vast majority of tables in the report layer have a connection to subscriberide and can then be grouped / filtered in relation to Tag.
  
 
 [economy].[AccountTransaction]
-----------------------------
+------------------------------
 Balance-transactions of different types. Will be created if paid too much or too little, if a subscription is cancelled or for imported transactions. 
  
 
 [economy].[Invoices]
-------------------
+--------------------
 Invoice details.
 
  
 [economy].[PaymentDemandAllowances]
----------------------------------
+------------------------------------
 Contains adjustments that occur when you pay too much or too little.
  
 
 [economy].[PaymentDemandCharges]
-------------------------------
+---------------------------------
 Balance sheet transactions that are included in payment claims.
  
 
@@ -91,7 +91,7 @@ Information about payment requirements, connected to the subscription (Subscript
 Payment claims are formed before the subscription is formed. Therefore, subscriptionid is for the previous subscription, while NextsubscriptionId is the subscription in question. When a subscription is renewed, NextSubscriptionId is applied to the correct payment claim.
  
 [economy].[PaymentDemandFees]
----------------------------
+----------------------------------
 Invoice fee.
 
 
@@ -190,7 +190,7 @@ Information on binding time, whether the function is activated for use.
 General information about framework agreements.
 
 [subscription].[SubscriberAccounts]
----------------------------------
+------------------------------------
 Contains the first date for when a SubscriberAccount was used. This is used for financial reporting.
 
 [subscription].[SubscriptionPackageProducts]
@@ -248,5 +248,6 @@ from INFORMATION_SCHEMA . COLUMNS where   TABLE _NAME not in ( '__EFMigrationsHi
 group by TABLE_SCHEMA + '.' + TABLE_NAME order by TABLE_SCHEMA + '.' + TABLE_NAME
 
 .. image:: /_images/Tables.png
-:align: center
-:alt: Example list of all accessible tables in the reporting database.
+    :align: center
+    :alt: Example list of all accessible tables in the reporting database.
+

@@ -1,1 +1,5 @@
-Bla bla bla AutoGiro sweden.
+.. _provider-autogiro:
+
+******************************
+Autogiro - Direct Debit
+******************************

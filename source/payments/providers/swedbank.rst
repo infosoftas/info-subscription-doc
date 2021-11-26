@@ -1,1 +1,5 @@
-Bla bla Swedbank Card Payments
+.. _provider-swedbank:
+
+************************
+Swedbank Payment Cards
+************************

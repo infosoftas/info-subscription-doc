@@ -31,7 +31,7 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
    If a toc tree does not have a :hidden: tag it will be shown on the index page!
 
 .. toctree::
-   :hidden:
+   :includehidden:
 
    self
    general/getting-started
@@ -73,7 +73,7 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     :caption: Reporting and Analytics
     :hidden:
 
-    reporting/Report database
+    Reporting Datamodel <reporting/Report database>
 
 .. toctree::
     :caption: Misc

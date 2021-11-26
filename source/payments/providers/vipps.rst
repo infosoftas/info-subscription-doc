@@ -1,1 +1,5 @@
-Blah Blah Vipps
+.. _provider-vipps:
+
+************************
+Vipps Mobile Payments
+************************
