@@ -44,3 +44,4 @@ Additionally billing refers to handling of payments and making sure that subscri
 Automatic Payments
 ^^^^^^^^^^^^^^^^^^
 Part of the billing engine also manages automatic payments with cards, direct debit and similar, making sure that most subscribers pay the right amount at the right time.
+
