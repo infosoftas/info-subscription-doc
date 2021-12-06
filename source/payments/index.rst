@@ -35,14 +35,16 @@ At the time of writing the following providers are currently supported:
 * InvoiceOnly/None - the default payment type that does "nothing"
 
 Managing Payment Agreements
-===========================
+============================
+.. _manage-payment-agreement:
+
 There are multiple ways to create a payment agreement for a subscriber.
 
 * Created during the order registration.
 * Created as a self-service action (initiated via a website or target email campaigns etc).
 * Initiated out-of-band.
 
-All of the approaches share the same organization/abstraction model in |projectName|.
+All of the approaches share the same organization/abstraction model in |projectName| and follow the same flow in terms of the integration/API.
 
 1. A Provider Agreement is created (the details vary by provider).
 2. A Payment Agreement is created pointing to the provider agreement.
@@ -56,9 +58,24 @@ When a new provider is added, no adjustments are needed to provide general infor
 
 For details on how to register new provider agreements, refer to the individual provider sections.
 
+A request to create a new payment agreement might look like:
+
+.. code-block:: json
+    :name: Sample Payment Agreement
+    
+    {
+        "subscriberId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "providerType": "AvtaleGiro",
+        "providerAgreementReference": "00000000000011",
+        "paymentMethod": "DirectDebit",
+        "providerAgreementId": "945a996e-ac8b-4a96-96c3-deb136dc2830"
+    }
+    
+
 Switching Agreements Manually
 -----------------------------
-Once a Payment Agreement has been created, switching to this agreement is a simple as :api-ref:`assigning it to the subscription </Subscription/post_Subscription__id__changePaymentAgreement>`.
+
+Once a Payment Agreement has been created, switching to this agreement is a simple as :api-ref:`assigning it to the subscription <Subscription/post_Subscription__id__changePaymentAgreement>`.
 
 .. Note::
 
@@ -85,3 +102,28 @@ There are different details to be aware of, but in general terms the following p
 At the current time, only subscribers on InvoiceOnly/None agreements are automatically switched.
 It is assumed that whatever process they entered into is preferable from their point of view untill otherwise dictated. 
 At the current time there is no way for a merchant to define a preferred order of payment methods.
+
+Importing Agreements
+----------------------
+
+Sometimes it is necessary to import payment agreements from external sources.
+
+There are several use cases for importing agreements, but the two main scenarios are:
+
+1. When migrating existing agreements from another billing/subscription system.
+2. Integrating with ecommerce platforms that generates the agreemt during the initial sale.
+
+Each provider integration exposes its own endpoint for importing existing agreements. 
+There are some variations, so look to the provider descriptions for the details.
+
+Common for all the scenarios is that once an agreement has been imported for the provider, it should be added as a general agreement, and handled the same way as with new orders or during self-service registrations, as :ref:`described above <manage-payment-agreement>`.
+
+*********************
+Provider Integrations
+*********************
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+    
+    providers/*

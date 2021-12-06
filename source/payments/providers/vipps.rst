@@ -1,5 +1,6 @@
 .. _provider-vipps:
 
-************************
-Vipps Mobile Payments
-************************
+Vipps Recurring
+================
+
+Placeholder description.

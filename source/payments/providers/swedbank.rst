@@ -1,5 +1,6 @@
 .. _provider-swedbank:
 
-************************
-Swedbank Payment Cards
-************************
+Swedbank
+========
+
+Placeholder description.

@@ -22,7 +22,7 @@ If you just want the gory details you can browse `the Swagger UI <https://api.in
 Otherwise head over to the :ref:`Getting Started <getting-started>` section
 
 Contact Information and Support
--------------------------------
+=================================
 Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>` for details on how to contact Infosoft.
 
 :ref:`genindex`
@@ -31,7 +31,7 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
    If a toc tree does not have a :hidden: tag it will be shown on the index page!
 
 .. toctree::
-   :includehidden:
+   :hidden:
 
    self
    general/getting-started
@@ -66,8 +66,8 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     :glob:
     :hidden:
 
-    payments/agreements
-    payments/providers/*
+    payments/index
+    payments/requests
 
 .. toctree::
     :caption: Reporting and Analytics
