@@ -1,6 +1,8 @@
 URL parameters
 =========================================
-Salesposter uses URL query string to control presentation and business logic.
+Salesposter uses URL query string to control presentation and business logic. Once a user follows the link with query parameters, they are copied to an encrypted cookie. To change these params, simply make a new URL with different values.
+
+Salesposter location follows the following template: https://{tenantName}-s4.azurewebsites.net/salesposter, where *tenantName* - name of the tenant Salesposter is deployed on.
 
 Query string parameters are:
 
@@ -164,3 +166,9 @@ Query string parameters are:
 +--------------+--------------------------------------+
 |  Required    |    Makes section mandatory to fill   |
 +--------------+--------------------------------------+
+
+Example
+-----------------------------------
+Here is an example on how to order a specific subscription plan with PayEx payment only using Salesposter deployed on *experimentation* tenant.
+
+https://experimentation-s4.azurewebsites.net/salesposter?pty=PayEx&templatepackageid={some-template-package-id}
