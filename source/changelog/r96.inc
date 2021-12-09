@@ -3,9 +3,9 @@
 ****************************
 Release December 12th 2021
 ****************************
-The last release of the year 2021. This brings us to a total of 13 release for 2021.
+The last release of the year 2021. This brings us to a total of 13 releases for 2021.
 The release was rolled out entirely on the 12th of December, all API, backend and tenant clients have been rolled out at roughly the same time.
-Without further ado, lets head on to the interesting bits.
+Without further ado, let us head on to the interesting bits.
 
 
 API and Backend
@@ -14,7 +14,7 @@ The following new features and improvements are now available in the API and the
 
 * Added support for importing existing Vipps Recurring agreements.
 * Added support for getting the remote Vipps Agreement details based on an existing agreement.
-* Added support for skipping the Vipps Recrruing Landing page (requires approval/setting by Vipps).
+* Added support for skipping the Vipps Recurring Landing page (requires approval/setting by Vipps).
 * Minor documentation adjustments.
 * When Subscriber Contacts are deleted, the subscription using the contact (Invoice Address) will automatically revert to the subscribers primary contact.
 * Scheduled Plan Changes `At Renewal` will now override any existing changes of the same type and return the correct change id.
