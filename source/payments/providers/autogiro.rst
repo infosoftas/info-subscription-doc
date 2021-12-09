@@ -3,4 +3,4 @@
 Autogiro
 ========
 
-Placeholder description
+Placeholder description.

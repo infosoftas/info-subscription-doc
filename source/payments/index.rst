@@ -126,4 +126,4 @@ Provider Integrations
     :glob:
     :maxdepth: 1
     
-    providers/*
+    providers/avtalegiro

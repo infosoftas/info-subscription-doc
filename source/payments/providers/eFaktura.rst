@@ -3,4 +3,4 @@
 eFaktura
 =========
 
-Work in progress.
+Placeholder description.
