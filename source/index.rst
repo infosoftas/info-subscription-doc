@@ -40,6 +40,12 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
    general/terminology.rst
 
 .. toctree::
+    :caption: Events and Webhooks
+    :hidden:
+
+    events/events-introduction
+
+.. toctree::
     :caption: Subscribers
     :hidden:
 
@@ -48,23 +54,18 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     subscribers/users/authorization
 
 .. toctree::
+    :caption: Order Customization
+    :hidden:
+
+    salesposter/url-parameters
+
+.. toctree::
     :caption: Subscriptions
     :glob:
     :hidden:
 
     subscription/orders/orders
     subscription/*
-
-.. toctree::
-    :caption: Salesposter
-
-    salesposter/url-parameters
-
-.. toctree::
-    :caption: Events and Webhooks
-    :hidden:
-
-    events/events-introduction
 
 .. toctree::
     :caption: Payments and Agreements
@@ -87,7 +88,6 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     reporting-bugs
     API Reference/Swagger <https://api.info-subscription.com/swagger/>
     doc-contribution
-
 
 .. toctree::
     :caption: Changelog
