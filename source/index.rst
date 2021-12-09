@@ -56,6 +56,11 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     subscription/*
 
 .. toctree::
+    :caption: Salesposter
+
+    salesposter/url-parameters
+
+.. toctree::
     :caption: Events and Webhooks
     :hidden:
 
