@@ -22,7 +22,7 @@ If you just want the gory details you can browse `the Swagger UI <https://api.in
 Otherwise head over to the :ref:`Getting Started <getting-started>` section
 
 Contact Information and Support
--------------------------------
+=================================
 Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>` for details on how to contact Infosoft.
 
 :ref:`genindex`
@@ -40,12 +40,24 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
    general/terminology.rst
 
 .. toctree::
+    :caption: Events and Webhooks
+    :hidden:
+
+    events/events-introduction
+
+.. toctree::
     :caption: Subscribers
     :hidden:
 
     subscribers/users/usermodel
     subscribers/users/authentication
     subscribers/users/authorization
+
+.. toctree::
+    :caption: Order Customization
+    :hidden:
+
+    salesposter/url-parameters
 
 .. toctree::
     :caption: Subscriptions
@@ -56,21 +68,18 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     subscription/*
 
 .. toctree::
-    :caption: Salesposter
-
-    salesposter/url-parameters
-
-.. toctree::
-    :caption: Reporting
+    :caption: Payments and Agreements
+    :glob:
     :hidden:
 
-    reporting/Report database
+    payments/index
+    payments/requests
 
 .. toctree::
-    :caption: Events and Webhooks
+    :caption: Reporting and Analytics
     :hidden:
 
-    events/events-introduction
+    Reporting Datamodel <reporting/Report database>
 
 .. toctree::
     :caption: Misc
@@ -79,7 +88,6 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     reporting-bugs
     API Reference/Swagger <https://api.info-subscription.com/swagger/>
     doc-contribution
-
 
 .. toctree::
     :caption: Changelog

@@ -65,13 +65,3 @@ Authorization Flows or Grant Types
 There are multiple ways to authorize an application to work with an API, in OAuth2 lingo these different flows are called grant types.
 Depending on your use case, you may use the flow you are most comfortable with, but for machine to machine interaction, with no end-users involved, we recommend using `client_credentials` grant type.
 
-
-
-.. Which authentication flow should I choose?
-   ------------------------------------------
-
-    This depends on a few things. If you want to act on behalf of a user, you should use the ``implicit``. 
-    This makes sure that the application you are building will have the same rights as the user who is logged in.
-
-    If you just want access to the API as an application (i.e. no user interaction) you should use the ``client_credentials`` grant. 
-    This way anyone using your application will have the same rights as your application and no user context will be available to the API.

@@ -118,17 +118,19 @@ The following is the json schema for an event
     :name: Event Schema
 
     [{
-        "topic": string,
-        "subject": string,
-        "id": string,
-        "eventType": string,
-        "eventTime": string,
+        "topic": "string",
+        "subject": "string",
+        "id": "string",
+        "eventType": "string",
+        "eventTime": "string",
         "data":{
-        object-unique-to-each-publisher
+         "object-unique-to-each-publisher" : "values"
         },
-        "dataVersion": string,
-        "metadataVersion": string
+        "dataVersion": "string",
+        "metadataVersion": "string"
     }]
+
+
 
 The table is a short description of each property.
 
