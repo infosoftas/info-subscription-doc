@@ -8,8 +8,6 @@ The API and backend has been upgraded, and the self-service and merchant clients
 
 Sorry for the delay of the changelog, but Covid-19 hits everyone and in this case the changelog author :)
 
-This release have a 
-
 API and Backend
 ===============
 The following new features and improvements are now available in the API and the backend.
@@ -20,7 +18,7 @@ The following new features and improvements are now available in the API and the
 * The backend now includes settings for configuring and using "Permanent Discounts".
 * Added support support for automated settlement using Vipps **Preview**.
 * Fixed an issue where in some cases a future payment demands would remain scheduled even when the subscription was deleted.
-* Fixed issues with EHF generation where a mix of products with an with VAT would cause an invalid file.
+* Fixed issues with EHF generation where a mix of products with VAT would cause an invalid file.
 * Fixed a bug where Subscription Plan Contract Time would be deleted when updating the contract.
 * Fixed an issue where Vipps Payments would not be registered in cases where the related payment demand was credited.
 * The Vipps integration now reports System and Plugin headers as requested by Vipps.
@@ -31,7 +29,6 @@ The following new features and improvements are now available in the merchant cl
 
 * Scheduled Subscription Plan changes are now included in the subscription views.
 * Fixed an error with the wrong details being displayed on Credit Notes.
-* Final/Balance Invoices no longer displays a time range/period.
 * Changed the time shown for creditted payment demands.
 * Included Additional Text on the Invoice lines.
 * Fixed an issue that would lead to contact information not being saved for new invoice contacts.
