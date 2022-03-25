@@ -1,10 +1,10 @@
 .. _changelog-r100:
 
 ***********************
-Release March 28th 2022
+Release March 29th 2022
 ***********************
 Another release, this one marks our 100th anniversary for releases, since we started numbering our releases at least.
-This release has lots of minor changes, a few new features, and we are making a few things generally available as well (ie. they are out of preview).
+This release has lots of minor changes, a few new features, and we are making a several as generally available (ie. they are out of preview).
 
 As always the backend has been rolled out entirely, while the frontend/UI clients will roll out over the next couple of days.
 
@@ -12,11 +12,10 @@ Avtalegiro Generally Available
 ==============================
 With this release the Avtalegiro integration is now generally available for everyone to use.
 
-Simply put this feature allows subscribers to register AvtaleGiro mandates in with their bank (or using an online form if the tenant provides on), and mandates can be imported into INFO-Subscription for recurring charges.
+Simply put this feature allows subscribers to register AvtaleGiro mandates with their bank (or using an online form if the tenant provides on), and mandates can be imported into INFO-Subscription for recurring charges.
 
 There is some setup required to get this up and running, with the Bank, with Mastercard Payment Services and of course with INFO-Subscription.
 Please refer to our documentation or reach out to support to get further information.
-
 
 Vipps Generally Available
 =========================
@@ -57,31 +56,45 @@ The following new features and improvements are now available in the API and the
 * Invoices with allowances will now be materialized with Allowances in the EHF lines.
 * Fixed an issue in the order flow, where multiple simultaneous complete requests on the same order would lead to multiple subscriptions being created with the same information.
 * Importing AvtaleGiro mandates using the OCR file would cause a complete abort in case the file included a cancellation of a mandate that was not already present. This has now been fixed and replaced with a warning.
-* AvtaleGiro and Vipps integration is now consider to be generally available. See separate section for details.
-
+* AvtaleGiro and Vipps integration is now considered to be generally available. See separate section for details.
 
 Ranked/Numbered Reminder Settings
 ---------------------------------
 Reminder Settings for the dunning process now contains a rank/numbering for ordering reminder production.
 
 Previously the order would be based on the creation time, thus the oldest would always be first, and deleting it and adding a new would be evaluated second regardless of the delay count.
-The rank can be specified during creation and updates, if not specified the next available rank will be taken automatically (temporary compatibility thing).
+The new rank can be specified during creation and updates, if not specified the next available rank will be taken automatically (temporary compatibility thing).
 
-If the number series has holes in it, it is effectively a broken sequence and it will only work up until the hole is encountered.
+If the number series has holes in it, it is effectively a broken sequence and it will only work until the hole is encountered.
 
 The introduction of this ordering represents a breaking change in the API, but our telemetry tells us that no-one but we are using that API.
 
 The UI has not yet been updated to acknowledge the new numbering, so expect some issues when managing multiple reminder setups at the same time.
 
-Partial SAFT-T File generation
-------------------------------
-BLAH WE NOW HAVE SAFT SUPPORT!
+Partial SAF-T Financial File generation
+---------------------------------------
+The reporting sub-system now includes an feature for generating partially compliant SAF-T Financial files.
+
+Since INFO-Subscription is not meant for full company accounting, it is not possible to generate fully compliant SAF-T Financial files. 
+However with some configuration enabled, its possible to generate partial SAF-T Financial files that relates to everything concerning subscriptions.
+
+Data will be mainly be generated for:
+
+* GeneralLedgerAccounts
+* Customers
+* TaxTable
+* GeneralLedgerEntries
+
+For some tenants this will be sufficient, for others further "mangling" is required.
+Some tenants may be able to submit multiple files to the authorities.
+
+Please refer to the documentation for how to configure the details or reach out to support for help.
 
 Merchant Client
 ===============
 The following new features and improvements are now available in the merchant client.
 
-* Added option to download invoice PDFs for enterprise plans.
+* Added option to download invoice details for enterprise plans from the grid view.
 * Added support for name changes for temporary address changes.
 * Fixed a timezone issue with search on Payments, Invoices, Corrections and CreditNotes **Hotfixed**.
 * Adjustments and fixes to Recurring Deliveries and related Distribution Innovation integration **Preview**.
