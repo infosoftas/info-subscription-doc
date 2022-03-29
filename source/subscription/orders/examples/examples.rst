@@ -12,7 +12,7 @@ Unless otherwise stated, each of them presents the body for creating a new order
     S4-TenantId: SOMETENTANT
     Authorization: Bearer RANDOMTOKEN
     {
-        /* Insert Sample JSON Content Body instead of this block */
+        
     }
 
 Each example typically only shows properties relevant to the example and omits required elements for brevity.

@@ -81,8 +81,7 @@ Depending on where the user was redirected the client can do whatever is needed 
  |projectName| manages invoice addresses by creating a separate subscriber contact (see: :ref:`Subscribers Section <subscribers>`) and associating it with the subscription.
  
  It is possible to either define an existing contact id in the `invoiceContactId` or by defining details for a new contact (to be associated with the ordering subscriber).
-The details to provide are the same as for a generic subscriber contact.
-
+ The details to provide are the same as for a generic subscriber contact.
 
 Orders and Subscribers
 ======================

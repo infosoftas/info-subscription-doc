@@ -1,4 +1,4 @@
-.. _subscribers
+.. _subscribers:
 
 ***********
 Subscribers

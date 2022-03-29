@@ -33,7 +33,7 @@ Refer to the table below on how to obtain all of this information, since you do 
 
     Keep in mind that these are two independent sections of the application with different sets of users, you should treat the authentication as two separate things as well (i.e. one for admins/machines and another for subscribers).
 
-There are a few customizable options for the Login Page, refer to the section :ref:`Login Page Customization` for details.
+There are a few customizable options for the Login Page, refer to the section `Login Page Customization`_ for details.
 
 Example Requests for an authorization code flow
 ===============================================

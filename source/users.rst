@@ -65,10 +65,6 @@ We recommend the client follows the ``implicit`` credentials grant type as descr
 Alternatively the client can make use of the :api-ref:`GetAccessToken <User/UserGetAccessTokenPost>` method to obtain an access token, and if granted use that for API communicaiton. 
 This might be preferable in signup/order flows where requiring a signin by the user after a purchase is too cumbersome.
 
-Connecting with a customer
---------------------------
-Please refer to :ref:`customers` for details on how to connect users and customers.
-
 
 Direct Model
 ============

@@ -40,7 +40,7 @@ The mandate is created by sending a POST request to the :api-ref:`mandate endpoi
         "notificationDisabled" : true
     }
 
-The output of such a request is a new Id for the mandate, which can then be used to register a general payment agreement as described in :ref:`<manage-payment-agreement>`
+The output of such a request is a new Id for the mandate, which can then be used to register a general payment agreement as described in the section for :ref:`managing agreements <manage-payment-agreement>`
 
 
 Connected/Interactive Mandate Registration
