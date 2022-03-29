@@ -20,14 +20,18 @@ Continuing the example of a TV/ISP company, they may have the following products
 
 An example template would look something like the following:
 
-.. code-block:: JSON
-    :caption: Template Plan/Package
+.. code-block:: http
+    :caption: Template Plan/Package Headers
+    
 
     POST /Order/ HTTP/1.1
     Host: https://api.info-subscription.com
     Content-Type: application/json
     S4-TenantId: SOMETENTANT
     Authorization: Bearer RANDOMTOKEN
+
+.. code-block:: javascript
+    :caption: Template Plan/Package Body
 
     {
         "id": "10000000-0000-0000-0000-000000000000",
@@ -42,7 +46,7 @@ An example template would look something like the following:
                 "fullPrice": 2000,
                 "taxPercent": 25
             },
-            .. // Omitted for brevity
+            /* Omitted for brevity  */
             {
                 "productId": "00000000-0000-0000-0000-000000000008",
                 "fullPrice": 8000,
@@ -51,14 +55,14 @@ An example template would look something like the following:
         ],
         "name": "TV and Internet",
         "description": "Internet and TV For All Yo!"
-        // Rest omitted for brevity
+        /* Rest omitted for brevity */
     }
 
 If one were to subscribe to the above *TV and Internet* package, with no choices, it would contain 8 Products.
 
 However, using choices, it is possible to construct and order for *Basic TV* and *Slow Internet* like the following
 
-.. code-block:: JSON
+.. code-block:: json
     :caption: Order of Basic TV and Slow Internet using choices
 
     {

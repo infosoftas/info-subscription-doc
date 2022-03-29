@@ -50,7 +50,7 @@ The following are sample requests for an authorization code flow, this can get y
         Connection: keep-alive
         Accept: */*
 
-.. code-block:: HTTP
+.. code-block:: http
     :caption: Sample Response
 
     HTTP/1.1 302 Found
