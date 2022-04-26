@@ -35,5 +35,5 @@ Self-Service and Salesposter
 The following new features and improvements are now available in the self-service client
 
 * Update the error message when shared users attempted to log in to the self-service area.
-* Fixed an issue when ordering with experied subscriptionplans via the salesposter.
+* Fixed an issue when ordering with expired subscriptionplans via the salesposter.
 * Fixed an issue where refreshing the order confirmation page on the salesposter would lead to a duplicate order being generated.
