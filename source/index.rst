@@ -65,6 +65,7 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     :hidden:
 
     subscription/orders/orders
+    subscription/orders/examples/examples
     subscription/*
 
 .. toctree::
