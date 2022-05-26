@@ -54,10 +54,11 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     subscribers/users/authorization
 
 .. toctree::
-    :caption: Order Customization
+    :caption: Self Service and Salesposter
+    :glob:
     :hidden:
 
-    salesposter/url-parameters
+    salesposter/*
 
 .. toctree::
     :caption: Subscriptions
