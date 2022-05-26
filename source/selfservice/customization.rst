@@ -3,14 +3,22 @@ Salesposter/Order Configuration
 
 |projectName| contains a turnkey Salesposter/Ordering solution that can get organizations up and running in no time.
 
+There are two levels/areas of configuration for the salesposter.
+
+A set of configuration options are static i.e. it does not vary from sale to sale or subscriber to subscriber, and is configured during onboarding and in some cases via the Merchant interface of |projectName|.
+For these static configurations 
+
+Another set of configuration is dynamic and varies from process to process, currently only the salesposter contains dynamic parameters.
+These options are set using URL query parameters, and can be changed from session to session.
+
+Configuration Parameters
+------------------------
 The Salesposter primarily uses URL query parameters to control presentation and validation logic.
+
 Once a user follows the link with query parameters, they are copied to an encrypted cookie and stored throughout the ordering process.
 To change these params, simply make a new URL with different values.
 
 Salesposter location follows the following template: https://{tenantName}-s4.azurewebsites.net/salesposter, where *tenantName* is obvious the name of the tenant.
-
-Parameters
-----------
 
 The following table outlines the various parameters, some have a set of fixed possible values.
 
