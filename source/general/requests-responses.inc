@@ -33,7 +33,7 @@ Successful Responses
 For succesful requests we generally map the status codes as follows:
 
 * ``GET`` Returns ``HTTP 200 OK`` with a body.
-* ``POST`` (i.e. create a new resouce) Returns ``HTTP 201 Created`` with a body of the created resource.
+* ``POST`` (i.e. create a new resouce) Returns ``HTTP 201 Created``, optionally with a body of the created resource.
 * ``PUT`` Returns ``HTTP 204 No Content`` with no body
 * ``DELETE`` Returns ``HTTP 204 No Content`` with no body
 
@@ -149,3 +149,8 @@ An example `401` response:
 
 .. Tip::
     While you are most likely to receive these types of responses during development and testing, we recommend you at least handle and log such errors so you have something to debug.
+
+Rate Limiting
+=============
+At the current time there are no cutom enforced rate limits in place, HOWEVER the underlying platform does enforce some ratelimiting.
+If you observe these limits, please let us know so we can have a look into what we can do about it.

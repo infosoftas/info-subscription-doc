@@ -7,15 +7,12 @@ Getting Started
 The |projectName| APIs are HTTP-based and designed to somewhat conform to the REST ideology.
 Purists will note that there are no Hypermedia links, this will hopefully change in the future.
 
-The entire management capability of the platform is exposed in the API, meaning that whatever you see in our supplied management client and subscriber client you should be able to do with the API.
+The entire management capability of the platform is exposed in the API, meaning that whatever you see in our supplied management and self-service solution you should be able to do with the API.
 Meaning you can do things such as:
 
     * Integrate with existing web-shops or frontends
     * Provide tailormade self-service for subscribers matching your brand and workflows
     * Integrate management capability in a custom business portal, CRM System or similar
-
-The |projectName| APIs are accessed using https://api.info-subscription.com/ as the base url. 
-All paths, names etc that is referenced here will be relative to that base URL.
 
 .. IMPORTANT::
     Please read the introduction about the terminology before you start banging your head against the wall, it might actually contain a pointer or two that will help you.
