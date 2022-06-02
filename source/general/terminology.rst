@@ -15,7 +15,7 @@ Terminology and Definitions
         All financial transactions for a subscription is associated with the subscriber
 
     User
-        A person/entity who interacts with |projectName| either as a tenant or as a potential subscriber.
+        A person/entity who interacts with |projectName| either as a tenant/merchant or as a potential subscriber.
 
     Subscription
         An arrangement for an organization to provide/deliver a service or product to a subscriber in a given period of time.

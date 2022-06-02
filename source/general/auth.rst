@@ -4,7 +4,7 @@
 API Authentication and Authorization
 ************************************
 
-|projectName| APIs uses OAuth2 for Authorization.
+|projectName| APIs uses OAuth2 for Authentication.
 
 The service is provided by {AUTH0}, and thus the gory details may be found at the {AUTH0} website, but the following should get you started.
 
@@ -13,7 +13,7 @@ Short Version
 The quick'n'dirty details for those already familiar with OAuth2 flows.
 
 * Token URL: at |tokenUrl|
-* Grant Type: Typically ``client_credentials`` or ``implicit`` but any of the grant types works
+* Grant Type: Typically ``client_credentials`` but any of the common grant types works. Contact support for specific grant types.
 * Audience: |auth0audience|
 
 Authorization in detail
@@ -64,4 +64,3 @@ Authorization Flows or Grant Types
 ----------------------------------
 There are multiple ways to authorize an application to work with an API, in OAuth2 lingo these different flows are called grant types.
 Depending on your use case, you may use the flow you are most comfortable with, but for machine to machine interaction, with no end-users involved, we recommend using `client_credentials` grant type.
-

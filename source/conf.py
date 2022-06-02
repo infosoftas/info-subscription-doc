@@ -226,7 +226,8 @@ replacementsTags = {
     "{AUTH0}" : "`Auth0 <https://www.auth0.com/>`_",
     "{AUTH0DOMAIN}" : "infosubscription.eu.auth0.com",
     "{SUPPORTPAGE}" : "https://www.infosoft.as/support/",
-    "{payex}" : "`PayEx <https://payex.com/>`_"
+    "{payex}" : "`PayEx/Swedbank Pay <https://www.swedbankpay.com/>`_",
+    "{vipps}" : "`Vipps <https://www.vipps.no/>`_"
 }
 
 def setup(app):

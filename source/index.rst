@@ -28,7 +28,7 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
 :ref:`genindex`
 
 .. The following TOC tree directives are here to make sure the side-bar looks like we want it to.
-   If a toc tree does not have a :hidden: tag it will be shown on the index page!
+   If a toc tree does not have a :hidden: tag it will be shown at the bottom on the index page!
 
 .. toctree::
    :hidden:
@@ -54,10 +54,11 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     subscribers/users/authorization
 
 .. toctree::
-    :caption: Order Customization
+    :caption: Self Service and Salesposter
+    :glob:
     :hidden:
 
-    salesposter/url-parameters
+    selfservice/*
 
 .. toctree::
     :caption: Subscriptions
