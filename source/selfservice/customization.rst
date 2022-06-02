@@ -119,9 +119,15 @@ The following is a series of options tables (referenced by each parameter above)
    * - Required
      - Shows the section and makes it mandatory to fill
 
+.. admonition:: Simple Example
 
-Simple Example
----------------
-Here is an example on how to order a specific subscription plan with PayEx payment only using Salesposter deployed on the *experimentation* tenant.
+    The following is an example of how the Salesposter may be configured to do a specific thing.
+    In this case the configuration does the following:
 
-https://experimentation-s4.azurewebsites.net/salesposter?pty=1&templatepackageid=14714f54-dbf4-4899-a9c7-51763d536568
+    * Restricts the Payment Type to be Swedbank Pay
+    * Overrides the default Subscription Plan
+    * Uses a :ref:`custom domain <selfservice-custom-domain>` (not really salesposter specific).
+
+    Example Url
+    
+    https://experimentation.minside.info-subscription.com//salesposter?pty=1&templatepackageid=14714f54-dbf4-4899-a9c7-51763d536568

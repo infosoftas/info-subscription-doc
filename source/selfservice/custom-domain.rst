@@ -1,3 +1,5 @@
+.. _selfservice-custom-domain:
+
 Self-Service and Salesposter Custom Domain
 ==========================================
 
