@@ -18,7 +18,7 @@ The Salesposter primarily uses URL query parameters to control presentation and 
 Once a user follows the link with query parameters, they are copied to an encrypted cookie and stored throughout the ordering process.
 To change these params, simply make a new URL with different values.
 
-Salesposter location follows the following template: https://{tenantName}-s4.azurewebsites.net/salesposter, where *tenantName* is obvious the name of the tenant.
+Salesposter location follows the following template: https://{tenantName}-s4.azurewebsites.net/salesposter, where *tenantName* is the name of the tenant.
 
 The following table outlines the various parameters, some have a set of fixed possible values.
 
@@ -29,7 +29,7 @@ The following table outlines the various parameters, some have a set of fixed po
 +-------------------+--------------------------------------------------------------+--------------------+----------------------------------------------------+
 | redirect          | A redirection location for when the order has completed      |                    | Any URL                                            |
 +-------------------+--------------------------------------------------------------+--------------------+----------------------------------------------------+
-| pty               | A list of available payment types                            | 1 ({payex})          | :ref:`Payment Types <paymenttypes>`              |
+| pty               | A list of available payment types                            | 1 (Swedbank Pay)   | :ref:`Payment Types <paymenttypes>`                |
 +-------------------+--------------------------------------------------------------+--------------------+----------------------------------------------------+
 | loginWith         | Defines which user credential providers to expose            | internal           | :ref:`Credential Providers <credentialproviders>`  |
 +-------------------+--------------------------------------------------------------+--------------------+----------------------------------------------------+
@@ -58,51 +58,66 @@ The following table outlines the various parameters, some have a set of fixed po
 | invpayref         | Controls invoice contact buyer reference section             | Off                | :ref:`Mandatory Toggle Options <mandatorytoggle>`  |
 +-------------------+--------------------------------------------------------------+--------------------+----------------------------------------------------+
 
-.. _languages:
-+--------+-------------------+
-|  Value | Description       |
-+========+===================+
-|  eng   |   English         |
-+--------+-------------------+
-|  nor   |  Norwegian        |
-+--------+-------------------+
-|  swe   |   Swedish         |
-+--------+-------------------+
-|  sam   |   Northern Sami   |
-+--------+-------------------+
+The following is a series of options tables (referenced by each parameter above).
 
-.. _paymenttpes:
-+----------+--------------+
-|  Value   | Description  |
-+==========+==============+
-|   1      |   {payex}    |
-+----------+--------------+
-|   2      |   {vipps}    |
-+----------+--------------+
-|  9       |   Invoice    |
-+----------+--------------+
+.. _languages:
+
+.. list-table:: Language Options
+   :header-rows: 1
+
+   * - Value
+     - Description
+   * - eng
+     - English
+   * - nor
+     - Norwegian
+   * - swe
+     - Swedish
+   * - sam
+     - Northern Sami
+
+.. _paymenttypes:
+
+.. list-table:: Payment Type Options
+   :header-rows: 1
+
+   * - Value
+     - Description
+   * - 1
+     - {payex}
+   * - 2
+     - {vipps}
+   * - 9
+     - Invoice
+
 
 .. _credentialproviders:
-+---------------+----------------------------------------+
-|    Value      |            Description                 |
-+===============+========================================+
-|   Internal    |    Uses internal login mechanism       |
-+---------------+----------------------------------------+
-|    Google     |    Google account                      |
-+---------------+----------------------------------------+
-|   Facebook    |    Facebook account                    |
-+---------------+----------------------------------------+
+
+.. list-table:: Credential Providers
+   :header-rows: 1
+
+   * - Value
+     - Description
+   * - Internal
+     - Uses internal login mechanism ("local" users)
+   * - Google
+     - Google accounts
+   * - Facebook
+     - Facebook accounts
 
 .. _mandatorytoggle:
-+--------------+--------------------------------------+
-|  Value       |     Description                      |
-+==============+======================================+
-|   On         |    Shows section                     |
-+--------------+--------------------------------------+
-|   Off        |    Hides section                     |
-+--------------+--------------------------------------+
-|  Required    |    Makes section mandatory to fill   |
-+--------------+--------------------------------------+
+
+.. list-table:: Optional/Mandatory Toggling Options
+   :header-rows: 1
+
+   * - Value
+     - Description
+   * - On
+     - Shows the section
+   * - Off
+     - Disables/Hides the section
+   * - Required
+     - Shows the section and makes it mandatory to fill
 
 
 Simple Example
