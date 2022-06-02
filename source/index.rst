@@ -28,7 +28,7 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
 :ref:`genindex`
 
 .. The following TOC tree directives are here to make sure the side-bar looks like we want it to.
-   If a toc tree does not have a :hidden: tag it will be shown at the buttom on the index page!
+   If a toc tree does not have a :hidden: tag it will be shown at the bottom on the index page!
 
 .. toctree::
    :hidden:
