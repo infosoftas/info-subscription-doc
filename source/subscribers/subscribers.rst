@@ -13,7 +13,7 @@ Subscribers have two identifiers, one internal UUID/GUID and one external human-
 
 Optionally a subscriber may have an external Id, this is useful to map between |projectName| and external systems.
 
-Unlike a subscription, a customer is never associated with an :term:`organization` and is considered global. 
+Unlike a subscription, a subscriber is never associated with an :term:`organization` and is considered global. 
 Keep this in mind if you have to decide on having one or multiple tenants.
 
 Subscriber Contacts

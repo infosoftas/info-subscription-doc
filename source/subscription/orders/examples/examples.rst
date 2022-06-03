@@ -1,5 +1,8 @@
 .. _order-examples:
 
+Order Examples
+==============
+
 The following contains a few common scenarios/examples for the ordering process.
 Unless otherwise stated, each of them presents the body for creating a new order using an order request like the following.
 
@@ -18,6 +21,7 @@ Unless otherwise stated, each of them presents the body for creating a new order
 Each example typically only shows properties relevant to the example and omits required elements for brevity.
 
 It is possible to combine many of the examples, though not necessarily all of them.
+
 
 .. include:: choosing-products.rst
 

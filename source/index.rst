@@ -49,7 +49,7 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     :caption: Subscribers
     :hidden:
 
-    subscribers/users/usermodel
+    subscribers/subscribers
     subscribers/users/authentication
     subscribers/users/authorization
 
@@ -62,11 +62,11 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
 
 .. toctree::
     :caption: Subscriptions
-    :glob:
     :hidden:
 
+    subscription/plans
     subscription/orders/orders
-    subscription/*
+    subscription/orders/examples/examples
 
 .. toctree::
     :caption: Payments and Agreements

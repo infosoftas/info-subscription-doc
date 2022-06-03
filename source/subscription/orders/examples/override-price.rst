@@ -2,7 +2,7 @@
 
 
 Example: Overriding Pre-Defined Prices
-======================================
+--------------------------------------
 Typically a template plan is setup with a specific set of products.
 
 The price is either defined directly on the template plan, or as a function of the list price on the products.

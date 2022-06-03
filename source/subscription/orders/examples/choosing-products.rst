@@ -1,7 +1,7 @@
 .. _order-example-products-on-plan:
 
 Example: Choosing Products On A Plan
-====================================
+------------------------------------
 
 For organizations with many products to sell, it is often required to have the option to construct any product combination the subscriber desires.
 Consider an traditional cable TV provider, many of them offer extra channels, and even serves as an Internet Service Provider.
