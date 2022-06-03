@@ -23,6 +23,7 @@ Each example typically only shows properties relevant to the example and omits r
 
 It is possible to combine many of the examples, though not necessarily all of them.
 
+
 .. include:: choosing-products.rst
 
 .. include:: override-price.rst
