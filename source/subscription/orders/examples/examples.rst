@@ -1,7 +1,8 @@
 .. _order-examples:
 
-Order Examples
-==============
+***************
+Order Examples 
+***************
 
 The following contains a few common scenarios/examples for the ordering process.
 Unless otherwise stated, each of them presents the body for creating a new order using an order request like the following.
