@@ -29,10 +29,9 @@ The following new features and improvements are now available in the merchant cl
 * Fixed a series of issues related to Enterprise Plan management.
 * Fixed an issue that would cause the Invoice Amount total to be incorrect when tax is included in the Payment Method fee.
 * Adjusted how Currency is displayed during plan changes.
-* Changed behaviour for creating subscriptions starting in the future so it uses local midnight instead of the current time of day for the start date.
 
 Self-Service and Salesposter
 ============================
 The following new features and improvements are now available in the self-service client
 
-* Additional and adjusted translastions for Northern Sami.
+* Additional and adjusted translations for Northern Sami.
