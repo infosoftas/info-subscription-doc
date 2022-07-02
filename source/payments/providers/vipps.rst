@@ -24,7 +24,7 @@ Vipps requires an integrated interactive process for registering new agreements.
 3. The subscriber is redirected to a website to confirm the information (Managed by Vipps).
 4. The subscriber confirms the purchase in the Vipps Mobile App (Managed by Vipps).
 5. The order and agreement is finalized and the initial payment associated with the order.
-4. Recurring payments can be charged on the subscribers account/card, associated with the specific Vipps Agreement.
+6. Recurring payments can be charged on the subscribers account/card, associated with the specific Vipps Agreement.
 
 Since all of this is an interactive process, some integration is required for it to be available in the order process.
 |projectName| provides a turn key sales and ordering process that is capable of handling Vipps Agreements.
@@ -49,7 +49,7 @@ Since Vipps Recurring is backed by bank accounts and potentially card agreements
 All of this is managed by Vipps, refer to the official Vipps documentation for what this entails.
 
 Manually Registering Agreements
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 It is possible to register/import agreements registered outside of |projectName|.
 
 An agreement registration requires the following
