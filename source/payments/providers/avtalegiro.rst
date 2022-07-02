@@ -23,7 +23,7 @@ The requirements is that an account is setup for AvtaleGiro (:api-ref:`Account e
 
 Manually Registering Mandates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-A mandate registration requeres the following
+A mandate registration requires the following
 
 * A KID (an identifier)
 * A SubscriberId
