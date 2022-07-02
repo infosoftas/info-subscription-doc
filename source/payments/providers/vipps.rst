@@ -31,6 +31,18 @@ Since all of this is an interactive process, some integration is required for it
 
 If the caller utilizes the ordering API provided by |projectName| some of the above is handled, but the initial parameters and the redirection needs to be managed by the client.
 
+In-Shop/Non-Browser Agreement Registration (Merchant Initiated)
+---------------------------------------------------------------
+Vipps allows a special type of agreement registration where everything is managed by the merchant, and the only thing the subscriber has to do is accept the agreement in the mobile app.
+This process is almost identical to the above, except the browser redirect part can be headless and without user interaction.
+
+The purpose of this registration process is to provide "in-shop" purchases of subscriptions without requiring the buyer to interact with a browser.
+
+This alternate registration process requires:
+
+1. A special agreement with Vipps that allows merchant initiated agreements.
+2. An extra parameter to the order process that indicates the process should be used with Vipps.
+
 Payment Type Management
 -----------------------
 Since Vipps Recurring is backed by bank accounts and potentially card agreements, there is a need to manage the card agreements upon expiration.
