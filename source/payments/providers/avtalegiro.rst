@@ -3,7 +3,7 @@
 AvtaleGiro
 ===========
 
-AvtaleGiro is the local Norwegian Direct Debit solution for consumers, provided by Mastercard Payment Services (MPS), formerly NETS.
+AvtaleGiro is the primary (only) Norwegian Direct Debit solution for consumers, provided by Mastercard Payment Services (MPS), formerly NETS.
 
 Mandate Registration
 --------------------
