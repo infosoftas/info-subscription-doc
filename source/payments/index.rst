@@ -128,3 +128,4 @@ Provider Integrations
     
     providers/avtalegiro
     providers/vipps
+    providers/swedbank
