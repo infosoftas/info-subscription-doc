@@ -127,3 +127,5 @@ Provider Integrations
     :maxdepth: 1
     
     providers/avtalegiro
+    providers/vipps
+    providers/swedbank
