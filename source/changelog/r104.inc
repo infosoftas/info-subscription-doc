@@ -24,7 +24,7 @@ The following new features and improvements are now available in the API and the
 * Fixed an issue where Vipps charges would not be generated in a timely manner if the Billing Plan minimum due days was set to 2 and the subscription renewed around midnight UTC.
 * The event for Invoice Issued would sometimes be triggered before the Invoice was available for querying. This has been fixed.
 * It is now possible to set the intial Invoice and Subscriber sequence number to 0, making it possible to have the first Invoice Number have a value of 1.
-* Fixed an issue causing the OCR payment import to fail if an AvtaleGiro mandatecancellation was registered for a subscriber with multiple active AvtaleGiro mandates.
+* Fixed an issue causing the OCR payment import to fail if an AvtaleGiro mandate cancellation was registered for a subscriber with multiple active AvtaleGiro mandates.
 * The reporting service now reflects Standalone Account Payment Demands entirely.
 
 Merchant Client
@@ -55,7 +55,7 @@ INFO-Subscription implements its own authorization logic for the self-service cl
 
 Multiple tenants have similar requirements for authorization, and while not all tenants have the same requirements, we have decided to implement a common authorization service that can be used if desired.
 
-This release includes the first preview of this service, where users are mapped to either a subscriber or a subscriber account, and depending on the mapping, a list of products is mapped to the user based on the current active susbcriptions.
+This release includes the first preview of this service, where users are mapped to either a subscriber or a subscriber account, and depending on the mapping, a list of products is mapped to the user based on the current active subcriptions.
 The end result is that authorization can look at the product list for the user and determine access/authorization this way.
 
 Additionally, we have added Authentication Provider support for Active Directory B2C (ADB2C), so that the list of products is injected directly into the `access_token` during signin.
