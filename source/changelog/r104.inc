@@ -1,7 +1,7 @@
 .. _changelog-r104:
 
 ************************
-Release August 16th 2022
+Release August 18th 2022
 ************************
 We are back after the summer! It has been a long time since the last release, everyone has been on vacation so the release size does not reflect the length directly (it is quite large regardless).
 
