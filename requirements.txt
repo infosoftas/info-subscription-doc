@@ -1,2 +1,3 @@
-sphinx-tabs
-sphinxcontrib-contentui
+sphinx-tabs==3.5.1
+sphinxcontrib-contentui==0.2.5
+sphinx==5.1.1
