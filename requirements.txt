@@ -2,4 +2,4 @@ sphinx-tabs>=3.4.1
 sphinxcontrib-contentui>=0.2.5
 sphinx>=5.1.1
 sphinx-rtd-theme>=1.0.0
-docutils>=0.18.0
+docutils~=0.18.0
