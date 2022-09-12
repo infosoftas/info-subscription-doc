@@ -4,7 +4,7 @@
 Authenticating Subscribers
 ***************************
 
-|projectName| utilizes {AUTH0} for managing subscriber users, as such developers familiar with {AUTH0} can use what they know of {AUTH0} out of the box, and may refer to their documentation for details.
+|projectName| has a built-in module utilizing {AUTH0} for managing subscriber users, as such developers familiar with {AUTH0} can use what they know of {AUTH0} out of the box, and may refer to their documentation for details.
 
 In order to authenticate users, a regular Open Id Connect (OIDC) login flow may be used.
 
@@ -95,7 +95,7 @@ Obtaining the Subscriber Id from the token
 ==========================================
 During the OIDC flow, the client may request an `access_token <http://https://auth0.com/docs/tokens/overview-access-tokens>`_  or an `id_token <https://auth0.com/docs/tokens/guides/id-token/get-id-tokens>`_.
 
-When users are managed using the |projectName| Sales Poster and self-service client, both of these tokens should a custom claim for the subscriber id, similar to the listing below:
+When users are managed using the |projectName| Sales Poster and self-service client, both of these tokens should have a custom claim for the subscriber id, similar to the listing below:
 
 .. code-block:: json
     :caption: Sample Id Token content

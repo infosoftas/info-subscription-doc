@@ -27,7 +27,7 @@ Customizable Subscriber Number
 ==============================
 By default the subscriber number is generated from an internal sequence provided by |projectName|.
 
-In some cases it may be desirable to use externally assigned numbers, typically the case where external CRM systems have numeric identifiers, or multiple subscription systems are in use.
+In some cases it may be desirable to use externally assigned numbers, typically the case where external CRM/ERP systems have numeric identifiers, or multiple subscription systems are in use.
 
 Internal subscriber number generation can be toggled off, see to the :api-ref:`refence docs </SubscriberConfiguration/SubscriberConfigurationPost>` for details.
 

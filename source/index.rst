@@ -50,8 +50,9 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     :hidden:
 
     subscribers/subscribers
-    subscribers/users/authentication
-    subscribers/users/authorization
+    subscribers/users/authentication-authorization/introduction
+    subscribers/users/authentication-authorization/auth0-legacy/authentication
+    subscribers/users/authentication-authorization/auth0-legacy/authorization
 
 .. toctree::
     :caption: Self Service and Salesposter
