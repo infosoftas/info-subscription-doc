@@ -1,4 +1,4 @@
-.. _user-authentication:
+.. _auth-product-in-depth:
 
 *******************************
 Product Authorization In Depth
@@ -151,3 +151,16 @@ The same can be achieved if you are running your own |ADB2C| instance. In that c
     We are working on migrating our Auth0 based tenants to a solution where the tokens are enriched in the same manner, but it requires some work and most importantly coordination.
     
     If you are interested in transitioning to this new solution please reach out to :ref:`support <reporting-bugs>`.
+
+
+.. include:: site-access.rst
+
+*********************************
+Legacy Authentication Using Auth0
+*********************************
+The following section is here to document the legacy authentication process for tenants using Auth0 for their users.
+
+.. toctree::
+    
+    auth0-legacy/authentication
+    auth0-legacy/authorization
