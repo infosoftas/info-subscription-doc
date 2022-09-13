@@ -53,7 +53,7 @@ The process is very similar to registrations with an order:
 Prepared Transactions
 ---------------------
 It is possible to prepare agreement transactions and send them to potential subscribers as direct URLs to the agreement terminal.
-For more info check the Swedbank website, or contact support.
+For more info check the Swedbank website, or :ref:`contact support <reporting-bugs>`.
 
 
 Manually Registering Agreements

@@ -50,7 +50,13 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     :hidden:
 
     subscribers/subscribers
-    subscribers/users/authentication-authorization/introduction
+
+.. toctree::
+    :caption: Authentication and Authorization
+    :hidden:
+
+    subscribers/users/authentication-authorization/quick-start
+    subscribers/users/authentication-authorization/user-management-authentication
     subscribers/users/authentication-authorization/auth0-legacy/authentication
     subscribers/users/authentication-authorization/auth0-legacy/authorization
 
