@@ -238,7 +238,7 @@ def setup(app):
    app.connect('source-read', replacements)
 
 extlinks = {
-    'github-issues': ('https://www.github.com/infosoftas/info-subscription/issues/%s', 'Github Issue '),
-    'api-ref': ('https://api.info-subscription.com/swagger/#/%s', 'API Reference '),
+    'github-issues': ('https://www.github.com/infosoftas/info-subscription/issues/%s', 'Github Issue %s '),
+    'api-ref': ('https://api.info-subscription.com/swagger/#/%s', 'API Reference %s'),
 }
 
