@@ -44,7 +44,8 @@ extensions = [
     'sphinx.ext.imgmath',
     'sphinx.ext.extlinks',
     'sphinx_tabs.tabs',
-    'sphinxcontrib.contentui'
+    'sphinxcontrib.contentui',
+    'sphinx_rtd_theme'
     ]
 # extensions = ['sphinx_tabs.tabs']
 
@@ -213,6 +214,8 @@ rst_prolog = """
 .. |auth0audience| replace:: https://api.info-subscription.com/
 .. |tokenUrl| replace:: https://infosubscription.eu.auth0.com/oauth/token
 .. |auth0domain| replace:: infosubscription.eu.auth0.com
+.. |ADB2C| replace:: `ADB2C <https://docs.microsoft.com/en-us/azure/active-directory-b2c/overview/>`__
+.. |Swedbank| replace:: `Swedbank Pay <https://www.swedbankpay.com/>`__
 """
 
 def replacements(app, docname, source):

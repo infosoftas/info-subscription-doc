@@ -50,8 +50,13 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     :hidden:
 
     subscribers/subscribers
-    subscribers/users/authentication
-    subscribers/users/authorization
+
+.. toctree::
+    :caption: Authentication and Authorization
+    :hidden:
+
+    authentication-authorization/quick-start
+    authentication-authorization/user-management-authentication
 
 .. toctree::
     :caption: Self Service and Salesposter

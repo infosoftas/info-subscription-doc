@@ -4,9 +4,13 @@
 API Authentication and Authorization
 ************************************
 
-|projectName| APIs uses OAuth2 for Authentication.
+|projectName| APIs uses OAuth2 for API Authentication.
 
 The service is provided by {AUTH0}, and thus the gory details may be found at the {AUTH0} website, but the following should get you started.
+
+.. important::
+    
+    This sections is describes authentication for the API, look :ref:`here for details on end-user/subscriber authentication and authorization for subscribers <end-user-authentication>`.
 
 Short Version
 =============
@@ -15,6 +19,8 @@ The quick'n'dirty details for those already familiar with OAuth2 flows.
 * Token URL: at |tokenUrl|
 * Grant Type: Typically ``client_credentials`` but any of the common grant types works. Contact support for specific grant types.
 * Audience: |auth0audience|
+
+Remember to re-use the token untill it expires.
 
 Authorization in detail
 =======================
@@ -64,3 +70,13 @@ Authorization Flows or Grant Types
 ----------------------------------
 There are multiple ways to authorize an application to work with an API, in OAuth2 lingo these different flows are called grant types.
 Depending on your use case, you may use the flow you are most comfortable with, but for machine to machine interaction, with no end-users involved, we recommend using `client_credentials` grant type.
+
+Reuse/Cache the Token
+---------------------
+All API tokens contains information about when they expire relative to the issuing time. That means a token can be re-used for all machine to machine requests in the timeframe for the given client/audience/tenant pair.
+For most integrations that means only one token is needed at a time. For some integrations it may require a few more, but a limited set of tokens needs to be generated and they can be kept untill they expire.
+
+While obtaining a new token is a relatively quick action, the token should be re-used until it expires for two primary reasons:
+
+1. It improves the performance/experience for the integration i.e. not every API call needs a new token authorization, but just once every hour/day the overhead is paid.
+2. Costs, there is an indirect cost associated with API Authentications, in case of repeated misuse extra charges may be added to the tenant.
