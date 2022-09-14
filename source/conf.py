@@ -45,6 +45,7 @@ extensions = [
     'sphinx.ext.extlinks',
     'sphinx_tabs.tabs',
     'sphinxcontrib.contentui'
+    'sphinx_rtd_theme'
     ]
 # extensions = ['sphinx_tabs.tabs']
 
