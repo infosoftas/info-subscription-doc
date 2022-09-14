@@ -1,2 +1,4 @@
 sphinx-tabs
 sphinxcontrib-contentui
+sphinx>=5.1.1
+sphinx-rtd-theme
