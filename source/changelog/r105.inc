@@ -11,7 +11,7 @@ API and Backend
 ===============
 The following new features and improvements are now available in the API and the backend.
 
-* New "helper" API to support the GDPR "right to erasure". This now supports getting rid of Orders, Subscribers, Deliveries and Invoices with sensitive data. The legally required data of the Invoices are kept while subscriber information is scrubbed.
+* New "helper" API to support the GDPR "right to erasure". This now supports getting rid of Subscribers, Deliveries and Invoices with sensitive data. The legally required data of the Invoices are kept while subscriber information is scrubbed.
 * Fixed an issue where querying for available products on a user would give an invalid result **Preview**.
 * Getting a specific Credit Note file from the Invoice/CreditNote API would always cause an 500 Internal Server error. This has now been fixed.
 * Extended information on contract surcharge fees when cancelling subscriptions.
