@@ -216,6 +216,10 @@ rst_prolog = """
 .. |auth0domain| replace:: infosubscription.eu.auth0.com
 .. |ADB2C| replace:: `ADB2C <https://docs.microsoft.com/en-us/azure/active-directory-b2c/overview/>`__
 .. |Swedbank| replace:: `Swedbank Pay <https://www.swedbankpay.com/>`__
+.. |adb2cAudience| replace:: 7bdcdd56-3ba6-4e6d-a841-db4816d7909d
+.. |adb2cMetadataUrl| replace:: https://prodlogins4.b2clogin.com/prodlogins4.onmicrosoft.com/B2C_1A_V2SIGNIN/v2.0/.well-known/openid-configuration
+.. |adb2cTokenUrl| replace:: https://prodlogins4.b2clogin.com/prodlogins4.onmicrosoft.com/B2C_1A_V2SIGNIN/oauth2/v2.0/token
+.. |adb2cScope| replace:: https://prodlogins4.onmicrosoft.com/api/.default
 """
 
 def replacements(app, docname, source):
