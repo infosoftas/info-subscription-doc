@@ -16,7 +16,7 @@ The following new features and improvements are now available in the API and the
 * Option for adding number of units when create subscriptions directly (not using Orders).
 * Multiple improvements bug fixes to the user authorization product list generation **Preview**.
 * The API now accepts token issued by our new Azure ADB2C instance **Preview**.
-* Added dunning process configuration to limit automatic settlment based on amount paid relative to the issued demand **Preview**.
+* Added dunning process configuration to limit automatic settlement based on amount paid relative to the issued demand **Preview**.
 * Credit Notes now have their own model in the reporting sub system similar to invoices.
 * Fixed an issue where Invoice Contact information would be put into the Invoice Document with an invalid reference type (it would refer Subscriber when it was indeed a Subscriber Contact).
 * Ledger transactions now includes optional reference fields for Credit Note, Refund and Reminders.
