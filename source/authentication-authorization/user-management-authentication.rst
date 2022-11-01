@@ -24,7 +24,7 @@ There are several central parts
 * Users
 * Authorization Sources
 
-The following goes into details about each area in turn, describing how they work, can be used by external parties, and how |projectName| use these for providing an out-of-the-box auhtorizaiton experience using |ADB2C| and {Auth0}
+The following goes into details about each area in turn, describing how they work, can be used by external parties, and how |projectName| use these for providing an out-of-the-box auhtorizaiton experience using |ADB2C| and {AUTH0}
 
 To create, update and otherwise manipulate these items look at the API Reference documentation, specifically anything under the `/authorization` path.
 
