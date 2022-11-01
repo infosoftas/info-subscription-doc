@@ -40,14 +40,14 @@ To obtain a token ``POST`` a request to |adb2cTokenUrl| with a body containing y
    .. code-tab:: bash curl
 
     curl --request POST \
-        --url '|adb2cTokenUrl|' \
+        --url 'https://prodlogins4.b2clogin.com/prodlogins4.onmicrosoft.com/B2C_1A_V2SIGNIN/oauth2/v2.0/token' \
         --header 'content-type: application/x-www-form-urlencoded' \
         --data 'grant_type=client_credentials&client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&scope=|adb2cscope|
 
    .. code-tab:: http http
 
-        POST |adb2cTokenUrl| HTTP/1.1
-        Host: |adb2cHost|
+        POST https://prodlogins4.b2clogin.com/prodlogins4.onmicrosoft.com/B2C_1A_V2SIGNIN/oauth2/v2.0/token HTTP/1.1
+        Host: prodlogins4.b2clogin.com
         Content-Type: application/x-www-form-urlencoded
         Accept: application/json
 
