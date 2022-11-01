@@ -1,21 +1,21 @@
 .. _authorization:
 
 ************************************
-API Authentication and Authorization
+API Authentication and Authorisation
 ************************************
 
 |projectName| APIs uses OAuth2 and OIDC for API Authentication. 
 OAuth2 knowledge on its own is sufficient but the metadata discovery of OIDC makes the process simpler for most libraries.
 
-The underlying auth service is provided by |ADB2C| the following should get you started, if you have questions reach out to support.
+The underlying authentication service is provided by |ADB2C| the following should get you started, if you have questions reach out to support.
 
 .. important::
     
-    This sections describes authentication for the API, look to the :ref:`User Authorization Quick Start <auth-quick-start>` for details on end-user/subscriber authentication and authorization.
+    This sections describes authentication for the API, look to the :ref:`User Authorisation Quick Start <auth-quick-start>` for details on end-user/subscriber authentication and authorisation.
 
-Minium Required Details
-=======================
-The quick'n'dirty details for those already familiar with OAuth2 or OIDC flows who just wants to get stated.
+Minimum Required Details
+========================
+The quick'n'dirty details for those already familiar with OAuth2 or OIDC flows who just wants to get started.
 
 * Token URL: at |adb2cTokenUrl|
 * Grant Type: Typically ``client_credentials``
@@ -25,11 +25,11 @@ The quick'n'dirty details for those already familiar with OAuth2 or OIDC flows w
 
 Remember to `Reuse the Token`_ until it expires!
 
-Token Aquisition
-================
+Token Acquisition
+=================
 
 If you are somewhat familiar with OAuth2 and OIDC terminology we rely on |ADB2C| as the *Authorization server*.
-If you have no clue what an authorization server is, it is basically the thing that identifies the application for the user and the API.
+If you have no clue what an authorisation server is, it is basically the thing that identifies the application for the user and the API.
 
 To access the API you should obtain a token using for instance the ``client_credentials`` grant type.
 
@@ -77,12 +77,12 @@ Once you have a token, it should be included in the ``Authorization`` header as 
     
     Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Imhxb2k2Z19yanhEdmtuWmVKNDVIWk9UbnhkeHNrSnVldTRCdE04ajRQTFUifQ.eyJpc3MiOiJodHRwczovL3FhbG9naW5zNC5iMmNsb2dpbi5jb20vZDgxODM4NGEtZjZjZS00ZDJhLWIwNWEtMjI5NTUxZjY4YTJhL3YyLjAvIiwiZXhwIjoxNjY0MjkyOTg2LCJuYmYiOjE2NjQyODkzODYsImF1ZCI6IjcyNjM4OWJiLTVmODAtNDdlOC1hMTE1LTk0MjcxMTlmOTI5OSIsInRpZCI6ImQ4MTgzODRhLWY2Y2UtNGQyYS1iMDVhLTIyOTU1MWY2OGEyYSIsImNvcnJlbGF0aW9uSWQiOiIzZDM2NjAzNi1kMWYzLTQyYjctOGMzMC1lNWI2ZDAzZGIzMTEiLCJzY3AiOiJhcGlhZG1pbiIsImF6cGFjciI6IjEiLCJzdWIiOiI3MWQ3ZTNhMS0yMTA3LTQ5ZmUtOTZiMy00ZGFiM2JhYmM4NDgiLCJvaWQiOiI3MWQ3ZTNhMS0yMTA3LTQ5ZmUtOTZiMy00ZGFiM2JhYmM4NDgiLCJ2ZXIiOiIyLjAiLCJhenAiOiJmNmY4OWQ5Ni02N2VjLTQ1ZWQtYmJjOS0xMTExMmE0OTUxZDAiLCJpYXQiOjE2NjQyODkzODZ9.Y2syarjQxh1Bxc6W9vsnXo6TvOgFZZGb4cy21wZNzHy6s3lXmmuUtQ-Aae7CODXYhgLtE5PEmcgGzBSlxVbW_MM937e1yx6y0fDgr9wONcFc5RRxjYZctXVOH38TMWj2p-LSOSGZPgVH_CD1vEsA05urszP4QllkQwhHY5RN7Y-1PI-KupPkIocddJchl3jw_HB8_iIP9IjUhxptH6bAXjDwnzoVbMVVfCy4qMpf4EpxsbOP9nUdyhDJBHnTmYamnOKEk6JfDMJ1Y_f2seLK9HZ7GVT2RL7hn1X7zgL474LgOVOwOk8VolTzHOxV2kmacAVUlL0X6x0mfpAEEh9j8Q
 
-If the client that obatined the token is allowed to communicate with the API, the request will go through, and otherwise you will get an ``403 Forbidden`` error.
+If the client that obtained the token is allowed to communicate with the API, the request will go through, and otherwise you will get an ``403 Forbidden`` error.
 Requests with invalid tokens, or without tokens will be presented with a ``HTTP 401`` error.
 
-Authorization Flows or Grant Types
+Authorisation Flows or Grant Types
 ==================================
-There are multiple ways to authorize an application to work with an API, in OAuth2 lingo these different flows are called grant types.
+There are multiple ways to authorise an application to work with an API, in OAuth2 lingo these different flows are called grant types.
 Depending on your use case, you may use the flow you are most comfortable with.
 
 For machine to machine interaction, with no end-users involved, the recommended option is to use `client_credentials` grant type.
@@ -99,8 +99,8 @@ While obtaining a new token is a relatively quick action, the token should be re
 1. It improves the performance/experience for the integration i.e. not every API call needs a new token authorization, but just once every hour/day the overhead is paid.
 2. Costs, there is an indirect cost associated with API Authentications, in case of repeated misuse extra charges may be added to the tenant.
 
-Legacy Token Aquisition using Auth0 
-===================================
+Legacy Token Acquisition using Auth0 
+====================================
 
 The following describes obtaining tokens using {AUTH0} as the provider. This solution is now deprecated, but it still works for tenants that were using it previously.
 The documentation is kept for reference as long as there are active tenants running with this setup.
@@ -117,7 +117,7 @@ The quick'n'dirty details for those already familiar with OAuth2 flows.
 
 Remember to re-use the token untill it expires!
 
-Authorization in detail
+Authorisation in detail
 -----------------------
 To access the API you should obtain a token using for instance the ``client_credentials`` grant type.
 

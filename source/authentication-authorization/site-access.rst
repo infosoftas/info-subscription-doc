@@ -1,8 +1,8 @@
 .. _auth-site-access:
 
-
 Scenario: Site Access
 =====================
+
 For some business scenarios, it is common to provide access to a product for a given site or location.
 
 A common example is scientific journals, a university buys access and all employees and students are granted access whenever they are on campus.
@@ -15,9 +15,9 @@ The scenario assumes the following:
 
 * A subscription for a given product is required to access content.
 * A campus/site/location can be associated with one or more public IP Addresses.
-* The content managementsystem can identify the accessing IP.
+* The content management system can identify the accessing IP.
 
-To achieve such a site access authorization a few things should be done.
+To achieve such a site access authorisation a few things should be done.
 
 Using |projectName| do the following:
 
@@ -32,9 +32,9 @@ Using |projectName| do the following:
 In the CMS do the following:
 
 1. Before Authentication obtain the IP address and look it up using the endpoint from above.
-2. If a valid/success response is given grant access, otherwise start the regular authentication and authoriation process for users.
+2. If a valid/success response is given grant access, otherwise start the regular authentication and authorisation process for users.
 
 Now everyone on campus has access without authenticating and without an individual subscription.
 
-If the subscription is upggraded, everyone gets access to the upgrade.
+If the subscription is upgraded, everyone gets access to the upgrade.
 Should the subscription be cancelled, everyone looses their access.
