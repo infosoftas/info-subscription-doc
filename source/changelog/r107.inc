@@ -18,7 +18,6 @@ The following new features and improvements are now available in the API and the
 * The Distribution Innovation export now uses the configured custom filename as well as the given distribution date.
 * Introduced a settlement policy configuration controlling when to settle payment demands **Preview**.
 * Processed Payment Requests now includes a counter for number of previous request processing attempts.
-* Swedbank Pay Payment Agreements are now populated with cardmask, expiry date and brand during if not given during agreement import.
 * Fixed an issue where the reporting subsystem would not have the correct information on Subscriptions and Subscription Plans.
 * Fixed an issue where not all reminders would be generated in the reporting subsystem.
 * Added a validation mechanism to prevent multiple reminders being generated with the same Id.
@@ -43,7 +42,7 @@ Merchant Client
 ===============
 The following new features and improvements are now available in the merchant client.
 
-* Exposed event configuration for new evens `PaymentRequestProcessed` and `PaymentRequestScheduled`
+* Exposed event configuration for new events `PaymentRequestProcessed` and `PaymentRequestScheduled`
 * Various minor text and translation adjustments
 * Fixed an issue where number of units was not transfered when pausing a subscription.
 * Fixed an issue where it was not possible to specify a custom email for Invoice and Credit Note copies for Enterprise Plan invoices.
@@ -54,5 +53,5 @@ Self-Service and Salesposter
 The following new features and improvements are now available in the self-service client
 
 * Better feedback when registering new shared/family users. 
-* Proper error message in case of insufficinet password complexity during user creation in the order process.
+* Proper error message in case of insufficient password complexity during user creation in the order process.
 * Fixed an issue where the contact was duplicated when reusing an existing contact during orders.
