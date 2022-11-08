@@ -1,3 +1,4 @@
+.. include:: r107.inc
 .. include:: r106.inc
 .. include:: r105.inc
 .. include:: r104.inc
@@ -8,4 +9,3 @@
 .. include:: r99.inc
 .. include:: r98.inc
 .. include:: r97.inc
-.. include:: r96.inc
