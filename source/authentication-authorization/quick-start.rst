@@ -79,36 +79,35 @@ Once decoded the ``id_token`` contains the identification of the user as well as
 The two claims containing the identification:
 
     * ``extension_SubscriberId`` - A SubscriberId representing a specific subscriber.
-    * ``extension_Products`` - A comma separated list of products the user is somehow mapped to currently.
+    * ``extension_Products`` - A JSON string containing an array of products and the users current validity of those products.
 
 
 .. code-block::
     :caption: Sample Id Token
 
-    eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQndhTmsifQ.eyJleHAiOjE2NjMwNjQ5MjAsIm5iZiI6MTY2MzA2MTMyMCwidmVyIjoiMS4wIiwiaXNzIjoiaHR0cHM6Ly9zdHJpa2tlZGFtZW5zNHFhLmIyY2xvZ2luLmNvbS80NmJlNmVjOC1iNzRhLTQ0YTAtYWFkNi0wZjRhMzA0YjU5ZTcvdjIuMC8iLCJzdWIiOiI3NGEyOTRjMy03NmQxLTQwMjktOWJjMC0zNTAyMmJkN2E2MWUiLCJhdWQiOiI5NmMwNzczNS0wZTk3LTQ3YTAtYmI0MC0yOTk3MjZmMWM3YjUiLCJub25jZSI6ImRlZmF1bHROb25jZSIsImlhdCI6MTY2MzA2MTMyMCwiYXV0aF90aW1lIjoxNjYzMDYxMzIwLCJuYW1lIjoiRXNiZW4iLCJnaXZlbl9uYW1lIjoiRXNiZW4iLCJlbWFpbHMiOlsiZXNiYmFjaEBpbmZvc29mdC5ubyJdLCJleHRlbnNpb25fU3Vic2NyaWJlcklkIjoiN2U0MTE2NWQtOTA5OS00Y2MwLTllOWItYzk3YjkzODgzY2QwIiwiZXh0ZW5zaW9uX1Byb2R1Y3RzIjoiNTQ5NzJjODctY2JhMy00YWY5LTMwODYtMDhkYTBiZDI0MDhjLDdmNWY3OGE1LWM4NDItNDI5Ny0zMDg3LTA4ZGEwYmQyNDA4Yyw5MGZhYzMyMi02ZDA2LTQyZTItMzA4OC0wOGRhMGJkMjQwOGMiLCJ0ZnAiOiJCMkNfMV9TaWduSW4ifQ.CctTVjBKw1SilfWOu2XStR6V6idzQNfxPrEnG-wU-B61_c8wbV4sqrM4JZpNmaCSJIqWUY2Le7ZXEz-kgenAzaKJ-s79xiU19G_G23yMeJh-MJJ2llasNLI9Lw57fRS032oswZj_pAr7qYx1xf5BX6cwV2YqU2zmwXsSYr4SVwAgs-CeB26HMB075cQSZ0bTXqWi78i7-4MLBAd44o-xrETxp5ZAmXr8BKifQe3tKdkD90onrlJQUVgQ0al9Ih5nC58GIcUwfghSFeuh8ZkG9Mx8Pjw2kYqDT70m2IHHVqFyG55YREDTz2MkD-oxEac7cfH2vNEbt7sHlHxVE3kseA
+    eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQndhTmsifQ.eyJleHAiOjE2Njk5NzcwOTgsIm5iZiI6MTY2OTk3MzQ5OCwidmVyIjoiMS4wIiwiaXNzIjoiaHR0cHM6Ly9leHBlcmltZW50YXRpb25zNHByb2QuYjJjbG9naW4uY29tL2IyZjhmZWNhLTFhNWMtNDA5MC1hYjQxLTkwMTNkMzQyMDExOC92Mi4wLyIsInN1YiI6IjYyYTc4NmQyLTVjZDItNGEyNi05Y2IwLTE4YjA1NmI5NTYyZiIsImF1ZCI6IjFiMTYyMjMwLTE4MGMtNDY0OC05ZDBmLWEzMTNiYjg2NTEwYyIsImlhdCI6MTY2OTk3MzQ5OCwiYXV0aF90aW1lIjoxNjY5OTczNDk4LCJuYW1lIjoiZXNiYmFjaCt0ZXN0dXNlcjFAaW5mb3NvZnQubm8iLCJlbWFpbHMiOlsiZXNiYmFjaCt0ZXN0dXNlcjFAaW5mb3NvZnQubm8iXSwiZXh0ZW5zaW9uX1N1YnNjcmliZXJJZCI6IjczMjY1NDgzLTBhNjQtNGFjYy05Y2NmLTExMzU5ZWY1Y2U5ZiIsImV4dGVuc2lvbl9Qcm9kdWN0cyI6Ilt7XCJJZFwiOlwiNzBlNzViYzAtNmMzZC00OTM0LWEyZTgtMDhkODBiOTJiNzIxXCIsXCJWYWxpZEZyb21cIjpcIjIwMjItMDYtMjlUMDU6Mzc6MjUuODY2OTA3MSswMDowMFwiLFwiVmFsaWRUb1wiOlwiMjAyMy0wNi0yOVQwNTozNzoyNC44NjY5MDcxKzAwOjAwXCJ9XSIsInRmcCI6IkIyQ18xX1NpZ25pbiIsImNfaGFzaCI6ImZscHdQdXRyMHpfaXVPVHd3N3pKZEEifQ.ADc-WY-w0CH3yY6Ch97vox2F-xEIQOsb3jKb45VJjfwKNuWWGauO5zsdwLyBQk0w_HVU1738SsFYfO0Iwe4cXM6gpf5LVwc8vjugD6pBZLN6SLPEnSCoMdDwRGT_hN_qaotZD7mKTXV3H0io98-btGWs9zjkzLX3APteDih7P8Kn-AjZPVxwnVgkRI0w3-SjkU1fiAtlRYYueFA_0pIEHeLfF9TcvknPvFQry8gvJZbm5-QRgP2z4n6_Hvh9prPDtot2BKahKkgCV877K4U5cYJkWWO8a0LVgKXbx0-7uI9YnjdKU1Hmloh7H70GpaxTfOoxzJxcs3Q9x5MafJvMdg
 
 
 .. code-block:: json
     :caption: Sample Id Token Decoded
 
     {
-        "exp": 1663064920,
-        "nbf": 1663061320,
+        "exp": 1669977098,
+        "nbf": 1669973498,
         "ver": "1.0",
-        "iss": "https://strikkedamens4qa.b2clogin.com/46be6ec8-b74a-44a0-aad6-0f4a304b59e7/v2.0/",
-        "sub": "74a294c3-76d1-4029-9bc0-35022bd7a61e",
-        "aud": "96c07735-0e97-47a0-bb40-299726f1c7b5",
-        "nonce": "defaultNonce",
-        "iat": 1663061320,
-        "auth_time": 1663061320,
-        "name": "Esben",
-        "given_name": "Esben",
+        "iss": "https://experimentations4prod.b2clogin.com/b2f8feca-1a5c-4090-ab41-9013d3420118/v2.0/",
+        "sub": "62a786d2-5cd2-4a26-9cb0-18b056b9562f",
+        "aud": "1b162230-180c-4648-9d0f-a313bb86510c",
+        "iat": 1669973498,
+        "auth_time": 1669973498,
+        "name": "esbbach+testuser1@infosoft.no",
         "emails": [
-            "esbbach@infosoft.no"
+            "esbbach+testuser1@infosoft.no"
         ],
-        "extension_SubscriberId": "7e41165d-9099-4cc0-9e9b-c97b93883cd0",
-        "extension_Products": "54972c87-cba3-4af9-3086-08da0bd2408c,7f5f78a5-c842-4297-3087-08da0bd2408c,90fac322-6d06-42e2-3088-08da0bd2408c", 
-        "tfp": "B2C_1_SignIn"
+        "extension_SubscriberId": "73265483-0a64-4acc-9ccf-11359ef5ce9f",
+        "extension_Products": "[{\"Id\":\"70e75bc0-6c3d-4934-a2e8-08d80b92b721\",\"ValidFrom\":\"2022-06-29T05:37:25.8669071+00:00\",\"ValidTo\":\"2023-06-29T05:37:24.8669071+00:00\"}]",
+        "tfp": "B2C_1_Signin",
+        "c_hash": "flpwPutr0z_iuOTww7zJdA"
     }
 
 The above JWT is a sample, not all fields will always be available or have values.
