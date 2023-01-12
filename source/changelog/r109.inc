@@ -16,9 +16,9 @@ The following new fixes, features and improvements are now available in the API 
 * Added new endpoint to lookup an address in Distribution Innovation based on the Delivery Point Id.
 * Fixed an issue with serialization for the recently introduced Settlement Policy configuration causing missing values for some response types.
 * SourceId is now included in the Subscriber Contact to determine what is the source of the subscribers information (the value here is currently the Delivery Point Id from Distribution Innovation).
-* It is now possible to add a cancellation type when cancelling a subscription to indicate why the cancellation is done. 
+* It is now possible to add a cancellation type when cancelling a subscription to indicate source of the cancellation (or the process that caused the cancellation).
     
-    * The idea is to differentiate between changes in the subscription and actual cancellation.
+    * The idea is to differentiate between changes in the subscription and actual cancellations.
     * The cancellation type is available in the reporting subsystem (meaning churn reports can exclude certain types of cancellations).
 
 * Changed the behaviour of automatic agreement switching for AvtaleGiro to consider subscriptions with a length down to 7 days. Previously it would only switch for subscriptions of 30 days or more, due to deadline rules defined by AvtaleGiro. The rules are now different when bank notification is disabled and thus 7 days can be allowed as the minimum subscription length.
@@ -55,4 +55,4 @@ Self-Service and Salesposter
 ============================
 The following new features and improvements are now available in the self-service client
 
-* Fixed an issue where resetting password would not pass due to wrong client side validations.
+* Fixed an issue where resetting password would result in an unintelligble access error message.
