@@ -166,6 +166,18 @@ To learn more about the available events and what data they contain see the `API
 
 Each event has a typename in the following format ``com.info-subscription.{eventName}``, so the ``SubscriptionCancelled`` event would be ``com.info-subscription.SubscriptionCancelled``.
 
+Event Headers
+-------------
+All webhook/event requests will include a series of custom header values that may be used for different purposes.
+
+The current list of headers sent to all endpoints is listed in the following table.
+
++-----------------+---------------+------------------------------------------------------+
+| Header Key      | Type          | Description                                          |
++-----------------+---------------+------------------------------------------------------+
+| S4-TenantId     | string/uuidv4 | Unique identifier for the tenant.                    |
++-----------------+---------------+------------------------------------------------------+
+
 Events Philosophy
 =================
 There are a few different approaches to take when designing events. This section attempts to clarify some of our reasoning, you might not agree, but atleast you will know why. 
