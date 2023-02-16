@@ -4,7 +4,7 @@
 Release Feburary 16th 2023
 ***************************
 In this release we are consolidating some of the internal services and resources.
-Primarily the consolidation is an internal resource and cost optimization, but it also provides lower latency and imporved performance for a series of operations related to Products, Prices, Template Plans, Organizations and Taxes.
+Primarily the consolidation is an internal resource and cost optimization, but it also provides lower latency and improved performance for a series of operations related to Products, Prices, Template Plans, Organizations and Taxes.
 There are no changes to the API or the functionality associated with these changes.
 
 API and Backend
@@ -19,12 +19,13 @@ The following new fixes, features and improvements are now available in the API 
 * Custom Power Bi reports data refresh is now scheduled semi-randomly when importing/uploading new reports.
 * Fixed a series of technical issues with the Mastercard Payment Services eFaktura integration, related to large queries and better status reporting.
 * A series of adjustments in how the subscriber ledger is updated when ledger based billing is toggled on. Fixes a series of issues where the ledger is out-of-sync with the underlying billing account and actually invoiced items.
-* Added handling of AvtaleGiro claims generation on weekends so that the duedate is pushed acording to the deadline calculations as if they were produced on the following monday.
+* Added handling of AvtaleGiro claims generation on weekends so that the duedate is pushed according to the deadline calculations as if they were produced on the following monday.
 * Fixed an issue where trying to generate an Account Demand with an invalid payment agreement would return HTTP 500 instead of HTTP 400 with a proper description.
 * Fixed an issue where Account Transaction types and descriptions would not be stored correctly.
 * Adjusted the EHF Organization validation so it only creates one record in the validation result regardless of the number of invoices where it has failed.
 * Fixed an issue with rounding during tax total caulcations for EHF.
 * Changed the handling of amount calculation in EHF to support multiple units.
+* Fixed an issue where starting subscriptions on an Enterprise Plan on the Alignment Date would cause the initial price to be 0.
 
 EHF as Payment Provider
 -----------------------
