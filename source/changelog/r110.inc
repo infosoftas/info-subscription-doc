@@ -23,7 +23,7 @@ The following new fixes, features and improvements are now available in the API 
 * Fixed an issue where trying to generate an Account Demand with an invalid payment agreement would return HTTP 500 instead of HTTP 400 with a proper description.
 * Fixed an issue where Account Transaction types and descriptions would not be stored correctly.
 * Adjusted the EHF Organization validation so it only creates one record in the validation result regardless of the number of invoices where it has failed.
-* Fixed an issue with rounding during tax total caulcations for EHF.
+* Fixed an issue with rounding during tax total calculations for EHF.
 * Changed the handling of amount calculation in EHF to support multiple units.
 * Fixed an issue where starting subscriptions on an Enterprise Plan on the Alignment Date would cause the initial price to be 0.
 
