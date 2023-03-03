@@ -21,15 +21,16 @@ Integration Options
 |projectName| is backed by an API that all tenants can make use of. 
 
 If you just want the gory details for the API you can browse `the Swagger UI <https://api.info-subscription.com/swagger/>`_ or `get the OpenAPI/Swagger definition file <https://api.info-subscription.com/swagger/v1/swagger.json>`_.
+
 Alternatively, head over to the :ref:`Getting Started with the API <getting-started>` section for a more gentle API introduction.
 
-Some tenants prefer to use our managed subscriber experience which includes
+Some tenants prefer to use our :ref:`managed subscriber experience <managed-experience>` which includes
 
  * A self-service portal/web site where subscribers can manage their subscriptions.
  * An ordering and user registration site/process where new subscribers can order subscriptions and register a new user.
  * An Identity Provider (IdP) solution that contains user credentials and some authorization information for letting users consume their purchased content.
 
-For integrating with the managed subcriber experience header over to our introduction to the managed experience.
+For integrating with the managed subcriber experience header over to our :ref:`introduction to the managed experience <managed-experience>`.
 
 
 Contact Information and Support
@@ -63,18 +64,11 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     subscribers/subscribers
 
 .. toctree::
-    :caption: Authentication and Authorization
-    :hidden:
-
-    authentication-authorization/quick-start
-    authentication-authorization/user-management-authentication
-
-.. toctree::
-    :caption: Self Service and Salesposter
+    :caption: Managed Subscriber Experience (Self-Service)
     :glob:
     :hidden:
 
-    selfservice/*
+    managed-experience/*
 
 .. toctree::
     :caption: Subscriptions
