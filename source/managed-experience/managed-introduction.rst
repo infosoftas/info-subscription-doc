@@ -1,3 +1,5 @@
+.. _managed-experience:
+
 Managed Subcriber Experience
 ============================
 The managed subscriber experience is a turn key solution for tenants that do not want to build their own customer facing solutions.
