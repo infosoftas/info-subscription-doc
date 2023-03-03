@@ -11,15 +11,26 @@
 Introduction
 ************
 
-This is the home of the API documentation for |projectName|.
-
-If you came here looking for the user documentation you are in the wrong place. This is the developer documentation.
+This is the home of the developer documentation for |projectName|.
+If you came here looking for the user documentation you are in the `wrong place <https://docs.infosoft.no/>`_.
 
 If you have no idea what |projectName| is, then head over to the `product website <https://www.infosoft.as/solutions/info-subscription/>`_ and have a look.
 
-If you just want the gory details you can browse `the Swagger UI <https://api.info-subscription.com/swagger/>`_ or `get the OpenAPI/Swagger definition file <https://api.info-subscription.com/swagger/v1/swagger.json>`_.
+Integration Options
+===================
+|projectName| is backed by an API that all tenants can make use of. 
 
-Otherwise head over to the :ref:`Getting Started <getting-started>` section
+If you just want the gory details for the API you can browse `the Swagger UI <https://api.info-subscription.com/swagger/>`_ or `get the OpenAPI/Swagger definition file <https://api.info-subscription.com/swagger/v1/swagger.json>`_.
+Alternatively, head over to the :ref:`Getting Started with the API <getting-started>` section for a more gentle API introduction.
+
+Some tenants prefer to use our managed subscriber experience which includes
+
+ * A self-service portal/web site where subscribers can manage their subscriptions.
+ * An ordering and user registration site/process where new subscribers can order subscriptions and register a new user.
+ * An Identity Provider (IdP) solution that contains user credentials and some authorization information for letting users consume their purchased content.
+
+For integrating with the managed subcriber experience header over to our introduction to the managed experience.
+
 
 Contact Information and Support
 =================================
