@@ -1,24 +1,32 @@
-Salesposter/Order Configuration
-===============================
+.. _salesposter:
+
+Orders and User Registration
+============================
 
 |projectName| contains a turnkey Salesposter/Ordering solution that can get organizations up and running in no time.
 
+For tenants where the managed subscriber experience is enabled, the salesposter is available on a URL following the template: https://{tenantName}-s4.azurewebsites.net/salesposter, where *tenantName* is the name of the tenant.
+
+If the tenant is configured with a :ref:`custom domain <selfservice-custom-domain>` that domain may be used instead of the azurewebsites subdomain, such as https://subscription.example.com/salesposter
+
+Creating new subscriptions is as simple as providing the user with a link to the salesposter. 
+Afterwards a user will exist that can be :ref:`authenticated and authorized <auth-quick-start>` by external parties, and recurring billing will follow automatically until the subscription is cancelled.
+
+Try it out using our experimentation site https://experimentation-s4.azurewebsites.net/salesposter
+
+Configuration Parameters for the ordering process
+-------------------------------------------------
 There are two levels/areas of configuration for the salesposter.
 
 A set of configuration options are static i.e. it does not vary from sale to sale or subscriber to subscriber, and is configured during onboarding and in some cases via the Merchant interface of |projectName|.
-For these static configurations 
+These are things covered by the user documentation and as such are not relevant from a technical/integration standpoint.
 
-Another set of configuration is dynamic and varies from process to process, currently only the salesposter contains dynamic parameters.
-These options are set using URL query parameters, and can be changed from session to session.
+Another set of configurations are dynamic and varies from process to process. These options can be changed from session to session at will.
 
-Configuration Parameters
-------------------------
 The Salesposter primarily uses URL query parameters to control presentation and validation logic.
 
 Once a user follows the link with query parameters, they are copied to an encrypted cookie and stored throughout the ordering process.
 To change these params, simply make a new URL with different values.
-
-Salesposter location follows the following template: https://{tenantName}-s4.azurewebsites.net/salesposter, where *tenantName* is the name of the tenant.
 
 The following table outlines the various parameters, some have a set of fixed possible values.
 
@@ -130,4 +138,4 @@ The following is a series of options tables (referenced by each parameter above)
 
     Example Url
     
-    https://experimentation.minside.info-subscription.com//salesposter?pty=1&templatepackageid=14714f54-dbf4-4899-a9c7-51763d536568
+    https://experimentation.minside.info-subscription.com/salesposter?pty=1&templatepackageid=14714f54-dbf4-4899-a9c7-51763d536568
