@@ -47,9 +47,19 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
 
    self
    general/getting-started
-   general/auth
    general/what-is-info-subscription
    general/terminology.rst
+   general/auth
+
+.. toctree::
+    :caption: Managed Subscriber Experience (Self-Service)
+    :hidden:
+
+    managed-experience/managed-introduction
+    managed-experience/selfservice/customization
+    managed-experience/authentication-authorization/quick-start
+    managed-experience/authentication-authorization/user-management-authentication
+    managed-experience/selfservice/custom-domain
 
 .. toctree::
     :caption: Events and Webhooks
@@ -62,15 +72,6 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     :hidden:
 
     subscribers/subscribers
-
-.. toctree::
-    :caption: Managed Subscriber Experience (Self-Service)
-    :glob:
-    :hidden:
-
-    managed-experience/*
-    managed-experience/selfservice/*
-    managed-experience/authentication-authorization/*
 
 .. toctree::
     :caption: Subscriptions

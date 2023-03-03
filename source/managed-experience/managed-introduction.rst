@@ -13,7 +13,11 @@ It consists of three parts which works in tandeem to provide a complete solution
 While the components provided are enough to get most business going, there is typically some requirement to make them interact with an external web-site.
 Either to funnel users into different sales processes (different plans, campaigns, products etc), or to authenticate and authorize users for consuming their content.
 
-For further information head on over to our :ref:`authentication and authorization <auth-quick-start>` section or the :ref:`ordering/sales <salesposter>` quick start section.
+A typical site integration consist of the following steps:
+
+  #. Add a link to the self-service site (see below).
+  #. Construct a landing page for common product/subscription offerings redirecting to the right :ref:`sales poster configuration<salesposter>`.
+  #. Implement :ref:`authentication and authorization <auth-quick-start>` for protected resources.
 
 Accessing Self-Service/Subscription Management
 ----------------------------------------------

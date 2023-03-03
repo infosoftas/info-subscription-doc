@@ -1,7 +1,7 @@
 .. _selfservice-custom-domain:
 
-Self-Service and Salesposter Custom Domain
-==========================================
+Custom Domain Support
+=====================
 
 By default all tenants utilizing the |projectName| self-service and salesposter solution will be hosted on a generic azure domain name in the form, `https://{tenantName}-s4.azurewebsites.net`.
 
