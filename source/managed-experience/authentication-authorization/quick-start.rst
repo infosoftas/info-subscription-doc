@@ -1,8 +1,9 @@
 .. _auth-quick-start:
 
-***********
-Quick Start
-***********
+****************************************************
+Authentication and Authorization Quick Start
+****************************************************
+
 For many subscription services, it is a requirement that subscribers can sign-in and access their subscription. 
 Either to consume it or to manage it, and often both.
 

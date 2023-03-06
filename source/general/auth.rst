@@ -1,7 +1,7 @@
 .. _authorization:
 
 ************************************
-API Authentication and Authorisation
+API Authentication and Authorization
 ************************************
 
 |projectName| APIs uses OAuth2 and OIDC for API Authentication. 

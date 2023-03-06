@@ -33,12 +33,20 @@ While not a complete feature list it gives you an overview of what you can expec
 
 Subscription Management and Billing 
 -----------------------------------
-|projectName| provides capabilities to create, cancel and upgrade/downgrade subscriptions, in relation to custom configured plans which helps drive billing.
+|projectName| provides capabilities to:
 
-In this case billing is the process of figuring out when and which subscribers should receive an invoice, and produce said invoices based on the details of the plan.
+ * Create new subscriptions.
+ * Handle cancelations and upgrades/downgrades subscriptions (both planned and immediate adjustments).
+ * Customize billing cycles to suit various business needs.
+ * Automatic proration for upgrades/downgrades.
+
+In this case billing is the process of figuring out when and which subscribers should receive an invoice, and produce said invoices based on the details of the purchased plan/product.
 Additionally billing refers to handling of payments and making sure that subscriptions are cancelled on missing payments etc.
 
 Automatic Payments
 ^^^^^^^^^^^^^^^^^^
 Part of the billing engine also manages automatic payments with cards, direct debit and similar, making sure that most subscribers pay the right amount at the right time.
 
+Automated Dunning
+^^^^^^^^^^^^^^^^^
+Sometimes subscribers neglects to pay their invoices, in these cases |projectName| makes it possible to automate dunning procedure to generate reminders, and adding handling fees etc.
