@@ -43,7 +43,7 @@ Doing a plan change is simple as:
 
 1. Determine the `SubscriptionId` to change.
 2. Determine/Build the SubscriptionPlan to change into (refer to Orders for details on Plan Choices)
-3. :api-ref:`Schedule the change <post_Subscription__subscriptionId__scheduledchange>` 
+3. :api-ref:`Schedule the change </Subscription/post_Subscription__subscriptionId__scheduledchange>` 
 
 A change is defined with a pocessing type, denoting when the change should be carried out.
 
