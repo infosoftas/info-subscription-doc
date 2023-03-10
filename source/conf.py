@@ -216,6 +216,11 @@ rst_prolog = """
 .. |auth0domain| replace:: infosubscription.eu.auth0.com
 .. |ADB2C| replace:: `ADB2C <https://docs.microsoft.com/en-us/azure/active-directory-b2c/overview/>`__
 .. |Swedbank| replace:: `Swedbank Pay <https://www.swedbankpay.com/>`__
+.. |SwedbankPay| replace:: `Swedbank Pay <https://www.swedbankpay.com/>`__
+.. |eFaktura| replace:: `eFaktura <https://www.efaktura.no/>`__
+.. |AvtaleGiro| replace:: `AvtaleGiro <https://www.avtalegiro.no/>`__
+.. |Vipps| replace:: `Vipps <https://www.vipps.no/>`__
+.. |AutoGiro| replace:: `Vipps <https://www.autogiro.se/>`__
 .. |adb2cAudience| replace:: 7bdcdd56-3ba6-4e6d-a841-db4816d7909d
 .. |adb2cMetadataUrl| replace:: https://prodlogins4.b2clogin.com/prodlogins4.onmicrosoft.com/B2C_1A_V2SIGNIN/v2.0/.well-known/openid-configuration
 .. |adb2cTokenUrl| replace:: https://prodlogins4.b2clogin.com/prodlogins4.onmicrosoft.com/B2C_1A_V2SIGNIN/oauth2/v2.0/token
@@ -233,8 +238,8 @@ replacementsTags = {
     "{AUTH0}" : "`Auth0 <https://www.auth0.com/>`_",
     "{AUTH0DOMAIN}" : "infosubscription.eu.auth0.com",
     "{SUPPORTPAGE}" : "https://www.infosoft.as/contact-us/",
-    "{payex}" : "`PayEx/Swedbank Pay <https://www.swedbankpay.com/>`_",
-    "{vipps}" : "`Vipps <https://www.vipps.no/>`_"
+    "{payex}" : "`Swedbank Pay <https://www.swedbankpay.com/>`_",
+    "{vipps}" : "`Vipps <https://www.vipps.no/>`_",
 }
 
 def setup(app):

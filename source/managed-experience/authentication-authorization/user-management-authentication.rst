@@ -153,7 +153,7 @@ The same can be achieved if you are running your own |ADB2C| instance. In that c
     If you are interested in transitioning to this new solution please reach out to :ref:`support <reporting-bugs>`.
 
 
-.. include:: site-access.rst
+.. include:: site-access.inc
 
 *********************************
 Legacy Authentication Using Auth0
