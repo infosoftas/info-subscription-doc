@@ -12,7 +12,6 @@ The following new fixes, features and improvements are now available in the API 
 
 * Added additional source/related properties to ledger transactions enabling easier source correlation (Invoices, Reminders, CreditNotes etc).
 * Cached the OAS3.0/Swagger JSON generation for the API significantly improving load times.
-* Added Invoice Contact Id in the API for Payment Demands and Preliminary Demands.
 * Fixed an issue with eFaktura where Susbcribers would be assigned an eFaktura agreement even when the issuer was blocked by the consignment.
 * Fixed an issue where allowance consumption of reminders would not settle the underlying demand if consuming all allowances would bring the payable amount down to 0.
 * Preliminary Demands are now automatically removed when future subscriptions are deleted.
@@ -31,7 +30,7 @@ The following new features and improvements are now available in the merchant cl
 
     * A view for listing and registering new refunds.
     * A search/grid view of all registered refunds including an export to CSV.
-    
+
 * Some improvements for searching by Invoice Number.
 * Registering a new subscription will now automatically refresh the overview to provide up to date information.
 * Fixed an issue where Vipps Recurring fees would be added using the wrong underlying type, essentially having no effect on the billing.
