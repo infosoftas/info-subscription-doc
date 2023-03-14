@@ -28,8 +28,10 @@ Merchant Client
 The following new features and improvements are now available in the merchant client.
 
 * Support for handling refunds. **Preview**
+
     * A view for listing and registering new refunds.
     * A search/grid view of all registered refunds including an export to CSV.
+    
 * Some improvements for searching by Invoice Number.
 * Registering a new subscription will now automatically refresh the overview to provide up to date information.
 * Fixed an issue where Vipps Recurring fees would be added using the wrong underlying type, essentially having no effect on the billing.
