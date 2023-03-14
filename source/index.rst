@@ -22,7 +22,7 @@ Integration Options
 
 If you just want the gory details for the API you can browse `the Swagger UI <https://api.info-subscription.com/swagger/>`_ or `get the OpenAPI/Swagger definition file <https://api.info-subscription.com/swagger/v1/swagger.json>`_.
 
-Alternatively, head over to the :ref:`Getting Started with the API <getting-started>` section for a more gentle API introduction.
+Alternatively, head over to the :ref:`Getting Started with the API <getting-started>` section for a more gentle API introduction, or look at our list of :ref:`common scenarios <common-scenarios>`.
 
 Some tenants prefer to use our :ref:`managed subscriber experience <managed-experience>` which includes
 
@@ -48,8 +48,9 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
    self
    general/getting-started
    general/what-is-info-subscription
-   general/terminology.rst
+   general/terminology
    general/auth
+   general/scenarios
 
 .. toctree::
     :caption: Managed Subscriber Experience (Self-Service)

@@ -159,7 +159,7 @@ Most libaries will do, but since we have used Microsoft ADB2C and Auth0 as the t
 Microsoft Authentication Library - MSAL
 ---------------------------------------
 
-Microsoft provides a range of `client SDKs <https://learn.microsoft.com/en-us/azure/active-directory/develop/msal-overview#languages-and-frameworks>`_ that are designed to work with the Microsoft Identity Platform on a wide array of languages and platforms.
+Microsoft provides a range of `client SDKs <https://learn.microsoft.com/en-us/azure/active-directory/develop/msal-overview#languages-and-frameworks>`__ that are designed to work with the Microsoft Identity Platform on a wide array of languages and platforms.
 
 It supports the various quirks of ADB2C, but should work for most OIDC providers.
 
@@ -168,7 +168,7 @@ Most of the SDKs includes transparent in-memory caching of tokens, and in some c
 Auth0 Authentication and Management Libraries
 ---------------------------------------------
 
-Similar Auth0 provides a wide range of `client SDKs <https://auth0.com/docs/libraries>`_  that are easily consumed and supports the various Auth0 quirks.
+Similar Auth0 provides a wide range of `client SDKs <https://auth0.com/docs/libraries>`__  that are easily consumed and supports the various Auth0 quirks.
 
 There are event more languages and frameworks supported for Auth0 than MSAL. 
 Similar to the Microsoft libraries, some of these provides in-memory caching as well as serialized token caches.
