@@ -8,6 +8,7 @@ The following is a short list of scenarios that we have identified as common and
 * :ref:`Creating New Subscriptions <subscription-orders>`
 * :ref:`Upgrading and Downgrading Subscriptions <subscription-plan-changes>`
 * :ref:`Authentication and Authorizing Subscribers <auth-quick-start>`
+* :ref:`Managing Subscriber Payment Agreements <manage-payment-agreement>`
 
 Is your desired scenario missing? It may still be found somewhere within the documentation. 
 

@@ -3,7 +3,7 @@
 AvtaleGiro
 ===========
 
-AvtaleGiro is the primary (only) Norwegian Direct Debit solution for consumers, provided by Mastercard Payment Services (MPS), formerly NETS.
+AvtaleGiro is the primary (only) Norwegian Direct Debit solution for consumers, it is provided by the Norwegian banks and driven by Mastercard Payment Services (MPS), formerly NETS.
 
 Mandate Registration
 --------------------
@@ -12,7 +12,7 @@ In AvtaleGiro terminology an agreement is called a mandate. The following will u
 AvtaleGiro traditionally provides an "out-of-band" style agreement registration. 
 
 1. The customer receives a physical invoice with a customer identifier (KID).
-2. The customer registers this in the online banking solution (or some other means as described by MPS https://www.mastercardpaymentservices.com/norway\_/Pages/Dev/paymentmandates.aspx)
+2. The customer registers this in the online banking solution (or some other means as described by MPS https://www.mastercardpaymentservices.com/norway/utvikler/paymentmandates)
 3. A mandate is sent to the merchant.
 4. Recurring payments can be charged on the consumers account, associated with the specific mandate.
 

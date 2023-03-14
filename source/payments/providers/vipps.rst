@@ -9,7 +9,7 @@ It is backed by a credit card, debit card or bank account managed by Vipps.
 Requirements for Vipps Recurring
 --------------------------------
 The requirements is that an account is setup for Vipps (:api-ref:`Account endpoint<Account/post_vipps_account>`).
-Infosoft is a Vipps partner and we can facilitate the Vipps onboarding process if required, please :ref:`contact support <reporting-bugs>` for details
+Infosoft is a Vipps partner and we can facilitate the Vipps onboarding process if required, please :ref:`contact support <reporting-bugs>` for details.
 
 Agreement Registration
 ----------------------
