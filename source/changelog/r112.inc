@@ -30,7 +30,7 @@ The following new fixes, features and improvements are now available in the API 
 * Credit Time on subscriber Ledger transactions now use the time of registration instead of the cancellation time when a subscription cancellation leads to an automatic crediting.
 * Fixed an issue with recurring deliveries related to deleting future subscriptions.
 * Fixed an issue where EHF would be generated in a way that was invalid for receiving subscriber contact did not have an email address.
-* Fixed an issue where subscription with an Initial Term for the current month would generated an invalid timestamp when observing DST.
+* Fixed an issue where subscription with an Initial Term for the current month would generate an invalid timestamp when observing DST.
 
 Merchant Client
 ===============
@@ -43,7 +43,7 @@ The following new features and improvements are now available in the merchant cl
 * New subscriber contact identification HPR (Norwegian Health Personell Registration Number).
 * Multiple adjustments for Billing Plan and Dunning Process setup.
 * Zip and City/Area has switched placed in contact overview.
-* When creating new subscription orders a small polling delay has been introduced to display the newly generated invoice and payment demand in most cases without requiring a manual refresh.
+* When creating new subscription orders, a small polling delay has been introduced, in order to display the newly generated invoice and payment demand in most cases without requiring a manual refresh.
 * Chain Steps are now sorted by the step order when editing existing chains.
 
 Self-Service and Salesposter
