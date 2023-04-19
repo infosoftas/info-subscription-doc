@@ -29,7 +29,7 @@ The following new fixes, features and improvements are now available in the API 
 * Fixed an issue where subscriber name and number would be stripped after crediting and re-issuing an Enterprise Plan Payment Demand.
 * Credit Time on subscriber Ledger transactions now use the time of registration instead of the cancellation time when a subscription cancellation leads to an automatic crediting.
 * Fixed an issue with recurring deliveries related to deleting future subscriptions.
-* Fixed an issue where EHF would be generated in a way that was invalid for receiving subscriber contact did not have an email address.
+* Fixed an issue where EHF would be generated in a way that was invalid when receiving subscriber contact did not have an email address.
 * Fixed an issue where subscription with an Initial Term for the current month would generate an invalid timestamp when observing DST.
 
 Merchant Client
