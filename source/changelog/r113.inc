@@ -17,7 +17,7 @@ The following new fixes, features and improvements are now available in the API 
   * The transactions that are posted on the subscriber ledger are also available in a new table in the reporting sub-system.
 
 * Included Currency on billing account transactions. This is solely a query/response simplification since the Currency is already accesible multiple other places in the hierarchy of the transaction.
-* Fixed an issue where consuming allowances during reminder generation would consume the entire allowance, even when only a partial consumption was allowed.
+* Fixed an issue where consuming allowances during reminder generation would not consume the allowance at all, effectively settling the demand and reminder without payments.
 * Adjusted payment demand generation so that due now includes time, and not always defaults to midnight. This alleviates an issue where payment provider integrations such as Swedbank Pay, could end up charging for the next subscription several hours before it was actually due.
 
 
