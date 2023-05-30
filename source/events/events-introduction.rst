@@ -165,6 +165,7 @@ It is a ``JSON`` object, and the ``eventType`` property describes which object i
 To learn more about the available events and what data they contain see the `API Reference <https://api.info-subscription.com/swagger/#/>`_ in the Models section.
 
 Each event has a typename in the following format ``com.info-subscription.{eventName}``, so the ``SubscriptionCancelled`` event would be ``com.info-subscription.SubscriptionCancelled``.
+This is also how the events are documented in the Models section of the API reference docs.
 
 Event Headers
 -------------
@@ -240,3 +241,9 @@ Security/Authentication
 Once a registration has been created, there is currently no built security mechanism such as an API key or HMAC to verify the validity of the content.
 
 You can append a secret as a query parameter when creating the webhook registration which will then be sent with every request if the event originates from |projectName|.
+
+Available Events
+================
+At any given time, |projectName| exposes the events listed in the `API Reference <https://api.info-subscription.com/swagger/#/>`_ in the Models section.
+
+The following contains a more detailed description of some of these events, when it is triggered and examples/ideas of what a given event might be used for.
