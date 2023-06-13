@@ -5,12 +5,10 @@ Release June 13th 2023
 ************************
 
 Time flies when you are having fun developing subscription software.
-Its time for another release, the last one before the summer holidays kicks in.
+It's time for another release, the last one before the summer holidays kicks in.
 That means the next release will not follow our regular monthly cadence - we will be back with another release some time in August most likely.
 
 We will try with a new format for the changelog, it will still be divided into three main parts, but we will also attempt to follow a type of change convention outlined on https://keepachangelog.com/
-
-This release is a mix of BLAH and BLAH
 
 API and Backend
 ===============
@@ -27,11 +25,10 @@ Added
 Fixed
 -----
 
-* Billing Account transactions would not always apply currency to the datamodel, causing it to be unavailable in the API and reporting/analytics solution.
+* Billing Account transactions would not always apply currency to the data model, causing it to be unavailable in the API and reporting/analytics solution.
 * Fixed an issue where removing a future cancellation would lead to invalid accounting and ledger information because any prorated charges would be invoiced again and any allowances would be written off/credited.
 * Fixed an issue where it was impossible to credit an Order Payment Demand for a future subscription that had been deleted.
-* If a billing account had an outstanding Payment Demand with an allowane in exess of the total payment demand amount, and a new payment was registered, the exess allowance would dissapear from the account. This issue has now been fixed.
-* Fixed an issue where an allowance on the exact Payment Demand amount would cause a reminder to be generated with just a Fee if reminder fees where enabled.
+* If a billing account had an outstanding Payment Demand with an allowance in excess of the total payment demand amount, and a new payment was registered, the excess allowance would disappear from the account. This issue has now been fixed.
 * All Payment Demands are now correctly assigned a time component of the payment due, this fixes an issue where Payment Requests would be captured slightly before the actual due time (Mostly relevant for |SwedbankPay|).
 * |SwedbankPay| agreements are now stored without time component for the expiration to prevent undefined adjustments of the timezone (the timezone is unknown and depends on the card issuer).
 
@@ -53,7 +50,7 @@ Security
 
 * Fixed an issue where a compromised upstream service for EHF receiver validation or Azure Event Grid could lead to our services being used for a DoS attack.
 
-[Preview] New behaviour: Automatic cancellation for missing payments (Payment Stop)
+[Preview] New behavior: Automatic cancellation for missing payments (Payment Stop)
 -----------------------------------------------------------------------------------
 
 We have introduced an alternative behaviour to automatically cancel subscription with a lack of payments.
@@ -80,20 +77,20 @@ Fixed
 
 * An issue with the total amount on Subscriber Ledger for Enterprise Plans.
 * An issue where adding a Vipps configuration would present an error message even though the configuration was created.
-* Updating an Organziations main identifier (Organizatoin Number) would reset other identifications configured, this has now been corrected.
+* Updating an Organizations main identifier (Organization Number) would reset other identifications configured, this has now been corrected.
 * An issue where crediting an Invoice for an Enterprise Plan, with a replacement, would lead to an error when generating the replacement Invoice.
 * Contract time was shown incorrectly when changing Subscription Plan.
-* An issue it was not possible to remove a future cancellation.
+* An issue where it was not possible to remove a future cancellation.
 
 Changed
 -------
 
 * Minor visual improvements to outstanding billing account transactions.
-* Multiple improvements and adjustments to the delivries view.
+* Multiple improvements and adjustments to the deliveries view.
 
 
-Self-Service and Salesposter
-============================
+Self-Service and Sales Poster
+=============================
 The following new features and improvements are now available in the self-service client
 
 Added
@@ -104,15 +101,15 @@ Added
 Fixed
 -----
 
-* When no sales terms are configured and error message will be displayed instead of causing an internal server error.
+* When no sales terms are configured, an error message will be displayed instead of causing an internal server error.
 * An issue with Orders using Vipps would keep on displaying the message to not close the window after completing the Vipps interaction.
 
 [Preview] Interactive Distribution Innovation Address Lookup (Address Helper)
 -----------------------------------------------------------------------------------
 
-With the Interactive DI Address Lookup Merchants and Subscribers will be presented with address suggestions based on information from the DI Addres Helper API.
+With the Interactive DI Address Lookup Merchants and Subscribers will be presented with address suggestions based on information from the DI Address Helper API.
 As the user enters street information, and selects a street additional suggestions will be provided for house, apartments etc.
 
-The end result is a high quality address that is directly transfered to DI when generating Distribution and Delivery information.
+The end result is a high quality address that is directly transferred to DI when generating Distribution and Delivery information.
 
 Interested in participating in the preview? Contact support, find the details on {SUPPORTPAGE}.
