@@ -19,7 +19,7 @@ The following new fixes, features and improvements are now available in the API 
 Added
 -----
 
-* Subscription Payment Demands and Order Payment Demands can now be credited via the POST `/paymentdemand/{id}/credit` endpoint.
+* Subscription Payment Demands and Order Payment Demands can now be credited via the POST ``/paymentdemand/{id}/credit`` endpoint.
 * Support for bulk replacing all Reminder Settings on a Dunning Process via the Dunning Process update endpoint.
 * Support for adding/replacing Payment Request Settings on a Dunning Process via the Dunning Process update endpoint.
 * **[Preview]** New logic for evaluating automatic cancellation due to missing payments (Payment Stop).
@@ -45,7 +45,7 @@ Deprecated
 ----------
 We call out the following deprecations, the endpoints will be removed in a future version, the exact timing depending on existing use and adoption of replacements.
 
-* We are deprecating the endpoints `/paymentdemand/{id}/credit/completely` and `/paymentdemand/{id}/credit/partially` in favor of the afore mentioned `/paymentdemand/{id}/credit` endpoint.
+* We are deprecating the endpoints ``/paymentdemand/{id}/credit/completely`` and ``/paymentdemand/{id}/credit/partially`` in favor of the afore mentioned ``/paymentdemand/{id}/credit`` endpoint.
 
 Security
 --------
