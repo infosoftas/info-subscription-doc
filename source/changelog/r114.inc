@@ -10,6 +10,8 @@ That means the next release will not follow our regular monthly cadence - we wil
 
 We will try with a new format for the changelog, it will still be divided into three main parts, but we will also attempt to follow a type of change convention outlined on https://keepachangelog.com/
 
+This release is a mix of bug fixes and some minor new features, the most interesting being a new behaviour for cancelling subscription based on their lack of payments.
+
 API and Backend
 ===============
 The following new fixes, features and improvements are now available in the API and the backend.
