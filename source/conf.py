@@ -220,7 +220,8 @@ rst_prolog = """
 .. |eFaktura| replace:: `eFaktura <https://www.efaktura.no/>`__
 .. |AvtaleGiro| replace:: `AvtaleGiro <https://www.avtalegiro.no/>`__
 .. |Vipps| replace:: `Vipps <https://www.vipps.no/>`__
-.. |AutoGiro| replace:: `Vipps <https://www.autogiro.se/>`__
+.. |VippsRecurring| replace:: `Vipps Recurring <https://www.vipps.no/>`__
+.. |AutoGiro| replace:: `AutoGiro <https://www.autogiro.se/>`__
 .. |adb2cAudience| replace:: 7bdcdd56-3ba6-4e6d-a841-db4816d7909d
 .. |adb2cMetadataUrl| replace:: https://prodlogins4.b2clogin.com/prodlogins4.onmicrosoft.com/B2C_1A_V2SIGNIN/v2.0/.well-known/openid-configuration
 .. |adb2cTokenUrl| replace:: https://prodlogins4.b2clogin.com/prodlogins4.onmicrosoft.com/B2C_1A_V2SIGNIN/oauth2/v2.0/token
