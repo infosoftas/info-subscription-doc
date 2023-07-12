@@ -247,3 +247,12 @@ Available Events
 At any given time, |projectName| exposes the events listed in the `API Reference <https://api.info-subscription.com/swagger/#/>`_ in the Models section.
 
 The following contains a more detailed description of some of these events, when it is triggered and examples/ideas of what a given event might be used for.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+    
+    types/subscriber
+    types/orders
+    types/subscription
+    types/invoice
