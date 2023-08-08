@@ -47,9 +47,10 @@ Changed
 
 Deprecated
 ----------
-We call out the following deprecations, the endpoints will be removed in a future version, the exact timing depending on existing use and adoption of replacements.
+We call out the following deprecations, the endpoints/field will be removed in a future version, the exact timing depending on existing use and adoption of replacements.
 
 * We are deprecating the endpoints ``/paymentdemand/{id}/credit/completely`` and ``/paymentdemand/{id}/credit/partially`` in favor of the afore mentioned ``/paymentdemand/{id}/credit`` endpoint.
+* We are deprecating the field ``TaxPercentage`` on the endpoint for creating Account Payment Demand transaction ``POST /paymentdemand/``, in favour of specifying a list of Tax Details.
 
 
 [Preview] New Feature : Email Domain based User Authorization
