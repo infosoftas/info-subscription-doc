@@ -16,12 +16,12 @@ The following new fixes, features and improvements are now available in the API 
 Added
 -----
 
-* **[Preview]** Support for User Email Domain and Authorization mapping.
 * Added new public event types for ``UserAuthorizationGranted``, ``UserAuthorizationRevoked``, ``EmailDomainAuthorizationGranted`` and ``EmailDomainAuthorizationRevoked``. Enables additional external reactions based on user authorization changes.
 * Added support for Tax Details on Charges and Allowances. This means that Charges on Payment Demands will now include a Tax Detail breakdown instead of a single Tax Percent. The net effect being that multiple charges will be merged into a single Charge with multiple taxes in several scenarios.
 * Support for removing InvoiceContact via a scheduled subscription plan change.
-* **[Preview]** |eFaktura| Mandate/Agreement Scanning will now be executed on a recurring schedule, with partial scans every day and full scans every week.
 * Added support for switching Payment Agreement during Subscription restarts.
+* **[Preview]** Support for User Email Domain and Authorization mapping.
+* **[Preview]** |eFaktura| Mandate/Agreement Scanning will now be executed on a recurring schedule, with partial scans every day and full scans every week.
 
 Fixed
 -----
@@ -74,10 +74,10 @@ The following new features and improvements are now available in the merchant cl
 Added
 -----
 
-* **[Preview]** Support for listing the sum of not-invoice Billing Account transactions on the ledger summary.
-* **[Preview]** Support for configuring Domain Authorization on Subscriptions.
 * Merchants can now configure Self-Service behaviour for Subscription Cancellations.
 * Added an indicator showing if there are Invoices on a given subscriber.
+* **[Preview]** Support for listing the sum of not-invoice Billing Account transactions on the ledger summary.
+* **[Preview]** Support for configuring Domain Authorization on Subscriptions.
 
 
 Fixed
