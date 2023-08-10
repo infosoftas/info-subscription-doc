@@ -7,7 +7,7 @@ Release August 10th 2023
 Summer vacations are almost over for everyone in the dev team, and a new release is ready, roughly 2 months since the previous release.
 This release is a mixed bag of fixes, small incremental improvements and a single new feature in preview.
 
-We a still trying out the new format for the changelog, following a type of change convention outlined on https://keepachangelog.com/
+We are still trying out the new format for the changelog, following a type of change convention outlined on https://keepachangelog.com/
 
 API and Backend
 ===============
@@ -75,7 +75,7 @@ Added
 -----
 
 * Merchants can now configure Self-Service behaviour for Subscription Cancellations.
-* Added an indicator showing if there are Invoices on a given subscriber.
+* Added an indicator showing if there are existing notes on a given subscriber.
 * **[Preview]** Support for listing the sum of not-invoice Billing Account transactions on the ledger summary.
 * **[Preview]** Support for configuring Domain Authorization on Subscriptions.
 
@@ -83,13 +83,13 @@ Added
 Fixed
 -----
 
-* An issue with the wrong value being show for Reminder Fees.
+* An issue with the wrong Tax Amount being shown for Reminder and Invoice Fees.
 * An issue where product with an adjusted price would be displayed as expired.
 * Tenant selection should again be persisted between session on the same browser.
 * An invalid Subscription Plan would sometimes be displayed when doing refunds.
-* An issue where it was not possible to remove a planned cancellation an already renewed Subscription.
+* An issue where it was not possible to remove a planned cancellation of an already renewed Subscription.
 * Removed an invalid button from |eFaktura| payment agreement view.
-* An issue with custom grid sorting for |eFaktura| transactions being ignored.
+* An issue with custom grid sorting for |eFaktura| and |AvtaleGiro| transactions being ignored.
 * An issue where the wrong API endpoint was used for Enterprise Plan Payment Demand crediting.
 
 Changed
