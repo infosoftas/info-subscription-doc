@@ -60,7 +60,7 @@ Added
 
 * Support for adding scheduled contact changes, such as a future address change.
 * Adding an Subscriber Organization Number will now verify it against the PEPPOL database for validity in terms of receiving EHF invoices. A visual clue will be displayed if it does not exist.
-* Added validation for delivery changes to only allow processing on the next day.
+* Added validation for delivery changes to allow processing on the next day at the earliest. Changes further into the future are still accepted.
 
 Fixed
 -----
