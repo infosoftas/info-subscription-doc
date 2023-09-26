@@ -5,6 +5,7 @@ What is |projectName|
 *********************
 
 |projectName| is a service that provides subscription billing and management, in simple terms it creates invoices, manages payments and maintains subscriptions based on these invoices and payments.
+Most importantly it automates these business processes and attempts to simplify/encode business decisions into these processes, freeing personel to do other things than handling late payments, amount discrepancies and routine dunning in general.
 
 What is it not?
 ===============
@@ -39,6 +40,9 @@ Subscription Management and Billing
  * Handle cancelations and upgrades/downgrades subscriptions (both planned and immediate adjustments).
  * Customize billing cycles to suit various business needs.
  * Automatic proration for upgrades/downgrades.
+ * Automated handling of late payment and amount discrepancies.
+
+All of this is done by codifying business requirements/decisions into configuration and setup of various rules.
 
 In this case billing is the process of figuring out when and which subscribers should receive an invoice, and produce said invoices based on the details of the purchased plan/product.
 Additionally billing refers to handling of payments and making sure that subscriptions are cancelled on missing payments etc.
