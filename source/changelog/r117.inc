@@ -1,10 +1,11 @@
 .. _changelog-r117:
 
-************************
-Release October 3rd 2023
-************************
+*************************
+Release October 10th 2023
+*************************
 
 This time around we have been hard at work to iron out issues with deliveries, as well as some other features and bugs here and there.
+Due to autumn vacations the release has been a bit delayed.
 
 
 API and Backend
