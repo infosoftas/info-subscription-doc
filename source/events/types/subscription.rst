@@ -26,6 +26,18 @@ The ``SubscriptionCreated`` event may be used to keep external systems up to dat
 
 It may be used to distribute out a monthly newsletter (if the subscription is monthly), or it may be used to notify subscribers that they have a subscription (for infrequent subscriptions).
 
+Event: com.info-subscription.SubscriptionDeactivated
+----------------------------------------------------
+When a subscription has been cancelled, and the cancellation time has been reached/passed, a ``SubscriptionDeactivated`` event will be fired.
+For sources of subscription cancellations, please refer to the ``SubscriptionCancelled`` event below.
+
+Example Use Case
+~~~~~~~~~~~~~~~~
+Some ideas on how to use the deactivation event.
+
+* Revoking authorizations
+* Starting data cleanup operations, like removing from mailing lists
+
 Event: com.info-subscription.SubscriptionCancelled
 --------------------------------------------------
 Operations that result in subscriptions being cancelled will lead to a ``SubscriptionCancelled`` event being fired.
