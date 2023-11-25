@@ -94,7 +94,9 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     :caption: Reporting and Analytics
     :hidden:
 
-    Reporting Datamodel <reporting/Report database>
+    Introduction <reporting-analytics/intro>
+    Datamodel <reporting-analytics/reporting-datamodel>
+
 
 .. toctree::
     :caption: Misc
