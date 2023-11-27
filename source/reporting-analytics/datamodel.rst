@@ -201,7 +201,7 @@ Available Tables
 * Products
 
 
-OrderAmounts and OrderCompletedAmounts
+KPI: OrderAmounts and OrderCompletedAmounts
 ---------------------------------------
 
 The tables `OrderAmounts` and `OrderCompletedAmounts` are KPI-like tables providing a summary of the order value for a given date and organization.
@@ -273,7 +273,7 @@ Noteworthy columns
 **AutomaticStop**: This means that the subscription will be automatically stopped after the period.
 
 Payments
---------
+========
 **Schema Name**: payment
 
 Avtailble Tables
@@ -281,8 +281,8 @@ Avtailble Tables
 * DailyPaidAmounts
 * Payments
 
-DailyPaidAmounts
-----------------
+KPI: DailyPaidAmounts
+---------------------
 
 KPI style table with total amount of what is paid for any given date, for each organization.
 
