@@ -46,7 +46,8 @@ Added
 * Option to toggle whether to reduce reminder amounts with surplus accounted payments (allowances).
 * It is now possible to cancel Vipps Payment Agreements.
 * When ordering from merchant it is possible to choose payment types besides Invoice.
-* Adding an Organization Number for tenants with Norwegian organizations will now lookup in Elma and provide a hint regarding EHF Invoice validity.
+* Adding an Organization Number validation for tenants with Norwegian organizations when attempting to switch/use an EHF Payment Agreement.
+* Introduced option for quick navigation to Enterprise Plan owners from the Enterprise Plan configuration.
 
 Changed
 -------
@@ -59,7 +60,6 @@ Changed
 Fixed
 -----
 
-* Re-introduced option for quick navigation to Enterprise Plan owners from the Enterprise Plan configuration.
 * Removed possibility to delete Enterprise Plan owners with active enterprise plans.
 * An issue where Cancellation Cause would disappear when changing a previously registered cancellation.
 * An issue where Invoice/CreditNote copy on Enterprise Plan would not redirect back to the details.
