@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'INFO-Subscription'
-copyright = '2021, Infosoft AS'
+copyright = 'Infosoft AS'
 author = 'Infosoft AS'
 
 # The short X.Y version
@@ -219,6 +219,7 @@ rst_prolog = """
 .. |SwedbankPay| replace:: `Swedbank Pay <https://www.swedbankpay.com/>`__
 .. |eFaktura| replace:: `eFaktura <https://www.efaktura.no/>`__
 .. |AvtaleGiro| replace:: `AvtaleGiro <https://www.avtalegiro.no/>`__
+.. |BetalingsService| replace:: `BetalingsService <https://www.betalingsservice.dk/erhverv/>`__
 .. |Vipps| replace:: `Vipps <https://www.vipps.no/>`__
 .. |VippsRecurring| replace:: `Vipps Recurring <https://www.vipps.no/>`__
 .. |AutoGiro| replace:: `AutoGiro <https://www.autogiro.se/>`__
