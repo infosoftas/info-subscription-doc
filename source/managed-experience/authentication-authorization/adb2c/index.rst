@@ -9,4 +9,4 @@ The following contains a few points related specifically to interactions with |A
     :maxdepth: 1
     
     forgotpassword
-    singlesingon
+    singlesignon
