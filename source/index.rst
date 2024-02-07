@@ -61,6 +61,8 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     managed-experience/authentication-authorization/quick-start
     managed-experience/authentication-authorization/user-management-authentication
     managed-experience/selfservice/custom-domain
+    managed-experience/authentication-authorization/adb2c/forgotpassword
+    managed-experience/authentication-authorization/adb2c/singlesignon
 
 .. toctree::
     :caption: Events and Webhooks
