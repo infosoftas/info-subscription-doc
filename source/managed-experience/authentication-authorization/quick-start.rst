@@ -117,6 +117,11 @@ The above JWT is a sample, not all fields will always be available or have value
 
 ``extension_Products`` can be empty whenever no mapping exists that grants product access.
 
+.. important::
+    
+    |ADB2C| has some perculiar behaviour when the user has forgotten the password. Refer to the :ref:`forgotten password <adb2c-forgot-password>` section for the details on how to handle it.
+
+
 Authorization Alternatives
 ==========================
 
@@ -135,3 +140,4 @@ Depending on your need there are two simple alternatives that may be used, eithe
 .. important::
     
     The two authorization/verification alternatives are suggestions, verify with the business requirements that they will suffice for your case.
+

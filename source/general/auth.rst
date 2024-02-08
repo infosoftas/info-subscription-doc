@@ -42,7 +42,7 @@ To obtain a token ``POST`` a request to |adb2cTokenUrl| with a body containing y
     curl --request POST \
         --url 'https://prodlogins4.b2clogin.com/prodlogins4.onmicrosoft.com/B2C_1A_V2SIGNIN/oauth2/v2.0/token' \
         --header 'content-type: application/x-www-form-urlencoded' \
-        --data 'grant_type=client_credentials&client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&scope=|adb2cscope|
+        --data 'grant_type=client_credentials&client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&scope=ADB2CAPISCOPE'
 
    .. code-tab:: http http
 
@@ -51,7 +51,7 @@ To obtain a token ``POST`` a request to |adb2cTokenUrl| with a body containing y
         Content-Type: application/x-www-form-urlencoded
         Accept: application/json
 
-        grant_type=client_credentials&client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&scope=|adb2cscope|
+        grant_type=client_credentials&client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&scope=ADB2CAPISCOPE
 
 The response comes in the form of a JWT token, a type, and an expiration time relative to the issue time.
 

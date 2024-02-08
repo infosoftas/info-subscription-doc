@@ -1,4 +1,5 @@
 sphinx-tabs
 sphinxcontrib-contentui
 sphinx_rtd_theme
-docutils==0.16
+sphinx-copybutton
+docutils==0.20.1

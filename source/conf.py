@@ -45,7 +45,8 @@ extensions = [
     'sphinx.ext.extlinks',
     'sphinx_tabs.tabs',
     'sphinxcontrib.contentui',
-    'sphinx_rtd_theme'
+    'sphinx_rtd_theme',
+    'sphinx_copybutton'
     ]
 # extensions = ['sphinx_tabs.tabs']
 
@@ -89,7 +90,7 @@ html_theme = 'sphinx_rtd_theme'
 # documentation.
 #
 html_theme_options = {
-    'navigation_depth' : 2,
+    'navigation_depth' : 4,
     'collapse_navigation' : False,
     'sticky_navigation' : False
 }

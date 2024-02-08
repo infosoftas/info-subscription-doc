@@ -57,7 +57,7 @@ We call out the following deprecations, the endpoints/field will be removed in a
 -------------------------------------------------------------
 
 This release introduces building blocks for automating User Authorization based on the domain name of their email address.
-It is an alternative to :ref:`Site Access <_auth-site-access>` where all users created with a specific domain name, will be authorized to a given domain.
+It is an alternative to :ref:`Site Access <auth-site-access>` where all users created with a specific domain name, will be authorized to a given domain.
 
 It will work side-by-side with other user Authorization mapping concepts, so you can mix and match as you see fit.
 
