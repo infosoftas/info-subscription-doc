@@ -89,6 +89,7 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
 
     payments/index
     payments/requests
+    billing/standalone
 
 .. toctree::
     :caption: Reporting and Analytics
