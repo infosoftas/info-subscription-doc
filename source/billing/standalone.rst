@@ -1,17 +1,17 @@
 .. _standalone-paymentdemands:
 
-*************************************
-Transaction (Non-Recurring) Invoices
-*************************************
+**************************************
+Transactional (Non-Recurring) Invoices
+**************************************
 
 |projectName| is designed to take care of most recurring billing needs. 
 However in some cases it might be desirable to create an additional invoice that is not recurring, but still using the existing information from the subscription platform.
 
-A few xxamples where such invoices may be beneficial:
+A few examples where such invoices may be beneficial:
 
 - Single/One-off product sales using existing agreements
 - Special initial transactional costs (delivery of hardware for instance)
-- Finalizing a subscription lifecycle with a buyout of the subscribed product (often used with binding contracts for instance).
+- Finalizing a subscription lifecycle with a buyout of the subscribed product (often used with a binding contracts for instance).
 
 Such transactional invoices can be created as Account Payment Demands.
 
@@ -22,7 +22,7 @@ A few input values are required to create an Account Demand.
 #. Organization - The issuer of the invoice.
 #. Subscriber - The receiver of the invoice.
 #. Subscriber Account - The billing account where charges should be deducted.
-#. BillingPlan - How should billing and subsequent dunning behave.
+#. Billing Plan - How should billing and subsequent dunning behave.
 #. Payment Agreement - How should automatic payments be requested and processed.
 
 Since the details of each of these items are present in the system, all that is required is to determine which ones to use, and define the correct Ids.
