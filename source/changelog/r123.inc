@@ -53,12 +53,12 @@ The following new features and improvements are now available in the merchant cl
 Added
 -----
 
-* Add option to delete payments that have yet to be completed.
-* Added option to sort subscriptions on Enterprise Plans based on number or name.
-* Added filtering for subscriptions on Enterprise Plans.
-* Added requirement for additional information based on chosen Payment Agreement, specifically for Email and EHF.
-* Added quick link for unmatched payments from the subscriber payments view.
-* **[Preview]** Added option to configure |BetalingsService| integration.
+* Option to delete payments that have yet to be completed.
+* Option to sort subscriptions on Enterprise Plans based on number or name.
+* Filtering for subscriptions on Enterprise Plans.
+* Requirement for additional information based on chosen Payment Agreement, specifically for Email and EHF.
+* Quick link for unmatched payments from the subscriber payments view.
+* **[Preview]** View to configure |BetalingsService| integration.
 * **[Preview]** Subscriber Payment Agreement view for |BetalingsService|.
 
 Changed
