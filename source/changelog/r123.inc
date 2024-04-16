@@ -34,7 +34,7 @@ Fixed
 * An issue where crediting and reissuing of an Enterprise Plan demand would sometimes lead to a missing period for new orders yet to be billed.
 * An issue where a reminder on an Enterprise Plan would be reported to belong to the latest issued invoice on the same plan, instead of the one actually being reminded.
 * An issue where Enterprise Plan demands would be generated a day off for cases near the DST switch. Now it correctly calculates based on the configured timezone for the issuing organization.
-* An issue where deliveries might be split even though now address change occurred. In turn this would lead to surplus notifications to Distribution Innovation or other third parties.
+* An issue where deliveries might be split even though no address change occurred. In turn this would lead to surplus notifications to Distribution Innovation or other third parties.
 * An issue where it was impossible to delete Denial Orders in case there were multiple registrations on the same subscriber.
 * Fixed an edge case where the end calculation for Subscriptions would be invalid if the end time was supposed to be exactly on the switch to DST.
 * **[Preview]** An error with processing of |BetalingsService| mandates and payments during file import.
