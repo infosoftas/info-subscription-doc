@@ -8,7 +8,7 @@ Sunshine reggae is a thing, perhaps sunshine coding is a thing as well. It sure 
 
 We are ready with a new release, with a lot of minor improvements spread throughout different areas of the platform. 
 
-While mostly ironing out issues with features related to tenants operating in Denmark, we are also hard a work making things more flexible and easier for all other tenants.
+While mostly ironing out issues with features related to tenants operating in Denmark, we are also hard at work making things more flexible and easier for all other tenants.
 
 A concrete example of this includes a new integration to allow automated distribution of EHF invoices, without having to bother about pesky file transfers.
 
@@ -29,7 +29,7 @@ Added
     * Orders can be generated with OIO.
     * New payment agreements can be created using OIO and switching to/from OIO is also allowed.
 
-* Refreshing of card metadata (Mask and Expiry time) for Swedbank Pay card payments where cards have been replaced with Network Token support.
+* Refreshing of card metadata (Mask and Expiry time) for Swedbank Pay card payments where cards have been replaced with Network Token support. Enabling automated card updates. Read more about Network Tokenization on https://developer.swedbankpay.com/checkout-v3/features/optional/network-tokenization/
 * Payments can now be matched directly to a Subscriber Account via a new Matching Type. This will bypass regular invoice matching and trigger an account update instead (with related automated settlement as a consequence).
 * Billing can now do accounting and settlement of payments that are associated with a Billing Account post-completion.
 * **[Preview]** |MobilePay| agreements are now deactivated automatically on subscription expiration, similar to how Vipps agreements are deactivated.
@@ -95,7 +95,7 @@ Fixed
 
 * An issue where the username/principal name was shown for a user instead of the assigned Display Name.
 * An issue where searching for users would target the wrong underlying field.
-* Handling of missing responses from remote source on provider transactions. 
+* Handling of missing responses from remote source on payment provider transactions (when viewing payment agreement details), causing an information message to be displayed instead of just a blank view.
 
 Self-Service and Sales Poster
 =============================
