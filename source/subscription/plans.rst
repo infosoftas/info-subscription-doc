@@ -25,7 +25,7 @@ When placing a new :ref:`order <subscription-orders>` a template is referred for
 The template and the choices together form a plan instance, a Subscription Plan, which is associated with the created subscription.
 When created the subscription plan does not refer back to the template and the template can be changed at will without affecting the instance on the subscription.
 
-For more details on choices during orders refer to the  :ref:`order section <subscription-orders>`.
+For more details on choices during orders refer to the :ref:`order section <subscription-orders>`.
 
 .. _subscription-plan-changes:
 
@@ -33,7 +33,7 @@ Subscription Plan Changes (Upgrades and Downgrades)
 ===================================================
 Most subscription business models contains the option to switch between plans, either as an upgrade (typically a more costly product), or as a downgrade (a less costly product).
 
-|projectName| supports upgrades and downgrades through Subscription Plan changes. 
+|projectName| supports upgrades and downgrades through Subscription Plan changes, and handles proration automatically.
 
 .. note:: 
     
