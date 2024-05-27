@@ -1,7 +1,7 @@
 .. _changelog-r124:
 
 ***********************
-Release May 28th 2024
+Release May 29th 2024
 ***********************
 
 Sunshine reggae is a thing, perhaps sunshine coding is a thing as well. It sure has felt like it for this sprint with the summer heat hitting early here in Oslo.
