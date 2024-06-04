@@ -88,9 +88,10 @@ Out Of Band Agreements and Automatic Agreement Registration
 Some payment providers are typically registered in a process not connected to the merchant, and by extension not in their systems.
 At the current time of writing, this is relevant for the following providers:
 
-* AvtaleGiro
+* AvtaleGiro (Norway)
 * eFaktura (Norway)
-* Autogiro
+* Autogiro (Sweden)
+* BetalingsService (Denmark)
 
 For all of the above, the registration will happen, or may happen, in the subscribers online banking solution.
 

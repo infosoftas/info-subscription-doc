@@ -95,6 +95,14 @@ The following is a series of options tables (referenced by each parameter above)
      - {payex}
    * - 2
      - {vipps}
+   * - 3
+     - Email
+   * - 4
+     - EHF
+   * - 5
+     - {mobilePay}
+   * - 7
+     - OIO
    * - 9
      - Invoice
 
