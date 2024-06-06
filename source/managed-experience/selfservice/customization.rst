@@ -83,6 +83,8 @@ The following is a series of options tables (referenced by each parameter above)
      - Swedish
    * - sam
      - Northern Sami
+   * - dan
+     - Danish
 
 .. _paymenttypes:
 
