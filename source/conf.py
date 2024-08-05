@@ -12,7 +12,7 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
+import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
@@ -121,7 +121,11 @@ html_context = {
     "display_github": True, # Add 'Edit on Github' link instead of 'View page source'
     "last_updated": False,
     "commit": False,
+    "readthedocs" : os.environ.get("READTHEDOCS", ""),
 }
+
+# Define the canonical URL if using a custom domain on Read the Docs
+html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "")
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
