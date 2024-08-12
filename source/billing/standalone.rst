@@ -35,50 +35,50 @@ For simplicity we assume that some of the parameters are static.
 .. code-block:: http
     :name: Get Card Agreement
 
-        GET https://api.info-subscription.com/paymentagreement?providerType=SwedbankPay&subscriberId=0c8f576a-6308-4598-a255-52080fbf5f71 HTTP/1.1
-        Host: api.info-subscription.com
-        S4-TenantId: 3fce3f93-97a7-4045-952d-f8af685a47cb
-        Authorization: Bearer <TOKENHERE>
+    GET https://api.info-subscription.com/paymentagreement?providerType=SwedbankPay&subscriberId=0c8f576a-6308-4598-a255-52080fbf5f71 HTTP/1.1
+    Host: api.info-subscription.com
+    S4-TenantId: 3fce3f93-97a7-4045-952d-f8af685a47cb
+    Authorization: Bearer <TOKENHERE>
 
 2. Create an account demand
 
 .. code-block:: json
     :name: Create Account Payment Demand
 
-        POST https://api.info-subscription.com/paymentdemand HTTP/1.1
-        Host: api.info-subscription.com
-        S4-TenantId: 3fce3f93-97a7-4045-952d-f8af685a47cb
-        Authorization: Bearer <TOKENHERE>
-        Content-Type: application/json
+    POST https://api.info-subscription.com/paymentdemand HTTP/1.1
+    Host: api.info-subscription.com
+    S4-TenantId: 3fce3f93-97a7-4045-952d-f8af685a47cb
+    Authorization: Bearer <TOKENHERE>
+    Content-Type: application/json
 
+    {
+        "type": "Account",
+        "accountDemand": 
         {
-            "type": "Account",
-            "accountDemand": 
+            "organizationId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "subscriberAccountId": "ac31e29f-2675-4328-b62c-d1ac79294487",
+            "subscriberId": "0c8f576a-6308-4598-a255-52080fbf5f71",
+            "paymentAgreementId": "5b5b779d-ef0b-49ef-a976-9dfaafdfade0",
+            "billingPlanId": "b5136018-2801-41da-9c03-62783cb03977",
+            "transactions": [
             {
-                "organizationId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                "subscriberAccountId": "ac31e29f-2675-4328-b62c-d1ac79294487",
-                "subscriberId": "0c8f576a-6308-4598-a255-52080fbf5f71",
-                "paymentAgreementId": "5b5b779d-ef0b-49ef-a976-9dfaafdfade0",
-                "billingPlanId": "b5136018-2801-41da-9c03-62783cb03977",
-                "transactions": [
+                "description": "Extra Large Deluxe Coffee (Roomservice)",
+                "price": 220,
+                "currency": "USD",
+                "taxDetails": [
                 {
-                    "description": "Extra Large Deluxe Coffee (Roomservice)",
-                    "price": 220,
-                    "currency": "USD",
-                    "taxDetails": [
-                    {
-                        "description": "Coffee",
-                        "taxPercent": 25,
-                        "amount": 200
-                    },
-                    {
-                        "description": "Roomservice Fee",
-                        "taxPercent": 25,
-                        "amount": 20
-                    }]
+                    "description": "Coffee",
+                    "taxPercent": 25,
+                    "amount": 200
+                },
+                {
+                    "description": "Roomservice Fee",
+                    "taxPercent": 25,
+                    "amount": 20
                 }]
-            }
+            }]
         }
+    }
 
 
 Settling Outstanding Account Balance
@@ -90,13 +90,13 @@ This is easily achievable by setting the parameter `SettleAccountBalance` to `tr
 .. code-block:: json
 
     {
-            "type": "Account",
-            "accountDemand": 
-            {
-                // .. Properties omitted for brevity
-                "SettleAccountBalance" : true,
-                // .. Properties omitted for brevity
-            }
+        "type": "Account",
+        "accountDemand": 
+        {
+            // .. Properties omitted for brevity
+            "SettleAccountBalance" : true,
+            // .. Properties omitted for brevity
+        }
     }
 
 This will generate a new payment demand with account charges and allowances included in the total.
