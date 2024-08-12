@@ -7,7 +7,7 @@ Transaction (Non-Recurring) Invoices
 |projectName| is designed to take care of most recurring billing needs. 
 However in some cases it might be desirable to create an additional invoice that is not recurring, but still using the existing information from the subscription platform.
 
-A few xxamples where such invoices may be beneficial:
+A few examples where such invoices may be beneficial:
 
 - Single/One-off product sales using existing agreements
 - Special initial transactional costs (delivery of hardware for instance)
@@ -85,7 +85,7 @@ Settling Outstanding Account Balance
 ------------------------------------
 Depending on the scenario, the subscriber may want to settle any outstanding transactions on the account.
 
-This is easily achievable by setting the parameter `SettleAccountBalance` to `true`
+This is easily achievable by setting the parameter `SettleAccountBalance` to `true`.
 
 
 .. code-block:: json
@@ -100,6 +100,7 @@ This is easily achievable by setting the parameter `SettleAccountBalance` to `tr
             }
     }
 
-This will generate a new payment demand with account charges and allowances included.
+This will generate a new payment demand with account charges and allowances included in the total.
+This can be combined with single transactions as shown above. 
 
 Refer to the API specification to lookup details on which transactions are available on the account prior to generating the demand.
