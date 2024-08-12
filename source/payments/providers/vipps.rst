@@ -1,10 +1,12 @@
 .. _provider-vipps:
 
-Vipps Recurring
-================
+Vipps Recurring And MobilePay Recurring
+=======================================
 
-Vipps Recurring allows organization operating in Norway to offer mobile/app based recurring payment, for subscribers with a Vipps account.
-It is backed by a credit card, debit card or bank account managed by Vipps.
+Vipps and MobilePay Recurring is a product provided by |VippsMobilePay| that allows organization operating in Norway, Denmark and Finland to offer mobile/app based recurring payment, for subscribers with a valid account.
+It is backed by a credit card, debit card or bank account managed by |VippsMobilePay|.
+
+In the following the product name `Vipps Recurring` is used, but it refers to both Vipps and MobilePay.
 
 Requirements for Vipps Recurring
 --------------------------------
@@ -13,6 +15,7 @@ Infosoft is a Vipps partner and we can facilitate the Vipps onboarding process i
 
 Agreement Registration
 ----------------------
+.. _agreement-registration:
 In Vipps terminology an agreement is almost like a subscription. 
 It is an agreement between the Merchant (a |projectName| tenant) and the subscriber to pay for a given product, at a recurring interval.
 If the subscription plan changes, the agreement should change with it.
@@ -58,7 +61,7 @@ An agreement registration requires the following
 * A SubscriberId
 * An AccountId
 
-The agreement is created by sending a POST request to the :api-ref:`agreement endpoint<VippsAgreement/post_vipps_agreement>`, an example request body might look like:
+The agreement is created by sending a POST request to the :api-ref:`agreement endpoint <MobilePay/CreateVippsMobilePayAgreement>`, an example request body might look like:
 
 .. code-block:: json
 
@@ -88,3 +91,51 @@ Charges can be created directly using the API if required, using :api-ref:`the c
     This in turn leads to rejected charges and unpaid invoices for the regular subscription.
 
     Use this feature with some caution if the agreement is used by a subscription.
+
+Single Payments
+---------------
+|VippsMobilePay| also offers a product that does not require an agreement, transactions/payments using this API are denoted `epayment`. Typically used for single purchases in retail scenarios or similar.
+
+|projectName| offers an integration with `epayment`, that can be used for instance to pay for a single invoice, prepaying to a billing account, or any other thing you may want to use it for..
+
+The flow for creating a new `epayment` resembles :ref:`agreement registration <agreement-registration>`, with one notable exception being the final capture.
+
+1. The subscriber selects something to pay for.
+2. An `epayment` authorization process is started with Vipps.
+3. The subscriber is redirected to a website (or App) to confirm the information (Managed by Vipps).
+4. The subscriber confirms the purchase in the Vipps Mobile App (Managed by Vipps).
+5. A capture request is sent to Vipps once the product is shipped/delivered.
+
+Scheduled Captures
+------------------
+Since Vipps Epayments acts as a two phased transaction, the client must issue a capture request when shipping goods (or delivery products or whatever).
+
+When using an `epayment` to pay invoices a due date is known at the purchase time and a scheduled capture time can be set using :api-ref:`the epayment endpoint <MobilePay/CreatePayment>`.
+
+If set, a capture attempt will be automatically executed around the time specified (within an hour typically).
+
+Automatic Accounting/Settlement
+-------------------------------
+It is possible to have |projectName| handle settlement and accounting for an `epayment`. 
+
+All that is required is to fill out the required `Accounting` properties when :api-ref:`creating the epayment <MobilePay/CreatePayment>`.
+
+An example request with accounting data that automagically settles an Invoice may look like:
+
+.. code-block:: json
+
+    {
+        "accountId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "reference": "a28373e1-5733-4682-98f0-549cb59800f8",
+        "amount": 1000, // The amount is taken from the Invoice or the Reminder payable amount.
+        "currency": "NOK",
+        "description": "Paying Invoice 1234",
+        "returnUrl": "https://merchantstore.example.com/order/",
+        "userFlow": "WEB_REDIRECT",
+        "captureTime": "2024-08-12T08:20:01.261Z", // When automatic capture should kick in (can be omitted)
+        "accounting": {
+            "subscriberId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "externalInvoiceIdentifier": "10012347207834", // Indicates that we want to settle this invoice with this epayment.
+        }
+    }
+}
