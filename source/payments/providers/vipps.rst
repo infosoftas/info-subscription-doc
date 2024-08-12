@@ -1,10 +1,12 @@
 .. _provider-vipps:
 
-Vipps Recurring
-================
+Vipps Reccuring And MobilePay Recurring
+=======================================
 
-Vipps Recurring allows organization operating in Norway to offer mobile/app based recurring payment, for subscribers with a Vipps account.
-It is backed by a credit card, debit card or bank account managed by Vipps.
+Vipps and MobilePay Recurring is a product provided by |VippsMobilePay| that allows organization operating in Norway, Denmark and Finland to offer mobile/app based recurring payment, for subscribers with a valid account.
+It is backed by a credit card, debit card or bank account managed by |VippsMobilePay|.
+
+In the following the product name `Vipps Recurring` is used, but it refers to both Vipps and MobilePay.
 
 Requirements for Vipps Recurring
 --------------------------------
@@ -13,6 +15,7 @@ Infosoft is a Vipps partner and we can facilitate the Vipps onboarding process i
 
 Agreement Registration
 ----------------------
+.. _agreement-registration:
 In Vipps terminology an agreement is almost like a subscription. 
 It is an agreement between the Merchant (a |projectName| tenant) and the subscriber to pay for a given product, at a recurring interval.
 If the subscription plan changes, the agreement should change with it.
@@ -88,3 +91,32 @@ Charges can be created directly using the API if required, using :api-ref:`the c
     This in turn leads to rejected charges and unpaid invoices for the regular subscription.
 
     Use this feature with some caution if the agreement is used by a subscription.
+
+Single Payments
+===============
+|VippsMobilePay| also offers a product that does not require a previous agreement, called `epayment`. Typically used for single purchases in retail or similar.
+
+|projectName| offers an integration with `epayment`, that can be used for instance to pay a single invoice, or prepaying to a billing account.
+
+The flow for creating a new `epayment` resembles :ref:`agreement registration <agreement-registration>`, with one noteable exception being the final capture.
+
+1. The subscriber selects something to pay for.
+2. An `epayment` authorization process is started with Vipps.
+3. The subscriber is redirected to a website (or App) to confirm the information (Managed by Vipps).
+4. The subscriber confirms the purchase in the Vipps Mobile App (Managed by Vipps).
+5. A capture request is sent to Vipps once the product is shipped/delivered.
+
+Scheduled Captures
+------------------
+Since Vipps Epayments acts as a two phased transaction, the client must issue a capture request when shipping goods (or delivery products or whatever).
+
+When using an `epayment` to pay invoices a due date is known at the purchase time and a scheduled capture time can be set using :api-ref:`the epayment endpoint <MobilePay/CreatePayment>`.
+
+If set, a capture attempt will be automatically executed around the time specified (within an hour typically).
+
+Automatic Accounting/Settlement
+-------------------------------
+It is possible to have |projectName| handle settlement and accounting for an `epayment`. 
+
+All that is required is to fill out the required `Accounting` properties when :api-ref:`creating the epayment <MobilePay/CreatePayment>`.
+
