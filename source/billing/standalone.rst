@@ -1,8 +1,8 @@
 .. _standalone-paymentdemands:
 
-**************************************
-Transactional (Non-Recurring) Invoices
-**************************************
+*************************************
+Transaction (Non-Recurring) Invoices
+*************************************
 
 |projectName| is designed to take care of most recurring billing needs. 
 However in some cases it might be desirable to create an additional invoice that is not recurring, but still using the existing information from the subscription platform.
@@ -11,7 +11,7 @@ A few examples where such invoices may be beneficial:
 
 - Single/One-off product sales using existing agreements
 - Special initial transactional costs (delivery of hardware for instance)
-- Finalizing a subscription lifecycle with a buyout of the subscribed product (often used with a binding contracts for instance).
+- Finalizing a subscription lifecycle with a buyout of the subscribed product (often used with binding contracts for instance).
 
 Such transactional invoices can be created as Account Payment Demands.
 
@@ -22,7 +22,7 @@ A few input values are required to create an Account Demand.
 #. Organization - The issuer of the invoice.
 #. Subscriber - The receiver of the invoice.
 #. Subscriber Account - The billing account where charges should be deducted.
-#. Billing Plan - How should billing and subsequent dunning behave.
+#. BillingPlan - How should billing and subsequent dunning behave.
 #. Payment Agreement - How should automatic payments be requested and processed.
 
 Since the details of each of these items are present in the system, all that is required is to determine which ones to use, and define the correct Ids.
@@ -42,7 +42,7 @@ For simplicity we assume that some of the parameters are static.
 
 2. Create an account demand
 
-.. code-block:: http
+.. code-block:: json
     :name: Create Account Payment Demand
 
         POST https://api.info-subscription.com/paymentdemand HTTP/1.1
@@ -85,8 +85,7 @@ Settling Outstanding Account Balance
 ------------------------------------
 Depending on the scenario, the subscriber may want to settle any outstanding transactions on the account.
 
-This is easily achievable by setting the parameter `SettleAccountBalance` to `true`
-
+This is easily achievable by setting the parameter `SettleAccountBalance` to `true`.
 
 .. code-block:: json
 
@@ -100,6 +99,7 @@ This is easily achievable by setting the parameter `SettleAccountBalance` to `tr
             }
     }
 
-This will generate a new payment demand with account charges and allowances included.
+This will generate a new payment demand with account charges and allowances included in the total.
+This can be combined with single transactions as shown above. 
 
 Refer to the API specification to lookup details on which transactions are available on the account prior to generating the demand.
