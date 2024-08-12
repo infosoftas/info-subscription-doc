@@ -228,6 +228,7 @@ rst_prolog = """
 .. |Vipps| replace:: `Vipps <https://www.vipps.no/>`__
 .. |VippsRecurring| replace:: `Vipps Recurring <https://www.vipps.no/>`__
 .. |MobilePay| replace:: `MobilePay <https://www.vippsmobilepay.com/>`__
+.. |VippsMobilePay| replace:: `MobilePay <https://www.vippsmobilepay.com/>`__
 .. |AutoGiro| replace:: `AutoGiro <https://www.autogiro.se/>`__
 .. |adb2cAudience| replace:: 7bdcdd56-3ba6-4e6d-a841-db4816d7909d
 .. |adb2cMetadataUrl| replace:: https://prodlogins4.b2clogin.com/prodlogins4.onmicrosoft.com/B2C_1A_V2SIGNIN/v2.0/.well-known/openid-configuration
