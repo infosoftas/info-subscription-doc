@@ -1,7 +1,7 @@
 .. _changelog-r126:
 
 *******************
-Release August 13th
+Release August 14th
 *******************
 
 Hope you all had a nice summer!
