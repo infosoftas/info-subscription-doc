@@ -61,7 +61,7 @@ Changed
 -------
 
 * When ordering new subscription the default Payment Method will now be adjusted based on existence of email on the subscriber contact.
-* Support for overriding price when changing subscription plans on active subscriptions.
+* Support for overriding price per unit instead of total price when changing subscription plans on active subscriptions (with and without VAT).
 * EHF/OIO are now hidden from view when not configured/available.
 * **[Preview]** Editions are now shown on the Invoice details instead of dates.
 
