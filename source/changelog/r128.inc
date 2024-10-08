@@ -71,7 +71,7 @@ Fixed
 * An issue where creating a user that already exists would result in an error.
 * An issue where editing the dunning process would needlessly block the UI after the second step.
 * An issue where Payment Method was not displayed when searching for payments.
-* An issue where some older Payment Agreements on PayEx would not agreement display details and transactions.
+* An issue where some older Payment Agreements on |PayEx| would not display details and transactions.
 * An ordering issue with Reminders and Invoices when there was just one outstanding Reminder.
 
 
