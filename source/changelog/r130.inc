@@ -17,16 +17,16 @@ The following new fixes, features and improvements are now available in the API 
 Added
 -----
 
-* Reporting for the recently introduced revenue KPIs now include a timestamp for the last update, similar to other KPI records.
+* Reporting data for the recently introduced revenue KPIs now include a timestamp for the last update, similar to other KPI records.
 
 Changed
 -------
 
 * Subscriptions created due to a plan change will now have its `SourceType` set to `ChangePackage`. In addition we now set the `PreviousSubscription` to the subscription that was changed from.
-* Handling of |AvtaleGiro| mandates during automatic change import so that changes in non-operation fields will not cause an update to the underlying mandate and payment agreement.
+* Handling of |AvtaleGiro| mandates during automatic change import so that changes in non-operational fields will not cause an update to the underlying mandate and payment agreement.
 * Webhooks for new tenants will now only support TLS1.2 or newer. We have yet to decide on a forced migration/upgrade of existing registrations.
-* Seeding of SubscriberNumber Sequence configuration will no longer reset manually configured sequences during scaling operations.
-* It is no longer possible to switch a subscription to an inactive payment agreement. This will cause a validation error.
+* Seeding of the SubscriberNumber Sequence Configuration will no longer reset manually configured sequences during scaling operations.
+* It is no longer possible to switch a subscription to an inactive payment agreement. This will cause a validation error instead.
 
 Fixed
 -----
