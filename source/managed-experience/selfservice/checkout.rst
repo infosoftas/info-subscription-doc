@@ -50,19 +50,19 @@ To specify a journey type, include the journey query parameter in the checkout U
 
 .. code-block:: bash
 
-    https://checkout.example.com?journey=order
+    https://{tenantName}-s4.azurewebsites.net/checkout?journey=order
 
 **Order with Address:**
 
 .. code-block:: bash
 
-    https://checkout.example.com?journey=order-address
+    https://{tenantName}-s4.azurewebsites.net/checkout?journey=order-address
 
 **B2B Order:**
 
 .. code-block:: bash
 
-    https://checkout.example.com?journey=order-business
+    https://{tenantName}-s4.azurewebsites.net/checkout?journey=order-business
 
 The journey parameter ensures the correct workflow is invoked, streamlining the process to match the needs of your specific subscription model.
 
@@ -85,8 +85,9 @@ The following query parameters can be used to customize the checkout process dyn
 These query parameters can be appended to the checkout URL to tailor behavior for specific use cases.
 For example:
 
-bash
-https://{tenantName}-s4.azurewebsites.net/checkout?journey=order&returnUrl=https://example.com/thank-you&source=google&templa
+.. code-block:: bash
+
+    https://{tenantName}-s4.azurewebsites.net/checkout?journey=order&returnUrl=https://example.com/thank-you&source=google&templatePlanId=1234567
 
 
 2. Configuration and Default via Merchant Options
