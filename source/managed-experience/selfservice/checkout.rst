@@ -41,7 +41,7 @@ Available Journey Types
     .. image:: /_images/checkout/order_journey.jepg
         :align: center
         :alt: Minimal-friction order journey interface
-        :scale: 80%
+        :scale: 50%
 
 #. Order with Address and Personal Information (`order-address`)
 
@@ -52,11 +52,13 @@ Available Journey Types
         .. code-block:: bash
 
             https://{tenantName}-s4.azurewebsites.net/checkout?journey=order-address
+    
+    **Screenshot:**
 
     .. image:: /_images/checkout/order-address_journey.jpeg
         :align: center
         :alt: Personal Info and Address order journey interface
-        :scale: 80%
+        :scale: 50%
 
 #. B2B (`order-business`)
 
@@ -68,10 +70,12 @@ Available Journey Types
 
             https://{tenantName}-s4.azurewebsites.net/checkout?journey=order-business
 
-    .. image:: /_images/checkout/order-business_journey.jpeg
-        :align: center
-        :alt: Business to Business order journey interface, with step 2 showing the follow up window after selecting EHF as the payment method.
-        :scale: 80%
+    **Screenshot:**
+
+        .. image:: /_images/checkout/order-business_journey.jpeg
+            :align: center
+            :alt: Business to Business order journey interface, with step 2 showing the follow up window after selecting EHF as the payment method.
+            :scale: 80%
 
 The journey parameter ensures the correct workflow is invoked, streamlining the process to match the needs of your specific subscription model.
 
@@ -121,19 +125,19 @@ The `IngressHeader` and `IngressText` settings control the introduction header a
 
 **Screenshot:**
 
-.. image:: /_images/checkout/ingress_example.png
+.. image:: /_images/checkout/ingress_example.jpeg
     :align: center
     :alt: Customizable introduction header and text example
-    :scale: 80%
+    :scale: 50%
 
 `PaymentMethods`: Specifies the payment methods available to users during the checkout process (e.g., Vipps, MobilePay, CreditCard).
 
 **Screenshot:**
 
-.. image:: /_images/checkout/paymentmethod_example.png
+.. image:: /_images/checkout/paymentmethod_example.jpeg
     :align: center
     :alt: Display the payment selection step of a checkout journey, showing multiple payment methods (e.g., CreditCard, EHF etc.).
-    :scale: 80%
+    :scale: 50%
 
 `TermsUrl`: The URL pointing to the terms and conditions for the subscription.
 `OrganizationId`: Specifies the default organization ID used for the order if not provided with the Subscription Plan Id.
