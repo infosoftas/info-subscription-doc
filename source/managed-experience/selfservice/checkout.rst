@@ -36,6 +36,13 @@ Available Journey Types
 
             https://{tenantName}-s4.azurewebsites.net/checkout?journey=order
 
+    **Screenshot:**
+    
+    .. image:: /_images/checkout/order_journey.jepg
+        :align: center
+        :alt: Minimal-friction order journey interface
+        :scale: 80%
+
 #. Order with Address and Personal Information (`order-address`)
 
     * **Description**: A journey that requires users to provide additional details, such as their name, address, and telephone number.
@@ -46,6 +53,11 @@ Available Journey Types
 
             https://{tenantName}-s4.azurewebsites.net/checkout?journey=order-address
 
+    .. image:: /_images/checkout/order-address_journey.jpeg
+        :align: center
+        :alt: Personal Info and Address order journey interface
+        :scale: 80%
+
 #. B2B (`order-business`)
 
     * **Description**: A journey tailored for business-to-business transactions. This includes options for e-invoicing and company-specific information.
@@ -55,6 +67,11 @@ Available Journey Types
         .. code-block:: bash
 
             https://{tenantName}-s4.azurewebsites.net/checkout?journey=order-business
+
+    .. image:: /_images/checkout/order-business_journey.jpeg
+        :align: center
+        :alt: Business to Business order journey interface, with step 2 showing the follow up window after selecting EHF as the payment method.
+        :scale: 80%
 
 The journey parameter ensures the correct workflow is invoked, streamlining the process to match the needs of your specific subscription model.
 
@@ -98,9 +115,26 @@ These options include:
 **Per-Journey Settings**
 Each journey can be further customized with the following settings:
 
-`IngressHeader`: The introduction header displayed at the start of the checkout process.
-`IngressText`: The introduction text providing additional details or instructions.
+`IngressHeader` and `IngressText`
+
+The `IngressHeader` and `IngressText` settings control the introduction header and text displayed at the start of the checkout process.
+
+**Screenshot:**
+
+.. image:: /_images/checkout/ingress_example.png
+    :align: center
+    :alt: Customizable introduction header and text example
+    :scale: 80%
+
 `PaymentMethods`: Specifies the payment methods available to users during the checkout process (e.g., Vipps, MobilePay, CreditCard).
+
+**Screenshot:**
+
+.. image:: /_images/checkout/paymentmethod_example.png
+    :align: center
+    :alt: Display the payment selection step of a checkout journey, showing multiple payment methods (e.g., CreditCard, EHF etc.).
+    :scale: 80%
+
 `TermsUrl`: The URL pointing to the terms and conditions for the subscription.
 `OrganizationId`: Specifies the default organization ID used for the order if not provided with the Subscription Plan Id.
 `DefaultSubscriptionPlanId`: The default subscription plan for new orders if not overridden by a query parameter.
