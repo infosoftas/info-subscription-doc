@@ -26,7 +26,7 @@ Each journey is pre-configured to meet different use cases, providing flexibilit
 Available Journey Types
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Order (`order`)
+#. Order (``order``)
 
     * **Description**: A minimal-friction journey designed for orders that do not require personal information like an address or phone number.
     * **Use Case**: Ideal for digital services or products where only basic payment and subscription details are needed.
@@ -38,12 +38,12 @@ Available Journey Types
 
     **Screenshot:**
     
-    .. image:: /_images/checkout/order_journey.jepg
+    .. image:: /_images/checkout/order_journey.jpeg
         :align: center
         :alt: Minimal-friction order journey interface
-        :scale: 50%
+        :scale: 60%
 
-#. Order with Address and Personal Information (`order-address`)
+#. Order with Address and Personal Information (``order-address``)
 
     * **Description**: A journey that requires users to provide additional details, such as their name, address, and telephone number.
     * **Use Case**: Suitable for physically distributed products or services requiring accurate delivery and contact details.
@@ -58,9 +58,9 @@ Available Journey Types
     .. image:: /_images/checkout/order-address_journey.jpeg
         :align: center
         :alt: Personal Info and Address order journey interface
-        :scale: 50%
+        :scale: 60%
 
-#. B2B (`order-business`)
+#. B2B (``order-business``)
 
     * **Description**: A journey tailored for business-to-business transactions. This includes options for e-invoicing and company-specific information.
     * **Use Case**: Ideal for businesses subscribing on behalf of an organization, where advanced invoicing and organizational data are necessary.
@@ -75,7 +75,7 @@ Available Journey Types
         .. image:: /_images/checkout/order-business_journey.jpeg
             :align: center
             :alt: Business to Business order journey interface, with step 2 showing the follow up window after selecting EHF as the payment method.
-            :scale: 80%
+            :scale: 60%
 
 The journey parameter ensures the correct workflow is invoked, streamlining the process to match the needs of your specific subscription model.
 
@@ -90,10 +90,10 @@ The checkout configuration can be adjusted in two primary ways: via query parame
 
 The following query parameters can be used to customize the checkout process dynamically at runtime:
 
-`returnUrl`: Specifies the URL to which the user will be redirected after completing the order. If not provided, the platform uses the tenant-configured Tenant Home Page configuration value.
-`source`: Tracks the source of the order for analytics and reporting (e.g., Kilkaya, Google Tag Manager).
-`templatePlanId`: Overrides the default subscription plan, allowing you to dynamically specify a different plan for the user.
-`journey`: Sets the journey type to invoke, this is a required parameter.
+* ``returnUrl``: Specifies the URL to which the user will be redirected after completing the order. If not provided, the platform uses the tenant-configured Tenant Home Page configuration value.
+* ``source``: Tracks the source of the order for analytics and reporting (e.g., Kilkaya, Google Tag Manager).
+* ``templatePlanId``: Overrides the default subscription plan, allowing you to dynamically specify a different plan for the user.
+* ``journey``: Sets the journey type to invoke, this is a required parameter.
 
 These query parameters can be appended to the checkout URL to tailor behavior for specific use cases.
 For example:
@@ -110,38 +110,45 @@ Tenants can define settings in the Merchant UI that control the default behavior
 These options include:
 
 **Global Settings**
-`Tenant Home Page`: Default returnUrl if none is provided in the query parameters.
-`Kilkaya Installation`: Specifies the integration setup for Kilkaya order tracking and the endpoint where orders should be registered.
-`GoogleTagManager Id`: Defines the GTM setup for order tracking and registration.
-`Self Service Url`: A reference URL for payment providers that require a self-service management page for users.
-`Custom Css Url`: Points to a custom CSS file that will be applied during the checkout process, allowing complete visual customization.
+
+``Tenant Home Page``: Default returnUrl if none is provided in the query parameters.
+
+``Kilkaya Installation``: Specifies the integration setup for Kilkaya order tracking and the endpoint where orders should be registered.
+
+``GoogleTagManager Id``: Defines the GTM setup for order tracking and registration.
+
+``Self Service Url``: A reference URL for payment providers that require a self-service management page for users.
+
+``Custom Css Url``: Points to a custom CSS file that will be applied during the checkout process, allowing complete visual customization.
 
 **Per-Journey Settings**
 Each journey can be further customized with the following settings:
 
-`IngressHeader` and `IngressText`
+``IngressHeader`` and ``IngressText``:
 
-The `IngressHeader` and `IngressText` settings control the introduction header and text displayed at the start of the checkout process.
+The ``IngressHeader`` and ``IngressText`` settings control the introduction header and text displayed at the start of the checkout process.
 
 **Screenshot:**
 
 .. image:: /_images/checkout/ingress_example.jpeg
     :align: center
     :alt: Customizable introduction header and text example
-    :scale: 50%
+    :scale: 60%
 
-`PaymentMethods`: Specifies the payment methods available to users during the checkout process (e.g., Vipps, MobilePay, CreditCard).
+``PaymentMethods``: Specifies the payment methods available to users during the checkout process (e.g., Vipps, MobilePay, CreditCard).
 
 **Screenshot:**
 
 .. image:: /_images/checkout/paymentmethod_example.jpeg
     :align: center
     :alt: Display the payment selection step of a checkout journey, showing multiple payment methods (e.g., CreditCard, EHF etc.).
-    :scale: 50%
+    :scale: 60%
 
-`TermsUrl`: The URL pointing to the terms and conditions for the subscription.
-`OrganizationId`: Specifies the default organization ID used for the order if not provided with the Subscription Plan Id.
-`DefaultSubscriptionPlanId`: The default subscription plan for new orders if not overridden by a query parameter.
+``TermsUrl``: The URL pointing to the terms and conditions for the subscription.
+
+``OrganizationId``: Specifies the default organization ID used for the order if not provided with the Subscription Plan Id.
+
+``DefaultSubscriptionPlanId``: The default subscription plan for new orders if not overridden by a query parameter.
 
 These options acts as defaults, and some are required for the best user experience, but all of them are essentially optional.
 
