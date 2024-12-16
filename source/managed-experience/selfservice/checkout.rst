@@ -30,7 +30,7 @@ Available Journey Types
 
     * **Description**: A minimal-friction journey designed for orders that do not require personal information like an address or phone number.
     * **Use Case**: Ideal for digital services or products where only basic payment and subscription details are needed.
-    * **Example**:
+    * **How to use**:
     
         .. code-block:: bash
 
@@ -40,32 +40,21 @@ Available Journey Types
 
     * **Description**: A journey that requires users to provide additional details, such as their name, address, and telephone number.
     * **Use Case**: Suitable for physically distributed products or services requiring accurate delivery and contact details.
+    * **How to use**:
+
+        .. code-block:: bash
+
+            https://{tenantName}-s4.azurewebsites.net/checkout?journey=order-address
 
 #. B2B (`order-business`)
+
     * **Description**: A journey tailored for business-to-business transactions. This includes options for e-invoicing and company-specific information.
     * **Use Case**: Ideal for businesses subscribing on behalf of an organization, where advanced invoicing and organizational data are necessary.
+    * **How to use**:
 
-How to Use Journey Types
-~~~~~~~~~~~~~~~~~~~~~~~~
-To specify a journey type, include the journey query parameter in the checkout URL. For example:
+        .. code-block:: bash
 
-**Order Journey:**
-
-.. code-block:: bash
-
-    https://{tenantName}-s4.azurewebsites.net/checkout?journey=order
-
-**Order with Address:**
-
-.. code-block:: bash
-
-    https://{tenantName}-s4.azurewebsites.net/checkout?journey=order-address
-
-**B2B Order:**
-
-.. code-block:: bash
-
-    https://{tenantName}-s4.azurewebsites.net/checkout?journey=order-business
+            https://{tenantName}-s4.azurewebsites.net/checkout?journey=order-business
 
 The journey parameter ensures the correct workflow is invoked, streamlining the process to match the needs of your specific subscription model.
 
