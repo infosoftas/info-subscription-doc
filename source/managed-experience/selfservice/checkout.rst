@@ -3,7 +3,7 @@
 Checkout
 ========
 
-|projectName| contains checkout solution to streamline the purchase and onboarding process for both digital services and physically distributed products. 
+|projectName| contains a checkout solution to streamline the purchase and onboarding process for both digital services and physically distributed products. 
 It is an out-of-the-box web app that enables end users to complete subscription purchases with minimal effort, requiring no special setup from tenants.
 
 Key features include:
@@ -13,7 +13,7 @@ Key features include:
     * Orders requiring customer details (e.g., name, phone, and address).
     * **B2B orders**, including advanced invoicing options.
 * **Payment Options**: Built-in support for payment methods such as Vipps, MobilePay, CreditCard, EHF, OIO, Email invoicing as well as traditional invoicing.
-* **Customizable Invoice Address collection**: Optional configurations for invoice address collection.
+.. * **Customizable Invoice Address collection**: Optional configurations for invoice address collection. (COMMENTED OUT UNTIL WE HAVE OPTION TO TOGGLE THIS!)
 
 Checkout allows developers to configure, extend, and customize it to meet specific business requirements to some degree.
 The following documentation will guide you through the customization to suit your specific requirements.
@@ -26,24 +26,23 @@ Each journey is pre-configured to meet different use cases, providing flexibilit
 Available Journey Types
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Order (`order`)
+#. Order (`order`)
+    * **Description**: A minimal-friction journey designed for orders that do not require personal information like an address or phone number.
+    * **Use Case**: Ideal for digital services or products where only basic payment and subscription details are needed.
+    * Example 
+.. code-block:: bash
 
-**Description**: A minimal-friction journey designed for orders that do not require personal information like an address or phone number.
-**Use Case**: Ideal for digital services or products where only basic payment and subscription details are needed.
-
-
-2. Order with Address and Personal Information (`order-address`)
-
-**Description**: A journey that requires users to provide additional details, such as their name, address, and telephone number.
-**Use Case**: Suitable for physically distributed products or services requiring accurate delivery and contact details.
-
-3. B2B (`order-business`)
-
-**Description**: A journey tailored for business-to-business transactions. This includes options for e-invoicing and company-specific information.
-**Use Case**: Ideal for businesses subscribing on behalf of an organization, where advanced invoicing and organizational data are necessary.
+    https://{tenantName}-s4.azurewebsites.net/checkout?journey=order
+    
+#. Order with Address and Personal Information (`order-address`)
+    * **Description**: A journey that requires users to provide additional details, such as their name, address, and telephone number.
+    * **Use Case**: Suitable for physically distributed products or services requiring accurate delivery and contact details.
+#. B2B (`order-business`)
+    * **Description**: A journey tailored for business-to-business transactions. This includes options for e-invoicing and company-specific information.
+    * **Use Case**: Ideal for businesses subscribing on behalf of an organization, where advanced invoicing and organizational data are necessary.
 
 How to Use Journey Types
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 To specify a journey type, include the journey query parameter in the checkout URL. For example:
 
 **Order Journey:**
