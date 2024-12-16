@@ -30,11 +30,11 @@ Available Journey Types
 
     * **Description**: A minimal-friction journey designed for orders that do not require personal information like an address or phone number.
     * **Use Case**: Ideal for digital services or products where only basic payment and subscription details are needed.
-    * Example:
+    * **Example**:
     
-    .. code-block:: bash
+        .. code-block:: bash
 
-        https://{tenantName}-s4.azurewebsites.net/checkout?journey=order
+            https://{tenantName}-s4.azurewebsites.net/checkout?journey=order
 
 #. Order with Address and Personal Information (`order-address`)
 
