@@ -27,16 +27,20 @@ Available Journey Types
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Order (`order`)
+
     * **Description**: A minimal-friction journey designed for orders that do not require personal information like an address or phone number.
     * **Use Case**: Ideal for digital services or products where only basic payment and subscription details are needed.
-    * Example 
-.. code-block:: bash
-
-    https://{tenantName}-s4.azurewebsites.net/checkout?journey=order
+    * Example:
     
+    .. code-block:: bash
+
+        https://{tenantName}-s4.azurewebsites.net/checkout?journey=order
+
 #. Order with Address and Personal Information (`order-address`)
+
     * **Description**: A journey that requires users to provide additional details, such as their name, address, and telephone number.
     * **Use Case**: Suitable for physically distributed products or services requiring accurate delivery and contact details.
+
 #. B2B (`order-business`)
     * **Description**: A journey tailored for business-to-business transactions. This includes options for e-invoicing and company-specific information.
     * **Use Case**: Ideal for businesses subscribing on behalf of an organization, where advanced invoicing and organizational data are necessary.
