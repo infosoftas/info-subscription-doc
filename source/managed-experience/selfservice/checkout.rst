@@ -111,20 +111,16 @@ These options include:
 
 **Global Settings**
 
-``Tenant Home Page``: Default returnUrl if none is provided in the query parameters.
-
-``Kilkaya Installation``: Specifies the integration setup for Kilkaya order tracking and the endpoint where orders should be registered.
-
-``GoogleTagManager Id``: Defines the GTM setup for order tracking and registration.
-
-``Self Service Url``: A reference URL for payment providers that require a self-service management page for users.
-
-``Custom Css Url``: Points to a custom CSS file that will be applied during the checkout process, allowing complete visual customization.
+* ``Tenant Home Page``: Default returnUrl if none is provided in the query parameters.
+* ``Kilkaya Installation``: Specifies the integration setup for Kilkaya order tracking and the endpoint where orders should be registered.
+* ``GoogleTagManager Id``: Defines the GTM setup for order tracking and registration.
+* ``Self Service Url``: A reference URL for payment providers that require a self-service management page for users.
+* ``Custom Css Url``: Points to a custom CSS file that will be applied during the checkout process, allowing complete visual customization.
 
 **Per-Journey Settings**
 Each journey can be further customized with the following settings:
 
-``IngressHeader`` and ``IngressText``:
+* ``IngressHeader`` and ``IngressText``:
 
 The ``IngressHeader`` and ``IngressText`` settings control the introduction header and text displayed at the start of the checkout process.
 
@@ -135,7 +131,7 @@ The ``IngressHeader`` and ``IngressText`` settings control the introduction head
     :alt: Customizable introduction header and text example
     :scale: 60%
 
-``PaymentMethods``: Specifies the payment methods available to users during the checkout process (e.g., Vipps, MobilePay, CreditCard).
+* ``PaymentMethods``: Specifies the payment methods available to users during the checkout process (e.g., Vipps, MobilePay, CreditCard).
 
 **Screenshot:**
 
@@ -144,11 +140,9 @@ The ``IngressHeader`` and ``IngressText`` settings control the introduction head
     :alt: Display the payment selection step of a checkout journey, showing multiple payment methods (e.g., CreditCard, EHF etc.).
     :scale: 60%
 
-``TermsUrl``: The URL pointing to the terms and conditions for the subscription.
-
-``OrganizationId``: Specifies the default organization ID used for the order if not provided with the Subscription Plan Id.
-
-``DefaultSubscriptionPlanId``: The default subscription plan for new orders if not overridden by a query parameter.
+* ``TermsUrl``: The URL pointing to the terms and conditions for the subscription.
+* ``OrganizationId``: Specifies the default organization ID used for the order if not provided with the Subscription Plan Id.
+* ``DefaultSubscriptionPlanId``: The default subscription plan for new orders if not overridden by a query parameter.
 
 These options acts as defaults, and some are required for the best user experience, but all of them are essentially optional.
 
