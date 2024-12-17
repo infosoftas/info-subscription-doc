@@ -16,11 +16,13 @@ Key features include:
 .. * **Customizable Invoice Address collection**: Optional configurations for invoice address collection. (COMMENTED OUT UNTIL WE HAVE OPTION TO TOGGLE THIS!)
 
 Checkout allows developers to configure, extend, and customize it to meet specific business requirements to some degree.
+
 The following documentation will guide you through the customization to suit your specific requirements.
 
 Journey Types in |projectName| Checkout
 ---------------------------------------
 The journey query parameter allows you to specify the type of journey to be invoked during the checkout process. 
+
 Each journey is pre-configured to meet different use cases, providing flexibility for digital services, physically distributed products, and B2B transactions.
 
 Available Journey Types
@@ -90,12 +92,13 @@ The checkout configuration can be adjusted in two primary ways: via query parame
 
 The following query parameters can be used to customize the checkout process dynamically at runtime:
 
-* ``returnUrl``: Specifies the URL to which the user will be redirected after completing the order. If not provided, the platform uses the tenant-configured Tenant Home Page configuration value.
+* ``returnUrl``: Specifies the URL to which the user will be redirected after completing the order. If not provided, the platform uses the merchant-configured Tenant Home Page configuration value.
 * ``source``: Tracks the source of the order for analytics and reporting (e.g., Kilkaya, Google Tag Manager).
 * ``templatePlanId``: Overrides the default subscription plan, allowing you to dynamically specify a different plan for the user.
 * ``journey``: Sets the journey type to invoke, this is a required parameter.
 
 These query parameters can be appended to the checkout URL to tailor behavior for specific use cases.
+
 For example:
 
 .. code-block:: bash
@@ -107,6 +110,8 @@ For example:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Tenants can define settings in the Merchant UI that control the default behavior and appearance of the checkout process.
+
+
 These options include:
 
 **Global Settings**
@@ -120,9 +125,7 @@ These options include:
 **Per-Journey Settings**
 Each journey can be further customized with the following settings:
 
-* ``IngressHeader`` and ``IngressText``:
-
-The ``IngressHeader`` and ``IngressText`` settings control the introduction header and text displayed at the start of the checkout process.
+* ``IngressHeader`` and ``IngressText``: Control the introduction header and text displayed at the start of the checkout process.
 
 **Screenshot:**
 
