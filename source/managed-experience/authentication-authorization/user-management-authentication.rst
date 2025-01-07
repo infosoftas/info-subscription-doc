@@ -16,7 +16,7 @@ Meaning each tenant is free to use their own IdP and roll their own custom autho
 
 Authorization Building Blocks 
 =============================
-The user authorization module provides building blocks which can be used in different ways to help achieve a simpler, faster and more robust auhtorization process.
+The user authorization module provides building blocks which can be used in different ways to help achieve a simpler, faster and more robust authorization process.
 
 There are several central parts
 
@@ -24,7 +24,7 @@ There are several central parts
 * Users
 * Authorization Sources
 
-The following goes into details about each area in turn, describing how they work, can be used by external parties, and how |projectName| use these for providing an out-of-the-box auhtorizaiton experience using |ADB2C| and {AUTH0}
+The following goes into details about each area in turn, describing how they work, can be used by external parties, and how |projectName| use these for providing an out-of-the-box auhtorizaiton experience using |ADB2C|.
 
 To create, update and otherwise manipulate these items look at the API Reference documentation, specifically anything under the `/authorization` path.
 
@@ -35,7 +35,7 @@ In short: An identity provider represents a source of users.
 An identity provider can be a database, an online service, a location or anything for that matter.
 Each user can only exist in one provider at a time, though there is nothing that restricts you from having multiple providers and having the same user added multiple times, one for each.
 
-The fact that an identiy provider can be almost anything is used as the background for solving the special case of Site-Access Authorization.
+The fact that an identity provider can be almost anything is used as the background for solving the special case of Site-Access Authorization.
 
 There are two built-in identity provider types that |projectName| knows about and will offer to do some automation for, but even though you utilize one of these types, the automation is entirely optional.
 
@@ -61,8 +61,8 @@ A user has the following primary properties:
 
 Authorization Sources
 =====================
-Some businesses need little more than a `user` and an `identity provider` mapping the user to a susbcriber to solve their needs.
-Others require a bit more magic to make things working, this is where **Auhtorization Sources** come into play.
+Some businesses need little more than a `user` and an `identity provider` mapping the user to a subscriber to solve their needs.
+Others require a bit more magic to make things working, this is where **Authorization Sources** come into play.
 Authorization sources are the auto-magic of the user authorization that |projectName| offers.
 
 .. important::
@@ -116,7 +116,7 @@ This is the mapping type used by |projectName| for adding shared and family user
 
 A user can be mapped to a subscriber and multiple subscriber accounts at the same time that have nothing to do with each other.
 
-External Static Auhtorization Source
+External Static Authorization Source
 ------------------------------------
 In some scenarios it may be something external that grants access to a specific product.
 
@@ -154,13 +154,3 @@ The same can be achieved if you are running your own |ADB2C| instance. In that c
 
 
 .. include:: site-access.inc
-
-*********************************
-Legacy Authentication Using Auth0
-*********************************
-The following section is here to document the legacy authentication process for tenants using Auth0 for their users.
-
-.. toctree::
-    
-    auth0-legacy/authentication
-    auth0-legacy/authorization

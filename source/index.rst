@@ -58,7 +58,7 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     :glob:
 
     managed-experience/managed-introduction
-    managed-experience/selfservice/customization
+    managed-experience/selfservice/checkout
     managed-experience/authentication-authorization/quick-start
     managed-experience/authentication-authorization/adb2c/index
     managed-experience/authentication-authorization/user-management-authentication

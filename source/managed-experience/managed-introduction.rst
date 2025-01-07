@@ -4,10 +4,10 @@ Managed Subcriber Experience
 ============================
 The managed subscriber experience is a turn key solution for tenants that do not want to build their own customer facing solutions.
 
-It consists of three parts which works in tandeem to provide a complete solution for end users (subscribers).
+It consists of three parts which works in tandem to provide a complete solution for end users (subscribers).
 
 * An Identity Provider (IdP) utilized for user authentication (username/password, social accounts etc).
-* A salesprocess that takes care of registering new users, subscribers and subscriptions complete with payment agreements, invoice contact details.
+* A sales process that takes care of registering new users, subscribers and subscriptions complete with payment agreements, invoice contact details.
 * A self-service management site where users can see and manage their subscriptions, change payment agreements and get an overview of their invoices.
 
 While the components provided are enough to get most business going, there is typically some requirement to make them interact with an external web-site.
