@@ -40,7 +40,7 @@ Available Journey Types
 
     **Screenshot:**
     
-    .. image:: /_images/checkout/order_journey.jpeg
+    .. image:: /_images/checkout/order_journey.png
         :align: center
         :alt: Minimal-friction order journey interface
         :scale: 60%
@@ -57,7 +57,7 @@ Available Journey Types
     
     **Screenshot:**
 
-    .. image:: /_images/checkout/order-address_journey.jpeg
+    .. image:: /_images/checkout/order-address_journey.png
         :align: center
         :alt: Personal Info and Address order journey interface
         :scale: 60%
@@ -74,7 +74,7 @@ Available Journey Types
 
     **Screenshot:**
 
-        .. image:: /_images/checkout/order-business_journey.jpeg
+        .. image:: /_images/checkout/order-business_journey.png
             :align: center
             :alt: Business to Business order journey interface, with step 2 showing the follow up window after selecting EHF as the payment method.
             :scale: 60%
@@ -129,7 +129,7 @@ Each journey can be further customized with the following settings:
 
 **Screenshot:**
 
-.. image:: /_images/checkout/ingress_example.jpeg
+.. image:: /_images/checkout/ingress_example.png
     :align: center
     :alt: Customizable introduction header and text example
     :scale: 60%
@@ -138,7 +138,7 @@ Each journey can be further customized with the following settings:
 
 **Screenshot:**
 
-.. image:: /_images/checkout/paymentmethod_example.jpeg
+.. image:: /_images/checkout/paymentmethod_example.png
     :align: center
     :alt: Display the payment selection step of a checkout journey, showing multiple payment methods (e.g., CreditCard, EHF etc.).
     :scale: 60%
