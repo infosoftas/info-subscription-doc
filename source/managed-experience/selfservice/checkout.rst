@@ -74,7 +74,7 @@ Available Journey Types
 
     **Screenshot:**
 
-        .. image:: /_images/checkout/order-business_journey.png
+        .. image:: /_images/checkout/order-businesss_journey_combined.jpeg
             :align: center
             :alt: Business to Business order journey interface, with step 2 showing the follow up window after selecting EHF as the payment method.
             :scale: 60%
@@ -131,16 +131,16 @@ Each journey can be further customized with the following settings:
 
 .. image:: /_images/checkout/ingress_example.png
     :align: center
-    :alt: Customizable introduction header and text example
+    :alt: Customizable introduction header and text example (Monthly Subscription of Coffee)
     :scale: 60%
 
-* ``PaymentMethods``: Specifies the payment methods available to users during the checkout process (e.g., Vipps, MobilePay, CreditCard).
+* ``PaymentMethods``: Specifies the payment methods available to users during the checkout process (e.g., CreditCard, Vipps, Invoice and Email).
 
 **Screenshot:**
 
 .. image:: /_images/checkout/paymentmethod_example.png
     :align: center
-    :alt: Display the payment selection step of a checkout journey, showing multiple payment methods (e.g., CreditCard, EHF etc.).
+    :alt: Display the payment selection step of a checkout journey, showing multiple payment methods (e.g., CreditCard, Vipps, Email etc.).
     :scale: 60%
 
 * ``TermsUrl``: The URL pointing to the terms and conditions for the subscription.
