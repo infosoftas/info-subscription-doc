@@ -8,8 +8,8 @@ As we enter the new year, we bring a new release with additional features and im
 
 This time around we are ready to announce a few big items
 
-* **Checkout**: A brand new checkout experience. See `here <https://www.info-subscription.com/articles/announcements/checkout>`_ and `here <https://docs.info-subscription.com/en/latest/managed-experience/selfservice/checkout.html>`_ for more information.
-* **OData Analytics API**: We have added the ability to run OData queries directly from the API. This allows you to extract data for reporting and analytics purposes. See `here <https://www.info-subscription.com/articles/announcements/analyticsapi>`_ for more information.
+* **Checkout**: A brand new checkout experience. See the `main announcement <https://www.info-subscription.com/>`_ and `conceptual docs <https://docs.info-subscription.com/en/latest/managed-experience/selfservice/checkout.html>`_ for more information.
+* **OData Analytics API**: We have added the ability to run OData queries directly from the API. This allows you to extract data for reporting and analytics purposes. See the `announcment <https://www.info-subscription.com/>`_ for more information.
 
 While not directly coupled to this release, we would also like to call out our new Orders SDK for TypeScript/JavaScript developers. 
 This SDK is available on `npm <https://www.npmjs.com/package/@infosoftas/s4-orders-js-sdk>`_ and on `GitHub <https://github.com/infosoftas/s4-orders-js-sdk>`_.
