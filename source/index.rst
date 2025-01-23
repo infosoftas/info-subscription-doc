@@ -14,7 +14,7 @@ Introduction
 This is the home of the developer documentation for |projectName|.
 If you came here looking for the user documentation you are in the `wrong place <https://docs.infosoft.no/>`_.
 
-If you have no idea what |projectName| is, then head over to the `product website <https://www.infosoft.as/solutions/info-subscription/>`_ and have a look.
+If you have no idea what |projectName| is, then head over to the `product website <https://www.infosoft.as/info-subscription/>`_ and have a look.
 
 Integration Options
 ===================
