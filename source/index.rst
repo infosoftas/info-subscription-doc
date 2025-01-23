@@ -30,7 +30,7 @@ Some tenants prefer to use our :ref:`managed subscriber experience <managed-expe
  * An ordering and user registration site/process where new subscribers can order subscriptions and register a new user.
  * An Identity Provider (IdP) solution that contains user credentials and some authorization information for letting users consume their purchased content.
 
-For integrating with the managed subcriber experience header over to our :ref:`introduction to the managed experience <managed-experience>` .
+For integrating with the managed subscriber experience header over to our :ref:`introduction to the managed experience <managed-experience>` .
 
 
 Contact Information and Support
