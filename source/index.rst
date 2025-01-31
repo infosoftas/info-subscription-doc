@@ -14,7 +14,7 @@ Introduction
 This is the home of the developer documentation for |projectName|.
 If you came here looking for the user documentation you are in the `wrong place <https://docs.infosoft.no/>`_.
 
-If you have no idea what |projectName| is, then head over to the `product website <https://www.infosoft.as/solutions/info-subscription/>`_ and have a look.
+If you have no idea what |projectName| is, then head over to the `product website <https://www.infosoft.as/info-subscription/>`_ and have a look.
 
 Integration Options
 ===================
@@ -30,7 +30,7 @@ Some tenants prefer to use our :ref:`managed subscriber experience <managed-expe
  * An ordering and user registration site/process where new subscribers can order subscriptions and register a new user.
  * An Identity Provider (IdP) solution that contains user credentials and some authorization information for letting users consume their purchased content.
 
-For integrating with the managed subcriber experience header over to our :ref:`introduction to the managed experience <managed-experience>` .
+For integrating with the managed subscriber experience header over to our :ref:`introduction to the managed experience <managed-experience>` .
 
 
 Contact Information and Support
