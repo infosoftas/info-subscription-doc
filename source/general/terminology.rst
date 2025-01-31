@@ -20,9 +20,13 @@ Terminology and Definitions
         A subscription is typically associated with a specific set of rules, called a plan, which describes the particular terms of the subscription.
         See :term:`plan` for details.
 
-    Plan
+    Subscription Plan
     Package
         A set of rules that governs the details of a subscription, such as the duration, continuation, billing and fees.
+
+    Template Subscription Plan
+    Template Package
+        A template to simplify the creation of new subscription plans. The template is used to create a new plan with a specific set of rules during order registrations.
 
     Organization
         A legal entity, company or similar who offers one or more products as a subscription.
@@ -41,22 +45,48 @@ Terminology and Definitions
 
     Payment Service Provider
     PSP
-        From `wikipedia <https://en.wikipedia.org/wiki/Payment_service_provider>`_ : A payment service provider, offers shops online services for accepting electronic payments by a variety of payment methods including credit card, bank-based payments such as direct debit, bank transfer, and real-time bank transfer based on online banking. Typically, they use a software as a service model and form a single payment gateway for their clients (merchants) to multiple payment methods.
+        From `wikipedia <https://en.wikipedia.org/wiki/Payment_service_provider>`_ : A payment service provider, offers sellers and merchants, services for accepting electronic payments by a variety of payment methods including credit card, bank-based payments such as direct debit, bank transfer, and real-time bank transfer based on online banking. 
+        Typically, they use a software as a service model and form a single payment gateway for their clients (merchants) to multiple payment methods.
 
-    Mastercard Payment Solutions (formerly NETS)
+    NETS
+    Mastercard Payment Solutions
     Bankgirot
     SwedbankPay
-    Vipps Company
+    VippsMobilePay
         A specific PSP - see :term:`PSP`
 
     eFaktura
-        |eFaktura| is a Norwegian electronic invoicing method for invoicng through most Norwegian online banking soltions provided by Mastercard Payment Srvices. May be combined with AvtaleGiro :term:`AvtaleGiro`
+        |eFaktura| is a Norwegian electronic invoicing method for invoicng through most Norwegian online banking solutions provided by :term:`astercard Payment Solutions`. May be combined with AvtaleGiro :term:`AvtaleGiro`
 
     Vipps
-        |Vipps| is a Norwegian App for payments managed by mobile phone, either through payment cards or direct bank account transfers behind the scenes.
-
+    MobilePay
+        |Vipps| and |MobilePay| is a scandinavian App for payments managed by mobile phone, either through payment cards or direct bank account transfers behind the scenes. It is currently available in Norway, Denmark and Finland merchant payments.
+    
     AvtaleGiro
         |AvtaleGiro| is the direct debit solution in Norway, handling recurring payments with little customer interaction after setup. It is provided by Mastercard Payment Solutions. May be combined with :term:`eFaktura`.
 
     Autogiro
-        |Autogiro| is the direct debit solution in Sweden, handling recurring payments with little customer interaction after setup. It is provided by :term:`Bankgirot`.
+        |Autogiro| is the B2C and B2B direct debit solution in Sweden, handling recurring payments with little customer interaction after setup. It is provided by :term:`Bankgirot`.
+
+    BetalingsService
+        |BetalingsService| is the B2C direct debit solution in Denmark, handling recurring payments with little customer interaction after setup. It is provided by :term:`Mastercard Payment Solutions`.
+
+    Autogiro Norway
+        Autogiro in Norway is a special direct debit solution for B2B payments, it should NOT be confused with the Swedish Autogiro variant. It is provided by :term:`Mastercard Payment Solutions`.
+
+
+.. _conceptual_relationship:
+
+*******************************
+Conceptual Relationship Model
+*******************************
+
+The following diagram illustrates the conceptual relationships between the some of the entities and terms defined in this document.
+
+.. image:: _images/relationship-model.png
+    :alt: Conceptual Relationship Diagram
+    :align: center
+
+.. note::
+
+    Please note that the diagram is a simplification and does not cover all possible relationships between the entities.
