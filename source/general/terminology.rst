@@ -83,10 +83,13 @@ Conceptual Relationship Model
 
 The following diagram illustrates the conceptual relationships between the some of the entities and terms defined in this document.
 
-.. image:: /_images/relationship-model.png
+
+.. figure:: /_images/relationship-model.png
     :alt: Conceptual Relationship Diagram
     :align: center
     :scale: 80%
+
+    Simplified relationship between selected central entities.
 
 
 .. note::
