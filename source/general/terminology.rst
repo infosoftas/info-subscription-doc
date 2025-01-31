@@ -86,6 +86,8 @@ The following diagram illustrates the conceptual relationships between the some 
 .. image:: /_images/relationship-model.png
     :alt: Conceptual Relationship Diagram
     :align: center
+    :scale: 80%
+
 
 .. note::
 
