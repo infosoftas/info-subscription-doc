@@ -14,7 +14,7 @@ API and Backend
 Added
 -----
 
-* **[Preview]** Support for additional products on running subscriptions and new orders with billing and proration. Contact Support ({SUPPORTPAGE}) if you want to participate in the preview.
+* **[Preview]** Support for additional products on running subscriptions and new orders with billing and proration. :ref:`Contact support <reporting-bugs>` if you want to participate in the preview.
 
 Changed
 -------
