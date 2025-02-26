@@ -27,7 +27,7 @@ Fixed
 
 * **[Hotfix]** An issue where invoice documents would not be generated and sent to the PEPPOL network.
 * Fixed an issue with incorrect topic name usage causing tenant name changes to break event handling.
-* An issue where Revenue KPI calculations use full days instead of fractional days similar to the rest of the billing logic.
+* An issue where Revenue KPI calculations used fractional days instead of full days similar to the rest of the billing logic.
 
 Merchant Client
 ===============
@@ -45,7 +45,7 @@ Changed
 * Made starttime mandatory when creating an account invoice.
 * Improvements to the orders view allowing for better overview of failed and aborted orders.
 * Extended price display in various views to show both inclusive and exclusive of VAT, previously it was always inclusive.
-* Changed the grid/view for configuring subscription plans as a PoC for other grids.
+* Changed the grid/view for listing template subscription plans as a PoC for other grids.
 
 Fixed
 -----
