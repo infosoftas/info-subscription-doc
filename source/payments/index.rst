@@ -133,3 +133,4 @@ Provider Integrations
     providers/eFaktura
     providers/vipps
     providers/swedbank
+    providers/betalingsservice
