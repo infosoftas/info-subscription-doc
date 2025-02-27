@@ -5,7 +5,7 @@ What is |projectName|
 *********************
 
 |projectName| is a service that provides subscription billing and management, in simple terms it creates invoices, manages payments and maintains subscriptions based on these invoices and payments.
-Most importantly it automates these business processes and attempts to simplify/encode business decisions into these processes, freeing personel to do other things than handling late payments, amount discrepancies and routine dunning in general.
+Most importantly it automates these business processes and attempts to simplify/encode business decisions into these processes, freeing personnel to do other things than handling late payments, amount discrepancies and routine dunning in general.
 
 What is it not?
 ===============
@@ -13,7 +13,7 @@ Depending on your point of view it might be easier to understand what it is by d
 
 CRM
 ---
-INFO-Subscription contains a small ammount personal data, that will allow you to manage simple information about a subscriber. 
+INFO-Subscription contains a small amount personal data, that will allow you to manage simple information about a subscriber. 
 It is not a fully fledged CRM system, neither is it going to attempt to fulfil that role. 
 
 However, it is possible to integrate with third party CRMs to synchronize data in a reactive manner, so everyone can bring their own CRM.
@@ -37,10 +37,11 @@ Subscription Management and Billing
 |projectName| provides capabilities to:
 
  * Create new subscriptions.
- * Handle cancelations and upgrades/downgrades subscriptions (both planned and immediate adjustments).
+ * Handle cancellations and upgrades/downgrades subscriptions (both planned and immediate adjustments).
  * Customize billing cycles to suit various business needs.
- * Automatic proration for upgrades/downgrades.
- * Automated handling of late payment and amount discrepancies.
+ * Automatic proration for upgrades/downgrades and cancellations.
+ * Automated handling of late payment and amount discrepancies (Dunning).
+ * Automated handling of payment processing.
 
 All of this is done by codifying business requirements/decisions into configuration and setup of various rules.
 

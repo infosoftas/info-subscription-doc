@@ -6,11 +6,11 @@ eFaktura is a Norwegian eInvoicing solution providing consumers with an electron
 
 Unlike many of the other recurring payment systems, there is no automatic payment, the consumer still has to accept the Invoice, but doing so is almost trivial.
 
-Consigment or Mandate Registration
+Consignment or Mandate Registration
 ----------------------------------
 
-The terminology has historically been a bit confusing, but similar to AvtaleGiro a organization needs a consignment or agreement or mandate from the Subscriber to send him/her an efaktura Invoice.
-efaktura registration is an "out-of-band" process where the subscriber accepts eFaktura in general (not for the specific organization). 
+The terminology has historically been a bit confusing, but similar to |AvtaleGiro| an organization needs a consignment or agreement or mandate from the Subscriber to send him/her an efaktura Invoice.
+eFaktura registration is an "out-of-band" process where the subscriber accepts eFaktura in general (not for the specific organization). 
 Then it is up to the Organization to determine if the subscriber should have eFaktura or not.
 
 |projectName| implements eFaktura with the following process

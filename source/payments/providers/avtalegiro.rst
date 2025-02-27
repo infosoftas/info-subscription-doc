@@ -18,8 +18,8 @@ AvtaleGiro traditionally provides an "out-of-band" style agreement registration.
 
 Since all of this is "out-of-band", there is little developer integration here.
 
-The requirements is that an account is setup for AvtaleGiro (:api-ref:`Account endpoint<Account/post_avtalegiro_account>`) and that mandates are imported using the OCR Payment file from MasterCard payment services. 
-|projectName| takes care of the rest.
+The requirements is that an account is setup for AvtaleGiro (:api-ref:`Account endpoint<AvtaleGiro/post_avtalegiro_account>`) and that mandates are imported using, preferably via the automatic Mandate API solution or the OCR Payment file from MasterCard Payment Services.
+|projectName| takes care of the API integration if available, and it takes care of the rest in terms of billing, claims generation etc.
 
 Manually Registering Mandates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

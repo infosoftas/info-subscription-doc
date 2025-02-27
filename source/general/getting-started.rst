@@ -11,7 +11,7 @@ The entire management capability of the platform is exposed in the API, meaning 
 Meaning you can do things such as:
 
     * Integrate with existing web-shops or frontends
-    * Provide tailormade self-service for subscribers matching your brand and workflows
+    * Provide tailored self-service for subscribers matching your brand and workflows
     * Integrate management capability in a custom business portal, CRM System or similar
 
 .. IMPORTANT::
@@ -43,7 +43,7 @@ Together with the |tenantHeader| (see below), the API will determine if the clie
 .. TIP::
     You should consider obtaining separate credentials for separate applications/solutions.
 
-    This way it is easier for you to keep track of the source when investigating issues, errors or perculiar behavior.
+    This way it is easier for you to keep track of the source when investigating issues, errors or peculiar behavior.
 
 
 Obtaining a Tenant Id
