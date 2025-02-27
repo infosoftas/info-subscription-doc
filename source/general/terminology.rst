@@ -56,7 +56,7 @@ Terminology and Definitions
         A specific PSP - see :term:`PSP`
 
     eFaktura
-        |eFaktura| is a Norwegian electronic invoicing method for invoicng through most Norwegian online banking solutions provided by :term:`astercard Payment Solutions`. May be combined with AvtaleGiro :term:`AvtaleGiro`
+        |eFaktura| is a Norwegian electronic invoicing method for invoicing through most Norwegian online banking solutions provided by :term:`Mastercard Payment Solutions`. May be combined with AvtaleGiro :term:`AvtaleGiro`
 
     Vipps
     MobilePay
