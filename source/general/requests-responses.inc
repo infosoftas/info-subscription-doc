@@ -5,10 +5,10 @@ Building Requests
 
 In general requests are build such that a `HTTP Method/Verb <https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods>`_ corresponds to a specific type of action.
 
-* ``GET`` Requests data from a resource
-* ``POST`` Creates a resource or starts a process
-* ``PUT`` Replaces/Completely Updates an existing resource
-* ``DELETE`` Deletes a resource or cancels a process
+* ``GET`` Requests data from a resource.
+* ``POST`` Creates a resource or starts a business process. Such as completing an order that in turn creates Subscriptions and Invoices.
+* ``PUT`` Replaces/Completely Updates an existing resource.
+* ``DELETE`` Deletes a resource or cancels a business process. Such as cancelling an order to make sure it can no longer be completed.
 * ``PATCH`` Partially updates a resource or state of a process
 
 The APIs expect ``JSON`` as input and outputs ``JSON`` unless otherwise noted in the `reference documentation <https://api.info-subscription.com/swagger/>`_.
@@ -25,19 +25,30 @@ Handling Responses
 Just as requests are build around the common HTTP Methods, the API responses are constructed around common `HTTP Status Codes <https://developer.mozilla.org/en-US/docs/Web/HTTP/Status>`_.
 Each response contains a code and optionally a body. 
 We strive to follow the same convention throughout the API which should hopefully provide consumers a streamlined experience. 
-Let us know if you discover inconsistencies!
+Let us know if you discover inconsistencies! We really appreciate it.
 
 Successful Responses
 --------------------
 
-For succesful requests we generally map the status codes as follows:
+For successful requests we generally map the status codes as follows:
 
 * ``GET`` Returns ``HTTP 200 OK`` with a body.
-* ``POST`` (i.e. create a new resouce) Returns ``HTTP 201 Created``, optionally with a body of the created resource.
+* ``POST`` (i.e. create a new resource) Returns ``HTTP 201 Created`` (optionally with a body) or ``HTTP 202 Accepted``. In most cases there is also a location in the response header.
 * ``PUT`` Returns ``HTTP 204 No Content`` with no body
 * ``DELETE`` Returns ``HTTP 204 No Content`` with no body
 
 You can consider this as a general rule, but to be certain please refer to the `reference docs <https://api.info-subscription.com/swagger/>`_ for your particular action.
+
+Asynchronous Processing
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The |projectName| platform mostly operates in an asynchronous manner, meaning that when you create a resource or start a process, the response might not be the final result.
+In these cases you will mostly receive a ``HTTP 202 Accepted`` response with a `Location` header that you can use to poll for the final result.
+
+The polling interval is not fixed and can vary depending on the resource and the current load on the system.
+We recommend that you do incremental back-off polling, starting with a short interval and increasing it dynamically.
+
+Depending on the use case it may be sufficient to wait a fixed time between polls and increase if the experience leads to lot of retries.
 
 Error Conditions
 ----------------
@@ -55,7 +66,7 @@ As described above these are Errors that the client should handle, typically by 
 
 Typically client errors are validation/format related and generates a ``HTTP 400 Bad Request`` response with a `validation error instance <https://api.info-subscription.com/swagger/#model-ValidationResultModel>`_
 
-Whenever possible multiple validations will be included in a single response, but since some validations are dependant on existance of a given resource this is not always achievable.
+Whenever possible multiple validations will be included in a single response, but since some validations are dependant on existence of a given resource this is not always achievable.
 
 The following is an example of a ``BadRequest`` response with multiple validation failures. 
 
@@ -140,7 +151,6 @@ An example `401` response:
 .. code-block:: http
 
     HTTP/1.1 401 Unauthorized
-    Server: Kestrel
     WWW-Authenticate: Bearer error="invalid_token", error_description="The token is expired"
     Request-Context: appId=cid-v1:ae92dc8e-a862-4e47-92f2-cc707892f433
     X-Powered-By: ASP.NET
@@ -152,5 +162,5 @@ An example `401` response:
 
 Rate Limiting
 =============
-At the current time there are no cutom enforced rate limits in place, HOWEVER the underlying platform does enforce some ratelimiting.
+At the current time there are no custom enforced rate limits in place, HOWEVER the underlying platform does enforce some ratelimiting.
 If you observe these limits, please let us know so we can have a look into what we can do about it.
