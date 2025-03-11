@@ -1,7 +1,7 @@
 .. _changelog-r132:
 
 *******************
-Release March 4th
+Release March 6th
 *******************
 
 Second release of the year, with just a few new features and improvements.
