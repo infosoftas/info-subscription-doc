@@ -28,6 +28,12 @@ Each journey is pre-configured to meet different use cases, providing flexibilit
 Available Journey Types
 ~~~~~~~~~~~~~~~~~~~~~~~
 
+The following as quick list of the journeys, details are available in the following sections.
+
+* Order
+* Order with Address and Personal Information
+* B2B 
+
 #. Order (``order``)
 
     * **Description**: A minimal-friction journey designed for orders that do not require personal information like an address or phone number.
@@ -95,6 +101,7 @@ The following query parameters can be used to customize the checkout process dyn
 * ``returnUrl``: Specifies the URL to which the user will be redirected after completing the order. If not provided, the platform uses the merchant-configured Tenant Home Page configuration value.
 * ``source``: Tracks the source of the order for analytics and reporting (e.g., Kilkaya, Google Tag Manager).
 * ``templatePlanId``: Overrides the default subscription plan, allowing you to dynamically specify a different plan for the user.
+* ``organizationId``: Specifies the organization ID for the order, allowing you to dynamically set the organization for the subscription plan if not provided in the plan directly.
 * ``journey``: Sets the journey type to invoke, this is a required parameter.
 
 These query parameters can be appended to the checkout URL to tailor behavior for specific use cases.
