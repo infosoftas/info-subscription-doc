@@ -30,8 +30,8 @@ Fixed
 -----
 
 * **[Hotfix]** An issue where allowance was added as charges on the final demands
+* **[Hotfix]** An issue where Balance/Final demand generation would filter out Allowances, causing demands to be produced even when the subscriber account was below the defined limit.
 * An issue with full-synchronization of |AvtaleGiro| mandates, where processing would never complete and in some cases lead to multiple PaymentAgreements.
-* An issue where Balance/Final demand generation would filter out Allowances, causing demands to be produced even when the subscriber account was below the defined limit.
 * Handling of the SwedbankPay operation failure event so it produces an external notification for failed payment processing.
 * An issue where a scheduled subscription plan change would lead to a subscription being slightly longer than it should.
 
@@ -41,8 +41,8 @@ Merchant Client
 Added
 -----
 
+* **[Preview]** The possibility to delete users, and not just disconnect them from the subscriber.
 * A new option for creating users directly when creating new Susbcribers.
-* The possibility to delete users, and not just disconnect them from the subscriber.
 * Support for showing/querying Distribution Innovation for address information in case DeliveryPointId is present on the contact.
 * UI actions for generating Reminder copies similar to the existing Invoice copy feature.
 * Adjusted the subscription view for Additional Products to include price information.
