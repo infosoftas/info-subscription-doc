@@ -20,7 +20,7 @@ Added
 * **[Preview]** Support for removing Additional Product from a running subscription (will be wrapped as a scheduled change).
 * **[Preview]** Support for adding units to Account Payment Demand transactions.
 * **[Preview]** Support for generating payments directly from the SwedbankPay integration instead of via Billing. This allows for automatic payment generation for non-recurring SwedbankPay transactions, letting INFO-Subscription take care of the bookkeeping directly.
-* New webhook trigger/event type for EPaymentOperationFailed. This is triggered when an operation fails related to |VippsMobilePay| EPayments (non-recurring).
+* Added a new trigger for the event type `PaymentProcessingFailed`, it is now also triggered when an operation fails related to |VippsMobilePay| EPayments (non-recurring).
 * Updated versions of the default supplied Power Bi reports.
 
 Changed
