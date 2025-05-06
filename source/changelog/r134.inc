@@ -73,7 +73,7 @@ Added
 Changed
 -------
 
-* Unified the look and feel of the newly introduced price tooltip, so that it is consistent across all places where it is used. This is the tooltip that show prices with an without VAT and the VAT percentage.
+* Unified the look and feel of the newly introduced price tooltip, so that it is consistent across all places where it is used. This is the tooltip that show prices with and without VAT and the VAT percentage.
 * Unified the formatting of dates on Payments in all related views.
 
 
