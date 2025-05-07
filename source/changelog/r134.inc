@@ -58,6 +58,7 @@ Fixed
 * An issue where a Payment `Updated` timestamp would be set during approval, even if the payment was not updated.
 * The accounting time on account transactions in the reporting subsystem was not set correctly during billing.
 * An issue where `TaxPercent` was not set on account charges in the reporting subsystem.
+* An issue where multiple reminders would not consider previously consumed allowances when generating the followup Payable Amount.
 
 
 Merchant Client
