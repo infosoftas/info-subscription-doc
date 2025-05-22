@@ -52,7 +52,7 @@ Security
 
 * Fixed an issue where a compromised upstream service for EHF receiver validation or Azure Event Grid could lead to our services being used for a DoS attack.
 
-[Preview] New behavior: Automatic cancellation for missing payments (Payment Stop)
+[Preview] New behaviour: Automatic cancellation for missing payments (Payment Stop)
 -----------------------------------------------------------------------------------
 
 We have introduced an alternative behaviour to automatically cancel subscription with a lack of payments.

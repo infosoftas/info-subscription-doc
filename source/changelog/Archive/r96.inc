@@ -43,7 +43,7 @@ The following new features and improvements are now available in the self-servic
 
 * Added option to toggle displaying prices in the sales poster.
 * Added Kilkaya purchase/convertion tracking **Preview**.
-* SalesPoster customization options are now documented with the API/Developer docs (this site).
+* SalesPoster customisation options are now documented with the API/Developer docs (this site).
 
 Preview support for Kilkaya Order Tracking
 ------------------------------------------
