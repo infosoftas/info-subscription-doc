@@ -84,16 +84,24 @@ Default |projectName| IdP Session Behaviour
 -------------------------------------------
 
 For tenants with an ADB2C instance provisioned by Infosoft, there is a default behaviour setup which determines how the IdP/Login session works.
+The following table describes the default behaviour of the ADB2C instances.
 
-.. table:: ADB2C Default Session Parameters
+.. Table:: ADB2C Default Session Properties
 
-    =============           =====
-    Persistence             Users can choose whether to have persistent sessions or not. The default is persistent sessions if supported by the browser.
-    Persistence Lifetime    30 days (sliding so that if it is used repeatedly it lasts forever).
-    Non-Persistent Lifetime 24 Hours
-    Access Token Lifetime   1 Hour
-    Termination             Sign-out only terminates the calling application's IdP/Login session.
-    =============           =====
+    +--------------------------+-----------------------------------------------------------------------------------------------+
+    | Property                 | Behaviour Description                                                                         |
+    +==========================+===============================================================================================+
+    | Persistence              | Users can choose whether to have persistent sessions or not.                                  |
+    |                          | The default is persistent sessions if supported by the browser.                               |
+    +--------------------------+-----------------------------------------------------------------------------------------------+
+    | Persistence Lifetime     | 30 days (sliding, so if it is used repeatedly it lasts forever).                              |
+    +--------------------------+-----------------------------------------------------------------------------------------------+
+    | Non-Persistent Lifetime  | 24 hours                                                                                      |
+    +--------------------------+-----------------------------------------------------------------------------------------------+
+    | Access Token Lifetime    | 1 hour                                                                                        |
+    +--------------------------+-----------------------------------------------------------------------------------------------+
+    | Termination              | Sign-out only terminates the calling application's IdP/Login session.                         |
+    +--------------------------+-----------------------------------------------------------------------------------------------+
 
 
 Advanced Scenarios
