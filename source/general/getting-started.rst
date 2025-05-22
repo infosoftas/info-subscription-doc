@@ -43,7 +43,7 @@ Together with the |tenantHeader| (see below), the API will determine if the clie
 .. TIP::
     You should consider obtaining separate credentials for separate applications/solutions.
 
-    This way it is easier for you to keep track of the source when investigating issues, errors or peculiar behavior.
+    This way it is easier for you to keep track of the source when investigating issues, errors or peculiar behaviour.
 
 
 Obtaining a Tenant Id
