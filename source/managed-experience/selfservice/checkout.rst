@@ -104,7 +104,7 @@ The following query parameters can be used to customize the checkout process dyn
 * ``organizationId``: Specifies the organization ID for the order, allowing you to dynamically set the organization for the subscription plan if not provided in the plan directly.
 * ``journey``: Sets the journey type to invoke, this is a required parameter.
 
-These query parameters can be appended to the checkout URL to tailor behavior for specific use cases.
+These query parameters can be appended to the checkout URL to tailor behaviour for specific use cases.
 
 For example:
 
@@ -116,7 +116,7 @@ For example:
 2. Configuration and Default via Merchant Options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Tenants can define settings in the Merchant UI that control the default behavior and appearance of the checkout process.
+Tenants can define settings in the Merchant UI that control the default behaviour and appearance of the checkout process.
 
 
 These options include:

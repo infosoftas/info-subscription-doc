@@ -3,8 +3,7 @@ Microsoft |ADB2C|
 *****************
 
 The following contains a few pointers related specifically to interactions with |ADB2C| that integrations should consider in the interaction. 
-For other customization and interaction options refer to the official ADB2C product documentation.
-
+For other customisation and interaction options refer to the official ADB2C product documentation.
 
 .. _adb2c-forgot-password:
 
@@ -61,10 +60,16 @@ The above approach is implemented in the |projectName| self-service application.
 
 .. _adb2c-sso:
 
-Single Sign On
+Single Sign-On
 ==============
-By default all |projectName| provisioned |ADB2C| tenants are configured with SSO being enabled across the tenant.
+To implement single sign-on properly, please refer to the section about session management.
 
-In essence that means, that if a user is signed in to one application, for instance self-service, and have "Keep Me Signed In" toggled on, there should be no login prompt but instead he/she should be automatically signed in.
+Sign-out details
+-----------------
 
-There is one requirement in that the login request should NOT include the query parameter `prompt=login`, as soon as that is included the SSO session is terminated.
+For applications to terminate the IdP/Login session, the `client_id` needs to be sent in the sign-out request.
+Refer to additional details of the sign-out process at the `official web site <https://learn.microsoft.com/en-us/azure/active-directory-b2c/openid-connect#send-a-sign-out-request>`_
+
+Forced Sign-In
+==============
+To force a sign-in and ignore any IdP/Login Sessions, include the query parameter `prompt=login` in the authorisation request. This will forcefully terminate the IdP/Login sessions for the given `client_id`.
