@@ -17,7 +17,7 @@ Key features include:
 
 Checkout allows developers to configure, extend, and customize it to meet specific business requirements to some degree.
 
-The following documentation will guide you through the customization to suit your specific requirements.
+The following documentation will guide you through the customisation to suit your specific requirements.
 
 Journey Types in |projectName| Checkout
 ---------------------------------------
@@ -104,7 +104,7 @@ The following query parameters can be used to customize the checkout process dyn
 * ``organizationId``: Specifies the organization ID for the order, allowing you to dynamically set the organization for the subscription plan if not provided in the plan directly.
 * ``journey``: Sets the journey type to invoke, this is a required parameter.
 
-These query parameters can be appended to the checkout URL to tailor behavior for specific use cases.
+These query parameters can be appended to the checkout URL to tailor behaviour for specific use cases.
 
 For example:
 
@@ -116,7 +116,7 @@ For example:
 2. Configuration and Default via Merchant Options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Tenants can define settings in the Merchant UI that control the default behavior and appearance of the checkout process.
+Tenants can define settings in the Merchant UI that control the default behaviour and appearance of the checkout process.
 
 
 These options include:
@@ -127,7 +127,7 @@ These options include:
 * ``Kilkaya Installation``: Specifies the integration setup for Kilkaya order tracking and the endpoint where orders should be registered.
 * ``GoogleTagManager Id``: Defines the GTM setup for order tracking and registration.
 * ``Self Service Url``: A reference URL for payment providers that require a self-service management page for users.
-* ``Custom Css Url``: Points to a custom CSS file that will be applied during the checkout process, allowing complete visual customization.
+* ``Custom Css Url``: Points to a custom CSS file that will be applied during the checkout process, allowing complete visual customisation.
 
 **Per-Journey Settings**
 Each journey can be further customized with the following settings:
@@ -156,10 +156,10 @@ Each journey can be further customized with the following settings:
 
 These options acts as defaults, and some are required for the best user experience, but all of them are essentially optional.
 
-Advanced Customization with the |projectName| Orders SDK
+Advanced customisation with the |projectName| Orders SDK
 --------------------------------------------------------
 
-If the out-of-the-box solution does not fully meet your requirements, we offer an SDK that provides deeper customization options and flexibility. 
+If the out-of-the-box solution does not fully meet your requirements, we offer an SDK that provides deeper customisation options and flexibility. 
 The SDK exposes the underlying functionality of the checkout application, allowing you to build tailored solutions and integrate seamlessly with your own web application.
 
 The SDK is available as:
@@ -172,4 +172,4 @@ Visit the SDK resources here:
 * **GitHub Repository**: https://github.com/infosoftas/s4-orders-js-sdk
 * **NPM Package**: https://www.npmjs.com/package/@infosoftas/s4-orders-js-sdk
 
-For advanced use cases, the SDK offers full control over workflows, payment integrations, and customization of the purchase process, empowering developers to create a solution that perfectly aligns with their needs.
+For advanced use cases, the SDK offers full control over workflows, payment integrations, and customisation of the purchase process, empowering developers to create a solution that perfectly aligns with their needs.

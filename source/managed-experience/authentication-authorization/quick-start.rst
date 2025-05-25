@@ -13,6 +13,10 @@ For advanced authorization scenarios where multiple systems contribute to the au
 
 The following is a quick-start to help get you started if all you require is a simple option to authenticate and authorize subscribers to access one or more specific products.
 
+.. Important::
+
+    If you need to manage user sessions, please refer to the section about sessions for a comprehensive description.
+
 The default subscriber authentication and authorization component is built around Microsoft Azure ADB2C (henceforth just |ADB2C|). 
 Its a long winded name, but it is basically just an Identity Provider for consumer/customer accounts, in this case |projectName| subscribers.
 
@@ -141,3 +145,6 @@ Depending on your need there are two simple alternatives that may be used, eithe
     
     The two authorization/verification alternatives are suggestions, verify with the business requirements that they will suffice for your case.
 
+
+Implementing Signout
+======================
