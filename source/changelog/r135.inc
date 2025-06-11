@@ -6,7 +6,8 @@ Release June 16th
 
 The 5th release of INFO-Subscription in 2025 is here, it also marks the last release before the summer holidays.
 
-This release includes some totally awesome shit that will blow your mind, its just so fantastic!
+This release contains a mixed bag of things, such as more improvements to the newly introduced additional products and additional details on billing transactions to facilitate better reporting and auditing of billing transactions. 
+It also contains a number of improvements to the checkout to improve the conversion rate.
 
 
 API and Backend
@@ -21,6 +22,7 @@ Added
 * Added support for resubmitting an existing invoice to the PEPPOL Network.
 * Subscriber Contacts can now be queried directly via the OData reporting API. Previously they were only available via the owning subscriber.
 * `POST /order/{id}/complete` now contains an optional parameter to control wait time (or disabling waiting entirely), before returning a result. This is useful if your workflow has an upper bound on the processing.
+* A new complete transaction log for all billing related transactions is available in the reporting subsystem.
 
 Changed
 -------
