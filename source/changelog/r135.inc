@@ -55,8 +55,7 @@ Changed
 -------
 
 * Price display to ensure prices/amounts are always shown in an identical manner.
-* Reintroduced option to do searches without an organization filter for a number of search views.
-* Option to filter on organization number for invoice searches.
+* Option to filter for organization is now optional for a number of search views.
 * General styling improvements to some of the grid views to make them more consistent with the rest of the application.
 
 
