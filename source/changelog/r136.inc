@@ -49,7 +49,7 @@ Added
 * **[Preview]** Support for transferring not-billed allowances and charges to new billing accounts and between subscribers.
 * **[Preview]** Scheduled Subscription changes to be executed at a later time instead of immediately as is the current behaviour (Contact support if you want to use this feature).
 * Support for maintaining some of the Checkout Configuration options directly (refer to the documentation for details).
-* Option to re-submit Invoices to the |PEPPOL| Network directly from the Merchant Client.
+* Option to re-submit Invoices to the PEPPOL Network directly from the Merchant Client.
 
 Changed
 -------
