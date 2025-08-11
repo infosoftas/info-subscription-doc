@@ -78,5 +78,5 @@ The following is a sequence diagram depicting this example workflow.
 References
 ----------
 - See :ref:`events` for webhook documentation.
-- See :api-ref:`Paymens API <Payment>` for payment details.
+- See :api-ref:`Payments API <Payment>` for payment details.
 - See :ref:`subscribers` for subscriber management.
