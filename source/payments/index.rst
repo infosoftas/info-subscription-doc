@@ -14,6 +14,8 @@ Different agreement types provides different capabilities and routines.
 All subscribers can have a payment agreement called `None` or `InvoiceOnly`. 
 This basically means there is no way to claim the amount so the system does no attempts at generating a payment.
 
+For details on adding a custom/external payment provider integration refer to :doc:`external-provider-integration`.
+
 Properties of a Payment Agreement
 =================================
 All payment agreements have a few important properties
@@ -121,9 +123,9 @@ There are some variations, so look to the provider descriptions for the details.
 
 Common for all the scenarios is that once an agreement has been imported for the provider, it should be added as a general agreement, and handled the same way as with new orders or during self-service registrations, as :ref:`described above <manage-payment-agreement>`.
 
-*********************
-Provider Integrations
-*********************
+************************
+Payment Providers (PSPs) 
+************************
 
 .. toctree::
     :glob:
@@ -134,3 +136,4 @@ Provider Integrations
     providers/vipps
     providers/swedbank
     providers/betalingsservice
+    external-provider-integration
