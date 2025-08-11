@@ -54,7 +54,7 @@ Added
 Changed
 -------
 
-* Extended the dashboard with values for ACV (Average Customer|Subscription Value) and CLTV (Customer|Subscription Lifetime Value).
+* Extended the dashboard with values for ACV (Average Customer or Subscription Value) and CLTV (Customer or Subscription Lifetime Value).
 * The dashboard now also contains a chart for outstanding invoices and invoices due.
 * The layout and styling of the dashboard.
 * Layout for self-service configuration.
@@ -65,7 +65,7 @@ Changed
 Fixed
 -----
 
-* An issue where switching subscription plan with a change in units and fixed price, would not show the right final price. 
+* An issue where switching a subscription plan, when both the number of units and the fixed price were changed, would not display the correct final price.
 * Removed a non-functional option to generate emails for invoice drafts.
 * Prevented restarting subscriptions with a future cancellation time (it is still possible to undo/remove the cancellation).
 * Error handling for cases where ordering a restart of a subscription reports failures. Previously, there was inadequate feedback to the user.
