@@ -1,7 +1,7 @@
 .. _provider-swedbank:
 
-Swedbank Pay
-=============
+Swedbank Pay (Card Payments)
+============================
 
 Swedbank Pay is a Payment Service Provider (PSP), formerly PayEx. 
 Swedbank Pay provides a series of different payment services, among these are handling of credit/debit card payments.
