@@ -15,7 +15,7 @@ Third-party systems can:
 
 Integration Steps
 -----------------
-Multiple steps are involved in the integration process, and their are differences and nuances depending on the external payment providers capabilities. 
+Multiple steps are involved in the integration process, and there are differences and nuances depending on the external payment providers capabilities. 
 The following is a high-level overview of the integration steps:
 
 1. Register Payment Agreements
