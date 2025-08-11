@@ -15,7 +15,7 @@ Third-party systems can:
 
 Integration Steps
 -----------------
-Multiple steps are involved in the integration process, and there are differences and nuances depending on the external payment providers capabilities. 
+Multiple steps are involved in the integration process, and there are differences and nuances depending on the external payment provider's capabilities. 
 The following is a high-level overview of the integration steps:
 
 1. Register Payment Agreements
@@ -37,7 +37,7 @@ The following is a high-level overview of the integration steps:
 
 5. Manage Agreement Lifecycle
    - Use the API to update, switch, or terminate payment agreements as needed.
-   - Listen for agreement lifecycle events via webhooks to keep your system in sync. (e.g. , `CreditNoteIssued`, `SubscriptionCancelled`, `PaymentAgreementDeleted`)
+   - Listen for agreement lifecycle events via webhooks to keep your system in sync. (e.g., `CreditNoteIssued`, `SubscriptionCancelled`, `PaymentAgreementDeleted`)
 
 6. Import Agreements (Optional)
    - If agreements are registered outside INFO-Subscription, use the API to import them.
