@@ -1,3 +1,4 @@
+sphinxcontrib-mermaid
 sphinx-tabs
 sphinxcontrib-contentui
 sphinx_rtd_theme
