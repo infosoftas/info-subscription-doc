@@ -46,62 +46,54 @@ Each stage is explained in more detail following the diagram.
 
 1. **Order Completed / Initial Subscription Creation**
 	- Triggered by an incoming order or initial subscription.
-	- Integration: Listen for `OrderCompleted` or `SubscriptionCreated` events to trigger onboarding or provisioning logic.
-	- Event Reference: :doc:`../events/types/subscription`
+	- Integration: Listen for :ref:`OrderProcessed <order-processed-event>` or :ref:`SubscriptionCreated <subscription-created-event>` events to trigger custom onboarding or provisioning logic.
 
 2. **Subscription Created**
 	- The subscription is created and the billing cycle begins.
 	- Integration: Use the API to track subscription status and details.
-	- Event Reference: :doc:`../events/types/subscription`
+	- Event Reference: :ref:`SubscriptionCreated <subscription-created-event>`
 
 3. **Payment Demand Scheduling**
 	- A payment demand/invoice is scheduled for the next subscription period. This leads also to a Preliminary Payment Demand and an Open Invoice.
-	- Integration: Subscribe to payment demand events or query via API.
-	- Event Reference: :doc:`../events/types/invoice`  for stuff
+	- Integration: Subscribe to invoice events or query via API.
+	- Event Reference: :ref:`InvoiceIssued <invoice-issued-event>`
 
 4. **Invoice Issued**
 	- The invoice is issued, with a Due time set to the start of the subscription period.
-	- Integration: Listen for `InvoiceIssued` events to trigger notifications or syncs.
-	- Event Reference: :doc:`../events/types/invoice`
+	- Integration: Listen for :ref:`InvoiceIssued <invoice-issued-event>` events to trigger notifications or syncs.
 
 5. **Payment Request Scheduling (Repeatable)**
-    - For some payment providers, a payment request is scheduled after invoice issuance.
-    - Integration: Listen for `PaymentRequestScheduled` events to initiate payment provider flows.
-    - Event Reference: :doc:`../events/types/invoice`
-    - See `Repeated Payment Request Flow`_ for details on retries.
+	- For some payment providers, a payment request is scheduled after invoice issuance.
+	- Integration: Listen for `PaymentRequestScheduled` events to react to payment provider flows.
+	- See `Repeated Payment Request Flow`_ for details on retries.
 
 6. **Payment Request Processing**
 	- Payment request is processed and sent to the provider.
 	- Integration: Listen for `PaymentRequestProcessed` events to update payment status or trigger external payment APIs.
-	- Event Reference: :doc:`../events/types/invoice`
 
 7. **Wait For Payment**
 	- The system waits for payment or other resolution (e.g., credit note, reminders).
 
 8. **Credit Note Issued**
 	- If the invoice is credited, a credit note is issued. The billing cycle ends for this Payment Demand.
-	- Integration: Listen for `CreditNoteIssued` events to update accounting or trigger refunds.
-	- Event Reference: :doc:`../events/types/invoice`
+	- Integration: Listen for :ref:`CreditNoteIssued <credit-note-issued-event>` events to update accounting or trigger refunds.
 
 9. **Invoice Paid**
 	- Payment is received and the invoice is settled.
-	- Integration: Listen for `InvoicePaid` events to unlock services or update accounting systems.
-	- Event Reference: :doc:`../events/types/invoice`
+	- Integration: Listen for :ref:`InvoicePaid <invoice-paid-event>` events to unlock services or update accounting systems.
 
 10. **Reminder Issued (Repeatable)**
 	- If payment is not received, reminders may be issued repeatedly.
-	- Integration: Listen for `ReminderIssued` events to trigger custom reminder flows or escalate actions.
-	- Event Reference: :doc:`../events/types/invoice`
+	- Integration: Listen for :ref:`ReminderIssued <reminder-issued-event>` events to trigger custom reminder flows or escalate actions.
 	- See `Repeated Reminder Flow`_ for details on retries.
 
 11. **Subscription Cancellation**
 	- If payment is not received after reminders, the subscription may be cancelled.
-	- Integration: Listen for cancellation events to clean up resources or notify users.
-	- Event Reference: :doc:`../events/types/subscription`
+	- Integration: Listen for :ref:`SubscriptionCancelled <subscription-cancelled-event>` and :ref:`SubscriptionDeactivated <subscription-deactivated-event>` events to clean up resources or notify users.
 
 12. **End**
 
-    - The billing cycle ends for this subscription instance (either paid, credited, or cancelled).
+	- The billing cycle ends for this subscription instance (either paid, credited, or cancelled).
 
 .. _Repeated_Payment_Request_Flow:
 
