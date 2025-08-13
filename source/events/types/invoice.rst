@@ -1,3 +1,5 @@
+.. _invoice-issued-event:
+
 Event: com.info-subscription.InvoiceIssued
 -------------------------------------------
 Whenever a new Invoice is issued/finalized an ``InvoiceIsued`` event is triggered.
@@ -22,6 +24,8 @@ The use cases for the event are varied and it can also be used for other things 
 * External distribution of Invoices, for instance via specialized vendors with support for multiple communication formats.
 * As a source document for factoring integrations.
 
+.. _reminder-issued-event:
+
 Event: com.info-subscription.ReminderIssued
 --------------------------------------------
 Reminders are triggered at scheduled interval relative to the original ``InvoiceIssued`` event. 
@@ -34,6 +38,8 @@ The ``ReminderIssued`` event is typically used in much the same way as ``Invoice
 
 * Generating SMS message about a lack of payment.
 * As a source for debt collection integrations.
+
+.. _credit-note-issued-event:
 
 Event: com.info-subscription.CreditNoteIssued
 ---------------------------------------------

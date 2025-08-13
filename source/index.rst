@@ -31,7 +31,7 @@ Integration Options
 - Explore the full API in the `Swagger UI <https://api.info-subscription.com/swagger/>`_
 - Download the `OpenAPI/Swagger definition <https://api.info-subscription.com/swagger/v1/swagger.json>`_
 - Start with our :ref:`Getting Started with the API <getting-started>` guide for a step-by-step introduction on how to authenticate and make your first API calls
-- Review :ref:`common scenarios <common-scenarios>` for common use cases
+- Review :ref:`integration guides <common-scenarios>` for common use cases and advanced scenarios.
 
 |projectName|  also offers a :ref:`managed subscriber experience <managed-experience>`, including:
 
