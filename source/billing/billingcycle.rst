@@ -1,7 +1,7 @@
-Billing in |projectName|
-------------------------
+Billing Overview
+----------------
 
-|projectName| automates billing depending on the rules setup by the selling organization. 
+|projectName| automates billing depending on the rules setup by the selling organization via Billing Plans and Dunning Processes.
 
 A general understanding of how the various stages of the billing cycle work is important for building successful integrations.
 
@@ -55,43 +55,20 @@ Each stage is explained in more detail following the diagram.
 	- Event Reference: :doc:`../events/types/subscription`
 
 3. **Payment Demand Scheduling**
-	- A payment demand/invoice is scheduled for the next period.
+	- A payment demand/invoice is scheduled for the next subscription period. This leads also to a Preliminary Payment Demand and an Open Invoice.
 	- Integration: Subscribe to payment demand events or query via API.
-	- Event Reference: :doc:`../events/types/invoice`
+	- Event Reference: :doc:`../events/types/invoice`  for stuff
 
 4. **Invoice Issued**
-	- The invoice is issued when the period starts.
+	- The invoice is issued, with a Due time set to the start of the subscription period.
 	- Integration: Listen for `InvoiceIssued` events to trigger notifications or syncs.
 	- Event Reference: :doc:`../events/types/invoice`
 
 5. **Payment Request Scheduling (Repeatable)**
-	- For some payment providers, a payment request is scheduled after invoice issuance.
-	- Integration: Listen for `PaymentRequestScheduled` events to initiate payment provider flows.
-	- Event Reference: :doc:`../events/types/invoice`
-
-6. **Repeated Payment Request Flow (for Integrated Providers)**
-	------------------------------------------------------
-
-	For some payment providers, the process of requesting payments can be repeated in case of failures. The following diagram and explanation describe this retry logic:
-
-	.. mermaid::
-
-	   stateDiagram-v2
-	       [*] --> PaymentRequestScheduled: First attempt
-	       PaymentRequestScheduled --> PaymentRequestProcessed: Request processed
-	       PaymentRequestProcessed --> PaymentRequestScheduled: Retry (if attempt count not exceeded)
-	       PaymentRequestProcessed --> InvoicePaid: Payment received
-	       PaymentRequestProcessed --> CreditNoteIssued: Invoice credited
-	       InvoicePaid --> [*]: Remove scheduled payment request
-	       CreditNoteIssued --> [*]: Remove scheduled payment request
-
-	**Flow Explanation:**
-
-	- The first payment request is scheduled.
-	- The request is processed by the payment provider.
-	- If the payment fails and the maximum attempt count is not exceeded, another payment request is scheduled and processed.
-	- This cycle repeats until either the invoice is paid, a credit note is issued, or the attempt count is exceeded.
-	- When payment is received or the invoice is credited, any scheduled payment requests are removed.    
+    - For some payment providers, a payment request is scheduled after invoice issuance.
+    - Integration: Listen for `PaymentRequestScheduled` events to initiate payment provider flows.
+    - Event Reference: :doc:`../events/types/invoice`
+    - See `Repeated Payment Request Flow`_ for details on retries.
 
 6. **Payment Request Processing**
 	- Payment request is processed and sent to the provider.
@@ -101,8 +78,8 @@ Each stage is explained in more detail following the diagram.
 7. **Wait For Payment**
 	- The system waits for payment or other resolution (e.g., credit note, reminders).
 
-8. **Credit Note Issued **
-	- If the invoice is credited, a credit note is issued.
+8. **Credit Note Issued**
+	- If the invoice is credited, a credit note is issued. The billing cycle ends for this Payment Demand.
 	- Integration: Listen for `CreditNoteIssued` events to update accounting or trigger refunds.
 	- Event Reference: :doc:`../events/types/invoice`
 
@@ -112,30 +89,10 @@ Each stage is explained in more detail following the diagram.
 	- Event Reference: :doc:`../events/types/invoice`
 
 10. **Reminder Issued (Repeatable)**
-
-	Repeated Reminder Flow
-	----------------------
-
-	For some configurations, reminders can be scheduled and issued repeatedly if payment is not received. The following diagram and explanation describe this reminder retry logic:
-
-	.. mermaid::
-
-	   stateDiagram-v2
-		   [*] --> ReminderScheduled: First reminder scheduled
-		   ReminderScheduled --> ReminderIssued: Reminder sent
-		   ReminderIssued --> ReminderScheduled: Schedule next reminder (if configured)
-		   ReminderIssued --> InvoicePaid: Payment received
-		   ReminderIssued --> CreditNoteIssued: Invoice credited
-		   InvoicePaid --> [*]: Remove scheduled reminder
-		   CreditNoteIssued --> [*]: Remove scheduled reminder
-
-	**Flow Explanation:**
-
-	- The first reminder is scheduled if configured.
-	- The reminder is issued to the subscriber.
-	- If payment is still not received and additional reminders are configured, another reminder is scheduled and issued.
-	- This cycle repeats until either the invoice is paid, a credit note is issued, or no further reminders are configured.
-	- When payment is received or the invoice is credited, any scheduled reminders are removed.
+	- If payment is not received, reminders may be issued repeatedly.
+	- Integration: Listen for `ReminderIssued` events to trigger custom reminder flows or escalate actions.
+	- Event Reference: :doc:`../events/types/invoice`
+	- See `Repeated Reminder Flow`_ for details on retries.
 
 11. **Subscription Cancellation**
 	- If payment is not received after reminders, the subscription may be cancelled.
@@ -143,4 +100,80 @@ Each stage is explained in more detail following the diagram.
 	- Event Reference: :doc:`../events/types/subscription`
 
 12. **End**
-	- The billing cycle ends for this subscription instance (either paid, credited, or cancelled).
+
+    - The billing cycle ends for this subscription instance (either paid, credited, or cancelled).
+
+.. _Repeated_Payment_Request_Flow:
+
+Repeated Payment Request Flow
+-----------------------------
+
+For some integrated payment providers, the process of requesting payments can be repeated in case of failures (Card providers at the current time). 
+The following diagram and explanation describe this retry logic and how it relates to the overall billing cycle:
+
+.. mermaid::
+
+    stateDiagram-v2
+            [*] --> PaymentRequestScheduled: First attempt
+            PaymentRequestScheduled --> PaymentRequestProcessed: Request processed
+            PaymentRequestProcessed --> PaymentRequestScheduled: Retry (if attempt count not exceeded)
+            PaymentRequestProcessed --> InvoicePaid: Payment received
+            PaymentRequestProcessed --> CreditNoteIssued: Invoice credited
+            InvoicePaid --> [*]: Remove scheduled payment request
+            CreditNoteIssued --> [*]: Remove scheduled payment request
+
+**Flow Explanation:**
+
+- The first payment request is scheduled.
+- The request is processed by the payment provider.
+- If the payment fails and the maximum attempt count is not exceeded, another payment request is scheduled and processed.
+- This cycle repeats until either the invoice is paid, a credit note is issued, or the attempt count is exceeded.
+- When payment is received or the invoice is credited, any scheduled payment requests are removed.
+
+.. _Repeated_Reminder_Flow:
+
+Repeated Reminder Flow
+----------------------
+
+Depending on the Dunning Process and Billing Plan configurations, reminders can be scheduled and issued repeatedly if payment is not received. 
+The following diagram and explanation describe this reminder retry logic:
+
+.. mermaid::
+
+    stateDiagram-v2
+            [*] --> ReminderScheduled: First reminder scheduled
+            ReminderScheduled --> ReminderIssued: Reminder sent
+            ReminderIssued --> ReminderScheduled: Schedule next reminder (if configured)
+            ReminderIssued --> InvoicePaid: Payment received
+            ReminderIssued --> CreditNoteIssued: Invoice credited
+            InvoicePaid --> [*]: Remove scheduled reminder
+            CreditNoteIssued --> [*]: Remove scheduled reminder
+
+**Flow Explanation:**
+
+- The first reminder is scheduled if configured.
+- The reminder is issued to the subscriber.
+- If payment is still not received and additional reminders are configured, another reminder is scheduled and issued.
+- This cycle repeats until either the invoice is paid, a credit note is issued, or no further reminders are configured.
+- When payment is received or the invoice is credited, any scheduled reminders are removed.
+
+.. _Billing_Dunning_Timeline:
+
+Billing and Dunning Timeline
+----------------------------
+
+The following chart illustrates the essential points in the billing cycle across two subscription periods (N and N+1). 
+
+.. mermaid::
+
+    gantt
+        title Billing and Dunning Timeline
+        dateFormat  YYYY-MM-DD
+        section Period N
+            Subscription N (30d)   :done, n, 2025-01-01, 30d
+            Invoice Issued   :vert, m1, 2025-01-15, 0d
+            Invoice Due: vert, m2, 2025-01-31, 0d
+        section Period N+1
+            Subscription N+1 (30d)       :active, n1, 2025-01-31, 30d
+            Reminder Issued  :vert, m3, 2025-02-05, 0d
+            Invoice Paid: vert, m4, 2025-02-15, 0d
