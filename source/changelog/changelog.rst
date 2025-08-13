@@ -1,3 +1,5 @@
+.. _changelog:
+
 .. include:: r135.inc
 .. include:: r134.inc
 .. include:: r133.inc
