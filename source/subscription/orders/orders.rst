@@ -49,11 +49,12 @@ Other fields may be relevant in specific scenarios.
 
 
 Subscription Plan Choices and Overrides
---------------------------------------
+---------------------------------------
 A ``TemplatePackage`` acts as a template for the subscription plan to be created. Some plan parameters may require choices by the subscriber or sales process. These are often optional, but can be specified using ``templatePackageChoices``.
 
 To determine which parameters are overridable, refer to the specific template plan documentation. Choices are validated both when creating and completing the order, ensuring that only valid orders are processed, even if the template changes.
 
+Refer to the :ref:`template plans section <subscriptionplan-templates>` for more details.
 
 .. note::
     There is some confusion about the terminology related to "packages" and "plans".
@@ -61,7 +62,7 @@ To determine which parameters are overridable, refer to the specific template pl
 
 
 Processing Payments
-------------------
+-------------------
 Most orders require a payment process. If the payment method is set to ``SwedbankPay`` or similar, the order response will include a ``terminalRedirectUrl``.
 
 This :abbr:`URL (Uniform Resource Locator)` is where the client should redirect the user to enter payment card details.

@@ -1,0 +1,19 @@
+flowchart TD
+    subgraph Inputs
+        subgraph OrderCreateBox["OrderCreate"]
+            Choices["Choices"]
+        end
+        TemplatePackage["TemplatePackage"]
+    end
+
+    subgraph Output
+        SubscriptionPackage["SubscriptionPackage"]
+    end
+
+    OrderCreateBox -- order data (incl. choices) --> SubscriptionPackage
+    TemplatePackage -- template data --> SubscriptionPackage
+
+    %% Style for Inputs box
+    classDef entityBox stroke:#222,stroke-width:1px,color:#222
+    class Inputs,Output,OrderCreateBox,TemplatePackage,SubscriptionPackage,Choices entityBox;
+    style OrderCreateBox fill:#3399cc
