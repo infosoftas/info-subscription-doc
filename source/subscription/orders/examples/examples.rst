@@ -16,7 +16,7 @@ Unless otherwise stated, each of them presents the body for creating a new order
     Content-Type: application/json
     S4-TenantId: SOMETENTANT
     Authorization: Bearer RANDOMTOKEN
-    Content-Length: 10
+    Content-Length: 42
     
 
 Each example typically only shows properties relevant to the example and omits required elements for brevity.
@@ -27,3 +27,5 @@ It is possible to combine many of the examples, though not necessarily all of th
 .. include:: choosing-products.rst
 
 .. include:: override-price.rst
+
+.. include:: payment-agreements.rst
