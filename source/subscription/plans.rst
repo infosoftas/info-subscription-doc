@@ -25,6 +25,7 @@ Permanent Discount
 ------------------
 The ``permanentDiscount`` property allows you to define a discount that is always applied to the subscription plan. 
 This is currently defined as a a percentage.
+This is currently defined as a percentage.
 Permanent discounts are useful for loyalty programs, negotiated rates, or long-term customer incentives. 
 The discount is automatically factored into the price calculation for the subscription based on the full price.
 
