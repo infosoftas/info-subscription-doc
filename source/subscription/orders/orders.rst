@@ -1,168 +1,163 @@
 .. _subscription-orders:
 
 ***************************************
-Creating new subscriptions using orders
+Creating New Subscriptions Using Orders
 ***************************************
 
-An order is an encapsulation of a series of steps/stages to help create new subscriptions and keeping the flow in a semi-atomic transaction, meaning that if an order fails to complete (or is never completed by the user)
-there is no clean-up duty for the client, and when an order completes there should be no series of followup steps such as making sure the first invoice is generated etc.
+This document describes the process of creating new subscriptions using "orders" in |projectName|. An **order** is a workflow that encapsulates the steps required to create a subscription in a semi-atomic transaction. Using orders helps ensure consistency, reduces manual follow-up, and simplifies error handling for clients.
 
-While it is possible to create subscriptions without using an order, we recommend that clients use orders to simplify the process.
+Key Benefits of Using Orders
+---------------------------
+- No manual clean-up required if an order is not completed.
+- No need for follow-up steps after order completion (e.g., invoice generation is automatic).
+- Ensures a consistent, reliable subscription creation process.
 
-An order is split into several steps, primarily to ensure consistency between the various phases and transactions that an order covers.
+While it is possible to create subscriptions without using an order, we recommend using orders for simplicity and reliability.
 
-#. Order Initialization - Captures and calculate information such as the selected subscription plan, price and which payment agreement to use
-#. Payment Agreement Registration - Typically defers to third parties for payment processing. Only required for certain electronic payment providers (Creditcards and Mobile Payments typically)
-#. Order Completion - Gathers information from the previous steps and finalizes/activates the subscription.
+Order Workflow Overview
+-----------------------
+An order consists of several steps:
 
-.. image:: /_images/order-sequence.svg
+#. **Order Initialization** – Captures and calculates information such as the selected subscription plan, price, and payment agreement.
+#. **Payment Agreement Registration** – Registers payment details, often via third-party providers (required for credit cards, mobile payments, etc.).
+#. **Order Completion** – Finalizes and activates the subscription using information from previous steps.
+
+.. mermaid:: order-sequence.mmd
     :align: center
     :alt: Order Sequence Flow
 
+Clients may also prepare orders in advance, for example, to send pre-filled order details for customer acceptance.
 
-Applications/clients might want to prepare orders, for instance to send out pre-filled order details for acceptance by customers or other similar scenarios.
+.. note::
+    There may be timeout/expiration issues with this approach if using online Payment Service Providers (PSPs) such as {payex}.
+    For example, a payment session with {payex} is valid for two weeks at the time of writing.
 
-.. Note::
 
-    There might be timeout/expiration issues with this approach if using online Payment Service Prodivers (PSPs) such as {payex}.
-    because the order initialises the payment (at the time of writing the session is valid for two weeks using {payex} for instance)
+Order Anatomy
+=============
 
-The anatomy of an Order
-=======================
+Orders are not persistent resources or entities; instead, they encapsulate the parameters and state of a subscription creation workflow. Once completed, an order is generally only useful for reporting or statistical purposes.
 
-The main thing to remember about orders, is that they are not actually resources/entities as such, 
-but rather encapsulates parameters of a workflow. 
-That means that an order, once completed is of little/no future use except perhaps for reporting and statistics purposes.
+Key fields in an order include:
 
-An order contains information about a few things
+- **subscriberId**: Who/what is subscribing to an offering
+- **templatePackageId**: The offering being subscribed to (see :ref:`plans <plans>`)
+- **paymentAgreementId** or **paymentAgreementParameters**: How payment should be processed
+- **organizationId**: Who is offering the subscription
 
-* Who/What is subscribing to an offering - the ``subscriberId``
-* What offering are they subscribing to - the ``templatePackageId`` (see :ref:`plans <plans>`)
-* How should payment be processed, specified by either of the following:
+Other fields may be relevant in specific scenarios.
 
-    * The ``paymentAgreementId``
-    * The ``paymentAgreementParameters``
-* Who is offering this subscription - the ``organizationId``
 
-The are other fields, all of which come into play in various scenarios.
+Subscription Plan Choices and Overrides
+---------------------------------------
+A ``TemplatePackage`` acts as a template for the subscription plan to be created. Some plan parameters may require choices by the subscriber or sales process. These are often optional, but can be specified using ``templatePackageChoices``.
 
-Package Choices/Overrides
--------------------------
-As the name implies a ``TemplatePackage`` is a template for the package/plan that will be created for a given subscription.
+To determine which parameters are overridable, refer to the specific template plan documentation. Choices are validated both when creating and completing the order, ensuring that only valid orders are processed, even if the template changes.
 
-Some of the parameters of a package may require choices by the subscriber (or the sales process), these choices are often optional, but can be defined using the ``templatePackageChoices``.
+Refer to the :ref:`template plans section <subscriptionplan-templates>` for more details.
 
-To figure out which things are overridable by the user, have a look at the specific template plan as it defines the flexibility.
+.. note::
+    There is some confusion about the terminology related to "packages" and "plans".
+    The word "Package" is used in the API, while "Plan" is used in the self-service and Merchant UI. In general, they are synonymous.
 
-The choices are validated when creating the order, and again when completing it, so it should not be possible to define an illegal order if for some reason the template is changed.
-
-.. Note ::
-
-    There is some confusion about the terminology related to packages and plans.
-    The word Package is used in the API while the term Plan is used for the self-service and Merchant UI.
-    They are in general synonymous.
 
 Processing Payments
 -------------------
-Most of the time, there is a need to enact some sort of payment process.
+Most orders require a payment process. If the payment method is set to ``SwedbankPay`` or similar, the order response will include a ``terminalRedirectUrl``.
 
-When an order is created, if the paymentMethod is set to ``PayEx`` or similar, the response will contain a ``terminalRedirectUrl``.
+This :abbr:`URL (Uniform Resource Locator)` is where the client should redirect the user to enter payment card details.
 
-This :abbr:`URL (Uniform Resource Locator)` indicates where the client should send the user so he/she can input the payment card details.
+The parameters must include a return URL and a cancel URL (these can be the same). 
+When the user completes or cancels the payment, they are returned to the appropriate page, with the order ID in the query string for identification..
 
-The parameters must contain a return url and a cancel url (they can be the same).
-When the user completes or cancels the payment process, he/she is returned to either of these pages, with an Id in the querystring representing the order.
+Depending on the outcome, the client should update local systems and either :ref:`Cancel <cancel-order>` or :ref:`Complete <complete-order>` the order.
 
-Depending on where the user was redirected the client can do whatever is needed to update local systems and either :ref:`Cancel <cancel-order>` or :ref:`Complete <complete-order>` the order.
 
-Invoice Contact/Address
------------------------
+Alternate Invoice Contact/Address
+---------------------------------
 |projectName| manages invoice addresses by creating a separate subscriber contact (see: :ref:`Subscribers Section <subscribers>`) and associating it with the subscription.
 
-It is possible to either define an existing contact id in the `invoiceContactId` or by defining details for a new contact (to be associated with the ordering subscriber).
-The details to provide are the same as for a generic subscriber contact.
+You can either specify an existing contact ID in ``invoiceContactId`` or provide details for a new contact (to be associated with the ordering subscriber). 
+The required details are the same as for a generic subscriber contact.
+
+The end result is that the subscription will be billed on the subscriber, but invoices will be sent to the contact given.
+
+This is typically used for gift style scenarios, and for subscriptions where a company is paying for a personal subscription.
+
 
 Orders and Subscribers
 ======================
-Subscribers can either be created before an order, or during the order flow, if the client creates subscribers the `subscriberId` must be specified with the order.
+Subscribers can be created before an order, or as part of the order flow. If the client creates the subscriber, the ``subscriberId`` must be specified with the order.
 
-In case the subscriber should be created with the flow, an `externalSubscriberId` and/or `subscriberNumber` must be provided.
+If the subscriber should be created during the order flow, an ``externalSubscriberId`` and/or ``subscriberNumber`` must be provided.
+
 
 Completing an Order
 ===================
 .. _complete-order:
 
-Completing an order takes a bit of time, so we suggest the client presents the user with some sort of processing feedback.
+Completing an order may take some time, so we recommend providing users with processing feedback.
 
-Completing the order currently executes a few different tasks such as
+The completion process includes:
 
-#. Builds a custom plan for the subscription and verifies the result is valid.
-#. Complete the transaction at the PSP to ensure that the agreement can be used (if applicable).
-#. Creates a PaymentAgreement for the given Provider.
-#. Creates a subscription with the defined PaymentAgreement as the payment method.
-#. Schedule a payment demand with the amount from the order and a due date which is the same as the subscription start.
+#. Building a custom plan for the subscription and verifying its validity.
+#. Completing the transaction with the PSP (if applicable).
+#. Creating a PaymentAgreement for the selected provider.
+#. Creating a subscription with the defined PaymentAgreement as the payment method.
+#. Scheduling a payment demand with the order amount and a due date matching the subscription start.
 
-Following these steps another series of steps will be enacted by the billing engine.
+After these steps, the billing engine performs additional asynchronous tasks:
 
-#. Create and Issue an Invoice for the Payment Demand (based upon the schedule this may be immediately or in the future).
-#. On the due date, initialize a payment request of the demand.
-#. Creates a payment representing the captured amount.
-#. Create a draft demand and invoice for the next period.
-#. Schedule a payment demand for the next period.
+#. Creating and issuing an invoice for the payment demand (immediately or in the future, depending on the schedule).
+#. On the due date, initializing a payment request for the demand.
+#. Creating a payment representing the captured amount.
+#. Creating a draft demand and invoice for the next period.
+#. Scheduling a payment demand for the next period.
 
-These additional things happens asynchronous, so don't expect it all to be completed the second the order response is generated. 
-But it basically means you can direct the user to a payment/invoice overview and within a short time they will see their invoice and/or payment.
+These additional steps happen asynchronously, so the user may not see the invoice or payment immediately. 
+However, they will appear in the payment/invoice overview shortly after order completion.
 
-.. Note::
+.. note::
 
-    The steps carried out by the billing engine after an order has completed are nearly identical to the steps carried out during recurring billing processing.
+    Refer to the :ref:`billing overview <billing-cycle>` section for information on how recurring billing is handled.
 
-Once completed the response contains an updated order view with the new status and various Id's that informs the client of what was created.
+Once the order is completed, the response contains an updated order view with the new status and various IDs indicating what was created.
 
-While not immensely useful the order will persist so the client could choose to have a list of *purchases/orders* or similar to show historic orders.
+While not always essential, the order will persist, allowing clients to display a list of historic purchases/orders if desired.
 
-Subscriptions generated by the passing of time (i.e. recurring subscriptions) are not treated as orders and won't mess up the view.
+Subscriptions generated by recurring billing (i.e., not via orders) are not treated as orders and will not clutter the order history view.
+
 
 Cancelling an Order
 ===================
 .. _cancel-order:
 
-If for some reason the user opts to cancel the payment process or the order, we recommend that the client explicitly cancels the order.
+If the user cancels the payment process or the order, we recommend that the client explicitly cancels the order.
 
-While not strictly necessary it helps with a few things
+While not strictly required, explicit cancellation provides several benefits:
 
-* The order is set as cancelled and no further attempts to process it can occur.
-* If applicable, any payment process at the PSP is cancelled.
-* Statistics will be more accurate.
+- The order is marked as cancelled, preventing further processing attempts.
+- Any payment process at the PSP is cancelled (if applicable).
+- Statistics and reporting are more accurate.
 
-The fact that an order was cancelled might be useful to business people to follow up during various marketing/sales campaigns or similar activities.
+Cancelled orders can be useful for business follow-up, such as during marketing or sales campaigns.
 
-Automatic cancellations and completions
+
+Automatic Cancellations and Completions
 ---------------------------------------
-In some cases the |projectName| will attempt to observe the order process and automatically close any open orders.
+In some cases, |projectName| will automatically close open orders. Currently, this applies to orders with ``Vipps`` and ``MobilePay`` payment agreements.
+Many consumers close the browser window after being redirected to the Vipps or MobilePay app, resulting in incomplete orders. 
 
-At the current time this is only appropriate for orders with `Vipps` as a payment agreement.
+If an order is not completed, the upstream agreement is automatically checked after a short period (about 5 minutes):
 
-If an order is not completed, the upstream Vipps agreement is queried for its state after some time has passed (roughly 5 minutes)
-If the Vipps agreement has been approved, the order is automatically completed.
-If the Vipps agreement has been rejected or expired, the order is automatically cancelled.
+- If the agreement is approved, the order is automatically completed.
+- If the agreement is rejected or expired, the order is automatically cancelled.
 
-Quite a few consumers close the shopping/browser window after being redirected to the Vipps App, and thus never completes the order successfully.
-Similarly if the Vipps agreement has expired, there is no way the order can ever be successfully completed, so it might as well be cancelled.
+If the agreement expires, the order cannot be completed and is cancelled automatically.
 
+This behaviour may be disabled by setting ``disableVippsCompletion`` to ``true`` in the order configuration.
 
-PSP Callbacks
-==================
-.. _psp-Callbacks:
-
-Many PSPs have a concept of a `callback` used for ensuring that payments are processed correctly in the event of a client failure. 
-Typically failures are things such as loosing internet connectivity, user closes browser session, browser/machine crashes, appliction errors and the list goes on.
-
-The idea is that the PSP will do a `callback` to a registered URL out-of-band from the browser.
-
-We recommend that the client implements some sort of callback handling that will either :ref:`Cancel <cancel-order>` or :ref:`Complete <complete-order>` the order.
-
-.. Important::
-
-    |projectName| currently has no built in callback handling that can be utilized but it is on the roadmap.
-    The facility of a callback would be similar to that of automatically cancelling or completing orders.
+Asynchronous Completion of Orders
+---------------------------------
+In some cases it is desirable to provide the user with immediate feedback once the order is completed.
+It is possible to make the order completion fully asynchronous by setting the ``maxPollingTimeout`` to ``0`` during the Order Complete API request.

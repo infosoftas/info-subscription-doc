@@ -1,0 +1,23 @@
+flowchart TD
+    OrderCreate["OrderCreate (Order Request)"]
+    TemplatePackage["TemplatePackage (Template Plan)"]
+    Choices["Choices (TemplatePackageChoices)"]
+    SubscriptionPackage["SubscriptionPackage (Resulting Subscription)"]
+
+    OrderCreate -- selects --> TemplatePackage
+    OrderCreate -- provides --> Choices
+    TemplatePackage -- defines options for --> Choices
+    Choices -- customizes --> SubscriptionPackage
+    TemplatePackage -- base for --> SubscriptionPackage
+    OrderCreate -- triggers creation of --> SubscriptionPackage
+
+    subgraph "Order Flow"
+        OrderCreate
+        Choices
+    end
+    subgraph "Template Plan"
+        TemplatePackage
+    end
+    subgraph "Result"
+        SubscriptionPackage
+    end

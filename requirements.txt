@@ -1,5 +1,6 @@
+sphinxcontrib-mermaid
 sphinx-tabs
 sphinxcontrib-contentui
 sphinx_rtd_theme
 sphinx-copybutton
-docutils==0.20.1
+#docutils==0.20.1

@@ -1,0 +1,25 @@
+%%{init: { 'sequence': { 'mirrorActors': false } } }%%
+sequenceDiagram
+    actor Subscriber
+    participant Client
+    participant INFO-Subscription
+    participant PaymentProvider
+
+    Subscriber->>Client: Checkout
+    Client->>INFO-Subscription: POST /order
+    activate INFO-Subscription
+    INFO-Subscription->>INFO-Subscription: Verify Parameters
+    INFO-Subscription->>INFO-Subscription: Initialize Payment Registration
+    INFO-Subscription-->>Client: Order Details
+    deactivate INFO-Subscription
+    Client-->>Subscriber:  Redirect to Order.TerminalRedirectUrl
+    Subscriber->>PaymentProvider: Supply Payment Details
+    activate PaymentProvider
+    PaymentProvider-->>Subscriber: Redirect to Return URL
+    deactivate PaymentProvider
+    Subscriber->>Client: Payment Completed
+    Client->>INFO-Subscription: POST /order/{id}/complete
+    activate INFO-Subscription
+    INFO-Subscription->>INFO-Subscription: Process Order
+    INFO-Subscription-->>Client: Updated Order Details
+    deactivate INFO-Subscription

@@ -1,0 +1,38 @@
+classDiagram
+  class SubscriptionPlan {
+    +string Name
+    +string Description
+    +string Currency
+    +decimal Price
+    +int Units
+    +int? NumberOfEditions
+    +bool AutomaticStop
+  }
+
+  class Product {
+    // See API for Details
+  }
+
+  class AdditionalProduct {
+    // See API for Details
+  }
+
+  class SubscriptionPackageChain {
+     // See API for Details
+  }
+  class PermanentDiscount {
+    // See API for Details
+  }
+  class Contract {
+    // See API for Details
+  }
+  class BillingPlan {
+    // See API for Details
+  }
+
+  SubscriptionPlan --> Product : contains
+  SubscriptionPlan --> AdditionalProduct : may contain
+  SubscriptionPlan --> SubscriptionPackageChain : may follow
+  SubscriptionPlan --> PermanentDiscount : may have
+  SubscriptionPlan *-- Contract : may be restricted by
+  SubscriptionPlan --> BillingPlan : follows

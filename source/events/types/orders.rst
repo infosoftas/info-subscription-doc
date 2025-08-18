@@ -1,3 +1,5 @@
+.. _order-processed-event:
+
 Event: com.info-subscription.OrderProcessed
 -------------------------------------------
 Once an order is completed and processed an event is triggered called ``OrderProcessed``. 

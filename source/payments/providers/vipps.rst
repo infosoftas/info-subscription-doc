@@ -118,7 +118,7 @@ Automatic Accounting/Settlement
 -------------------------------
 It is possible to have |projectName| handle settlement and accounting for an `epayment`. 
 
-All that is required is to fill out the required `Accounting` properties when :api-ref:`creating the epayment <MobilePay/CreatePayment>`.
+All that is required is to fill out the required `Accounting` properties when :api-ref:`creating the epayment <VippsMobilePay/CreatePayment>`.
 
 An example request with accounting data that automagically settles an Invoice may look like:
 

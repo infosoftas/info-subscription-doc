@@ -1,3 +1,5 @@
+.. _subscriber-created-event:
+
 Event: com.info-subscription.SubscriberCreated
 ----------------------------------------------
 Not suprisingly, whenever a new Subscriber is created, it triggers an event ``SubscriberCreated``.

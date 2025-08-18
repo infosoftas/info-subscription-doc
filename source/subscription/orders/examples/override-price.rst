@@ -13,7 +13,7 @@ For instance where an extra-ordinary discount should be given to a subscriber (f
 
 It is possible to override the price during the order like the following
 
-.. code-block;: json
+.. code-block:: json
     :caption: Price Override
 
     {

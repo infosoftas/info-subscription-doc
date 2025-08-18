@@ -46,7 +46,8 @@ extensions = [
     'sphinx_tabs.tabs',
     'sphinxcontrib.contentui',
     'sphinx_rtd_theme',
-    'sphinx_copybutton'
+    'sphinx_copybutton',
+    'sphinxcontrib.mermaid'
     ]
 # extensions = ['sphinx_tabs.tabs']
 
@@ -207,6 +208,8 @@ epub_exclude_files = ['search.html']
 
 # -- Extension configuration -------------------------------------------------
 
+mermaid_version='11.9.0'
+
 # -- Options for todo extension ----------------------------------------------
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
@@ -220,6 +223,7 @@ rst_prolog = """
 .. |tokenUrl| replace:: https://infosubscription.eu.auth0.com/oauth/token
 .. |auth0domain| replace:: infosubscription.eu.auth0.com
 .. |ADB2C| replace:: `ADB2C <https://docs.microsoft.com/en-us/azure/active-directory-b2c/overview/>`__
+.. |PayEx| replace:: `Swedbank Pay (formerly PayEx) <https://www.swedbankpay.com/>`__
 .. |Swedbank| replace:: `Swedbank Pay <https://www.swedbankpay.com/>`__
 .. |SwedbankPay| replace:: `Swedbank Pay <https://www.swedbankpay.com/>`__
 .. |eFaktura| replace:: `eFaktura <https://www.efaktura.no/>`__

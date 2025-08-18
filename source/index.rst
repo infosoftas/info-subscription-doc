@@ -1,5 +1,3 @@
-.. You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
 
 .. image:: _images/slogan.png
     :scale: 50 %
@@ -7,37 +5,64 @@
     :alt: Infosoft Logo With Slogan Software for subscription businesses
     :target: https://www.infosoft.as
 
-************
-Introduction
-************
+*****************************************************
+Welcome to the |projectName| Developer Documentation
+*****************************************************
 
-This is the home of the developer documentation for |projectName|.
-If you came here looking for the user documentation you are in the `wrong place <https://docs.infosoft.no/>`_.
+This documentation is designed for third-party developers and API consumers who want to integrate with the |projectName| platform. Here you'll find comprehensive guides, API references, and practical examples to help you build, extend, and connect your solutions to |projectName| .
 
-If you have no idea what |projectName| is, then head over to the `product website <https://www.infosoft.as/info-subscription/>`_ and have a look.
+**What is INFO-Subscription?**
+
+|projectName| is a flexible platform for managing subscription-based businesses, offering robust APIs and managed experiences for seamless integration and automation. 
+If you are new to the platform, visit the `product website <https://www.infosoft.as/info-subscription/>`_ for an overview.
+
+**Who Should Use This Documentation?**
+
+- Developers building integrations with |projectName| APIs
+- Partners and customers automating subscription workflows
+- Anyone seeking to extend or embed |projectName| capabilities in their own systems
+
+If you are looking for end-user documentation, please visit the `user documentation <https://docs.infosoft.no/>`_.
 
 Integration Options
 ===================
-|projectName| is backed by an API that all tenants can make use of. 
+|projectName| provides a powerful API available to all tenants. You can:
 
-If you just want the gory details for the API you can browse `the Swagger UI <https://api.info-subscription.com/swagger/>`_ or `get the OpenAPI/Swagger definition file <https://api.info-subscription.com/swagger/v1/swagger.json>`_.
+- Explore the full API in the `Swagger UI <https://api.info-subscription.com/swagger/>`_
+- Download the `OpenAPI/Swagger definition <https://api.info-subscription.com/swagger/v1/swagger.json>`_
+- Start with our :ref:`Getting Started with the API <getting-started>` guide for a step-by-step introduction on how to authenticate and make your first API calls
+- Review :ref:`integration guides <common-scenarios>` for common use cases and advanced scenarios.
 
-Alternatively, head over to the :ref:`Getting Started with the API <getting-started>` section for a more gentle API introduction, or look at our list of :ref:`common scenarios <common-scenarios>`.
+|projectName|  also offers a :ref:`managed subscriber experience <managed-experience>`, including:
 
-Some tenants prefer to use our :ref:`managed subscriber experience <managed-experience>` which includes
+* A self-service portal for subscribers to manage their subscriptions
+* An ordering and registration process for new subscribers
+* An integrated Identity Provider (IdP) for authentication and authorization
 
- * A self-service portal/web site where subscribers can manage their subscriptions.
- * An ordering and user registration site/process where new subscribers can order subscriptions and register a new user.
- * An Identity Provider (IdP) solution that contains user credentials and some authorization information for letting users consume their purchased content.
+To integrate with the managed subscriber experience, see our :ref:`introduction to the managed experience <managed-experience>`.
 
-For integrating with the managed subscriber experience header over to our :ref:`introduction to the managed experience <managed-experience>` .
+Quick Start
+===========
+1. Read :ref:`Getting Started <getting-started>` for API onboarding
+2. Review API :ref:`Authentication <authorization>` and perhaps the :ref:`Terminology <terminology>`
+3. Try out the API using the Swagger UI or your favorite API client
+4. Explore :ref:`common scenarios <common-scenarios>` and code samples
 
+Beyond The Basics
+=================
+Already familiar with the basics? Explore these advanced topics to get the most out of |projectName|:
 
-Contact Information and Support
-=================================
-Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>` for details on how to contact Infosoft.
+* :ref:`Common Integration Scenarios <common-scenarios>` – Real-world use cases
+* :ref:`Webhooks and Event Handling <events>` – Automate workflows with event-driven integrations
+* :ref:`Reporting and Analytics <reporting-intro>` – Access and analyze subscription data
+* `API Reference <https://api.info-subscription.com/swagger/>`_ – Full technical details for all endpoints
+* :ref:`Follow the changelog <changelog>` – Stay up to date with the latest changes
 
-:ref:`genindex`
+For more, see the sidebar or use the search to find specific guides and references.
+
+Contact & Support
+=================
+For help, feedback, or to report issues, see :ref:`Support and Reporting Bugs <reporting-bugs>` for contact details.
 
 .. The following TOC tree directives are here to make sure the side-bar looks like we want it to.
    If a toc tree does not have a :hidden: tag it will be shown at the bottom on the index page!
@@ -51,26 +76,6 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
    general/terminology
    general/auth
    general/scenarios
-
-.. toctree::
-    :caption: Managed Subscriber Experience (Self-Service)
-    :hidden:
-    :glob:
-
-    managed-experience/managed-introduction
-    managed-experience/selfservice/checkout
-    managed-experience/authentication-authorization/quick-start
-    managed-experience/authentication-authorization/adb2c
-    managed-experience/authentication-authorization/sessions
-    managed-experience/authentication-authorization/user-management-authentication
-    managed-experience/selfservice/custom-domain
-    
-
-.. toctree::
-    :caption: Events and Webhooks
-    :hidden:
-
-    events/events-introduction
 
 .. toctree::
     :caption: Subscribers
@@ -87,14 +92,38 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     subscription/orders/examples/examples
 
 .. toctree::
+    :caption: Billing and Invoicing
+    :hidden:
+
+    billing/billingcycle
+    billing/standalone
+
+.. toctree::
     :caption: Payments and Agreements
     :glob:
     :hidden:
 
     payments/index
-    payments/requests
-    billing/standalone
 
+.. toctree::
+    :caption: Events and Webhooks
+    :hidden:
+
+    events/events-introduction
+
+.. toctree::
+    :caption: Managed Subscriber Experience (Self-Service)
+    :hidden:
+    :glob:
+
+    managed-experience/managed-introduction
+    managed-experience/selfservice/checkout
+    managed-experience/authentication-authorization/quick-start
+    managed-experience/authentication-authorization/adb2c
+    managed-experience/authentication-authorization/sessions
+    managed-experience/authentication-authorization/user-management-authentication
+    managed-experience/selfservice/custom-domain
+    
 .. toctree::
     :caption: Reporting and Analytics
     :hidden:
@@ -116,3 +145,5 @@ Please refer to the section on :ref:`Support and Reporting Bugs <reporting-bugs>
     :hidden:
 
     changelog/changelog
+
+:ref:`genindex`

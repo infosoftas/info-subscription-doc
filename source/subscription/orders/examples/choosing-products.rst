@@ -20,16 +20,6 @@ Continuing the example of a TV/ISP company, they may have the following products
 
 An example template would look something like the following:
 
-.. code-block:: http
-    :caption: Template Plan/Package Headers
-    
-
-    POST /Order/ HTTP/1.1
-    Host: https://api.info-subscription.com
-    Content-Type: application/json
-    S4-TenantId: SOMETENTANT
-    Authorization: Bearer RANDOMTOKEN
-
 .. code-block:: javascript
     :caption: Template Plan/Package Body
 
