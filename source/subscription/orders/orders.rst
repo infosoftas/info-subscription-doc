@@ -7,7 +7,8 @@ Creating New Subscriptions Using Orders
 This document describes the process of creating new subscriptions using "orders" in |projectName|. An **order** is a workflow that encapsulates the steps required to create a subscription in a semi-atomic transaction. Using orders helps ensure consistency, reduces manual follow-up, and simplifies error handling for clients.
 
 Key Benefits of Using Orders
----------------------------
+----------------------------
+
 - No manual clean-up required if an order is not completed.
 - No need for follow-up steps after order completion (e.g., invoice generation is automatic).
 - Ensures a consistent, reliable subscription creation process.

@@ -4,7 +4,7 @@
 Support and General Inqueries
 *****************************
 
-Priority questions and issues should be directed at the regular |projectName| support channel as described on {SUPPORTPAGE}.
+Priority questions and issues should be directed at the regular |projectName| support channel as described on our {SUPPORTPAGE}.
 If you are a third party, i.e. not the one with an account/tenant for |projectName|, then you should contact your client and have them facilitate communications.
 
 Reporting Bugs
