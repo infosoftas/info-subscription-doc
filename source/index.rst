@@ -57,6 +57,7 @@ Already familiar with the basics? Explore these advanced topics to get the most 
 * :ref:`Reporting and Analytics <reporting-intro>` – Access and analyze subscription data
 * `API Reference <https://api.info-subscription.com/swagger/>`_ – Full technical details for all endpoints
 * :ref:`Follow the changelog <changelog>` – Stay up to date with the latest changes
+* :ref:`Testing <testing-experimenting>` – Use our testing and experimentation tenant for testing your integration and getting to know the platform.
 
 For more, see the sidebar or use the search to find specific guides and references.
 
@@ -135,7 +136,9 @@ For help, feedback, or to report issues, see :ref:`Support and Reporting Bugs <r
 .. toctree::
     :caption: Misc
     :hidden:
-   
+
+    testing-experimenting
+    libraries-sdk
     reporting-bugs
     API Reference/Swagger <https://api.info-subscription.com/swagger/>
     doc-contribution

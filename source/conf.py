@@ -247,10 +247,10 @@ def replacements(app, docname, source):
     source[0] = result
 
 replacementsTags = {
-    "{PRODUCTWEBSITE}" : "`product website <https://www.infosoft.as/info-subscription/>`_",
+    "{PRODUCTWEBSITE}" : "`product website <https://www.infosoft.as/>`_",
     "{AUTH0}" : "`Auth0 <https://www.auth0.com/>`_",
     "{AUTH0DOMAIN}" : "infosubscription.eu.auth0.com",
-    "{SUPPORTPAGE}" : "https://www.infosoft.as/contact-us/",
+    "{SUPPORTPAGE}" : "`contact page <https://infosoft.as/contact-us/>`_",
     "{payex}" : "`Swedbank Pay <https://www.swedbankpay.com/>`_",
     "{vipps}" : "`Vipps <https://www.vipps.no/>`_",
     "{mobilePay}" : "`MobilePay <https://www.vippsmobilepay.com/>`_"
