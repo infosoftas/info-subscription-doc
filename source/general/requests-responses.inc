@@ -39,16 +39,40 @@ For successful requests we generally map the status codes as follows:
 
 You can consider this as a general rule, but to be certain please refer to the `reference docs <https://api.info-subscription.com/swagger/>`_ for your particular action.
 
+
 Asynchronous Processing
-~~~~~~~~~~~~~~~~~~~~~~~~~
+=======================
 
-The |projectName| platform mostly operates in an asynchronous manner, meaning that when you create a resource or start a process, the response might not be the final result.
-In these cases you will mostly receive a ``HTTP 202 Accepted`` response with a `Location` header that you can use to poll for the final result.
+|projectName| use asynchronous processing to provide a responsive and scalable experience. 
+This means that when you make a request to create or modify a resource, or to start a workflow (such as with ``POST``, ``PUT``, ``PATCH``, or ``DELETE``), the API does not always complete the work immediately while you wait. 
+Instead, it quickly validates your input and offloads the actual work to a background processing system. This approach allows the platform to handle large workloads efficiently and ensures that your requests are not blocked by long-running operations.
 
-The polling interval is not fixed and can vary depending on the resource and the current load on the system.
-We recommend that you do incremental back-off polling, starting with a short interval and increasing it dynamically.
+The typical flow for asynchronous operations is as follows:
 
-Depending on the use case it may be sufficient to wait a fixed time between polls and increase if the experience leads to lot of retries.
+1. **Input Validation**: The API first checks that your request is well-formed and meets all requirements. If there are issues, you receive a client error (see below).
+2. **Offloading to Processing Queue**: If validation succeeds, the API submits your request to a background processing queue. This queue is continuously processed by worker services that perform the actual work (such as creating resources, updating data, or running business logic).
+3. **Immediate Response with ``Location``**: The API responds, often with a ``HTTP 202 Accepted`` status and a ``Location`` header. The ``Location`` header provides a URL (usually a query endpoint) where you can check the status or result of your request.
+
+.. note::
+    For most query endpoints (``GET``), results are retrieved directly from the database and are typically synchronous.
+
+Polling for Results
+-------------------
+
+Since the work is done in the background, you may need to check the status of your request. This is done by polling the URL provided in the ``Location`` header. 
+The recommended approach is to use incremental back-off polling: start with a short interval between requests, and increase the interval if the result is not yet ready. 
+This helps avoid unnecessary load on the system, while still providing fast interactive responses in most cases.
+
+Depending on your use case, a fixed interval may be sufficient, but be prepared to adjust if you encounter frequent retries or delays.
+
+Visual Overview
+---------------
+
+The following diagram illustrates the asynchronous processing flow:
+
+.. image:: /_images/async-processing-flow.svg
+    :alt: Asynchronous Processing Flow
+    :align: center
 
 Error Conditions
 ----------------
@@ -64,7 +88,36 @@ Client Errors
 ~~~~~~~~~~~~~
 As described above these are Errors that the client should handle, typically by displaying some sort of feedback to the user.
 
-Typically client errors are validation/format related and generates a ``HTTP 400 Bad Request`` response with a `validation error instance <https://api.info-subscription.com/swagger/#model-ValidationResultModel>`_
+Typically client errors are validation/format related and generates a ``HTTP 400 Bad Request`` response with a `validation error instance <https://api.info-subscription.com/swagger/#model-ValidationResultModel>`_.
+
+Problem Details (RFC 9457)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Newer endpoints are adopting the standardized `Problem Details for HTTP APIs (RFC 9457) <https://www.rfc-editor.org/rfc/rfc9457.html>`_ format for reporting client validation errors. This format provides a consistent and machine-readable way to convey error information, including fields such as `type`, `title`, `status`, `detail`, and `instance`. Some endpoints may return both the legacy validation error format and Problem Details, depending on the specific API version or resource.
+
+When interacting with newer endpoints, you may receive a response similar to the following:
+
+.. code-block:: json
+    :caption: Problem Details Example
+    :name: problem-details-example
+
+    {
+        "type": "https://api.info-subscription.com/errors/validation",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "detail": "See the errors property for details.",
+        "instance": "/orders/12345",
+        "errors": {
+            "Currency": ["The Currency field is required."],
+            "ValueDate": ["Date is out of Range"],
+            "PaidAmount": ["The amount is out of Range"],
+            "PaymentDate": ["Date is out of Range"]
+        }
+    }
+
+**Important:**  
+- Always check the response body for either the legacy validation error format or the Problem Details format.
+- Some endpoints may use both formats for a transitional period.
 
 Whenever possible multiple validations will be included in a single response, but since some validations are dependant on existence of a given resource this is not always achievable.
 
