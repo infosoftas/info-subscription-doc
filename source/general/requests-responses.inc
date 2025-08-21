@@ -88,7 +88,36 @@ Client Errors
 ~~~~~~~~~~~~~
 As described above these are Errors that the client should handle, typically by displaying some sort of feedback to the user.
 
-Typically client errors are validation/format related and generates a ``HTTP 400 Bad Request`` response with a `validation error instance <https://api.info-subscription.com/swagger/#model-ValidationResultModel>`_
+Typically client errors are validation/format related and generates a ``HTTP 400 Bad Request`` response with a `validation error instance <https://api.info-subscription.com/swagger/#model-ValidationResultModel>`_.
+
+Problem Details (RFC 9457)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Newer endpoints are adopting the standardized [Problem Details for HTTP APIs (RFC 9457)](https://www.rfc-editor.org/rfc/rfc9457.html) format for reporting client validation errors. This format provides a consistent and machine-readable way to convey error information, including fields such as `type`, `title`, `status`, `detail`, and `instance`. Some endpoints may return both the legacy validation error format and Problem Details, depending on the specific API version or resource.
+
+When interacting with newer endpoints, you may receive a response similar to the following:
+
+.. code-block:: json
+    :caption: Problem Details Example
+    :name: problem-details-example
+
+    {
+        "type": "https://api.info-subscription.com/errors/validation",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "detail": "See the errors property for details.",
+        "instance": "/orders/12345",
+        "errors": {
+            "Currency": ["The Currency field is required."],
+            "ValueDate": ["Date is out of Range"],
+            "PaidAmount": ["The amount is out of Range"],
+            "PaymentDate": ["Date is out of Range"]
+        }
+    }
+
+**Important:**  
+- Always check the response body for either the legacy validation error format or the Problem Details format.
+- Some endpoints may use both formats for a transitional period.
 
 Whenever possible multiple validations will be included in a single response, but since some validations are dependant on existence of a given resource this is not always achievable.
 
