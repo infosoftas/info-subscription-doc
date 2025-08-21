@@ -61,7 +61,7 @@ Polling for Results
 
 Since the work is done in the background, you may need to check the status of your request. This is done by polling the URL provided in the ``Location`` header. 
 The recommended approach is to use incremental back-off polling: start with a short interval between requests, and increase the interval if the result is not yet ready. 
-This helps avoid unnecessary load on the system, while still providing fast interactive responses in the most cases.
+This helps avoid unnecessary load on the system, while still providing fast interactive responses in most cases.
 
 Depending on your use case, a fixed interval may be sufficient, but be prepared to adjust if you encounter frequent retries or delays.
 
