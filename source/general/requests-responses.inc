@@ -93,7 +93,7 @@ Typically client errors are validation/format related and generates a ``HTTP 400
 Problem Details (RFC 9457)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Newer endpoints are adopting the standardized [Problem Details for HTTP APIs (RFC 9457)](https://www.rfc-editor.org/rfc/rfc9457.html) format for reporting client validation errors. This format provides a consistent and machine-readable way to convey error information, including fields such as `type`, `title`, `status`, `detail`, and `instance`. Some endpoints may return both the legacy validation error format and Problem Details, depending on the specific API version or resource.
+Newer endpoints are adopting the standardized `Problem Details for HTTP APIs (RFC 9457) <https://www.rfc-editor.org/rfc/rfc9457.html>`_ format for reporting client validation errors. This format provides a consistent and machine-readable way to convey error information, including fields such as `type`, `title`, `status`, `detail`, and `instance`. Some endpoints may return both the legacy validation error format and Problem Details, depending on the specific API version or resource.
 
 When interacting with newer endpoints, you may receive a response similar to the following:
 
