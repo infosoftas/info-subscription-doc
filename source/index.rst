@@ -55,6 +55,7 @@ Already familiar with the basics? Explore these advanced topics to get the most 
 * :ref:`Common Integration Scenarios <common-scenarios>` – Real-world use cases
 * :ref:`Webhooks and Event Handling <events>` – Automate workflows with event-driven integrations
 * :ref:`Reporting and Analytics <reporting-intro>` – Access and analyze subscription data
+* :ref:`OData Querying <reporting-analytics/odata-primer>` – Advanced querying techniques for analytics data
 * `API Reference <https://api.info-subscription.com/swagger/>`_ – Full technical details for all endpoints
 * :ref:`Follow the changelog <changelog>` – Stay up to date with the latest changes
 * :ref:`Testing <testing-experimenting>` – Use our testing and experimentation tenant for testing your integration and getting to know the platform.
@@ -132,6 +133,7 @@ For help, feedback, or to report issues, see :ref:`Support and Reporting Bugs <r
 
     Introduction <reporting-analytics/intro>
     Datamodel <reporting-analytics/datamodel>
+    OData Querying <reporting-analytics/odata-primer>
 
 
 .. toctree::
