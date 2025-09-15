@@ -91,6 +91,7 @@ For help, feedback, or to report issues, see :ref:`Support and Reporting Bugs <r
     subscription/plans
     subscription/orders/orders
     subscription/orders/examples/examples
+    subscription/additional-products
 
 .. toctree::
     :caption: Billing and Invoicing
