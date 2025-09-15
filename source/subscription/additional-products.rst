@@ -19,7 +19,7 @@ Additional products are optional items or services that can be:
 
 They are always associated with a specific subscription and exist only for the duration of that subscription. 
 
-Examples use cases include:
+Example use cases include:
 
 - Extra storage or bandwidth
 - Premium support
