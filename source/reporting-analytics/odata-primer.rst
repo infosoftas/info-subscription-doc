@@ -72,9 +72,8 @@ Expanding Navigation Properties
 -------------------------------
 If the metadata defines navigation properties (e.g., related entities), use ``$expand``. For example::
 
-    GET https://analytics.info-subscription.com/Subscribers?$expand=Orders
+    GET https://analytics.info-subscription.com/Payment?$expand=Subscriber
 
-    (Replace ``Orders`` with the actual navigation property as found in the $metadata document.)
 
 Discovering Entities and Properties
 ----------------------------------
