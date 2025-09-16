@@ -154,6 +154,7 @@ erDiagram
         String Currency
         Decimal Amount
     }
+
     Order {
         Guid Id
         Guid SubscriberId
@@ -162,24 +163,86 @@ erDiagram
         Decimal Value
         String Status
     }
+
     OrderAmount {
         Guid Id
         Guid OrderId
         Decimal Amount
         DateTime Date
     }
+
     OrderCompletedAmount {
         Guid Id
         Guid OrderId
         Decimal Amount
         DateTime Date
     }
+
     DailyPaidAmount {
         Guid Id
         Guid OrganizationId
         Decimal Amount
         DateTime Date
     }
+
+    PaidAMountByValueDate {
+        Guid Id
+        Guid OrganizationId
+        Decimal Amount
+        DateTime ValueDate
+    }
+
+    Organization {
+        Guid Id
+        String Name
+        String Email
+        String Phone
+        String Address
+    }
+
+    SubscriberAccount {
+        Guid Id
+        Guid SubscriberId
+        String AccountNumber
+        String Status
+    }
+    TotalIdpUsers {
+        Guid Id
+        Guid OrganizationId
+        Int TotalUsers
+        DateTime Date
+    }
+    IdpUsersByDate {
+        Guid Id
+        Guid OrganizationId
+        Int UserCount
+        DateTime Date
+    }
+    InvoicedAmount {
+        Guid Id
+        Guid OrganizationId
+        Decimal Amount
+        DateTime InvoiceDate
+    }
+    SubscriptionRevenueChanges {
+        Guid Id
+        Guid SubscriptionId
+        Decimal ChangeAmount
+        DateTime ChangeDate
+    }
+    SubscriptionRevenues {
+        Guid Id
+        Guid SubscriptionId
+        Decimal RevenueAmount
+        DateTime RevenueDate
+    }
+
+    Subscriber ||--o{ SubscriberAccount : account
+    Organization ||--o{ TotalIdpUsers : idpusers
+    Organization ||--o{ IdpUsersByDate : idpusersbydate
+    Organization ||--o{ InvoicedAmount : invoiced
+    Subscription ||--o{ SubscriptionRevenueChanges : revenuechange
+    Subscription ||--o{ SubscriptionRevenues : revenue
 
     Subscriber ||--o{ SubscriberContact : has
     Subscriber ||--o{ Subscription : has
@@ -205,5 +268,6 @@ erDiagram
     PaymentDemand ||--o{ PaymentDemandDetail : detail
     PaymentDemand ||--o{ PaymentDemandAllowance : allowance
     PaymentDemand ||--o{ PaymentDemandCharge : charge
-    Order ||--o{ OrderAmount : amount
-    Order ||--o{ OrderCompletedAmount : completed
+    Organization ||--o{ PaidAMountByValueDate : has
+
+
