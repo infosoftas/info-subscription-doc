@@ -202,9 +202,8 @@ Available Tables
 
 
 KPI: OrderAmounts and OrderCompletedAmounts
----------------------------------------
 
-The tables `OrderAmounts` and `OrderCompletedAmounts` are KPI-like tables providing a summary of the order value for a given date and organization.
+
 
 One table includes all orders that have been started (and later cancelled), while the other only summarises orders that have been completed.
 
@@ -292,3 +291,13 @@ Payments
 --------
 All payments for each individual subscriber, regardless of source. 
 The most common source values are OCR, PayEx , Manual, Import and MI (migrated).
+
+
+Entity Relationship Diagram
+===========================
+
+The following is an ER diagram of the reporting data model serving as a visual reference.
+
+.. mermaid:: datamodel-er.mmd
+    :align: center
+    :alt: Entity Relationship Diagram for Reporting Model
