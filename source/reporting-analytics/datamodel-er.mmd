@@ -187,6 +187,7 @@ erDiagram
     Subscriber ||--o{ AccountTransaction : has
     Subscriber ||--o{ SubscriberLedger : ledger
     Subscriber ||--o{ SubscriberAmount : amount
+    Subscriber ||--o{ Order : has
     Subscription ||--o{ Invoice : has
     Subscription ||--o{ CanceledSubscription : canceled
     Subscription ||--o{ Contract : contract
