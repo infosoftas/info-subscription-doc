@@ -1,0 +1,273 @@
+erDiagram
+    Subscriber {
+        Guid Id
+        String ExternalId
+        Int64 SubscriberNumber
+        String Name
+        String Phone
+        String Email
+        String City
+        String Zip
+        String Country
+        String AddressLines
+        Guid ContactId
+    }
+    SubscriberContact {
+        Guid Id
+        Guid SubscriberId
+        String Type
+        String Address
+        String Email
+        String Phone
+        Bool IsPrimary
+        String Identification
+    }
+    Tag {
+        Guid Id
+        String Value
+        Guid ReferenceId
+        String ReferenceType
+    }
+    ReportingGroup {
+        Guid Id
+        String Name
+    }
+    ProductReportingGroup {
+        Guid Id
+        Guid ProductId
+        Guid ReportingGroupId
+    }
+    Product {
+        Guid Id
+        String Name
+        String Description
+        Decimal Price
+        String ProductCategory
+    }
+    Subscription {
+        Guid Id
+        Guid SubscriberId
+        String ExternalId
+        String SubscriptionNumber
+        String Name
+        DateTime StartDate
+        DateTime EndDate
+        String Status
+        Guid PlanId
+        Int BillingFrequencyId
+        Int SubscriptionPackageChainId
+        Int InitialTermType
+        String InitialTermValue
+        Bool AutomaticStop
+    }
+    CanceledSubscription {
+        Guid Id
+        Guid SubscriptionId
+        String Reason
+    }
+    Contract {
+        Guid Id
+        Guid SubscriptionId
+        DateTime StartDate
+        DateTime EndDate
+        Int TermLength
+    }
+    EnterprisePlan {
+        Guid Id
+        String Name
+        String Rules
+    }
+    SubscriptionPackage {
+        Guid Id
+        Guid SubscriptionId
+        String Name
+        Int BillingFrequencyId
+    }
+    SubscriptionPackageProduct {
+        Guid Id
+        Guid SubscriptionPackageId
+        Guid ProductId
+    }
+    Invoice {
+        Guid Id
+        Guid SubscriptionId
+        DateTime IssueDate
+        DateTime DueDate
+        Decimal Amount
+        String Status
+    }
+    Payment {
+        Guid Id
+        Guid InvoiceId
+        DateTime PaymentDate
+        Decimal Amount
+        String Method
+    }
+    AccountTransaction {
+        Guid Id
+        Guid SubscriberId
+        Decimal Amount
+        String Status
+    }
+    PaymentDemand {
+        Guid Id
+        Guid SubscriberId
+        Guid InvoiceId
+        DateTime IssueDate
+        Decimal Amount
+        String Status
+    }
+    PaymentDemandFee {
+        Guid Id
+        Guid PaymentDemandId
+        Decimal Amount
+        String Type
+    }
+    PaymentDemandDetail {
+        Guid Id
+        Guid PaymentDemandId
+        Guid SubscriptionId
+        Guid OrderId
+        Decimal Amount
+        Guid NextSubscriptionId
+    }
+    PaymentDemandAllowance {
+        Guid Id
+        Guid PaymentDemandId
+        Decimal Amount
+    }
+    PaymentDemandCharge {
+        Guid Id
+        Guid PaymentDemandId
+        Decimal Amount
+    }
+    SubscriberLedger {
+        Guid Id
+        Guid SubscriberId
+        Decimal Amount
+        String Status
+    }
+    SubscriberAmount {
+        Guid Id
+        Guid SubscriberId
+        Guid OrganizationId
+        String Currency
+        Decimal Amount
+    }
+
+    Order {
+        Guid Id
+        Guid SubscriberId
+        DateTime CreatedDate
+        DateTime CompletedDate
+        Decimal Value
+        String Status
+    }
+
+    OrderAmount {
+        Guid Id
+        Guid OrderId
+        Decimal Amount
+        DateTime Date
+    }
+
+    OrderCompletedAmount {
+        Guid Id
+        Guid OrderId
+        Decimal Amount
+        DateTime Date
+    }
+
+    DailyPaidAmount {
+        Guid Id
+        Guid OrganizationId
+        Decimal Amount
+        DateTime Date
+    }
+
+    PaidAMountByValueDate {
+        Guid Id
+        Guid OrganizationId
+        Decimal Amount
+        DateTime ValueDate
+    }
+
+    Organization {
+        Guid Id
+        String Name
+        String Email
+        String Phone
+        String Address
+    }
+
+    SubscriberAccount {
+        Guid Id
+        Guid SubscriberId
+        String AccountNumber
+        String Status
+    }
+    TotalIdpUsers {
+        Guid Id
+        Guid OrganizationId
+        Int TotalUsers
+        DateTime Date
+    }
+    IdpUsersByDate {
+        Guid Id
+        Guid OrganizationId
+        Int UserCount
+        DateTime Date
+    }
+    InvoicedAmount {
+        Guid Id
+        Guid OrganizationId
+        Decimal Amount
+        DateTime InvoiceDate
+    }
+    SubscriptionRevenueChanges {
+        Guid Id
+        Guid SubscriptionId
+        Decimal ChangeAmount
+        DateTime ChangeDate
+    }
+    SubscriptionRevenues {
+        Guid Id
+        Guid SubscriptionId
+        Decimal RevenueAmount
+        DateTime RevenueDate
+    }
+
+    Subscriber ||--o{ SubscriberAccount : account
+    Organization ||--o{ TotalIdpUsers : idpusers
+    Organization ||--o{ IdpUsersByDate : idpusersbydate
+    Organization ||--o{ InvoicedAmount : invoiced
+    Subscription ||--o{ SubscriptionRevenueChanges : revenuechange
+    Subscription ||--o{ SubscriptionRevenues : revenue
+
+    Subscriber ||--o{ SubscriberContact : has
+    Subscriber ||--o{ Subscription : has
+%% Subscriber ||--o{ Tag : tagged
+    %% The Tag entity uses ReferenceId and ReferenceType for polymorphic relationships.
+    %% Tag can reference multiple entity types (e.g., Subscriber, Order, etc.) via ReferenceType.
+    %% This is a polymorphic association, not a direct relationship.
+    Subscriber ||--o{ AccountTransaction : has
+    Subscriber ||--o{ SubscriberLedger : ledger
+    Subscriber ||--o{ SubscriberAmount : amount
+    Subscriber ||--o{ Order : has
+    Subscription ||--o{ Invoice : has
+    Subscription ||--o{ CanceledSubscription : canceled
+    Subscription ||--o{ Contract : contract
+    Subscription ||--o{ SubscriptionPackage : package
+    SubscriptionPackage ||--o{ SubscriptionPackageProduct : includes
+    SubscriptionPackageProduct ||--o{ Product : product
+    Product ||--o{ ProductReportingGroup : grouped
+    ProductReportingGroup ||--o{ ReportingGroup : group
+    Invoice ||--o{ Payment : paid
+    Invoice ||--o{ PaymentDemand : demand
+    PaymentDemand ||--o{ PaymentDemandFee : fee
+    PaymentDemand ||--o{ PaymentDemandDetail : detail
+    PaymentDemand ||--o{ PaymentDemandAllowance : allowance
+    PaymentDemand ||--o{ PaymentDemandCharge : charge
+    Organization ||--o{ PaidAMountByValueDate : has
+
+
