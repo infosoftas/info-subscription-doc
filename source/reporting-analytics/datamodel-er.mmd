@@ -183,7 +183,10 @@ erDiagram
 
     Subscriber ||--o{ SubscriberContact : has
     Subscriber ||--o{ Subscription : has
-    Subscriber ||--o{ Tag : tagged
+%% Subscriber ||--o{ Tag : tagged
+    %% The Tag entity uses ReferenceId and ReferenceType for polymorphic relationships.
+    %% Tag can reference multiple entity types (e.g., Subscriber, Order, etc.) via ReferenceType.
+    %% This is a polymorphic association, not a direct relationship.
     Subscriber ||--o{ AccountTransaction : has
     Subscriber ||--o{ SubscriberLedger : ledger
     Subscriber ||--o{ SubscriberAmount : amount
