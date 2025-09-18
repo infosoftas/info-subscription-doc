@@ -8,6 +8,8 @@ Its autumn and while the rain pours down outside and the temperature drops, we s
 Measured in number of changes, this is probably the largest release we have ever had. 
 From the list below you can see there are a lot of different areas affected, and these are just the observable changes.
 
+As some may have noticed the developer docs are also getting a needed expansion, for this reason we have added a short section here about doc changes as well.
+
 We probably have 1 or 2 more release for you this year, so stay tuned, and enjoy this release!
 
 API and Backend
@@ -18,9 +20,10 @@ Added
 
 * Support for Order Reference. A free form text field similar to Buyer Reference. Instead of following the subscriber, the order reference follows the subscription.
   
-  The order reference can be set on Orders, Subscription and Enterprise Plans and will be carried on to the Invoice. 
-  It is also available in the reporting data model for demands (if set).
-  It is also possible to set/remove order references during subscription changes.
+  - The order reference can be set on Orders, Subscription and Enterprise Plans.
+  - IS carried on to the Invoice if present.
+  - Available in the reporting data model for demands (if set).
+  - It is also possible to set/remove order references during subscription changes.
   
 * Support for handling |VippsMobilePay| agreements being stopped in the |Vipps| or |MobilePay| app. By default subscriptions will be set to another payment agreement, the behaviour can be changed to cancel the subscription instead.
 * New orders can now consume existing account charges and allowances, the behaviour can be toggled with a parameter in the order flow.
@@ -110,3 +113,16 @@ Fixed
 -----
 
 * General translation corrections for multiple languages.
+
+Developer Documentation
+=======================
+
+A short list of things that have been added or significantly expanded upon in the documentation since july.
+
+* Introduction to Additional Products (Add-ons).
+* A primer on querying using OData and the Analytics API.
+* References to test data for payment providers.
+* Scenario description for bringing your own payment provider.
+* More details and concept explanations in relation to billing.
+* Visualizations for various entity relationships and timelines.
+* New sequence diagram for orders including Vipps/SwedbankPay examples.
