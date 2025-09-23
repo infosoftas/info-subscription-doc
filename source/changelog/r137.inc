@@ -10,7 +10,7 @@ From the list below you can see there are a lot of different areas affected, and
 
 As some may have noticed the developer docs are also getting a needed expansion, for this reason we have added a short section here about doc changes as well.
 
-We probably have 1 or 2 more release for you this year, so stay tuned, and enjoy this release!
+We probably have 1 or 2 more releases for you this year, so stay tuned, and enjoy this release!
 
 API and Backend
 ===============
@@ -71,7 +71,7 @@ Added
 * Support for adding and showing the new Order Reference field.
   The support includes new Orders, subscription changes, displaying on running subscriptions and on Invoices.
 * Password reset support for shared and email domain based users.
-* Support for configuring reminder and invoice fees for additional payment provider types.
+* Support for configuring invoice fees for additional payment provider types.
 
 Changed
 -------
