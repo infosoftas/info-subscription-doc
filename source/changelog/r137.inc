@@ -4,7 +4,7 @@
 Release October 27th
 ********************
 
-Is a minor release to fix two issues related to the order flow and evaluation of template subscription plan rules.
+This is a minor release to fix two issues related to the order flow and evaluation of template subscription plan rules.
 
 Fixed
 -----
