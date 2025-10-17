@@ -1,5 +1,17 @@
 .. _changelog-r137:
 
+********************
+Release October 27th
+********************
+
+Is a minor release to fix two issues related to the order flow and evaluation of template subscription plan rules.
+
+Fixed
+-----
+
+* An issue where chosen products would not flow to the next step in a chain of plans, causing the second and subsequent period to contain all available products instead of the chosen ones.
+* An issue where the overridden price for an order would not flow to the next step in a chain of plans, causing the second and subsequent period to use the list prices instead of the overridden one.
+
 **********************
 Release September 23rd
 **********************
