@@ -48,9 +48,10 @@ When subscribers are redirected to the VippsMobilePay terminal or landing page t
    
    You can also check the agreement status directly using the ``GET vippsmobilepay/agreement/{id}/remote`` endpoint. This endpoint retrieves the current state of the agreement directly from VippsMobilePay, allowing you to determine if the subscriber has:
    
-   - Approved the agreement (``ACTIVE`` or ``PENDING`` status)
-   - Rejected/cancelled the agreement (``STOPPED`` or ``EXPIRED`` status)
-   - Not yet responded to the agreement request
+   - Approved the agreement (``ACTIVE`` status)
+   - Not yet responded to the agreement request (``PENDING`` status)
+   - Not responded within the time limit - approximately 10 minutes (``EXPIRED`` status)
+   - Rejected/cancelled the agreement (``STOPPED`` status)
    
    This approach is useful for scenarios where you need to check agreement status independently of order completion, such as displaying real-time status updates to users or implementing retry logic.
 
