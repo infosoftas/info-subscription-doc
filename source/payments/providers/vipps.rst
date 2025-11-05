@@ -34,6 +34,29 @@ Since all of this is an interactive process, some integration is required for it
 
 If the caller utilizes the ordering API provided by |projectName| some of the above is handled, but the initial parameters and the redirection needs to be managed by the client.
 
+Handling Terminal/Landing Page Cancellations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+When subscribers are redirected to the VippsMobilePay terminal or landing page to confirm an agreement, they may cancel the process or simply close the browser/app without completing the registration. Since VippsMobilePay does not provide immediate feedback in the response when this occurs, there are two primary methods for handling these cancellations:
+
+1. **Error/Validation Handling During Complete Order**
+   
+   When attempting to complete an order using the :api-ref:`Complete Order endpoint <Orders/CompleteOrder>`, the system will validate the agreement status with VippsMobilePay. If the subscriber has cancelled or not completed the agreement registration, the Complete Order request will fail with an appropriate error response indicating the agreement was not approved.
+
+   This approach is suitable when you control the order completion flow and can handle validation errors gracefully in your application.
+
+2. **Polling the Agreement Status**
+   
+   You can also check the agreement status directly using the ``GET vippsmobilepay/agreement/{id}/remote`` endpoint. This endpoint retrieves the current state of the agreement directly from VippsMobilePay, allowing you to determine if the subscriber has:
+   
+   - Approved the agreement (``ACTIVE`` or ``PENDING`` status)
+   - Rejected/cancelled the agreement (``STOPPED`` or ``EXPIRED`` status)
+   - Not yet responded to the agreement request
+   
+   This approach is useful for scenarios where you need to check agreement status independently of order completion, such as displaying real-time status updates to users or implementing retry logic.
+
+.. note::
+   The agreement state returned by the remote endpoint is directly transferred from VippsMobilePay's upstream API. For detailed information about agreement states and status values, please refer to the official `VippsMobilePay Recurring API Documentation <https://developer.vippsmobilepay.com/docs/APIs/recurring-api/>`_.
+
 In-Shop/Non-Browser Agreement Registration (Merchant Initiated)
 ---------------------------------------------------------------
 Vipps allows a special type of agreement registration where everything is managed by the merchant, and the only thing the subscriber has to do is accept the agreement in the mobile app.
