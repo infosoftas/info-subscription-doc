@@ -40,7 +40,7 @@ Fixed
 -----
 
 * An issue where Template Plan validation passed, even if some of the products did not have a valid price.
-* An issue where no validation information was not return when creating the same sequence multiple times.
+* An issue where no validation information was returned when creating the same sequence multiple times.
 * An issue where some transactions on Account Demands would be created without Currency information if the Account Demand was generated due to a previous payment related cancellation.
 * An issue where deliveries would not be handled correctly in case of a subscription plan change, leading to missing delivery notifications.
 * An issue with missing contact information in reporting when automatically retrieving subscriber contact details from |VippsMobilePay|.
