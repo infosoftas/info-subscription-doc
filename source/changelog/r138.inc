@@ -25,7 +25,7 @@ This is strictly speaking a breaking change, but we expect that very few clients
 Added
 -----
 
-* Support for new Billing Frequencies, 3, 4 and 6 weeks.
+* Support for new Billing Frequencies: 3, 4 and 6 weeks.
 
 Changed
 -------
