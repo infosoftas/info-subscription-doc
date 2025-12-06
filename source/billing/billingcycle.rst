@@ -66,6 +66,34 @@ In the in-advance billing model:
 
 3. **Payment Processing Timing**: For integrated payment providers, payment requests are scheduled and processed based on the provider's requirements and the billing plan configuration. Some providers (like direct debit systems) require several days of lead time before the due date, which is why minimum due days are important.
 
+**Visual Example**
+
+The following diagram illustrates the in-advance billing timeline for a single subscription period:
+
+.. mermaid::
+
+    gantt
+        title In-Advance Billing Timeline Example
+        dateFormat  YYYY-MM-DD
+        section Subscription Period
+            Service Period (Jan 1 - Jan 31)   :active, period, 2025-01-01, 30d
+        section Billing Events
+            Invoice Issued (15 days before due)   :milestone, issued, 2024-12-17, 0d
+            Invoice Due = Period Start   :crit, due, 2025-01-01, 0d
+            Payment Expected   :milestone, payment, 2025-01-01, 0d
+
+In this example:
+
+- **Service Period**: January 1 - January 31 (the subscription period being billed)
+- **Invoice Issued**: December 17 (15 days before the due date, based on billing plan minimum due days)
+- **Invoice Due Date**: January 1 (the subscription period start date)
+- **Payment Expected**: At the beginning of the service period (in-advance)
+
+The subscriber is billed **before** the service period begins, receives the invoice 15 days in advance, and payment is due at the start of the period they're being billed for.
+
+.. note::
+    For a more comprehensive view of how billing and dunning work across multiple periods, including reminders and payment processing, see the :ref:`Billing and Dunning Timeline <Billing_Dunning_Timeline>` section below.
+
 Hybrid Billing: In-Advance + In-Arrears
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
