@@ -44,7 +44,7 @@ To integrate with the managed subscriber experience, see our :ref:`introduction 
 Quick Start
 ===========
 1. Read :ref:`Getting Started <getting-started>` for API onboarding
-2. Review API :ref:`Authentication <authorization>` and perhaps the :ref:`Terminology <terminology>`
+2. Review API :ref:`Authentication <authorization>`, :ref:`Versioning <api-versioning>`, and perhaps the :ref:`Terminology <terminology>`
 3. Try out the API using the Swagger UI or your favorite API client
 4. Explore :ref:`common scenarios <common-scenarios>` and code samples
 
@@ -77,6 +77,7 @@ For help, feedback, or to report issues, see :ref:`Support and Reporting Bugs <r
    general/what-is-info-subscription
    general/terminology
    general/auth
+   general/api-versioning
    general/scenarios
 
 .. toctree::
