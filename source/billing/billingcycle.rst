@@ -45,6 +45,83 @@ Each stage is explained in more detail following the diagram.
     
     Multiple billing cycles typically overlap because payments are not always received and settled in a timely manner.
 
+.. _in-advance-billing:
+
+In-Advance Billing Model
+-------------------------
+
+|projectName| operates on an **in-advance billing model**, meaning subscribers are billed at the beginning of each subscription period for services to be provided during that period. This is in contrast to an **in-arrears billing model**, where billing occurs at the end of a period for services already consumed.
+
+Understanding the Billing Timeline
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the in-advance billing model:
+
+1. **Subscription Start as Due Date**: When a subscription begins or renews, the **subscription start time** (or renewal time) serves as the **due date** for the payment demand/invoice. This means payment is expected at the beginning of the service period.
+
+2. **Billing Plan Minimum Due Days**: Billing Plans can define a "minimum due days" parameter that specifies how many days before the due date (subscription start) the invoice should be issued. This allows organizations to give subscribers advance notice before payment is required.
+   
+   - For example, if a subscription renews on February 1st and the billing plan has 15 minimum due days, the invoice will be issued around January 17th (15 days before the due date of February 1st).
+   - The minimum due days are **relative to the subscription start/renewal date**, ensuring subscribers receive their invoices with sufficient time to review and prepare for payment.
+
+3. **Payment Processing Timing**: For integrated payment providers, payment requests are scheduled and processed based on the provider's requirements and the billing plan configuration. Some providers (like direct debit systems) require several days of lead time before the due date, which is why minimum due days are important.
+
+**Visual Example**
+
+The following diagram illustrates the in-advance billing timeline for a single subscription period:
+
+.. mermaid::
+
+    gantt
+        title In-Advance Billing Timeline Example
+        dateFormat  YYYY-MM-DD
+        section Subscription Period
+            Service Period (Jan 1 - Jan 31)   :active, period, 2025-01-01, 30d
+        section Billing Events
+            Invoice Issued (15 days before due)   :milestone, issued, 2024-12-17, 0d
+            Invoice Due = Period Start   :crit, due, 2025-01-01, 0d
+            Payment Expected   :milestone, payment, 2025-01-01, 0d
+
+In this example:
+
+- **Service Period**: January 1 - January 31 (the subscription period being billed)
+- **Invoice Issued**: December 17 (15 days before the due date, based on billing plan minimum due days)
+- **Invoice Due Date**: January 1 (the subscription period start date)
+- **Payment Expected**: At the beginning of the service period (in-advance)
+
+The subscriber is billed **before** the service period begins, receives the invoice 15 days in advance, and payment is due at the start of the period they're being billed for.
+
+.. note::
+    For a more comprehensive view of how billing and dunning work across multiple periods, including reminders and payment processing, see the :ref:`Billing and Dunning Timeline <Billing_Dunning_Timeline>` section below.
+
+Hybrid Billing: In-Advance + In-Arrears
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+While the core subscription billing operates in-advance, |projectName| also supports a **hybrid billing model** that combines in-advance and in-arrears billing through the use of **charges and allowances** on billing accounts.
+
+**How Charges and Allowances Work:**
+
+- **Charges**: Additional costs that are added to a subscriber's billing account. These can represent usage-based fees, one-time charges, or any services consumed during a billing period.
+- **Allowances**: Credits or adjustments that reduce the amount owed on a billing account.
+
+When a payment demand is created for the next subscription period (in-advance billing), the system can optionally include any outstanding charges or apply allowances from the billing account. This effectively creates an in-arrears component within the in-advance billing structure:
+
+- The **subscription fee** is billed in-advance (for the upcoming period)
+- Any **charges** accumulated during the previous period are billed in-arrears (added to the current invoice)
+- Any **allowances** are applied to reduce the total amount due
+
+This hybrid approach is particularly useful for:
+
+- Usage-based billing models where consumption is tracked during a period and billed at the next renewal
+- Additional services or products consumed outside the regular subscription
+- Adjustments, credits, or refunds that need to be applied to future invoices
+- Scenarios combining fixed subscription fees with variable consumption charges
+
+For more details on creating transactional invoices that settle account balances, see :ref:`Transaction (Non-Recurring) Invoices <standalone-paymentdemands>`.
+
+.. tip::
+    When designing your billing model, consider how the timing of invoice issuance and payment due dates align with your subscribers' payment cycles and cash flow. The minimum due days configuration is key to ensuring subscribers have adequate time to review invoices and arrange payment.
+
 
 1. **Order Completed / Initial Subscription Creation**
 	- Triggered by an incoming order or initial subscription.
