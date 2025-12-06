@@ -36,6 +36,17 @@ Each API endpoint is versioned independently. This means:
 
 This approach provides maximum flexibility for both API providers and consumers, allowing incremental adoption of new features without forcing wholesale API version upgrades.
 
+API Documentation and OpenAPI Specification
+-------------------------------------------
+
+The OpenAPI (Swagger) specification available at https://api.info-subscription.com/swagger/ contains **all currently available API versions**, including deprecated versions that are still supported. 
+
+* **Active versions**: Endpoints that are current and fully supported
+* **Deprecated versions**: Endpoints marked as deprecated are clearly indicated in the Swagger documentation with deprecation notices
+* **Removed versions**: Once an endpoint version is sunset and removed, it will no longer appear in the OpenAPI specification
+
+In the Swagger UI, deprecated endpoints are visually marked to alert you that they should be migrated to newer versions. This allows you to explore both current and deprecated versions while planning your migration strategy.
+
 Breaking vs Non-Breaking Changes
 =================================
 
@@ -175,20 +186,22 @@ During the deprecation period:
 Deprecation Notice Example
 --------------------------
 
-When an endpoint is deprecated, API responses will include HTTP headers:
+When an endpoint is deprecated, API responses will include HTTP headers following the ASP.NET Core API Versioning conventions:
 
 .. code-block:: http
 
     HTTP/1.1 200 OK
-    Deprecation: true
-    Sunset: Wed, 01 Jun 2026 00:00:00 GMT
-    Link: <https://api.info-subscription.com/v2/subscribers>; rel="successor-version"
+    api-supported-versions: 2.0, 3.0
+    api-deprecated-versions: 1.0
+    sunset: Wed, 01 Jun 2026 00:00:00 GMT
     
 These headers indicate:
 
-* ``Deprecation: true`` - This endpoint version is deprecated
-* ``Sunset`` - The date when this version will be removed
-* ``Link`` - The new version you should migrate to
+* ``api-supported-versions`` - Lists all currently supported versions of this endpoint
+* ``api-deprecated-versions`` - Lists versions that are deprecated but still functional
+* ``sunset`` - The date when the deprecated version(s) will be removed
+
+For example, if you call a ``v1`` endpoint that has been deprecated in favor of ``v2`` and ``v3``, the response headers will show that ``v1`` is deprecated, while ``v2`` and ``v3`` are the supported versions you should migrate to.
 
 Migration Path
 --------------
