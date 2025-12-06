@@ -14,15 +14,19 @@ Path-Based Versioning
 
 |projectName| uses **path-based versioning** where the version number is part of the URL path for each endpoint. This means that different endpoints can have different versions, and there is no strict version relationship between endpoints.
 
+.. note::
+
+    Most endpoints do not have a version moniker in their path (e.g., ``/subscribers`` instead of ``/v1/subscribers``). These unversioned endpoints can be considered equivalent to version 1 (``v1``). This is primarily due to the fact that API versioning was introduced after many endpoints were already in production use.
+
 For example:
 
 .. code-block:: text
 
-    https://api.info-subscription.com/v1/subscribers
+    https://api.info-subscription.com/subscribers          # Equivalent to v1
     https://api.info-subscription.com/v2/subscriptions
     https://api.info-subscription.com/v1/invoices
 
-In this example, the ``subscribers`` and ``invoices`` endpoints are at version 1, while the ``subscriptions`` endpoint is at version 2. Each endpoint evolves independently based on its own requirements.
+In this example, the ``subscribers`` endpoint has no explicit version (implicitly ``v1``), the ``invoices`` endpoint explicitly uses version 1, while the ``subscriptions`` endpoint is at version 2. Each endpoint evolves independently based on its own requirements.
 
 Independent Endpoint Versioning
 -------------------------------
@@ -74,8 +78,7 @@ When we introduce a breaking change, we will:
 
 1. Create a new version of the affected endpoint (e.g., ``/v2/resource``)
 2. Maintain the old version (e.g., ``/v1/resource``) for a deprecation period
-3. Clearly document the changes and migration path
-4. Communicate the deprecation timeline to all API consumers
+3. Communicate the deprecation timeline via response headers on all available versions
 
 Non-Breaking Changes
 --------------------
@@ -138,15 +141,6 @@ When working with enumerated values (e.g., status codes), implement a default ca
             // Handle unknown statuses gracefully
             handleUnknownStatus();
     }
-
-Use Semantic Versioning for Dependencies
-----------------------------------------
-
-If you're using an SDK or client library for |projectName|, follow semantic versioning principles:
-
-* **Patch updates** (e.g., 1.0.0 → 1.0.1): Bug fixes, safe to upgrade
-* **Minor updates** (e.g., 1.0.0 → 1.1.0): New features, backward-compatible
-* **Major updates** (e.g., 1.0.0 → 2.0.0): Breaking changes, review before upgrading
 
 Be Flexible with Response Validation
 ------------------------------------
@@ -221,7 +215,6 @@ To stay informed about deprecations:
 
 * Monitor the :ref:`changelog <changelog>` for deprecation announcements
 * Check response headers from API calls for deprecation warnings
-* Subscribe to our API updates mailing list (contact :ref:`support <reporting-bugs>`)
 * Review the `API Reference <https://api.info-subscription.com/swagger/>`_ regularly
 
 Best Practices
@@ -237,15 +230,3 @@ To build resilient integrations with |projectName| APIs:
 6. **Document your dependencies**: Keep track of which API versions your application uses
 7. **Plan for migrations**: Budget time for API version upgrades in your development cycle
 8. **Use SDKs when available**: Official :ref:`SDKs and libraries <libraries-sdk>` handle version management automatically
-
-Summary
-=======
-
-* |projectName| uses **path-based versioning** with independent endpoint versions
-* Each endpoint version is **stable and backward-compatible**
-* We distinguish between **breaking** and **non-breaking** changes
-* Clients should be designed to **gracefully handle** non-breaking changes
-* Deprecated endpoints remain available for **at least 18 months** after deprecation
-* Migration guidance and support are provided during deprecation periods
-
-By following these guidelines and best practices, you can build robust integrations that remain stable as the API evolves.
