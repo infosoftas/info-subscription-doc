@@ -24,7 +24,7 @@ Added
 Changed
 -------
 
-* The generation of final/account-balance demands have been changed so it now consumes account balance directly, as charges and allowances, where it would previously attempt generate details as if they where products. This brings the behavior in line with how other demand types handle account balances.
+* The generation of final/account-balance demands have been changed so it now consumes account balance directly, as charges and allowances, where it would previously attempt generate details as if they were products. This brings the behavior in line with how other demand types handle account balances.
 * Adjusted text for handling Charges and Claims on |eFaktura| demands (only relevant for Norwegian recipients).
 * Extended the |SwedbankPay| transaction response to include Currency and newly added accounting information.
 * Retrieving remote |VippsMobilePay| agreement information now also includes campaign details.
@@ -33,7 +33,7 @@ Changed
 Fixed
 -----
 
-* An issue where Tax Details were not generated correctly for demands where allowances was split. This could lead to negative total amount on invoices, and incorrect tax reporting.
+* An issue where Tax Details were not generated correctly for demands where allowances were split. This could lead to negative total amount on invoices, and incorrect tax reporting.
 * An issue where the selected Payment Method and Provider would not be stored correctly on orders. The billing would be correct, affecting mostly the reporting experience.
 * Two related issues in reporting where AccountTransactionHistory entries would not be re-opened correctly after being reverted to the billing account during crediting.
 * An issue where subscription periods would be negative in some edge cases when using "remainder of year" or "remainder of month" as the initial period length (term).
@@ -69,7 +69,7 @@ Self-Service, Sales Poster and Checkout
 Added
 -----
 
-* **[Preview]** Support for an alternative `client_id` during checkout. This allows merchants to use different client applications for Self service and ordering. Possibly streamlining the user experience with other front systems, such as the CMS. Essentially it is possible for checkout and CMS to shared a client.
+* **[Preview]** Support for an alternative `client_id` during checkout. This allows merchants to use different client applications for Self service and ordering. Possibly streamlining the user experience with other front systems, such as the CMS. Essentially it is possible for checkout and CMS to share a client.
 * Checkout will now attempt to determine the default country based on the OrganizationId defined in the selected subscription plan. Prefilling the Country field where possible. If undefined will fallback to a blank field.
 
 Changed
