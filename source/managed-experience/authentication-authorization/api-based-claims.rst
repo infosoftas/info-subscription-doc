@@ -10,7 +10,7 @@ This alternative approach allows you to retrieve user authorization information 
 
 * Server-to-server integrations
 * Custom authorization processes
-* Direct ADB2C integrations
+* Token enrichment with self-managed ADB2C instances or other IdP solutions
 * Scenarios where token-based flows are not practical
 
 API Endpoint Overview
@@ -56,57 +56,72 @@ To authenticate with the endpoint:
 Example
 -------
 
-.. code-block:: python
-    :caption: Python Example - Building the Authorization Header
+.. tabs::
 
-    import base64
+   .. code-tab:: python Python
 
-    username = "your_username"
-    password = "your_password"
-    
-    # Concatenate username and password with a colon
-    credentials = f"{username}:{password}"
-    
-    # Base64 encode the credentials
-    encoded_credentials = base64.b64encode(credentials.encode()).decode()
-    
-    # Build the Authorization header
-    auth_header = f"Basic {encoded_credentials}"
+        import base64
 
-.. code-block:: javascript
-    :caption: JavaScript Example - Building the Authorization Header
+        username = "your_username"
+        password = "your_password"
+        
+        # Concatenate username and password with a colon
+        credentials = f"{username}:{password}"
+        
+        # Base64 encode the credentials
+        encoded_credentials = base64.b64encode(credentials.encode()).decode()
+        
+        # Build the Authorization header
+        auth_header = f"Basic {encoded_credentials}"
 
-    const username = "your_username";
-    const password = "your_password";
-    
-    // Concatenate username and password with a colon
-    const credentials = `${username}:${password}`;
-    
-    // Base64 encode the credentials
-    const encodedCredentials = Buffer.from(credentials).toString('base64');
-    
-    // Build the Authorization header
-    const authHeader = `Basic ${encodedCredentials}`;
+   .. code-tab:: javascript JavaScript
 
-.. code-block:: csharp
-    :caption: C# Example - Building the Authorization Header
+        const username = "your_username";
+        const password = "your_password";
+        
+        // Concatenate username and password with a colon
+        const credentials = `${username}:${password}`;
+        
+        // Base64 encode the credentials
+        const encodedCredentials = Buffer.from(credentials).toString('base64');
+        
+        // Build the Authorization header
+        const authHeader = `Basic ${encodedCredentials}`;
 
-    using System;
-    using System.Text;
+   .. code-tab:: csharp C#
 
-    string username = "your_username";
-    string password = "your_password";
-    
-    // Concatenate username and password with a colon
-    string credentials = $"{username}:{password}";
-    
-    // Base64 encode the credentials
-    string encodedCredentials = Convert.ToBase64String(
-        Encoding.UTF8.GetBytes(credentials)
-    );
-    
-    // Build the Authorization header
-    string authHeader = $"Basic {encodedCredentials}";
+        using System;
+        using System.Text;
+
+        string username = "your_username";
+        string password = "your_password";
+        
+        // Concatenate username and password with a colon
+        string credentials = $"{username}:{password}";
+        
+        // Base64 encode the credentials
+        string encodedCredentials = Convert.ToBase64String(
+            Encoding.UTF8.GetBytes(credentials)
+        );
+        
+        // Build the Authorization header
+        string authHeader = $"Basic {encodedCredentials}";
+
+   .. code-tab:: php PHP
+
+        <?php
+        $username = "your_username";
+        $password = "your_password";
+        
+        // Concatenate username and password with a colon
+        $credentials = $username . ":" . $password;
+        
+        // Base64 encode the credentials
+        $encodedCredentials = base64_encode($credentials);
+        
+        // Build the Authorization header
+        $authHeader = "Basic " . $encodedCredentials;
+        ?>
 
 Making the API Request
 ======================
@@ -138,168 +153,193 @@ Parameters
 Response Format
 ---------------
 
-The endpoint returns user claims in a format suitable for ADB2C consumption, including subscriber and product information.
+The endpoint returns user claims in a format suitable for ADB2C consumption as a continuation response. The response includes subscriber and product information as extensions.
 
 .. code-block:: json
     :caption: Sample Response
 
     {
-        "subscriberId": "73265483-0a64-4acc-9ccf-11359ef5ce9f",
-        "products": [
-            {
-                "id": "70e75bc0-6c3d-4934-a2e8-08d80b92b721",
-                "validFrom": "2022-06-29T05:37:25.8669071+00:00",
-                "validTo": "2023-06-29T05:37:24.8669071+00:00"
-            }
-        ]
+        "version": "1.0.0",
+        "action": "Continue",
+        "extension_SubscriberId": "73265483-0a64-4acc-9ccf-11359ef5ce9f",
+        "extension_Products": "[{\"Id\":\"70e75bc0-6c3d-4934-a2e8-08d80b92b721\",\"ValidFrom\":\"2022-06-29T05:37:25.8669071+00:00\",\"ValidTo\":\"2023-06-29T05:37:24.8669071+00:00\"}]"
     }
 
 .. note::
 
-    The ``subscriberId`` may be empty for family members and other shared users.
+    The response follows the `ADB2C continuation response format <https://learn.microsoft.com/en-us/azure/active-directory-b2c/add-api-connector-token-enrichment?pivots=b2c-user-flow#continuation-response>`_.
     
-    The ``products`` array can be empty whenever no mapping exists that grants product access.
+    The ``extension_SubscriberId`` may be empty for family members and other shared users.
+    
+    The ``extension_Products`` is a JSON string containing an array of products, matching the format used in tokens.
 
 Complete Example
 ================
 
-.. code-block:: python
-    :caption: Python Complete Example
+.. tabs::
 
-    import base64
-    import requests
+   .. code-tab:: python Python
 
-    # Configuration
-    api_base_url = "https://api.info-subscription.com"
-    username = "your_username"
-    password = "your_password"
-    tenant_id = "your_tenant_id"
-    external_user_id = "user@example.com"
+        import base64
+        import requests
 
-    # Build authentication header
-    credentials = f"{username}:{password}"
-    encoded_credentials = base64.b64encode(credentials.encode()).decode()
-    auth_header = f"Basic {encoded_credentials}"
+        # Configuration
+        api_base_url = "https://api.info-subscription.com"
+        username = "your_username"
+        password = "your_password"
+        tenant_id = "your_tenant_id"
+        external_user_id = "user@example.com"
 
-    # Make the request
-    url = f"{api_base_url}/authorizations/identityprovider/{tenant_id}/userclaims"
-    headers = {
-        "Authorization": auth_header
-    }
-    params = {
-        "externalId": external_user_id
-    }
+        # Build authentication header
+        credentials = f"{username}:{password}"
+        encoded_credentials = base64.b64encode(credentials.encode()).decode()
+        auth_header = f"Basic {encoded_credentials}"
 
-    response = requests.get(url, headers=headers, params=params)
-
-    if response.status_code == 200:
-        user_claims = response.json()
-        print(f"Subscriber ID: {user_claims.get('subscriberId')}")
-        print(f"Products: {user_claims.get('products')}")
-    else:
-        print(f"Error: {response.status_code} - {response.text}")
-
-.. code-block:: javascript
-    :caption: JavaScript/Node.js Complete Example
-
-    const axios = require('axios');
-
-    // Configuration
-    const apiBaseUrl = "https://api.info-subscription.com";
-    const username = "your_username";
-    const password = "your_password";
-    const tenantId = "your_tenant_id";
-    const externalUserId = "user@example.com";
-
-    // Build authentication header
-    const credentials = `${username}:${password}`;
-    const encodedCredentials = Buffer.from(credentials).toString('base64');
-    const authHeader = `Basic ${encodedCredentials}`;
-
-    // Make the request
-    const url = `${apiBaseUrl}/authorizations/identityprovider/${tenantId}/userclaims`;
-
-    axios.get(url, {
-        headers: {
-            'Authorization': authHeader
-        },
-        params: {
-            externalId: externalUserId
+        # Make the request
+        url = f"{api_base_url}/authorizations/identityprovider/{tenant_id}/userclaims"
+        headers = {
+            "Authorization": auth_header
         }
-    })
-    .then(response => {
-        const userClaims = response.data;
-        console.log(`Subscriber ID: ${userClaims.subscriberId}`);
-        console.log(`Products:`, userClaims.products);
-    })
-    .catch(error => {
-        console.error(`Error: ${error.response?.status} - ${error.message}`);
-    });
+        params = {
+            "externalId": external_user_id
+        }
 
-.. code-block:: csharp
-    :caption: C# Complete Example
+        response = requests.get(url, headers=headers, params=params)
 
-    using System;
-    using System.Net.Http;
-    using System.Net.Http.Headers;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Newtonsoft.Json;
+        if response.status_code == 200:
+            user_claims = response.json()
+            print(f"Subscriber ID: {user_claims.get('extension_SubscriberId')}")
+            print(f"Products: {user_claims.get('extension_Products')}")
+        else:
+            print(f"Error: {response.status_code} - {response.text}")
 
-    public class UserClaimsClient
-    {
-        private readonly HttpClient _httpClient;
-        private readonly string _apiBaseUrl = "https://api.info-subscription.com";
+   .. code-tab:: javascript JavaScript
 
-        public UserClaimsClient(string username, string password)
+        const axios = require('axios');
+
+        // Configuration
+        const apiBaseUrl = "https://api.info-subscription.com";
+        const username = "your_username";
+        const password = "your_password";
+        const tenantId = "your_tenant_id";
+        const externalUserId = "user@example.com";
+
+        // Build authentication header
+        const credentials = `${username}:${password}`;
+        const encodedCredentials = Buffer.from(credentials).toString('base64');
+        const authHeader = `Basic ${encodedCredentials}`;
+
+        // Make the request
+        const url = `${apiBaseUrl}/authorizations/identityprovider/${tenantId}/userclaims`;
+
+        axios.get(url, {
+            headers: {
+                'Authorization': authHeader
+            },
+            params: {
+                externalId: externalUserId
+            }
+        })
+        .then(response => {
+            const userClaims = response.data;
+            console.log(`Subscriber ID: ${userClaims.extension_SubscriberId}`);
+            console.log(`Products:`, userClaims.extension_Products);
+        })
+        .catch(error => {
+            console.error(`Error: ${error.response?.status} - ${error.message}`);
+        });
+
+   .. code-tab:: csharp C#
+
+        using System;
+        using System.Net.Http;
+        using System.Net.Http.Headers;
+        using System.Text;
+        using System.Threading.Tasks;
+        using Newtonsoft.Json;
+
+        public class UserClaimsClient
         {
-            _httpClient = new HttpClient();
-            
-            // Build authentication header
-            var credentials = $"{username}:{password}";
-            var encodedCredentials = Convert.ToBase64String(
-                Encoding.UTF8.GetBytes(credentials)
-            );
-            
-            _httpClient.DefaultRequestHeaders.Authorization = 
-                new AuthenticationHeaderValue("Basic", encodedCredentials);
+            private readonly HttpClient _httpClient;
+            private readonly string _apiBaseUrl = "https://api.info-subscription.com";
+
+            public UserClaimsClient(string username, string password)
+            {
+                _httpClient = new HttpClient();
+                
+                // Build authentication header
+                var credentials = $"{username}:{password}";
+                var encodedCredentials = Convert.ToBase64String(
+                    Encoding.UTF8.GetBytes(credentials)
+                );
+                
+                _httpClient.DefaultRequestHeaders.Authorization = 
+                    new AuthenticationHeaderValue("Basic", encodedCredentials);
+            }
+
+            public async Task<UserClaims> GetUserClaimsAsync(
+                string tenantId, 
+                string externalUserId)
+            {
+                var url = $"{_apiBaseUrl}/authorizations/identityprovider/{tenantId}/userclaims";
+                url += $"?externalId={Uri.EscapeDataString(externalUserId)}";
+
+                var response = await _httpClient.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+
+                var json = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<UserClaims>(json);
+            }
         }
 
-        public async Task<UserClaims> GetUserClaimsAsync(
-            string tenantId, 
-            string externalUserId)
+        public class UserClaims
         {
-            var url = $"{_apiBaseUrl}/authorizations/identityprovider/{tenantId}/userclaims";
-            url += $"?externalId={Uri.EscapeDataString(externalUserId)}";
-
-            var response = await _httpClient.GetAsync(url);
-            response.EnsureSuccessStatusCode();
-
-            var json = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<UserClaims>(json);
+            public string Version { get; set; }
+            public string Action { get; set; }
+            public string Extension_SubscriberId { get; set; }
+            public string Extension_Products { get; set; }
         }
-    }
 
-    public class UserClaims
-    {
-        public string SubscriberId { get; set; }
-        public Product[] Products { get; set; }
-    }
+   .. code-tab:: php PHP
 
-    public class Product
-    {
-        public string Id { get; set; }
-        public DateTime ValidFrom { get; set; }
-        public DateTime ValidTo { get; set; }
-    }
+        <?php
+        // Configuration
+        $apiBaseUrl = "https://api.info-subscription.com";
+        $username = "your_username";
+        $password = "your_password";
+        $tenantId = "your_tenant_id";
+        $externalUserId = "user@example.com";
+
+        // Build authentication header
+        $credentials = $username . ":" . $password;
+        $encodedCredentials = base64_encode($credentials);
+        $authHeader = "Basic " . $encodedCredentials;
+
+        // Make the request
+        $url = $apiBaseUrl . "/authorizations/identityprovider/" . $tenantId . "/userclaims";
+        $url .= "?externalId=" . urlencode($externalUserId);
+
+        $options = [
+            'http' => [
+                'header'  => "Authorization: " . $authHeader . "\r\n",
+                'method'  => 'GET',
+            ]
+        ];
+
+        $context  = stream_context_create($options);
+        $result = file_get_contents($url, false, $context);
+
+        if ($result !== false) {
+            $userClaims = json_decode($result, true);
+            echo "Subscriber ID: " . $userClaims['extension_SubscriberId'] . "\n";
+            echo "Products: " . $userClaims['extension_Products'] . "\n";
+        } else {
+            echo "Error fetching user claims\n";
+        }
+        ?>
 
 Use Cases
 =========
-
-ADB2C Custom Policies
----------------------
-
-This endpoint is specifically designed to be called from ADB2C custom policies during the sign-in flow. The claims returned can be directly injected into the user's token.
 
 Server-Side Authorization
 -------------------------
