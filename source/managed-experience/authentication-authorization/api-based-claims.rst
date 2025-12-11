@@ -14,14 +14,14 @@ This alternative approach allows you to retrieve user authorization information 
 * Scenarios where token-based flows are not practical
 
 API Endpoint Overview
-====================
+=====================
 
-The endpoint ``/authorizations/identityprovider/{tenantId}/userclaims`` returns user claims data that includes subscriber and product information. 
+The endpoint ``/authorizations/identityprovider/{tenantId}/userclaims`` returns user claims data that includes subscriber and product information.
 
 While this endpoint is designed to be consumed directly by ADB2C during custom policy execution, it can also be used by other authorization processes that need to retrieve user claims programmatically.
 
 Authentication Requirements
-==========================
+===========================
 
 .. important::
 
@@ -30,7 +30,7 @@ Authentication Requirements
 The authentication method uses HTTP Basic Authentication with a username and password obtained from your Identity Provider setup in |projectName|.
 
 Obtaining Credentials
---------------------
+----------------------
 
 Username and password credentials for this endpoint can be obtained in one of two ways:
 
@@ -40,7 +40,7 @@ Username and password credentials for this endpoint can be obtained in one of tw
 Please :ref:`contact support <reporting-bugs>` if you need assistance obtaining these credentials.
 
 Authentication Header
---------------------
+----------------------
 
 To authenticate with the endpoint:
 
@@ -114,7 +114,7 @@ Making the API Request
 Once you have constructed the authentication header, you can make a request to the endpoint.
 
 Request Format
--------------
+--------------
 
 .. code-block:: http
     :caption: HTTP Request
@@ -136,7 +136,7 @@ Parameters
     =============  ========  ====================================================================
 
 Response Format
---------------
+---------------
 
 The endpoint returns user claims in a format suitable for ADB2C consumption, including subscriber and product information.
 
@@ -161,7 +161,7 @@ The endpoint returns user claims in a format suitable for ADB2C consumption, inc
     The ``products`` array can be empty whenever no mapping exists that grants product access.
 
 Complete Example
-===============
+================
 
 .. code-block:: python
     :caption: Python Complete Example
@@ -344,7 +344,7 @@ Security Considerations
     This endpoint should only be called from server-side code, not from client-side applications where credentials could be exposed.
 
 Related Documentation
-====================
+=====================
 
 * :ref:`Authentication and Authorization Quick Start <auth-quick-start>` - Token-based authorization flow
 * :ref:`Product Authorization In Depth <auth-product-in-depth>` - Understanding authorization concepts
