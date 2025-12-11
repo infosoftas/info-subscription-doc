@@ -123,6 +123,7 @@ For help, feedback, or to report issues, see :ref:`Support and Reporting Bugs <r
     managed-experience/managed-introduction
     managed-experience/selfservice/checkout
     managed-experience/authentication-authorization/quick-start
+    managed-experience/authentication-authorization/api-based-claims
     managed-experience/authentication-authorization/adb2c
     managed-experience/authentication-authorization/sessions
     managed-experience/authentication-authorization/user-management-authentication

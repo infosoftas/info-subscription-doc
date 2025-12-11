@@ -145,6 +145,17 @@ Depending on your need there are two simple alternatives that may be used, eithe
     
     The two authorization/verification alternatives are suggestions, verify with the business requirements that they will suffice for your case.
 
+Alternative: API-Based Claims Retrieval
+---------------------------------------
+
+For scenarios where token-based flows are not suitable, you can retrieve user claims directly via an API call. This is particularly useful for:
+
+* Server-to-server integrations
+* Custom authorization processes  
+* Direct ADB2C integrations
+
+See :ref:`API-Based User Claims Retrieval <api-based-user-claims>` for detailed information on this alternative approach.
+
 
 Implementing Signout
 ======================
