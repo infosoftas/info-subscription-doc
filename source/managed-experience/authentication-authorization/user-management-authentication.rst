@@ -146,11 +146,5 @@ For tenants running the |projectName| provisioned |ADB2C| the ``id_token`` is po
 
 The same can be achieved if you are running your own |ADB2C| instance. In that case please :ref:`contact support <reporting-bugs>` as configuring it is a bit outside the scope of this documentation.
 
-.. note::
-
-    We are working on migrating our Auth0 based tenants to a solution where the tokens are enriched in the same manner, but it requires some work and most importantly coordination.
-    
-    If you are interested in transitioning to this new solution please reach out to :ref:`support <reporting-bugs>`.
-
 
 .. include:: site-access.inc
