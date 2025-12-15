@@ -72,7 +72,7 @@ Visual Timeline: Full Proration (Paid Period)
             Unused Period (Credited)   :crit, unused, 2025-01-15, 16d
         section Billing Events
             Invoice Paid (Jan 1)   :milestone, paid, 2025-01-01, 0d
-            Credit Note Issued   :milestone, credit, 2025-01-15, 0d
+            Allowance Issued   :milestone, credit, 2025-01-15, 0d
 
 In this example:
 
@@ -316,7 +316,7 @@ Integration with Events
 When a subscription is cancelled and proration is applied, the following events may be triggered:
 
 - :ref:`SubscriptionCancelled <subscription-cancelled-event>` – Indicates that a cancellation has been registered
-- :ref:`CreditNoteIssued <credit-note-issued-event>` – May be issued when proration results in a credit, though not for paid periods at the current time
+- :ref:`CreditNoteIssued <credit-note-issued-event>` – May be issued in certain proration scenarios (note: for paid periods, allowances are generated instead of credit notes)
 
 Developers integrating with |projectName| should listen for these events to keep external systems in sync with subscription and billing changes.
 
