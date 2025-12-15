@@ -310,19 +310,14 @@ You can configure different policies for paid vs. invoiced periods. For example:
 
 This approach balances simplicity (no credits for already-paid periods) with fairness (adjusted charges for future periods).
 
+By configuring these policies appropriately, you can balance customer satisfaction, operational simplicity, and revenue protection.
+
 Integration with Events
 =======================
 
-When a subscription is cancelled and proration is applied, the following events may be triggered:
-
-- :ref:`SubscriptionCancelled <subscription-cancelled-event>` – Indicates that a cancellation has been registered
-- :ref:`CreditNoteIssued <credit-note-issued-event>` – May be issued in certain proration scenarios (note: for paid periods, allowances are generated instead of credit notes)
-
-Developers integrating with |projectName| should listen for these events to keep external systems in sync with subscription and billing changes.
+When a subscription is cancelled, the :ref:`SubscriptionCancelled <subscription-cancelled-event>` event is triggered. Developers integrating with |projectName| should listen for this event to keep external systems in sync with subscription and billing changes.
 
 For more details on events, see the :ref:`Events and Webhooks section <events>`.
-
-By configuring these policies appropriately, you can balance customer satisfaction, operational simplicity, and revenue protection.
 
 Related Documentation
 =====================
