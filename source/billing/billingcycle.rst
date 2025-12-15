@@ -169,6 +169,7 @@ For more details on creating transactional invoices that settle account balances
 11. **Subscription Cancellation**
 	- If payment is not received after reminders, the subscription may be cancelled.
 	- Integration: Listen for :ref:`SubscriptionCancelled <subscription-cancelled-event>` and :ref:`SubscriptionDeactivated <subscription-deactivated-event>` events to clean up resources or notify users.
+	- For details on how cancellations affect billing and proration, see :ref:`Proration Policies for Cancellations <proration-policies>`.
 
 12. **End**
 

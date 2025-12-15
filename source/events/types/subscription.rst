@@ -56,6 +56,10 @@ Typical source of Subscription cancellations are
 
 The ``SubscriptionCancelled`` event is fired at the registration time, NOT at the time of the cancellation taking effect.
 
+.. note::
+    When a subscription is cancelled, proration policies determine whether subscribers are credited for unused time or charged for invoiced periods. 
+    See :ref:`Proration Policies for Cancellations <proration-policies>` for detailed information on how cancellation proration works.
+
 Example Use Case
 ~~~~~~~~~~~~~~~~
 Similar to ``SubscriptionCreated``, the ``SubscriptionCancelled`` event may be used to keep external system in sync.
