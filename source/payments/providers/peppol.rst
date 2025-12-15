@@ -36,8 +36,12 @@ OIO (Denmark)
 ~~~~~~~~~~~~~
 
 * **Provider Type**: OIO
-* **Required Identifier**: CVR (Central Business Register number) or GLN (Global Location Number)
+* **Required Identifier**: CVR (Central Business Register number, 8 digits) or GLN (Global Location Number, 13 digits)
 * **Use Case**: Business-to-business and business-to-government invoicing in Denmark
+
+.. Note::
+
+    For Danish organizations, CVR is the most commonly used identifier. GLN is typically used for larger organizations with multiple locations or specific supply chain requirements.
 
 .. Note::
 
@@ -68,8 +72,6 @@ PEPPOL Network Lookup
 Before creating a PEPPOL agreement, you can verify that the recipient exists in the PEPPOL network using the lookup endpoint:
 
 **Endpoint**: :api-ref:`Invoice Document Network Lookup <Invoice/InvoiceDocumentNetworkLookup>`
-
-**URL**: https://api.info-subscription.com/swagger/index.html#/Invoice/InvoiceDocumentNetworkLookup
 
 .. Important::
 
@@ -148,25 +150,25 @@ Example request for EHF (Norway):
         "paymentMethod": "eInvoice"
     }
 
-Example request for OIO (Denmark):
+Example request for OIO (Denmark with CVR):
 
 .. code-block:: json
 
     {
         "subscriberId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
         "providerType": "OIO",
-        "providerAgreementReference": "12345678",
+        "providerAgreementReference": "10150817",
         "paymentMethod": "eInvoice"
     }
 
-Example request for OIO (Sweden):
+Example request for OIO (Sweden with GLN):
 
 .. code-block:: json
 
     {
         "subscriberId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
         "providerType": "OIO",
-        "providerAgreementReference": "1234567890123",
+        "providerAgreementReference": "7312345678901",
         "paymentMethod": "eInvoice"
     }
 
