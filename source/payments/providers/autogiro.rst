@@ -72,7 +72,7 @@ At the time of writing, there are no common scenarios where this is needed, but 
 Creating Payments (Transactions)
 ---------------------------------
 A Transaction is the Autogiro terminology for doing a debit/charge on the consumer's account.
-Once submitted, if not cancelled by the merchant, it will lead to an account transfer on the given due date.
+Once submitted, if not cancelled by the merchant, will lead to an account transfer on the given due date.
 
 Transactions are automatically created and cancelled for subscriptions on an Autogiro mandate.
 There should be minimal need for manually creating transactions.
