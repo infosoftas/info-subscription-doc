@@ -15,7 +15,10 @@ This document explains the proration policy options, their effects, and provides
 Understanding Cancellation Proration
 ====================================
 
-When a subscription is cancelled before its natural end date, two distinct billing scenarios may apply, depending on the timing of the cancellation:
+When a subscription is cancelled before its natural end date (and after the subscription has already started), two distinct billing scenarios may apply, depending on the timing of the cancellation:
+
+.. note::
+    Proration policies only apply to subscriptions that have already started. Cancellations made before the subscription start date are never prorated.
 
 1. **Cancellation in a Paid/Settled Period** – The subscriber has already paid for the current subscription period.
 2. **Cancellation in an Invoiced Period** – The subscriber has been invoiced for the upcoming period but has not yet paid.
@@ -31,8 +34,11 @@ Types of Proration Policies
 
 The primary options are:
 
-- **Full Proration** – Credit or charge the subscriber based on the exact time remaining in the period.
+- **Full Proration** (default) – Credit or charge the subscriber based on the exact time remaining in the period.
 - **No Proration** – No adjustment is made; the subscriber keeps access for the full period or loses the amount already paid/invoiced.
+
+.. note::
+    The default behavior is **Full Proration** for both paid and invoiced periods. This means subscribers are credited for unused time or charged only for the time they will use.
 
 Scenario 1: Cancellation in a Paid/Settled Period
 =================================================
@@ -48,9 +54,9 @@ In this scenario, the subscriber has **already paid** for the current subscripti
    * - Policy
      - Effect
    * - **Full Proration**
-     - The subscriber is credited for the unused portion of the period. A credit note or allowance is issued for the prorated amount.
+     - The subscriber is credited for the unused portion of the period. An allowance is issued for the prorated amount.
    * - **No Proration**
-     - No refund or credit is issued. The subscriber retains access until the end of the already-paid period, but no new billing periods are created.
+     - No refund or credit is issued. The subscription is cancelled and the subscriber loses access from the cancellation time (the subscription period is effectively shortened without financial compensation).
 
 Visual Timeline: Full Proration (Paid Period)
 ----------------------------------------------
@@ -77,21 +83,21 @@ In this example:
 
 **Calculation Example:**
 
-Assume the subscriber paid **$90.00** for the 30-day period.
+Assume the subscriber paid **€90.00** for the 30-day period.
 
 .. code-block:: text
 
-    Paid Amount: $90.00
+    Paid Amount: €90.00
     Period Length: 30 days
     Days Used: 14 days (Jan 1 - Jan 14)
     Days Unused: 16 days (Jan 15 - Jan 31)
 
     Proration Calculation:
     Credit Amount = (Days Unused / Period Length) × Paid Amount
-    Credit Amount = (16 / 30) × $90.00
-    Credit Amount = $48.00
+    Credit Amount = (16 / 30) × €90.00
+    Credit Amount = €48.00
 
-The subscriber receives a **$48.00** credit or refund for the unused portion of the period.
+The subscriber receives a **€48.00** allowance for the unused portion of the period.
 
 Visual Timeline: No Proration (Paid Period)
 --------------------------------------------
@@ -102,9 +108,9 @@ Visual Timeline: No Proration (Paid Period)
         title Cancellation with No Proration (Paid Period)
         dateFormat  YYYY-MM-DD
         section Subscription Period
-            Paid Period (Jan 1 - Jan 31)   :done, period, 2025-01-01, 30d
-            Cancellation Registered   :milestone, cancel, 2025-01-15, 0d
-            Access Continues   :active, access, 2025-01-15, 16d
+            Access Period (Jan 1 - Jan 14)   :done, period, 2025-01-01, 14d
+            Cancellation Date   :milestone, cancel, 2025-01-15, 0d
+            No Access (Not Compensated)   :crit, noaccess, 2025-01-15, 16d
         section Billing Events
             Invoice Paid (Jan 1)   :milestone, paid, 2025-01-01, 0d
             No Credit Issued   :milestone, nocredit, 2025-01-15, 0d
@@ -113,18 +119,18 @@ In this example:
 
 - **Subscription Period**: January 1 - January 31 (30 days, already paid)
 - **Cancellation Date**: January 15 (cancellation registered)
-- **Access**: The subscriber retains access until January 31
-- **Credit**: No credit is issued; the subscriber paid for the full period and keeps access
+- **Access**: The subscriber loses access from January 15
+- **Credit**: No credit is issued; the subscription period is shortened without financial compensation
 
 **Financial Impact:**
 
 .. code-block:: text
 
-    Paid Amount: $90.00
-    Credit Issued: $0.00
-    Subscriber Retains: Full access until end of period (Jan 31)
+    Paid Amount: €90.00
+    Credit Issued: €0.00
+    Access Period: 14 days (Jan 1 - Jan 14)
 
-The subscriber keeps access for the remaining 16 days but does not receive a refund. No new billing period is created.
+The subscription is cancelled on January 15, and the subscriber loses access immediately without receiving a refund for the unused 16 days. No new billing period is created.
 
 Scenario 2: Cancellation in an Invoiced (But Unpaid) Period
 ===========================================================
@@ -172,21 +178,21 @@ In this example:
 
 **Calculation Example:**
 
-Assume the invoice amount is **$84.00** for the 28-day period.
+Assume the invoice amount is **€84.00** for the 28-day period.
 
 .. code-block:: text
 
-    Original Invoice Amount: $84.00
+    Original Invoice Amount: €84.00
     Period Length: 28 days
     Days to Be Used: 9 days (Feb 1 - Feb 10)
     Days Discarded: 19 days (Feb 11 - Feb 28)
 
     Proration Calculation:
     Adjusted Amount = (Days to Be Used / Period Length) × Invoice Amount
-    Adjusted Amount = (9 / 28) × $84.00
-    Adjusted Amount = $27.00
+    Adjusted Amount = (9 / 28) × €84.00
+    Adjusted Amount = €27.00
 
-The invoice is adjusted to **$27.00**, reflecting only the 9 days of service the subscriber will receive.
+The invoice is adjusted to **€27.00**, reflecting only the 9 days of service the subscriber will receive.
 
 Visual Timeline: No Proration (Invoiced Period)
 ------------------------------------------------
@@ -210,17 +216,17 @@ In this example:
 
 - **Subscription Period**: February 1 - February 28 (28 days, invoiced)
 - **Cancellation Date**: January 25 (cancellation registered before period starts)
-- **Invoice**: Remains at full amount ($84.00)
+- **Invoice**: Remains at full amount (€84.00)
 - **Service**: Subscriber receives service only until February 10
 
 **Financial Impact:**
 
 .. code-block:: text
 
-    Original Invoice Amount: $84.00
-    Adjusted Amount: $84.00 (no adjustment)
+    Original Invoice Amount: €84.00
+    Adjusted Amount: €84.00 (no adjustment)
     Days of Service: 9 days (Feb 1 - Feb 10)
-    Subscriber Pays: Full $84.00 for partial service
+    Subscriber Pays: Full €84.00 for partial service
 
 The subscriber must pay the full invoice amount even though the subscription ends on February 10, receiving only 9 days of the 28-day period.
 
@@ -310,12 +316,13 @@ Integration with Events
 When a subscription is cancelled and proration is applied, the following events may be triggered:
 
 - :ref:`SubscriptionCancelled <subscription-cancelled-event>` – Indicates that a cancellation has been registered
-- :ref:`CreditNoteIssued <credit-note-issued-event>` – Issued when proration results in a credit for a paid period
-- **InvoiceAdjusted** – May be used when proration adjusts an invoiced period (implementation-specific)
+- :ref:`CreditNoteIssued <credit-note-issued-event>` – May be issued when proration results in a credit, though not for paid periods at the current time
 
 Developers integrating with |projectName| should listen for these events to keep external systems in sync with subscription and billing changes.
 
 For more details on events, see the :ref:`Events and Webhooks section <events>`.
+
+By configuring these policies appropriately, you can balance customer satisfaction, operational simplicity, and revenue protection.
 
 Related Documentation
 =====================
@@ -324,15 +331,3 @@ Related Documentation
 - :ref:`Subscription Cancellation Event <subscription-cancelled-event>` – Details on the cancellation event
 - :ref:`Dunning Process <Billing_Dunning_Timeline>` – How dunning processes work with billing
 - `ProrationPolicy API <https://api.info-subscription.com/swagger/index.html#/ProrationPolicy/CreateProrationPolicy>`_ – API reference for creating and managing proration policies
-
-Summary
-=======
-
-Proration policies provide flexible control over how subscription cancellations are handled financially:
-
-1. **Paid Periods**: Choose whether to credit subscribers for unused time or let them retain access for the full period.
-2. **Invoiced Periods**: Choose whether to adjust invoices to reflect actual usage or require full payment.
-
-By configuring these policies appropriately, you can balance customer satisfaction, operational simplicity, and revenue protection.
-
-For technical implementation details, consult the `API documentation <https://api.info-subscription.com/swagger/>`_ or :ref:`contact support <reporting-bugs>` for assistance.
