@@ -38,7 +38,7 @@ The mandate is created by sending a POST request to the :api-ref:`mandate endpoi
     {
         "accountId" : "a28373e1-5733-4682-98f0-549cb59800f8",
         "subscriberId" : "acecdb1d-b78b-45bd-9374-4feee7edaf72",
-        "payerNumber" : "1234567890",
+        "payerNumber" : "1234567890"
     }
 
 The output of such a request is a new Id for the mandate, which can then be used to register a general payment agreement as described in the section for :ref:`managing agreements <manage-payment-agreement>`.
