@@ -37,7 +37,8 @@ The following sequence diagram illustrates the mandate registration and first cl
       INFO-Subscription->>Subscriber: Distribute invoice (email/PDF)
       Subscriber->>Bank: Register mandate with KID
       Bank->>MPS: Submit mandate registration
-      MPS->>INFO-Subscription: Mandate notification (API/OCR)<br/>Automatic import (several times daily)
+      MPS->>INFO-Subscription: Mandate notification (API/OCR)
+      Note right of INFO-Subscription: Automatic import<br/>(several times daily)
       INFO-Subscription->>Merchant: Mandate registered
 
       Note over Subscriber,INFO-Subscription: First Claim Processing
