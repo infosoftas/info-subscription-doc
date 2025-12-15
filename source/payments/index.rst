@@ -34,7 +34,8 @@ At the time of writing the following providers are currently supported:
 * Vipps Recurring, Mobile Payments by Vipps.
 * eFaktura, eInvoicing by Mastercard Payment Services.
 * Autogiro, DirectDebit by Bankgirot.
-* EHF, Norwegian version of EUs PEPPOL BIS Billing Standard.
+* EHF, Norwegian PEPPOL BIS Billing format for business eInvoicing.
+* OIO, PEPPOL BIS Billing format for Denmark and Sweden business eInvoicing.
 * Email, As the name says it handles Email. Can be used to filter Invoice for e-mails but there is no built in Email sending.
 * InvoiceOnly/None - the default payment type that does "nothing".
 
@@ -133,6 +134,7 @@ Payment Providers (PSPs)
     
     providers/avtalegiro
     providers/eFaktura
+    providers/peppol
     providers/vipps
     providers/swedbank
     providers/betalingsservice
