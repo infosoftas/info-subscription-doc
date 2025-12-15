@@ -1,12 +1,11 @@
 %%{init: { 'sequence': { 'mirrorActors': false } } }%%
 sequenceDiagram
     actor Customer
-    participant Merchant
     participant INFO as INFO-Subscription
     participant MPS as Mastercard Payment Services
     participant Bank as Customer's Bank
 
-    Note over Merchant,INFO: Prerequisites: BetalingsService Account Setup
+    Note over INFO: Prerequisites: BetalingsService Account Setup
     Note right of INFO: Account configured with<br/>Creditor Number & Creditor Group Number
     
     Note over INFO,Customer: 1. Physical Invoice Sent
