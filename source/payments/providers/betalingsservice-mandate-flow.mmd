@@ -2,11 +2,16 @@
 sequenceDiagram
     actor Customer
     participant Merchant
+    participant INFO as INFO-Subscription
     participant MPS as Mastercard Payment Services
     participant Bank as Customer's Bank
 
-    Note over Merchant,Customer: 1. Physical Invoice Sent
-    Merchant->>Customer: Send Physical Invoice<br/>(Debtor Number, Creditor Number,<br/>Creditor Group Number)
+    Note over Merchant,INFO: Setup
+    Merchant->>INFO: Configure BetalingsService Account<br/>(Creditor Number, Creditor Group Number)
+    
+    Note over INFO,Customer: 1. Invoice Generation
+    INFO->>INFO: Generate Debtor Number<br/>for Subscriber
+    INFO->>Customer: Send Physical Invoice<br/>(Debtor Number, Creditor Number,<br/>Creditor Group Number)
     
     Note over Customer,Bank: 2. Out-of-Band Registration
     Customer->>Bank: Register Mandate in<br/>Online Banking Solution
@@ -14,18 +19,19 @@ sequenceDiagram
     Bank->>MPS: Submit Mandate Registration
     deactivate Bank
     
-    Note over MPS,Merchant: 3. Mandate Confirmation
+    Note over MPS,INFO: 3. Mandate Confirmation
     activate MPS
-    MPS->>Merchant: Send Mandate Notification<br/>(via file import)
+    MPS->>INFO: Send Mandate File<br/>(via SFTP)
     deactivate MPS
+    activate INFO
+    INFO->>INFO: Process Mandate File<br/>Create Payment Agreement
+    deactivate INFO
     
-    Note over Merchant: 4. First Claim Processing
-    Merchant->>Merchant: Create Payment Agreement<br/>in INFO-Subscription
-    Merchant->>Merchant: Generate Invoice/Claim
-    
-    activate Merchant
-    Merchant->>MPS: Submit Transaction (Claim)<br/>with due date
-    deactivate Merchant
+    Note over INFO,MPS: 4. First Claim Processing
+    activate INFO
+    INFO->>INFO: Generate Invoice/Claim
+    INFO->>MPS: Submit Transaction File<br/>(via SFTP)
+    deactivate INFO
     
     activate MPS
     MPS->>Bank: Process Payment on Due Date
@@ -37,7 +43,9 @@ sequenceDiagram
     deactivate Bank
     
     activate MPS
-    MPS->>Merchant: Payment Confirmation<br/>(via file import)
+    MPS->>INFO: Payment Confirmation File<br/>(via SFTP)
     deactivate MPS
     
-    Merchant->>Merchant: Mark Invoice as Paid
+    activate INFO
+    INFO->>INFO: Process Payment File<br/>Mark Invoice as Paid
+    deactivate INFO
