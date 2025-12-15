@@ -1,0 +1,43 @@
+%%{init: { 'sequence': { 'mirrorActors': false } } }%%
+sequenceDiagram
+    actor Customer
+    participant Merchant
+    participant MPS as Mastercard Payment Services
+    participant Bank as Customer's Bank
+
+    Note over Merchant,Customer: 1. Physical Invoice Sent
+    Merchant->>Customer: Send Physical Invoice<br/>(Debtor Number, Creditor Number,<br/>Creditor Group Number)
+    
+    Note over Customer,Bank: 2. Out-of-Band Registration
+    Customer->>Bank: Register Mandate in<br/>Online Banking Solution
+    activate Bank
+    Bank->>MPS: Submit Mandate Registration
+    deactivate Bank
+    
+    Note over MPS,Merchant: 3. Mandate Confirmation
+    activate MPS
+    MPS->>Merchant: Send Mandate Notification<br/>(via file import)
+    deactivate MPS
+    
+    Note over Merchant: 4. First Claim Processing
+    Merchant->>Merchant: Create Payment Agreement<br/>in INFO-Subscription
+    Merchant->>Merchant: Generate Invoice/Claim
+    
+    activate Merchant
+    Merchant->>MPS: Submit Transaction (Claim)<br/>with due date
+    deactivate Merchant
+    
+    activate MPS
+    MPS->>Bank: Process Payment on Due Date
+    deactivate MPS
+    
+    activate Bank
+    Bank->>Customer: Debit Customer Account
+    Bank->>MPS: Confirm Payment
+    deactivate Bank
+    
+    activate MPS
+    MPS->>Merchant: Payment Confirmation<br/>(via file import)
+    deactivate MPS
+    
+    Merchant->>Merchant: Mark Invoice as Paid

@@ -16,6 +16,12 @@ BetalingsService traditionally provides an "out-of-band" style agreement registr
 3. A mandate is sent to the merchant.
 4. Recurring payments can be charged on the consumer's account, associated with the specific mandate.
 
+The following sequence diagram illustrates the mandate registration and first claim processing flow:
+
+.. mermaid:: betalingsservice-mandate-flow.mmd
+    :align: center
+    :alt: BetalingsService Mandate Registration and First Claim Flow
+
 Since all of this is "out-of-band", there is little developer integration here.
 
 The requirement is that an account is set up for BetalingsService (:api-ref:`Account endpoint<BetalingsService/BetalingsServiceCreateAccount>`) and that mandates and payments are imported using the files from MPS. 
