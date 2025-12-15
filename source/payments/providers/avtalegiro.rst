@@ -16,6 +16,41 @@ AvtaleGiro traditionally provides an "out-of-band" style agreement registration.
 3. A mandate is sent to the merchant.
 4. Recurring payments can be charged on the consumers account, associated with the specific mandate.
 
+The following sequence diagram illustrates the mandate registration and first claim processing flow:
+
+.. mermaid::
+
+   %%{init: { 'sequence': { 'mirrorActors': false } } }%%
+   sequenceDiagram
+      actor Consumer
+      participant Bank
+      participant MPS as Mastercard Payment Services
+      participant Merchant
+      participant INFO-Subscription
+
+      Note over Merchant,INFO-Subscription: Setup Phase
+      Merchant->>INFO-Subscription: Setup AvtaleGiro Account
+      INFO-Subscription->>Merchant: Account Created
+
+      Note over Consumer,INFO-Subscription: Mandate Registration
+      Merchant->>Consumer: Send invoice with KID
+      Consumer->>Bank: Register mandate with KID
+      Bank->>MPS: Submit mandate registration
+      MPS->>INFO-Subscription: Mandate notification (API/OCR)
+      INFO-Subscription->>INFO-Subscription: Import mandate
+      INFO-Subscription->>Merchant: Mandate registered
+
+      Note over Consumer,INFO-Subscription: First Claim Processing
+      INFO-Subscription->>INFO-Subscription: Billing cycle triggered
+      INFO-Subscription->>MPS: Submit claim (debit request)
+      MPS->>Bank: Process claim
+      MPS->>INFO-Subscription: Claim accepted
+      Bank->>Consumer: Notification of upcoming debit
+      Bank->>Bank: Execute debit on due date
+      Bank->>MPS: Confirm payment
+      MPS->>INFO-Subscription: Payment confirmation
+      INFO-Subscription->>Merchant: Invoice paid
+
 Since all of this is "out-of-band", there is little developer integration here.
 
 The requirements is that an account is setup for AvtaleGiro (:api-ref:`Account endpoint<AvtaleGiro/post_avtalegiro_account>`) and that mandates are imported using, preferably via the automatic Mandate API solution or the OCR Payment file from MasterCard Payment Services.
