@@ -153,7 +153,7 @@ Visual Timeline: Full Proration (Invoiced Period)
         title Cancellation with Full Proration (Invoiced But Unpaid Period)
         dateFormat  YYYY-MM-DD
         section Subscription Period
-            Future Period (Feb 1 - Feb 28)   :active, period, 2025-02-01, 27d
+            Future Period (Feb 1 - Feb 28)   :active, period, 2025-02-01, 28d
             Cancellation Date   :milestone, cancel, 2025-02-10, 0d
             Period Used   :done, used, 2025-02-01, 9d
             Period Discarded   :crit, discarded, 2025-02-10, 18d
@@ -197,7 +197,7 @@ Visual Timeline: No Proration (Invoiced Period)
         title Cancellation with No Proration (Invoiced But Unpaid Period)
         dateFormat  YYYY-MM-DD
         section Subscription Period
-            Future Period (Feb 1 - Feb 28)   :active, period, 2025-02-01, 27d
+            Future Period (Feb 1 - Feb 28)   :active, period, 2025-02-01, 28d
             Cancellation Date   :milestone, cancel, 2025-02-10, 0d
             Period Used   :done, used, 2025-02-01, 9d
             No Service After Cancellation   :crit, noservice, 2025-02-10, 18d
