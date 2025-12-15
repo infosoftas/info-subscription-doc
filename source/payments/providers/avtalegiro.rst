@@ -22,7 +22,7 @@ The following sequence diagram illustrates the mandate registration and first cl
 
    %%{init: { 'sequence': { 'mirrorActors': false } } }%%
    sequenceDiagram
-      actor Consumer
+      actor Subscriber
       participant Bank
       participant MPS as Mastercard Payment Services
       participant Merchant
@@ -32,20 +32,20 @@ The following sequence diagram illustrates the mandate registration and first cl
       Merchant->>INFO-Subscription: Setup AvtaleGiro Account
       INFO-Subscription->>Merchant: Account Created
 
-      Note over Consumer,INFO-Subscription: Mandate Registration
-      Merchant->>Consumer: Send invoice with KID
-      Consumer->>Bank: Register mandate with KID
+      Note over Subscriber,INFO-Subscription: Mandate Registration
+      INFO-Subscription->>INFO-Subscription: Generate invoice with KID
+      INFO-Subscription->>Subscriber: Distribute invoice (email/PDF)
+      Subscriber->>Bank: Register mandate with KID
       Bank->>MPS: Submit mandate registration
-      MPS->>INFO-Subscription: Mandate notification (API/OCR)
-      INFO-Subscription->>INFO-Subscription: Import mandate
+      MPS->>INFO-Subscription: Mandate notification (API/OCR)<br/>Automatic import (several times daily)
       INFO-Subscription->>Merchant: Mandate registered
 
-      Note over Consumer,INFO-Subscription: First Claim Processing
+      Note over Subscriber,INFO-Subscription: First Claim Processing
       INFO-Subscription->>INFO-Subscription: Billing cycle triggered
       INFO-Subscription->>MPS: Submit claim (debit request)
       MPS->>Bank: Process claim
       MPS->>INFO-Subscription: Claim accepted
-      Bank->>Consumer: Notification of upcoming debit
+      Bank->>Subscriber: Notification of upcoming debit
       Bank->>Bank: Execute debit on due date
       Bank->>MPS: Confirm payment
       MPS->>INFO-Subscription: Payment confirmation
