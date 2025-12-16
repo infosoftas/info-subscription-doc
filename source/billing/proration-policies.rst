@@ -34,11 +34,11 @@ Types of Proration Policies
 
 The primary options are:
 
-- **Full Proration** (default) – Credit or charge the subscriber based on the exact time remaining in the period.
-- **No Proration** – No adjustment is made; the subscriber keeps access for the full period or loses the amount already paid/invoiced.
+- **Full Proration** (default) – Credit or charge the subscriber based on the exact time remaining in the period. When the subscription is cancelled, the subscriber loses access from the cancellation time.
+- **No Proration** – No financial adjustment is made; the subscriber loses access from the cancellation time without receiving credits for unused time or adjustments to invoiced amounts.
 
 .. note::
-    The default behavior is **Full Proration** for both paid and invoiced periods. This means subscribers are credited for unused time or charged only for the time they will use.
+    The default behavior is **Full Proration** for both paid and invoiced periods. This means subscribers are credited for unused time or charged only for the time they will use. Subscribers lose access from the cancellation time regardless of which proration policy is chosen.
 
 Scenario 1: Cancellation in a Paid/Settled Period
 =================================================
@@ -250,8 +250,8 @@ Steps to Configure
 
        {
          "name": "Standard Proration Policy",
-         "paidPeriodPolicy": "FullProration",
-         "invoicedPeriodPolicy": "FullProration"
+         "paidProration": "GenerateAllowanceForRemainingTime",
+         "notPaidProration": "GenerateChargeForConsumedTime"
        }
 
 2. **Associate the ProrationPolicy with a Dunning Process**:
@@ -281,10 +281,10 @@ Policy Options Reference
 
    * - Property
      - Description
-   * - **paidPeriodPolicy**
-     - Defines how to handle cancellations when the period is already paid/settled. Options: ``FullProration``, ``NoProration``
-   * - **invoicedPeriodPolicy**
-     - Defines how to handle cancellations when the period is invoiced but not paid. Options: ``FullProration``, ``NoProration``
+   * - **paidProration**
+     - Defines how to handle cancellations when the period is already paid/settled. Options: ``GenerateAllowanceForRemainingTime`` (default, credits unused time), ``NoProration`` (no financial adjustment)
+   * - **notPaidProration**
+     - Defines how to handle cancellations when the period is invoiced but not paid. Options: ``GenerateChargeForConsumedTime`` (default, charge only for time used), ``NoProration`` (charge full amount)
 
 Business Considerations
 =======================
@@ -305,10 +305,10 @@ When choosing a proration policy, consider the following:
 
 You can configure different policies for paid vs. invoiced periods. For example:
 
-- **Paid Period**: No Proration (subscribers keep access for the full period)
+- **Paid Period**: No Proration (no credit issued, subscriber loses access immediately)
 - **Invoiced Period**: Full Proration (adjust invoice to reflect actual usage)
 
-This approach balances simplicity (no credits for already-paid periods) with fairness (adjusted charges for future periods).
+This approach balances simplicity (no credits for already-paid periods) with fairness (adjusted charges for future periods). Note that subscribers lose access from cancellation time regardless of the proration policy chosen.
 
 By configuring these policies appropriately, you can balance customer satisfaction, operational simplicity, and revenue protection.
 
