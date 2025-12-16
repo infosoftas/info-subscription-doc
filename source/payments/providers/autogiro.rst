@@ -38,27 +38,21 @@ The following sequence diagram illustrates the complete flow from mandate regist
       participant Merchant
 
       Note over Customer,Merchant: Mandate Registration Phase
-      
       Merchant->>Customer: Send invoice with Payer Number & Bankgiro Number
       Customer->>Bank: Register Autogiro mandate in online banking
       Bank->>Bankgirot: Submit mandate registration
-      
       Bankgirot->>INFO-Subscription: Send mandate file (approval)
       activate INFO-Subscription
       INFO-Subscription->>INFO-Subscription: Import and activate mandate
       INFO-Subscription->>INFO-Subscription: Create payment agreement
       deactivate INFO-Subscription
-      
       Note over Customer,Merchant: Billing & Payment Phase
-      
       INFO-Subscription->>INFO-Subscription: Generate invoice (billing cycle)
       INFO-Subscription->>INFO-Subscription: Create payment claim
       INFO-Subscription->>Bankgirot: Send payment file with claim
-      
       Bankgirot->>Bank: Process payment request
       Bank->>Bank: Debit customer account
       Bank->>Bankgirot: Payment confirmation
-      
       Bankgirot->>INFO-Subscription: Send payment confirmation file
       INFO-Subscription->>INFO-Subscription: Update payment status
       INFO-Subscription->>Merchant: Payment completed notification
