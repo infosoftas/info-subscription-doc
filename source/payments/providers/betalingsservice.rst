@@ -11,10 +11,10 @@ In BetalingsService terminology, an agreement is called a mandate. The following
 
 BetalingsService traditionally provides an "out-of-band" style agreement registration.
 
-1. |projectName| generates a Debtor Number for each subscriber. The customer receives a physical invoice with identifiers (Debtor Number, Creditor Number, Creditor Group Number), where the Creditor Number and Creditor Group Number are configured in the BetalingsService account within |projectName|.
-2. The customer registers this in the online banking solution (or some other means as described by MPS https://www.betalingsservice.dk)
+1. |projectName| generates a Debtor Number for each subscriber. The subscriber receives a physical invoice with identifiers (Debtor Number, Creditor Number, Creditor Group Number), where the Creditor Number and Creditor Group Number are configured in the BetalingsService account within |projectName|.
+2. The subscriber registers this in the online banking solution (or some other means as described by MPS https://www.betalingsservice.dk)
 3. A mandate file is sent by MPS to |projectName| via SFTP, where it is automatically processed.
-4. Recurring payments can be charged on the consumer's account, associated with the specific mandate.
+4. Recurring payments can be charged on the subscriber's account, associated with the specific mandate.
 
 The following sequence diagram illustrates the mandate registration and first claim processing flow:
 

@@ -1,19 +1,19 @@
 %%{init: { 'sequence': { 'mirrorActors': false } } }%%
 sequenceDiagram
-    actor Customer
+    actor Subscriber
     participant INFO as INFO-Subscription
     participant MPS as Mastercard Payment Services
-    participant Bank as Customer's Bank
+    participant Bank as Subscriber's Bank
 
     Note over INFO: Prerequisites: BetalingsService Account Setup
     Note right of INFO: Account configured with<br/>Creditor Number & Creditor Group Number
     
-    Note over INFO,Customer: 1. Physical Invoice Sent
+    Note over INFO,Subscriber: 1. Physical Invoice Sent
     INFO->>INFO: Generate Debtor Number<br/>for Subscriber
-    INFO->>Customer: Send Physical Invoice<br/>(Debtor Number, Creditor Number,<br/>Creditor Group Number)
+    INFO->>Subscriber: Send Physical Invoice<br/>(Debtor Number, Creditor Number,<br/>Creditor Group Number)
     
-    Note over Customer,Bank: 2. Out-of-Band Registration
-    Customer->>Bank: Register Mandate in<br/>Online Banking Solution
+    Note over Subscriber,Bank: 2. Out-of-Band Registration
+    Subscriber->>Bank: Register Mandate in<br/>Online Banking Solution
     activate Bank
     Bank->>MPS: Submit Mandate Registration
     deactivate Bank
@@ -37,7 +37,7 @@ sequenceDiagram
     deactivate MPS
     
     activate Bank
-    Bank->>Customer: Debit Customer Account
+    Bank->>Subscriber: Debit Subscriber Account
     Bank->>MPS: Confirm Payment
     deactivate Bank
     
