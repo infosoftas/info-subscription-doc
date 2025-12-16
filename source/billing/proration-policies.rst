@@ -34,11 +34,16 @@ Types of Proration Policies
 
 The primary options are:
 
-- **Full Proration** (default) – Credit or charge the subscriber based on the exact time remaining in the period. When the subscription is cancelled, the subscriber loses access from the cancellation time.
+- **Proration with financial adjustment** (default) – Credit or charge the subscriber based on the exact time remaining in the period. When the subscription is cancelled, the subscriber loses access from the cancellation time.
+  
+  - API values: ``GenerateAllowanceForRemainingTime`` (for paid periods) or ``GenerateChargeForConsumedTime`` (for invoiced but not paid periods)
+
 - **No Proration** – No financial adjustment is made; the subscriber loses access from the cancellation time without receiving credits for unused time or adjustments to invoiced amounts.
 
+  - API value: ``NoProration``
+
 .. note::
-    The default behavior is **Full Proration** for both paid and invoiced periods. This means subscribers are credited for unused time or charged only for the time they will use. Subscribers lose access from the cancellation time regardless of which proration policy is chosen.
+    The default behavior is to apply proration with financial adjustment (``GenerateAllowanceForRemainingTime`` for paid periods and ``GenerateChargeForConsumedTime`` for invoiced periods). This means subscribers are credited for unused time or charged only for the time they will use. Subscribers lose access from the cancellation time regardless of which proration policy is chosen.
 
 Scenario 1: Cancellation in a Paid/Settled Period
 =================================================
@@ -53,18 +58,18 @@ In this scenario, the subscriber has **already paid** for the current subscripti
 
    * - Policy
      - Effect
-   * - **Full Proration**
+   * - **Proration** (API: ``GenerateAllowanceForRemainingTime``)
      - The subscriber is credited for the unused portion of the period. An allowance is issued for the prorated amount.
-   * - **No Proration**
+   * - **No Proration** (API: ``NoProration``)
      - No refund or credit is issued. The subscription is cancelled and the subscriber loses access from the cancellation time (the subscription period is effectively shortened without financial compensation).
 
-Visual Timeline: Full Proration (Paid Period)
+Visual Timeline: Proration with Financial Adjustment (Paid Period)
 ----------------------------------------------
 
 .. mermaid::
 
     gantt
-        title Cancellation with Full Proration (Paid Period)
+        title Cancellation with Proration (GenerateAllowanceForRemainingTime)
         dateFormat  YYYY-MM-DD
         section Subscription Period
             Paid Period (Jan 1 - Jan 31)   :done, period, 2025-01-01, 30d
@@ -145,18 +150,18 @@ In this scenario, the subscriber has been **invoiced** for the upcoming subscrip
 
    * - Policy
      - Effect
-   * - **Full Proration**
+   * - **Proration** (API: ``GenerateChargeForConsumedTime``)
      - The invoice amount is adjusted (prorated) to reflect only the portion of the period that will be used before cancellation.
-   * - **No Proration**
+   * - **No Proration** (API: ``NoProration``)
      - The full invoice amount remains due. The subscriber is expected to pay for the entire period, even though the subscription will be cancelled.
 
-Visual Timeline: Full Proration (Invoiced Period)
+Visual Timeline: Proration with Financial Adjustment (Invoiced Period)
 --------------------------------------------------
 
 .. mermaid::
 
     gantt
-        title Cancellation with Full Proration (Invoiced But Unpaid Period)
+        title Cancellation with Proration (GenerateChargeForConsumedTime)
         dateFormat  YYYY-MM-DD
         section Subscription Period
             Future Period (Feb 1 - Feb 28)   :active, period, 2025-02-01, 28d
@@ -291,7 +296,7 @@ Business Considerations
 
 When choosing a proration policy, consider the following:
 
-**Full Proration:**
+**Proration with Financial Adjustment** (``GenerateAllowanceForRemainingTime`` / ``GenerateChargeForConsumedTime``):
 
 - **Pros**: Fair to subscribers; they only pay for what they use. Can improve customer satisfaction and reduce churn.
 - **Cons**: More complex accounting; requires issuing credits and adjusting invoices. May result in small credits that are difficult to process.
@@ -305,8 +310,8 @@ When choosing a proration policy, consider the following:
 
 You can configure different policies for paid vs. invoiced periods. For example:
 
-- **Paid Period**: No Proration (no credit issued, subscriber loses access immediately)
-- **Invoiced Period**: Full Proration (adjust invoice to reflect actual usage)
+- **Paid Period**: ``NoProration`` (no credit issued, subscriber loses access immediately)
+- **Invoiced Period**: ``GenerateChargeForConsumedTime`` (adjust invoice to reflect actual usage)
 
 This approach balances simplicity (no credits for already-paid periods) with fairness (adjusted charges for future periods). Note that subscribers lose access from cancellation time regardless of the proration policy chosen.
 
