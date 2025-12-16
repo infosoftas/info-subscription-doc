@@ -77,14 +77,42 @@ Before creating a PEPPOL agreement, you can verify that the recipient exists in 
 
     To use the lookup endpoint, you must know the **Document Network** (i.e., the target country) of the subscriber. It is the recipient's country that matters, **not** the selling organization's or merchant's country.
 
-Example lookup request:
+Example lookup request for Norway (EHF):
 
 .. code-block:: json
 
     {
-        "documentNetwork": "EHF",
+        "documentNetwork": "0192",
         "recipientIdentifier": "999999999"
     }
+
+Example lookup request for Denmark (OIO):
+
+.. code-block:: json
+
+    {
+        "documentNetwork": "0096",
+        "recipientIdentifier": "10150817"
+    }
+
+Example lookup request for Sweden (OIO):
+
+.. code-block:: json
+
+    {
+        "documentNetwork": "0107",
+        "recipientIdentifier": "7312345678901"
+    }
+
+.. Note::
+
+    The documentNetwork parameter uses ISO6523 codes:
+    
+    * **0192** - Norway (EHF)
+    * **0096** - Denmark (OIO)
+    * **0107** - Sweden (OIO)
+    
+    For more details, see the `PEPPOL ICD codelist <https://docs.peppol.eu/poacc/billing/3.0/codelist/ICD/>`_.
 
 Registration Workflow
 ~~~~~~~~~~~~~~~~~~~~~
@@ -200,43 +228,9 @@ Network Type         National (Norway)               International (PEPPOL)
 Payment Type         Direct from consumer            Invoice-based (no direct payment)
 ==================== =============================== ===================================
 
-Troubleshooting
----------------
-
-Recipient Not Found
-~~~~~~~~~~~~~~~~~~~
-
-If the lookup endpoint returns that a recipient is not found in the PEPPOL network:
-
-* Verify the identifier format is correct for the country.
-* Confirm the recipient has registered with a PEPPOL access point.
-* Check that you're using the correct Document Network for the recipient's country.
-* Consider using an alternative payment method.
-
-Agreement Creation Fails
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-If creating a PEPPOL agreement fails:
-
-* Ensure the subscriber exists in |projectName|.
-* Verify the provider type matches the recipient's country.
-* Confirm the identifier is valid and correctly formatted.
-* Check that the subscriber doesn't already have an active PEPPOL agreement.
-
-Invoices Not Being Delivered
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-If invoices are not being delivered through PEPPOL:
-
-* Verify the payment agreement is active and assigned to the subscription.
-* Confirm the recipient's PEPPOL endpoint is still active.
-* Check for any error events or notifications in |projectName|.
-* Re-run the network lookup to ensure the recipient is still registered.
-
 See Also
 --------
 
 * :ref:`payment-agreements` - General information about payment agreements
-* :ref:`provider-efaktura` - Norwegian consumer eInvoicing
 * :api-ref:`Invoice API <Invoice>` - Invoice management endpoints
 * :api-ref:`Payment Agreement API <PaymentAgreement>` - Payment agreement endpoints
