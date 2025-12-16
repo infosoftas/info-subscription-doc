@@ -100,6 +100,7 @@ For help, feedback, or to report issues, see :ref:`Support and Reporting Bugs <r
     :hidden:
 
     billing/billingcycle
+    billing/proration-policies
     billing/standalone
 
 .. toctree::
