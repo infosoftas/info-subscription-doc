@@ -11,7 +11,7 @@ To use Vipps or MobilePay as the payment method, set the ``paymentAgreementParam
 
     {
       "paymentMethod": "Vipps",
-      "vippsParameters": {
+      "vippsMobilePayParameters": {
         "customerPhoneNumber": "+4791234567",
         "merchantAgreementUrl": "https://yourdomain.com/selfservice/vipps-agreement-info",
         "merchantRedirectUrl": "https://yourdomain.com/order/complete",
@@ -21,7 +21,7 @@ To use Vipps or MobilePay as the payment method, set the ``paymentAgreementParam
     }
 
 - ``paymentMethod`` must be set to ``Vipps`` or ``MobilePay``.
-- ``vippsParameters`` is an object with the following fields:
+- ``vippsMobilePayParameters`` is an object with the following fields:
 
   - ``customerPhoneNumber`` (optional): The phone number to pre-fill in the Vipps dialog.
   - ``merchantAgreementUrl``: URL to your self-service agreement page.
