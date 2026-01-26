@@ -29,12 +29,13 @@ The `PaymentType` is mostly a cosmetic/informational property, especially for te
 The `Payment Provider Type` indicates the service provider that |projectName| uses to facilitate the given claims.
 At the time of writing the following providers are currently supported:
 
-* AvtaleGiro, DirectDebit by Mastercard Payment Services.
-* Card Payments, by Swedbank Pay (formerly PayEx eCommerce).
-* Vipps Recurring, Mobile Payments by Vipps.
-* eFaktura, eInvoicing by Mastercard Payment Services.
-* Autogiro, DirectDebit by Bankgirot.
-* EHF, Norwegian version of EUs PEPPOL BIS Billing Standard.
+* :ref:`AvtaleGiro <provider-avtalegiro>`, DirectDebit by Mastercard Payment Services.
+* :ref:`Card Payments <provider-swedbank>`, by |SwedbankPay| (formerly PayEx eCommerce).
+* :ref:`Vipps Recurring <provider-vipps>`, Mobile Payments by |VippsMobilePay|.
+* :ref:`eFaktura <provider-efaktura>`, eInvoicing by Mastercard Payment Services.
+* :ref:`Autogiro <provider-autogiro>`, DirectDebit by Bankgirot.
+* EHF, Norwegian version of EUs `PEPPOL BIS Billing Standard <https://peppol.org/>`__.
+* OIO, PEPPOL BIS Billing format for Denmark and Sweden business eInvoicing.
 * Email, As the name says it handles Email. Can be used to filter Invoice for e-mails but there is no built in Email sending.
 * InvoiceOnly/None - the default payment type that does "nothing".
 
@@ -54,7 +55,7 @@ All of the approaches share the same organization/abstraction model in |projectN
 2. A Payment Agreement is created pointing to the provider agreement.
 3. The Payment Agreement is registered for a subscription (sometimes this happens automatically).
 
-The idea here is that each Payment Provider, such as Vipps, SwedbankPay or AvtaleGiro, have their own percular details on how to register an agreement, and they have different terminology and different properties availble on the agreements.
+The idea here is that each Payment Provider, such as :ref:`Vipps <provider-vipps>`, :ref:`SwedbankPay <provider-swedbank>` or :ref:`AvtaleGiro <provider-avtalegiro>`, have their own peculiar details on how to register an agreement, and they have different terminology and different properties available on the agreements.
 To abstract away some of these details most of the time, the subscription points to a payment agreement, which in turn points to the provider.
 
 This allows most integrations to just query for the Subscription and Payment Agreement information without worrying too much about the various providers.
@@ -90,10 +91,10 @@ Out Of Band Agreements and Automatic Agreement Registration
 Some payment providers are typically registered in a process not connected to the merchant, and by extension not in their systems.
 At the current time of writing, this is relevant for the following providers:
 
-* AvtaleGiro (Norway)
-* eFaktura (Norway)
-* Autogiro (Sweden)
-* BetalingsService (Denmark)
+* :ref:`AvtaleGiro <provider-avtalegiro>` (Norway)
+* :ref:`eFaktura <provider-efaktura>` (Norway)
+* :ref:`Autogiro <provider-autogiro>` (Sweden)
+* :ref:`BetalingsService <provider-betalingsservice>` (Denmark)
 
 For all of the above, the registration will happen, or may happen, in the subscribers online banking solution.
 
@@ -133,7 +134,9 @@ Payment Providers (PSPs)
     
     providers/avtalegiro
     providers/eFaktura
+    providers/peppol
     providers/vipps
     providers/swedbank
+    providers/autogiro
     providers/betalingsservice
     external-provider-integration

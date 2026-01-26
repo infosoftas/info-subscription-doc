@@ -58,6 +58,66 @@ When subscribers are redirected to the VippsMobilePay terminal or landing page t
 .. note::
    The agreement state returned by the remote endpoint is directly transferred from VippsMobilePay's upstream API. For detailed information about agreement states and status values, please refer to the official `VippsMobilePay Recurring API Documentation <https://developer.vippsmobilepay.com/docs/APIs/recurring-api/>`_.
 
+Profile Sharing
+---------------
+During the agreement registration process, |projectName| supports automatic profile sharing with VippsMobilePay. This feature allows you to collect the subscriber's contact information (name, address, email, phone number, etc.) directly from their VippsMobilePay profile during agreement registration.
+
+How Profile Sharing Works
+~~~~~~~~~~~~~~~~~~~~~~~~~
+Profile sharing is enabled by populating the ``scope`` parameter when creating an agreement. The ``scope`` parameter specifies which profile fields you want to request from the subscriber.
+
+Available scope values include:
+
+* ``name`` - Full name of the subscriber
+* ``address`` - Physical address information
+* ``email`` - Email address
+* ``phoneNumber`` - Phone number
+* ``birthDate`` - Date of birth
+
+Multiple scope values can be combined as a space-separated string, for example: ``"name address email"``.
+
+.. note::
+   For detailed information about available scope values and their exact format, refer to the official `VippsMobilePay Profile Sharing documentation <https://developer.vippsmobilepay.com/docs/APIs/recurring-api/recurring-api-guide/#profile-sharing>`_.
+
+API Integration
+~~~~~~~~~~~~~~~
+When using the |projectName| ordering API to create an agreement, you can specify the ``profileScope`` parameter in the ``vippsParameters`` object:
+
+.. code-block:: json
+
+    {
+      "paymentMethod": "Vipps",
+      "vippsParameters": {
+        "customerPhoneNumber": "+4791234567",
+        "merchantAgreementUrl": "https://yourdomain.com/selfservice/vipps-agreement-info",
+        "merchantRedirectUrl": "https://yourdomain.com/order/complete",
+        "accountId": "your-account-id",
+        "profileScope": "name address email"
+      }
+    }
+
+For more details on order creation with payment agreements, see the :ref:`payment agreement examples <order-example-payment-agreement>`.
+
+Primary Subscriber Contact Creation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+When profile information is successfully collected during agreement registration, |projectName| automatically handles the creation or update of the Primary Subscriber Contact:
+
+* **New Subscriber**: If no Primary Subscriber Contact exists for the subscriber, a new one will be created with the information received from VippsMobilePay.
+
+* **Existing Primary Contact**: If a Primary Subscriber Contact already exists, it will be replaced with the new information from VippsMobilePay. In this case, a ``SubscriberContactUpdated`` event will be fired.
+
+.. important::
+   The automatic profile sharing occurs during the agreement registration process. The subscriber must approve sharing their profile information in the VippsMobilePay app before the agreement is finalized.
+
+Events
+~~~~~~
+When profile information is collected and processed:
+
+* If a new Primary Subscriber Contact is created: ``com.info-subscription.SubscriberContactCreated`` event is fired
+* If an existing Primary Subscriber Contact is replaced: ``com.info-subscription.SubscriberContactUpdated`` event is fired
+
+These events can be used to synchronize subscriber contact information with external systems such as CRM, data warehouses, or marketing platforms.
+
 In-Shop/Non-Browser Agreement Registration (Merchant Initiated)
 ---------------------------------------------------------------
 Vipps allows a special type of agreement registration where everything is managed by the merchant, and the only thing the subscriber has to do is accept the agreement in the mobile app.
