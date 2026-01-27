@@ -25,7 +25,7 @@ Changed
 Fixed
 -----
 
-* A mapping issue where the PaymentMethod 'eFaktura' was not mapped to a string on orders, resulting in a number being return if querying for an order completed with eFaktura as payment method (no known impact, but fixed for consistency).
+* A mapping issue where the PaymentMethod 'eFaktura' was not mapped to a string on orders, resulting in a number being returned if querying for an order completed with eFaktura as payment method (no known impact, but fixed for consistency).
 * An issue where DenialOrders would not be validated correctly when creating new orders via the API, causing blind failures when the order was processed with no feedback to the caller.
 * An issue where self-chaining would cause template subscription plans to break.
 * An issue where Payment Demands for Enterpriseplans would not point to the correct `NextSubscriptionId` when the subscriptions were renewed in the reporting subsystem.
@@ -36,7 +36,7 @@ Merchant Client
 Added
 -----
 
-* Added configuration option for listing default Reporting Tags when creating new subscriptions. This allows merchants to have certain tags always applied to new subscriptions, reducing manual work.
+* Added configuration option for listing default Reporting Tags when creating new subscriptions. This allows merchants to have certain tags selectable by default instead of requiring manual and error-prone typing.
 * Support for adding Tax Group when manually creating charges and allowances corrections to a subscriber account (credits and debits).
 * Extended the corrections views with Tax Group information when applicable as well as Timestamps for when the correction was created.
 
@@ -46,13 +46,12 @@ Changed
 * **[Preview]** Multiple adjustments to the new bulk crediting and write-off tool introduced in the previous release.
 * **[Preview]** Multiple improvements to simplify the creation of transactional invoices.
 * Adjusted Vipps and MobilePay agreement views to align with other list/grid views in the Merchant Client.
-* Invoice and Reminder Fees are now grouped together to simplify the view and reduce clutter.
+* Invoice Fees are now grouped together by Tax Group (Percentage) to simplify the view and reduce clutter.
 * Column width on Template Subscription Plan view.
 
 Fixed
 -----
 
-* Texts related to bulk price updates.
 * A display error when registering a payment on a reminder.
 * An issue where invalid TAX was shown when creating a new order with a discount.
 * An issue where the daily paid amounts were displaced due to timezone differences.
@@ -68,7 +67,7 @@ Added
 Changed
 -------
 
-* Invoice and Reminder Fees are now grouped together to simplify the view and reduce clutter.
+* Invoice Fees are now grouped together by Tax Group (Percentage) to simplify the view and reduce clutter.
 
 Fixed
 -----
