@@ -16,6 +16,7 @@ Infosoft is a Vipps partner and we can facilitate the Vipps onboarding process i
 Agreement Registration
 ----------------------
 .. _agreement-registration:
+
 In Vipps terminology an agreement is almost like a subscription. 
 It is an agreement between the Merchant (a |projectName| tenant) and the subscriber to pay for a given product, at a recurring interval.
 If the subscription plan changes, the agreement should change with it.
@@ -222,4 +223,3 @@ An example request with accounting data that automagically settles an Invoice ma
             "externalInvoiceIdentifier": "10012347207834", // Indicates that we want to settle this invoice with this epayment.
         }
     }
-}

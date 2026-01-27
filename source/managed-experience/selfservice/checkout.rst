@@ -13,6 +13,7 @@ Key features include:
     * Orders requiring customer details (e.g., name, phone, and address).
     * **B2B orders**, including advanced invoicing options.
 * **Payment Options**: Built-in support for payment methods such as Vipps, MobilePay, CreditCard, EHF, OIO, Email invoicing as well as traditional invoicing.
+
 .. * **Customizable Invoice Address collection**: Optional configurations for invoice address collection. (COMMENTED OUT UNTIL WE HAVE OPTION TO TOGGLE THIS!)
 
 Checkout allows developers to configure, extend, and customize it to meet specific business requirements to some degree.

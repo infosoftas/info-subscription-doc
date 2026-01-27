@@ -23,9 +23,11 @@ Each example typically only shows properties relevant to the example and omits r
 
 It is possible to combine many of the examples, though not necessarily all of them.
 
-
+.. _order-example-products-on-plan:
 .. include:: choosing-products.rst
 
+.. _order-example-override-price:
 .. include:: override-price.rst
 
+.. _order-example-payment-agreement:
 .. include:: payment-agreements.rst

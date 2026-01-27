@@ -1,5 +1,6 @@
 Querying with OData on INFO-Subscription
 ========================================
+
 This section introduces OData querying for the Info Subscription Analytics API. 
 It is intended for developers who want to efficiently retrieve data from the OData-compliant endpoint at https://analytics.info-subscription.com in a read-only fashion.
 
@@ -76,7 +77,7 @@ If the metadata defines navigation properties (e.g., related entities), use ``$e
 
 
 Discovering Entities and Properties
-----------------------------------
+------------------------------------
 The actual entity and property names available for querying can be found by inspecting the OData $metadata endpoint:
 
     https://analytics.info-subscription.com/$metadata
@@ -113,7 +114,7 @@ In addition, every request must include the ``S4-TenantId`` header, just like wi
 For detailed instructions on obtaining tokens, supported grant types, and example requests, see :doc:`general/auth`.
 
 Supported Query Operations
--------------------------
+--------------------------
 The Analytics OData API is **read-only**. You can use the following standard OData query operations:
 
 - Filter data (``$filter``)

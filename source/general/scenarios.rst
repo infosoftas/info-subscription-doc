@@ -14,8 +14,9 @@ Common Scenarios
 * :ref:`Managing Subscriber Payment Agreements <manage-payment-agreement>`
 
 Advanced & Conceptual Guides:
-----------------
+--------------------------------
 * :ref:`Bring Your Own PSP <external_payment_provider_integration>` Learn about integrating third-party payment providers and how |projectName| fits into multi-party payment flows.
+ 
 .. * Multi-Tenant and White-Label Integrations: Architectural considerations for complex deployments.
 .. * Event-Driven Workflows: Using webhooks and external systems for automation.
 

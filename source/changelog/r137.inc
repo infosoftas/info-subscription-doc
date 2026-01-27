@@ -6,6 +6,9 @@ Release October 27th
 
 This is a minor release to fix two issues related to the order flow and evaluation of template subscription plan rules.
 
+API and Backend
+===============
+
 Fixed
 -----
 

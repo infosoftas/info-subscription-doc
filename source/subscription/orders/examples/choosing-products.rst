@@ -1,5 +1,3 @@
-.. _order-example-products-on-plan:
-
 Example: Choosing Products On A Plan
 ------------------------------------
 

@@ -12,7 +12,7 @@ Many of the data points and visuals available in the Merchant application, as we
 Built for reporting, the solution is optimized for read-access and server-based aggregations.
 Use it to answer quantitative questions about the past or present state of your subscription business.
 
-For details on what type of data is available refer to the :ref:`datamodel` section or explore the model with your favorite MS SQL capable tool.
+For details on what type of data is available refer to the :ref:`reporting-datamodel` section or explore the model with your favorite MS SQL capable tool.
 
 General Concepts
 ================
