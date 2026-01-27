@@ -74,7 +74,8 @@ It is possible to cancel a mandate using :api-ref:`the mandate endpoint <Betalin
 At the time of writing, there are no common scenarios where this is needed, but the most likely would be some external lifecycle management of the mandates.
 
 Creating Payments (Transactions)
----------------
+------------------------------------
+
 A Transaction is the BetalingsService terminology for doing a debit/charge on the consumer's account.
 Once submitted, if not cancelled by the merchant, will lead to an account transfer on the given due date.
 
