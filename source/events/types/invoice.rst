@@ -52,3 +52,15 @@ Typical source of the event are:
 * Subscription cancellations (future Invoices are automatically credited).
 * Merchant initiated credits.
 
+.. _invoice-paid-event:
+
+Event: com.info-subscription.InvoicePaid
+---------------------------------------------
+All operations that result in an Invoice being settled/paid will result in a ``InvoicePaid`` event being triggered.
+
+The event points to the invoice being paid as well as a few key pointers about the invoice. Very similar to the ``InvoiceIssued`` event.
+
+Typical source of the event are:
+
+* Payment received in full.
+* Settlement due to allowances/discounts and payments.

@@ -42,11 +42,14 @@ For browser-based applications, this is typically stored in a cookie, but the de
 The application session timeframe is determined by the application developer.
 Typically, there are two ways to group applications and determine their session handling:
 
-- Non-privileged access: Long sessions, typically measured in days, weeks and months. The application allows access to less sensitive data. Content consumption apps such as CMSs and streaming services fall into this category.
-Sessions may be kept alive for some time even if the browser is closed.
-
-- Privileged access: Short sessions, typically measured in minutes or hours. The application allows access to sensitive data or restricted actions (payments, password changes, etc). Management applications such as self-service or e-commerce fall into this category.
-Sessions are typically terminated when browsers are closed.
+- Non-privileged access: Long sessions, typically measured in days, weeks and months. 
+  The application allows access to less sensitive data. 
+  Content consumption apps such as CMSs and streaming services fall into this category. 
+  Sessions may be kept alive for some time even if the browser is closed.
+- Privileged access: Short sessions, typically measured in minutes or hours. 
+  The application allows access to sensitive data or restricted actions (payments, password changes, etc).
+  Management applications such as self-service or e-commerce fall into this category.
+  Sessions are typically terminated when browsers are closed.
 
 User Experience
 ---------------

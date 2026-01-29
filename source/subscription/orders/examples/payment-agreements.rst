@@ -1,5 +1,3 @@
-.. _order-example-payment-agreement:
-
 Example: Vipps or MobilePay as Payment Agreement
 ------------------------------------------------
 
@@ -31,7 +29,7 @@ To use Vipps or MobilePay as the payment method, set the ``paymentAgreementParam
 
 
 Example: SwedbankPay as Payment Agreement
-----------------------------------------
+------------------------------------------
 
 To use SwedbankPay as the payment method, set the ``paymentAgreementParameters`` as follows:
 
