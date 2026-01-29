@@ -17,28 +17,29 @@ Understanding Cancellation Proration
 
 When a subscription is cancelled before its natural end date (and after the subscription has already started), two distinct billing scenarios may apply, depending on the timing of the cancellation:
 
+1. **Cancellation in a Paid/Settled Period** – The subscriber has already paid for the current subscription period.
+2. **Cancellation in an Invoiced Period** – The subscriber has been billed/invoiced for the period but has not yet paid anything.
+
+The proration policy you configure determines what happens in each scenario.
+
 .. note::
     Proration policies only apply to subscriptions that have already started. Cancellations made before the subscription start date are never prorated.
 
-1. **Cancellation in a Paid/Settled Period** – The subscriber has already paid for the current subscription period.
-2. **Cancellation in an Invoiced Period** – The subscriber has been invoiced for the upcoming period but has not yet paid.
-
-The proration policy you configure determines what happens in each scenario.
 
 .. _proration-types:
 
 Types of Proration Policies
 ============================
 
-|projectName| supports different proration strategies. Each policy can be configured independently for the two cancellation scenarios mentioned above.
+Each policy can be configured independently for the two cancellation scenarios mentioned above.
 
 The primary options are:
 
-- **Proration with financial adjustment** (default) – Credit or charge the subscriber based on the exact time remaining in the period. When the subscription is cancelled, the subscriber loses access from the cancellation time.
+- **Proration with financial adjustment** (default) – Credit or charge the subscriber based on the exact time remaining in the period.
   
-  - API values: ``GenerateAllowanceForRemainingTime`` (for paid periods) or ``GenerateChargeForConsumedTime`` (for invoiced but not paid periods)
+  - API values: ``GenerateAllowanceForRemainingTime`` (for paid periods) and ``GenerateChargeForConsumedTime`` (for invoiced but not paid periods)
 
-- **No Proration** – No financial adjustment is made; the subscriber loses access from the cancellation time without receiving credits for unused time or adjustments to invoiced amounts.
+- **No Proration** – No financial adjustment is made; the subscription ends at the cancellation time and no credits for unused time or adjustments to invoiced amounts are issued.
 
   - API value: ``NoProration``
 
@@ -61,10 +62,10 @@ In this scenario, the subscriber has **already paid** for the current subscripti
    * - **Proration** (API: ``GenerateAllowanceForRemainingTime``)
      - The subscriber is credited for the unused portion of the period. An allowance is issued for the prorated amount.
    * - **No Proration** (API: ``NoProration``)
-     - No refund or credit is issued. The subscription is cancelled and the subscriber loses access from the cancellation time (the subscription period is effectively shortened without financial compensation).
+     - No refund or credit is issued. The subscription is cancelled. The subscription period is effectively shortened without financial compensation.
 
 Visual Timeline: Proration with Financial Adjustment (Paid Period)
-----------------------------------------------
+-------------------------------------------------------------------
 
 .. mermaid::
 
@@ -137,8 +138,8 @@ In this example:
 
 The subscription is cancelled on January 15, and the subscriber loses access immediately without receiving a refund for the unused 16 days. No new billing period is created.
 
-Scenario 2: Cancellation in an Invoiced (But Unpaid) Period
-===========================================================
+Scenario 2: Cancellation in an Invoiced Unpaid Period
+======================================================
 
 In this scenario, the subscriber has been **invoiced** for the upcoming subscription period, but the invoice has **not been paid** yet.
 
@@ -156,7 +157,7 @@ In this scenario, the subscriber has been **invoiced** for the upcoming subscrip
      - The full invoice amount remains due. The subscriber is expected to pay for the entire period, even though the subscription will be cancelled.
 
 Visual Timeline: Proration with Financial Adjustment (Invoiced Period)
---------------------------------------------------
+-----------------------------------------------------------------------
 
 .. mermaid::
 
@@ -317,12 +318,17 @@ This approach balances simplicity (no credits for already-paid periods) with fai
 
 By configuring these policies appropriately, you can balance customer satisfaction, operational simplicity, and revenue protection.
 
+.. important::
+
+    Regardless of the proration policy chosen, subscribers will lose access to the service from the cancellation time. Proration policies only affect financial adjustments, not access duration.
+
 Integration with Events
 =======================
 
 When a subscription is cancelled, the :ref:`SubscriptionCancelled <subscription-cancelled-event>` event is triggered. Developers integrating with |projectName| should listen for this event to keep external systems in sync with subscription and billing changes.
 
 For more details on events, see the :ref:`Events and Webhooks section <events>`.
+
 
 Related Documentation
 =====================
