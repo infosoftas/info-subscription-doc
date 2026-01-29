@@ -42,7 +42,7 @@ For simplicity we assume that some of the parameters are static.
 
 2. Create an account demand
 
-.. code-block:: json
+.. code-block:: http
     :name: Create Account Payment Demand
 
     POST https://api.info-subscription.com/paymentdemand HTTP/1.1

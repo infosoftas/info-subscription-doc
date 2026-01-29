@@ -1,6 +1,3 @@
-.. _order-example-override-price:
-
-
 Example: Overriding Pre-Defined Prices
 --------------------------------------
 Typically a template plan is setup with a specific set of products.

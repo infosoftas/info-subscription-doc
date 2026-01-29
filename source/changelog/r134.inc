@@ -97,7 +97,7 @@ Fixed
 -----
 
 * **[Hotfix]** An issue where it was not possible to create a subscriber without a valid email address in the sales poster.
-* **[Preview] Multiple issues related to the checkout application including (but not limited to)
+* **[Preview]** Multiple issues related to the checkout application including (but not limited to)
 
   * Handling of not-supported SwedbankPay languages so it now defaults to English instead of breaking.
   * Better redirect handling for |VippsMobilePay| app switch scenarios.
