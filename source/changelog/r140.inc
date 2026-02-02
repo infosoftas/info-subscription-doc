@@ -23,7 +23,7 @@ Fixed
 * An issue where it was not possible to order new subscriptions with an existing |eFaktura| agreement.
 * An issue where searching for users in ADB2C would timeout due to too many queries being sent. The changes will improve the overall performance of the search experience as well.
 
- Checkout
+Checkout
 ==========
 
 Fixed
