@@ -11,8 +11,6 @@ Happy holidays to everyone, we will be back with a new release in January.
 API and Backend
 ===============
 
-
-
 Added
 -----
 
