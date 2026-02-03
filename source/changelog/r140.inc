@@ -1,3 +1,36 @@
+**********************
+Release February 2nd
+**********************
+
+This is a minor/hotfix release to fix a few issues related to the order flow in the merchant and self-service (different issues), as well as a minor fix for quantity mapping in the billing engine for transactional invoices.
+
+API and Backend
+===============
+
+Fixed
+-----
+
+* An issue where 0 amount |Vipps| and |MobilePay| campaigns would be rejected due to an invalid minimum campaign amount. The validation has been removed as these 0 amount campaigns are valid.
+* An issue where quantities defined on transactions for Account Payment Demands (transactional invoices) would not result in a multiplied amount based on the quantity when generating the corresponding Invoice Document.
+
+Merchant Client
+===============
+
+Fixed
+-----
+
+* An issue where it was not possible to create transactional invoice lines with quantities greater than 1.
+* An issue where it was not possible to order new subscriptions with an existing |eFaktura| agreement.
+* An issue where searching for users in ADB2C would timeout due to too many queries being sent. The changes will improve the overall performance of the search experience as well.
+
+Checkout
+==========
+
+Fixed
+-----
+
+* An issue where an initial period/campaign with amount 0 would show an error/warning message, even though the order could be completed successfully.
+
 .. _changelog-r140:
 
 **********************
@@ -6,7 +39,6 @@ Release January 28th
 
 Happy new year and welcome to 2026. We are ready with the first release of the year, bringing a mix of fixes and improvements. 
 As always under the covers we are continuing with stability and performance improvements across the board.
-
 
 
 API and Backend
