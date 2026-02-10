@@ -195,7 +195,7 @@ make html
 ```
 
 ### RST Syntax Errors
-**Solution**: 
+**Solution**:
 - Check indentation (RST is whitespace-sensitive)
 - Verify directive syntax (e.g., `.. code-block:: python`)
 - Ensure proper blank lines around directives
