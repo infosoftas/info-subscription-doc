@@ -157,6 +157,8 @@ Use the code-block directive with appropriate language:
 - Don't remove or significantly alter existing content without understanding its purpose
 - Never commit sensitive data, credentials, or API keys in documentation examples
 - Don't break existing internal links or cross-references
+- Avoid creating summaries when not essential for understanding (tutorials would be a notable exception) - each page is NOT a standalone article but should be considered as a chapter or section in a book
+- Avoid repeating information and terms defined in other sections - instead refer to the sections for details. For instance, in a "Further Readings" section or "See Also" at the bottom of the page
 
 ## Best Practices for Copilot
 
