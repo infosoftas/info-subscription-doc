@@ -88,17 +88,17 @@ The following diagram illustrates a typical subscription lifecycle spanning mult
             
         section Period 4 (Apr)
             Subscription Period 4 (Renewal)   :active, period4, 2025-03-31, 30d
-            Invoice Issued (Period 4)   :milestone, inv4, 2025-03-15, 0d
+            Invoice Issued (Period 4)   :milestone, inv4, 2025-03-16, 0d
             Payment Due (Period 4)   :crit, due4, 2025-03-31, 1d
             
         section Period 5 (May)
             Subscription Period 5 (Renewal)   :active, period5, 2025-04-30, 30d
-            Invoice Issued (Period 5)   :milestone, inv5, 2025-04-14, 0d
+            Invoice Issued (Period 5)   :milestone, inv5, 2025-04-15, 0d
             Payment Due (Period 5)   :crit, due5, 2025-04-30, 1d
             
         section Period 6 (Jun)
             Subscription Period 6 (Renewal)   :active, period6, 2025-05-30, 15d
-            Invoice Issued (Period 6)   :milestone, inv6, 2025-05-14, 0d
+            Invoice Issued (Period 6)   :milestone, inv6, 2025-05-15, 0d
             Payment Due (Period 6)   :crit, due6, 2025-05-30, 1d
             Subscription Cancelled   :milestone, cancel, 2025-06-14, 0d
 
