@@ -9,17 +9,17 @@ Understanding the subscription lifecycle is essential for integrators working wi
 Overview
 ========
 
-A **subscription** represents an ongoing agreement between a subscriber and an organization to deliver products or services over time. Unlike a one-time purchase, a subscription consists of multiple sequential **subscription periods**, each representing a distinct time interval during which the service is provided.
+A **subscription** represents a time-bound agreement between a subscriber and an organization to deliver products or services during a specific period. Unlike a one-time purchase, a logical subscription typically consists of multiple sequential subscription entities, each representing a distinct billing and service period.
 
 Most subscriptions in |projectName| follow this lifecycle:
 
 1. **Creation** – A subscription begins, typically through an :ref:`order <subscription-orders>`
-2. **Active Periods** – The subscription generates recurring subscription periods (renewals) at regular intervals
-3. **Billing** – Each subscription period triggers a :ref:`billing cycle <billing-cycle>`
-4. **Termination** – Eventually, the subscription is cancelled and no further periods are created
+2. **Active Periods** – The subscription generates recurring subscriptions (renewals) at regular intervals
+3. **Billing** – Each subscription triggers a :ref:`billing cycle <billing-cycle>`
+4. **Termination** – Eventually, the subscription is cancelled and no further renewals are created
 
 .. important::
-    A critical concept in |projectName| is that **each subscription period is technically a separate subscription entity** in the system. When we talk about "subscription renewal," we're actually creating a new subscription record that continues from where the previous one ended. This design allows for precise tracking of billing, service delivery, and state changes over time.
+    A critical concept in |projectName| is that **each renewal creates a new subscription entity** in the system. When we talk about "subscription renewal," we're actually creating a new subscription record that continues from where the previous one ended. These subscriptions are linked together in a chain using ``previousSubscriptionId`` and ``nextSubscriptionId`` fields. This design allows for precise tracking of billing, service delivery, and state changes over time.
 
 
 Key Terminology
@@ -40,7 +40,7 @@ Before diving into the lifecycle details, it's important to understand the key e
     A workflow that encapsulates the steps required to create a new subscription, including payment registration, plan selection, and subscription activation. See :ref:`Creating New Subscriptions Using Orders <subscription-orders>`.
 
 **Subscription**
-    A time-bound agreement to provide products/services. In |projectName|, each billing period creates a new subscription record that is part of a logical subscription chain. See the :ref:`terminology <terminology>` section for the formal definition.
+    A time-bound agreement to provide products/services during a specific period. In |projectName|, each renewal creates a new subscription entity that is part of a logical subscription chain, linked via ``previousSubscriptionId`` and ``nextSubscriptionId`` fields. See the :ref:`terminology <terminology>` section for the formal definition.
 
 **Subscription Plan** (also **Package**)
     The set of rules governing a subscription, including pricing, products included, billing frequency, and renewal terms. Created from a Template Subscription Plan during order processing. See :ref:`Plans and Template Plans <plans>` and the :ref:`terminology <terminology>` section.
@@ -48,19 +48,19 @@ Before diving into the lifecycle details, it's important to understand the key e
 **Template Subscription Plan** (also **Template Package**)
     A reusable template that defines the default configuration for subscription plans, used during order creation to generate concrete subscription plans. See :ref:`subscriptionplan-templates <subscriptionplan-templates>` and the :ref:`terminology <terminology>` section.
 
-**Subscription Period**
-    A specific time interval within the subscription lifecycle (e.g., one month, one year). Each period is represented as a separate subscription entity in the system.
-
 
 The Subscription Lifecycle Timeline
 ====================================
 
-The following diagram illustrates a typical subscription lifecycle spanning multiple periods. This example shows:
+The following diagram illustrates a typical subscription lifecycle spanning multiple subscriptions. This example shows:
 
 - **Initial creation** via an order
-- **Five subscription periods** (representing renewals)
-- **Key billing events** for each period
+- **Five subscription renewals**
+- **Key billing events** for each subscription
 - **Final cancellation** of the subscription
+
+.. note::
+    The dates shown in this diagram (2025-01-15, etc.) are purely illustrative examples and do not represent actual historical data.
 
 .. mermaid::
 
@@ -103,7 +103,7 @@ The following diagram illustrates a typical subscription lifecycle spanning mult
             Subscription Cancelled   :milestone, cancel, 2025-06-14, 0d
 
 .. note::
-    This is a simplified timeline. The first subscription period is often invoiced at order completion, which may coincide with the period start date in the diagram. For **renewal** periods, billing events typically occur **before** the subscription period starts due to the :ref:`in-advance billing model <in-advance-billing>`. Invoices are usually issued 15-30 days before the period begins, depending on the billing plan's "minimum due days" configuration.
+    This is a simplified timeline. The first subscription is often invoiced at order completion, which may coincide with the period start date. For **renewal** subscriptions, billing events typically occur **before** the subscription period starts due to the :ref:`in-advance billing model <in-advance-billing>`. Invoices are usually issued 15-30 days before the period begins, depending on the billing plan's "minimum due days" configuration.
 
 
 Detailed Lifecycle Stages
@@ -117,7 +117,7 @@ Most subscriptions begin with an :ref:`order <subscription-orders>`. The order w
 - **Subscriber identification or creation** – Establishing who is subscribing
 - **Plan selection** – Choosing a :ref:`Template Subscription Plan <subscriptionplan-templates>` and any customizations
 - **Payment agreement registration** – Setting up payment methods (credit card, direct debit, invoice, etc.)
-- **Subscription activation** – Creating the first subscription period
+- **Subscription activation** – Creating the first subscription
 
 **Key API Interactions:**
 
@@ -127,12 +127,12 @@ Most subscriptions begin with an :ref:`order <subscription-orders>`. The order w
 **Events Triggered:**
 
 - ``OrderProcessed`` – Fired when an order is completed
-- :ref:`SubscriptionCreated <subscription-created-event>` – Fired when the first subscription period is created
+- :ref:`SubscriptionCreated <subscription-created-event>` – Fired when the first subscription is created
 
 The completed order produces:
 
 - A **Subscriber** (if one didn't already exist)
-- A **Subscription** entity representing the first period
+- A **Subscription** entity representing the first subscription
 - A **Subscription Plan** instance derived from the template
 - A **Billing cycle** that begins immediately (see next section)
 
@@ -143,14 +143,14 @@ The completed order produces:
 2. Billing Cycle Initiation
 ----------------------------
 
-As soon as a subscription period is created (whether the initial period or a renewal), a :ref:`billing cycle <billing-cycle>` is automatically triggered. The billing system:
+As soon as a subscription is created (whether the initial subscription or a renewal), a :ref:`billing cycle <billing-cycle>` is automatically triggered. The billing system:
 
 1. **Schedules the payment demand** – Determines when to issue the invoice based on the :ref:`in-advance billing model <in-advance-billing>`
-2. **Issues the invoice** – Generates an invoice for the subscription period, typically 15-30 days before the period starts
+2. **Issues the invoice** – Generates an invoice for the subscription, typically 15-30 days before the subscription starts
 3. **Processes payment requests** – For integrated payment providers (e.g., AvtaleGiro, SwedbankPay), payment collection is initiated
 4. **Handles payment outcomes** – Records successful payments or initiates dunning processes (reminders, cancellations) for failed payments
 
-**Key Point:** Each subscription period has its own independent billing cycle. Multiple billing cycles often overlap because payments may not settle immediately.
+**Key Point:** Each subscription has its own independent billing cycle. Multiple billing cycles often overlap because payments may not settle immediately.
 
 For complete details on billing stages, payment processing, and dunning, see the :ref:`Billing Overview <billing-cycle>`.
 
@@ -158,26 +158,26 @@ For complete details on billing stages, payment processing, and dunning, see the
 3. Subscription Renewals
 -------------------------
 
-At the end of each subscription period, |projectName| automatically generates a new subscription period (a "renewal") based on the subscription plan's renewal rules. This renewal is **not** a modification of the existing subscription—it's the creation of a **new subscription entity** that continues the logical subscription chain.
+At the end of each subscription, |projectName| automatically generates a new subscription (a "renewal") based on the subscription plan's renewal rules. This renewal is **not** a modification of the existing subscription—it's the creation of a **new subscription entity** that continues the logical subscription chain.
 
 **Renewal Process:**
 
-1. The current subscription period reaches its end date
+1. The current subscription reaches its end date
 2. |projectName| creates a new subscription with:
 
    - The same subscriber
    - The same (or updated) subscription plan
-   - A new start date (typically the day after the previous period ended)
+   - A new start date (typically the day after the previous subscription ended)
    - A new billing cycle
 
 3. A :ref:`SubscriptionCreated <subscription-created-event>` event is fired
-4. The billing cycle for the new period begins immediately
+4. The billing cycle for the new subscription begins immediately
 
 **Subscription Plan Changes:**
 
 Renewals can also incorporate :ref:`plan changes <subscription-plan-changes>` (upgrades or downgrades) scheduled to take effect at renewal time. When a plan change occurs:
 
-- The new subscription period uses the updated plan
+- The new subscription uses the updated plan
 - Proration adjustments are applied as needed
 - Outstanding charges/allowances are transferred to the new subscription
 
@@ -185,7 +185,7 @@ Renewals can also incorporate :ref:`plan changes <subscription-plan-changes>` (u
 
 While renewals typically happen automatically, you can also:
 
-- :api-ref:`View upcoming renewals </Subscription/get_Subscription_scheduled>` – See scheduled subscription periods
+- :api-ref:`View upcoming renewals </Subscription/get_Subscription_scheduled>` – See scheduled subscriptions
 - :api-ref:`Schedule plan changes </Subscription/post_Subscription__subscriptionId__scheduledchange>` – Modify the plan for the next renewal
 
 
@@ -242,7 +242,7 @@ Cancellations can be:
 
 **What Happens After Cancellation:**
 
-- No further subscription periods (renewals) are created
+- No further subscriptions (renewals) are created
 - Any outstanding payment demands remain in the billing system
 - Proration policies determine whether subscribers receive credits for unused time (see :ref:`Proration Policies <proration-policies>`)
 
@@ -250,12 +250,12 @@ Cancellations can be:
 Subscription States and Transitions
 ====================================
 
-Each subscription period has a lifecycle state that tracks its current status:
+Understanding subscription states helps track where a subscription is in its lifecycle. While there is no explicit "state" property on the subscription entity, the state is determined by interpreting the subscription's dates and flags relative to the current time:
 
-- **Active** – The subscription period is currently in effect and service is being delivered
-- **Pending** – The subscription period is scheduled but hasn't started yet
-- **Cancelled** – The subscription has been cancelled and will not renew
-- **Completed** – The subscription period has ended and a renewal was created (or the subscription was cancelled)
+- **Pending** – The subscription is scheduled but hasn't started yet (current time is before the subscription start time)
+- **Active** – The subscription is currently in effect and service is being delivered (current time is between start and end times)
+- **Completed** – The subscription has ended and a renewal was created (end time has passed and a next subscription exists)
+- **Cancelled** – The subscription has been cancelled and will not renew (cancelled flag is set)
 
 The following state diagram illustrates the possible transitions:
 
@@ -271,7 +271,7 @@ The following state diagram illustrates the possible transitions:
         Completed --> [*]
 
 .. note::
-    This is a simplified view. The actual subscription lifecycle may include additional states and transitions depending on plan changes, pauses, and other operations.
+    This is a simplified view representing the logical interpretation of subscription state based on time and flags. The actual subscription lifecycle may include additional states and transitions depending on plan changes, pauses, and other operations.
 
 
 Integration Points for Developers
@@ -296,8 +296,8 @@ Reporting and Analytics
 
 The :ref:`reporting datamodel <reporting-datamodel>` provides comprehensive access to subscription and billing data:
 
-- **Subscriptions** – View all subscription periods and their relationships
-- **PaymentDemands** – Track billing for each subscription period
+- **Subscriptions** – View all subscriptions and their relationships
+- **PaymentDemands** – Track billing for each subscription
 - **Invoices** – Monitor invoice state and settlement
 - **Subscribers** – Access subscriber and contact information
 
@@ -309,7 +309,7 @@ API Endpoints
 Key API endpoints for subscription lifecycle management:
 
 - :api-ref:`List Subscriptions </Subscription/get_Subscription>` – Retrieve active and historical subscriptions
-- :api-ref:`Get Subscription Details </Subscription/get_Subscription__subscriptionId_>` – View a specific subscription period
+- :api-ref:`Get Subscription Details </Subscription/get_Subscription__subscriptionId_>` – View a specific subscription
 - :api-ref:`View Scheduled Subscriptions </Subscription/get_Subscription_scheduled>` – See upcoming renewals
 - :api-ref:`Cancel Subscription </Subscription/post_Subscription__subscriptionId__cancel>` – End a subscription
 - :api-ref:`Schedule Plan Change </Subscription/post_Subscription__subscriptionId__scheduledchange>` – Modify future renewals
@@ -323,11 +323,11 @@ Common Scenarios and Best Practices
 Tracking a Subscriber's Full Subscription History
 --------------------------------------------------
 
-To view all subscription periods for a given subscriber (across renewals):
+To view all subscriptions for a given subscriber (across renewals):
 
 1. Query the :api-ref:`Subscriptions endpoint </Subscription/get_Subscription>` filtering by ``subscriberId``
 2. Use the ``startTime`` and ``endTime`` fields to reconstruct the timeline
-3. Link subscription periods using the ``subscriberAccountId`` to track the logical subscription chain
+3. Follow the subscription chain using ``previousSubscriptionId`` and ``nextSubscriptionId`` fields to track the logical subscription across renewals (these fields link each subscription to its predecessor and successor in the renewal chain)
 
 Handling Payment Failures
 --------------------------
@@ -346,7 +346,7 @@ Allow subscribers to change their plan:
 
 1. Present available plans to the subscriber (e.g., via self-service portal)
 2. Use :api-ref:`Schedule Plan Change </Subscription/post_Subscription__subscriptionId__scheduledchange>` to apply the change immediately or at renewal
-3. |projectName| handles proration, billing adjustments, and subscription period creation automatically
+3. |projectName| handles proration, billing adjustments, and new subscription creation automatically
 
 Preventing Automatic Renewals
 ------------------------------
@@ -356,25 +356,3 @@ For limited-time subscriptions (e.g., trial periods, seasonal offers):
 - Set ``automaticStop`` to ``true`` in the subscription plan
 - The subscription will not renew after the current period ends
 - Subscribers can manually renew or resubscribe if desired
-
-
-Summary
-=======
-
-The subscription lifecycle in |projectName| is designed around the concept of **recurring subscription periods**, with each period represented as a separate subscription entity. Understanding this model is key to successful integration:
-
-- **Subscriptions start** with an :ref:`order <subscription-orders>` that creates the first period
-- **Renewals create new subscription periods** automatically at regular intervals
-- **Each period triggers its own billing cycle**, operating independently but overlapping with others
-- **Cancellations stop renewals**, but existing periods and billing cycles continue until resolved
-- **Events and APIs** provide rich integration points for tracking and managing the lifecycle
-
-By leveraging the order workflow, subscription events, and billing automation, you can build robust integrations that seamlessly handle the full subscription lifecycle from creation to cancellation.
-
-**Next Steps:**
-
-- Learn how to create subscriptions: :ref:`Creating New Subscriptions Using Orders <subscription-orders>`
-- Understand billing automation: :ref:`Billing Overview <billing-cycle>`
-- Explore plan management: :ref:`Plans and Template Plans <plans>`
-- Implement event-driven integrations: :ref:`Events and Webhooks <events>`
-- Access subscription data: :ref:`Reporting and Analytics <reporting-intro>`
