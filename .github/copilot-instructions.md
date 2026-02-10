@@ -100,13 +100,21 @@ The built documentation will be in `build/html/`.
 ### Testing Changes
 Always build the documentation after making changes:
 ```bash
+# Install dependencies (first time only)
+pip install -r requirements.txt
+
+# Build HTML documentation
 make html
+
+# Clean build artifacts if needed
+make clean
 ```
 
 Check the build output for:
 - Warnings about broken links or references
 - Syntax errors in RST files
 - Missing files or toctree issues
+- Check exit code: build should succeed without errors
 
 ### Common Tasks
 
@@ -147,6 +155,10 @@ Use the code-block directive with appropriate language:
 - Don't add dependencies to `requirements.txt` without necessity
 - Avoid restructuring the entire documentation tree in a single PR
 - Don't remove or significantly alter existing content without understanding its purpose
+- Never commit sensitive data, credentials, or API keys in documentation examples
+- Don't break existing internal links or cross-references
+- Avoid creating summaries when not essential for understanding (tutorials would be a notable exception) - each page is NOT a standalone article but should be considered as a chapter or section in a book
+- Avoid repeating information and terms defined in other sections - instead refer to the sections for details. For instance, in a "Further Readings" section or "See Also" at the bottom of the page
 
 ## Best Practices for Copilot
 
@@ -163,3 +175,28 @@ This repository is configured for Read the Docs hosting via `readthedocs.yml`. C
 - All builds complete successfully
 - No warnings are introduced
 - The documentation structure remains compatible with Read the Docs
+
+## Troubleshooting
+
+### Build Fails with "sphinx-build: not found"
+**Solution**: Install dependencies with `pip install -r requirements.txt`
+
+### Build Warnings about Missing References
+**Solution**: Check that:
+- Referenced files exist in the `source/` directory
+- Files are included in a `toctree` directive
+- Cross-reference syntax is correct (`:doc:`, `:ref:`, etc.)
+
+### Changes Not Appearing in Output
+**Solution**: Try a clean build:
+```bash
+make clean
+make html
+```
+
+### RST Syntax Errors
+**Solution**:
+- Check indentation (RST is whitespace-sensitive)
+- Verify directive syntax (e.g., `.. code-block:: python`)
+- Ensure proper blank lines around directives
+- Check header underline length matches header text
