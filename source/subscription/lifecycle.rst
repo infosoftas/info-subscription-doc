@@ -103,7 +103,7 @@ The following diagram illustrates a typical subscription lifecycle spanning mult
             Subscription Cancelled   :milestone, cancel, 2025-06-14, 0d
 
 .. note::
-    This is a simplified timeline. In practice, billing events occur **before** the subscription period starts due to the :ref:`in-advance billing model <in-advance-billing>`. Invoices are typically issued 15-30 days before the period begins, depending on the billing plan's "minimum due days" configuration.
+    This is a simplified timeline. The first subscription period is often invoiced at order completion, which may coincide with the period start date in the diagram. For **renewal** periods, billing events typically occur **before** the subscription period starts due to the :ref:`in-advance billing model <in-advance-billing>`. Invoices are usually issued 15-30 days before the period begins, depending on the billing plan's "minimum due days" configuration.
 
 
 Detailed Lifecycle Stages
