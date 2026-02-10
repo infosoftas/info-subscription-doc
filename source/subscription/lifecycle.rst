@@ -78,7 +78,7 @@ The following diagram illustrates a typical subscription lifecycle spanning mult
             
         section Period 2
             Subscription Period 2 (Renewal)   :active, period2, 2025-01-30, 30d
-            Invoice Issued (Period 2)   :milestone, inv2, 2025-01-15, 0d
+            Invoice Issued (Period 2)   :milestone, inv2, 2025-01-20, 0d
             Payment Due (Period 2)   :crit, due2, 2025-01-30, 1d
             
         section Period 3
