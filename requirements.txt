@@ -3,6 +3,7 @@ sphinx-tabs
 sphinxcontrib-contentui
 sphinx_rtd_theme
 sphinx-copybutton
+sphinx-llm
 #docutils==0.20.1
 # Temporary downgrade of sphinx to version8 to avoid compatibility issues with sphinx-tabs
 sphinx<9.0
