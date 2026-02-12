@@ -9,11 +9,7 @@ Terminology and Definitions
     Subscriber
     Account Owner
         An entity who owns a given subscription is considered to be legally responsible for the subscription.
-        All financial transactions for a subscription is associated with the subscriber (in the general case).
-
-    End User
-    User
-        A person/entity who interacts with |projectName| either as a tenant/merchant or as a potential subscriber.
+        All financial transactions for a subscription is associated with a Subscriber Billing Account and by association a subscriber (in the general case).
 
     Subscription
         An agreement for an organization to provide/deliver a service or product to a subscriber in a given period of time.
@@ -22,7 +18,7 @@ Terminology and Definitions
 
     Subscription Plan
     Package
-        A set of rules that governs the details of a subscription, such as the duration, continuation, billing and fees.
+        A set of rules that governs the details of a subscription, such as the included products, the duration, continuation, billing and fees.
 
     Template Subscription Plan
     Template Package
@@ -32,13 +28,21 @@ Terminology and Definitions
         A legal entity, company or similar who offers one or more products as a subscription.
 
     Payment
-        A Payment
+        A Payment represents a transfer of funds from a subscriber to an organization as settlement for services or products provided.
+        Specifically payments are incoming transactions from a subscriber to an organization, and refunds are outgoing transactions from an organization to a subscriber.
 
+    Billing Account
+    Subscriber Billing Account
     Subscriber Account
-        An account within an organization that belongs to a subscriber
+        An account within an organization that belongs to a subscriber for a given Currency. A billing account is used to track all financial transactions (charges, payments, refunds) for a subscriber.
+        Each Subscriber may have multiple billing accounts, but typically there is a one to one relationship between a subscriber and a billing account.
     
+    Additional Product
+        A product that is not part of a subscription, but purchased as an add-on to a subscription. For instance for extra devices, TV-channel access, points or similar.
+        An additional product is typically associated with a subscription, but it is not governed by the subscription plan rules.
+
     Product
-        A product is something that is sold/purchased either as a service, benefit or a physical wares that can be subscribed to
+        A product is something that is sold/purchased either as a service, benefit or a physical wares that can be subscribed to.
 
     Payment Agreement
         An agreement on a means of payment/billing between an organization, a subscriber and optionally a third party that allows the organization to obtain payments from the subscriber.
