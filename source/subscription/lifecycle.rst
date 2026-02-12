@@ -25,16 +25,18 @@ Most subscriptions in |projectName| follow this lifecycle:
 Key Terminology
 ===============
 
-Before diving into the lifecycle details, it's important to understand the key entities and their relationships:
+Before diving into the lifecycle details, it's important to understand the key entities and their relationships, for some of these a more detailed definition may be found in the :ref:`terminology <terminology>` section.
 
 **Subscriber**
-    The entity (person or organization) who owns and is financially responsible for subscriptions. For the complete definition, see the :ref:`terminology <terminology>` section.
+    The entity (person or organization) who owns and is financially responsible for subscriptions.
 
 **Subscriber Contact**
-    Contact information associated with a subscriber, such as billing addresses, delivery addresses, or alternate contacts. A subscriber may have multiple contacts. See ``SubscriberContacts`` in :ref:`reporting datamodel <reporting-datamodel>`.
+    Contact information associated with a subscriber, such as billing addresses, delivery addresses, or alternate contacts. A subscriber may have multiple contacts. See for instance ``SubscriberContacts`` in :ref:`reporting datamodel <reporting-datamodel>`.
+    Typically there is a 1 to 1 relationship between a subscriber and a contact, but in some cases there may be multiple contacts associated with a single subscriber.
 
 **Subscriber Account** (also **Subscriber Billing Account**)
-    The financial account under which a subscriber's transactions, charges, and payments are tracked. See :term:`Subscriber Account` in :ref:`terminology <terminology>`.
+    The financial account under which a subscriber's transactions, charges, and payments are tracked.
+    By default there will be a one to one relationship between a subscriber and a subscriber account.
 
 **Order**
     A workflow that encapsulates the steps required to create a new subscription, including payment registration, plan selection, and subscription activation. See :ref:`Creating New Subscriptions Using Orders <subscription-orders>`.
