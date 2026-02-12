@@ -47,7 +47,8 @@ extensions = [
     'sphinxcontrib.contentui',
     'sphinx_rtd_theme',
     'sphinx_copybutton',
-    'sphinxcontrib.mermaid'
+    'sphinxcontrib.mermaid',
+    'sphinx_llm.txt'
     ]
 # extensions = ['sphinx_tabs.tabs']
 
@@ -265,4 +266,12 @@ extlinks = {
     'github-issues': ('https://www.github.com/infosoftas/info-subscription/issues/%s', 'Github Issue %s '),
     'api-ref': ('https://api.info-subscription.com/swagger/#/%s', 'API Reference %s'),
 }
+
+# -- Options for sphinx-llm extension ----------------------------------------
+
+# Exclude non-content pages from LLM output
+llms_txt_exclude = [
+    'search',
+    'genindex',
+]
 
