@@ -90,6 +90,7 @@ For help, feedback, or to report issues, see :ref:`Support and Reporting Bugs <r
     :caption: Subscriptions
     :hidden:
 
+    subscription/lifecycle
     subscription/plans
     subscription/orders/orders
     subscription/orders/examples/examples
