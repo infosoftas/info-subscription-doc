@@ -92,11 +92,6 @@ Added
 * Checkout: Support for displaying Invoice Fee as part of the price.
 * Checkout: Support for ordering new subscriptions for previously connected users without a direct subscriber connection.
 
-Changed
--------
-
-* Checkout: Improved handling of Subscriber Contact information when navigating back and forth between payment providers.
-
 Fixed
 -----
 
