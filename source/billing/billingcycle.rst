@@ -229,6 +229,10 @@ The following diagram and explanation describe this reminder retry logic:
 - This cycle repeats until either the invoice is paid, a credit note is issued, or no further reminders are configured.
 - When payment is received or the invoice is credited, any scheduled reminders are removed.
 
+.. note::
+
+    If an external party (such as a debt collection agency) drives the reminder timeline, you can create reminders directly via the API without involving the dunning schedule. See :ref:`Creating Reminders On Demand <on-demand-reminder>`.
+
 .. _Billing_Dunning_Timeline:
 
 Billing and Dunning Timeline

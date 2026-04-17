@@ -103,6 +103,7 @@ For help, feedback, or to report issues, see :ref:`Support and Reporting Bugs <r
     billing/billingcycle
     billing/proration-policies
     billing/standalone
+    billing/on-demand-reminder
 
 .. toctree::
     :caption: Payments and Agreements
