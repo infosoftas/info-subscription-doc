@@ -16,6 +16,7 @@ Common Scenarios
 Advanced & Conceptual Guides:
 --------------------------------
 * :ref:`Bring Your Own PSP <external_payment_provider_integration>` Learn about integrating third-party payment providers and how |projectName| fits into multi-party payment flows.
+* :ref:`External Debt Collection — On-Demand Reminders <on-demand-reminder>` Issue reminders directly via the API when an external collection agency controls the collections timeline, bypassing the scheduled dunning flow.
  
 .. * Multi-Tenant and White-Label Integrations: Architectural considerations for complex deployments.
 .. * Event-Driven Workflows: Using webhooks and external systems for automation.
