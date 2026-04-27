@@ -24,8 +24,8 @@ The ``UserAuthorizationGranted`` event is well suited for keeping external autho
 
 Related events:
 
- * ``com.info-subscription.UserAuthorizationRevoked``
- * ``com.info-subscription.EmailDomainAuthorizationGranted``
+* ``com.info-subscription.UserAuthorizationRevoked``
+* ``com.info-subscription.EmailDomainAuthorizationGranted``
 
 .. _user-authorization-revoked-event:
 
@@ -51,8 +51,8 @@ The ``UserAuthorizationRevoked`` event can be used to:
 
 Related events:
 
- * ``com.info-subscription.UserAuthorizationGranted``
- * ``com.info-subscription.EmailDomainAuthorizationRevoked``
+* ``com.info-subscription.UserAuthorizationGranted``
+* ``com.info-subscription.EmailDomainAuthorizationRevoked``
 
 .. _email-domain-authorization-granted-event:
 
@@ -67,8 +67,8 @@ When such an authorization is configured for a domain, this event is triggered, 
 
 Related events:
 
- * ``com.info-subscription.EmailDomainAuthorizationRevoked``
- * ``com.info-subscription.UserAuthorizationGranted``
+* ``com.info-subscription.EmailDomainAuthorizationRevoked``
+* ``com.info-subscription.UserAuthorizationGranted``
 
 .. _email-domain-authorization-revoked-event:
 
@@ -80,5 +80,5 @@ This is the counterpart to ``EmailDomainAuthorizationGranted`` and is fired when
 
 Related events:
 
- * ``com.info-subscription.EmailDomainAuthorizationGranted``
- * ``com.info-subscription.UserAuthorizationRevoked``
+* ``com.info-subscription.EmailDomainAuthorizationGranted``
+* ``com.info-subscription.UserAuthorizationRevoked``
