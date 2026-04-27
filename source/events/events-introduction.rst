@@ -256,3 +256,5 @@ The following contains a more detailed description of some of these events, when
     types/orders
     types/subscription
     types/invoice
+    types/payments
+    types/authorization
