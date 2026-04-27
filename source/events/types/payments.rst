@@ -18,7 +18,7 @@ The ``PaymentRequestScheduled`` event can be used to:
 
 Related events:
 
- * ``com.info-subscription.PaymentRequestProcessed``
+* ``com.info-subscription.PaymentRequestProcessed``
 
 .. _payment-request-processed-event:
 
@@ -40,5 +40,5 @@ The ``PaymentRequestProcessed`` event can be used to:
 
 Related events:
 
- * ``com.info-subscription.PaymentRequestScheduled``
- * ``com.info-subscription.InvoicePaid``
+* ``com.info-subscription.PaymentRequestScheduled``
+* ``com.info-subscription.InvoicePaid``
