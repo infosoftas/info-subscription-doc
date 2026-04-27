@@ -1,3 +1,17 @@
+**********************
+Release April 27th
+**********************
+
+Small hotfix to fix an issue related to session handling when completing orders in checkout.
+
+Checkout
+=========
+
+Fixed
+-----
+
+* Fixed an issue where redirects to/from the Vipps and MobilePay apps would lead to lost sessions on iOS, causing orders to not be completed properly, relying on the fallback check in all cases. This was caused by a change in behaviour of an unsupported feature that checkout unknowingly relied upon.
+
 .. _changelog-r141:
 
 **********************
