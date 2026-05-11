@@ -18,8 +18,8 @@ Added
 -----
 
 * **[Preview]** Introduced configuration options to allow Payment matching on paid and credited demands and invoices. This might be useful when consumers have configured fixed bank transfers instead of relying on the invoice and the associated ExternalInvoiceIdentifier.
-* **[Preview]** A configuration option has been added so merchants and restrict Billing Account generation during the order process to only ever allow one Billing Account per customer. This is useful for merchants who want to ensure all orders from a customer are consolidated under a single Billing Account. It is not a system wide setting, and is only meant to steer orders so that integrations does not make mistakes.
-* **[Preview]** Support for defining subscription plans directly, instead of relying on preconfigured Template Plans and the available override parameters. This allows more control in case where individual subscription plans are needed. Especially useful for merchant with primarily enterprise customers.
+* **[Preview]** A configuration option has been added so merchants and restrict Billing Account generation during the order process to only ever allow one Billing Account per subscriber. This is useful for merchants who want to ensure all orders from a subscriber are consolidated under a single Billing Account. The configuration only steers order generation, and is not a system wide restriction.
+* **[Preview]** Support for defining subscription plans directly, instead of relying on preconfigured Template Plans and the available override parameters. This allows more control in cases where individual subscription plans are needed. Especially useful for merchant with primarily enterprise customers.
   The feature consists of multiple parts:
 
     * New API endpoint to create and get subscription plans directly.
