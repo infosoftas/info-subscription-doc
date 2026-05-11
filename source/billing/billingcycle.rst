@@ -11,6 +11,29 @@ This document outlines the basics of the billing cycle, including key stages and
 
 The cycle is event-driven, and each stage offers opportunities for custom integrations via events and API endpoints.
 
+Payment Demands and Invoices: Two Views of the Same Billing Data
+-----------------------------------------------------------------
+
+In |projectName|, a payment demand and an invoice describe the same commercial claim, but from different perspectives:
+
+* **Payment demand** is the source billing structure used by the engine. It primarily references other entities by id (for example ``subscriberId``, ``subscriptionId``, ``orderId``, and ``billingPlanId``), and includes demand details used to calculate the claim.
+* **Invoice** is the normalized document view of that claim. It presents participant and line information in a human-readable format (for example names, addresses, invoice lines, periods, and totals).
+
+How details map:
+
+* Demand details tied to subscriptions are translated into one or more invoice lines for the **next** subscription period (in-advance billing).
+* Demand details tied to orders represent the **first** subscription period.
+
+Relationship and navigation:
+
+* One payment demand corresponds to one invoice in ``Issued`` state.
+* You can navigate this relationship from demand to invoice via ``paymentDemand.invoiceId``.
+* The reverse is not guaranteed by the model. Invoice payloads do not provide reverse knowledge of payment demand ids.
+
+Invoice-specific identifiers:
+
+* ``invoice.number`` (invoice number) and ``invoice.externalInvoiceIdentifier`` are invoice-side identifiers that are not directly derivable from payment demand ids/details.
+
 Billing Cycle Stages & Integration Points
 -----------------------------------------
 
