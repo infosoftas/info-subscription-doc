@@ -1,5 +1,6 @@
 .. _changelog:
 
+.. include:: r142.inc
 .. include:: r141.inc
 .. include:: r140.inc
 .. include:: r139.inc
@@ -9,4 +10,3 @@
 .. include:: r135.inc
 .. include:: r134.inc
 .. include:: r133.inc
-.. include:: r132.inc
