@@ -139,4 +139,5 @@ Payment Providers (PSPs)
     providers/swedbank
     providers/autogiro
     providers/betalingsservice
+    providers/autogiro
     external-provider-integration
