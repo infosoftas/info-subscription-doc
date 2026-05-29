@@ -31,7 +31,13 @@ Before the billing service can settle anything, the payment service must identif
         B --> C[PaymentCompleted event]
         C --> D[Billing service: demand matching and settlement]
 
-Automatic approval is always enabled in practice, so ``AwaitingApproval`` is not relevant for normal integrations. If identification fails, the payment remains in ``AwaitingIdentification`` until it is corrected through the API. Payments in this state do not emit ``PaymentCompleted``, do not emit :ref:`InvoicePaid <invoice-paid-event>`, and do not trigger billing settlement.
+Automatic approval is always enabled in practice, so ``AwaitingApproval`` is not relevant for normal integrations. If identification fails, the payment remains in ``AwaitingIdentification`` until it is corrected through the API.
+
+Payments in this state:
+
+* do not emit ``PaymentCompleted``
+* do not emit :ref:`InvoicePaid <invoice-paid-event>`
+* do not trigger billing settlement
 
 Matching Types
 --------------
@@ -151,7 +157,13 @@ Two settlement policy types exist, and they can be combined:
    * - Fixed amount tolerance
      - The payment may settle the demand when the remaining difference is within a configured fixed amount, for example 5 NOK.
 
-If the payment alone does not meet the threshold, the system also checks the subscriber's current billing account balance. When payment plus available allowances meets the settlement policy, billing settles the demand using both the payment and the consumed allowance balance.
+If the payment alone does not meet the threshold, billing checks the subscriber's current billing account balance next.
+
+Settlement then follows one of these paths:
+
+* If the payment alone meets the policy, the demand settles from the payment
+* If payment plus available allowances meets the policy, the demand settles using both the payment and the consumed allowance balance
+* If neither threshold is met, the demand remains open
 
 .. mermaid::
 
