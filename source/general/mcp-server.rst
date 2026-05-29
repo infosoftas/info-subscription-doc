@@ -72,6 +72,9 @@ Tenant-specific endpoint (recommended for users with access to multiple tenants)
 
    https://mcp.info-subscription.com/<YOUR_TENANT_ID>
 
+The server is also published in the main MCP registry for tools that support direct discovery:
+``https://registry.modelcontextprotocol.io/``.
+
 Point your MCP client to the server URL and use ``http`` transport. Example:
 
 .. code-block:: json
