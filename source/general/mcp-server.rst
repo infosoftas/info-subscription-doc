@@ -22,7 +22,7 @@ The INFO-Subscription MCP server is available in two flavours:
      - Intended audience
    * - Remote server
      - Hosted HTTP endpoint, secured with Azure AD B2C JWT bearer auth
-     - Teams and organisations wanting a shared, always-on connection (**preferred**)
+     - Teams and organizations wanting a shared, always-on connection (**preferred**)
    * - Local tool (``s4mcp``)
      - Installed as a .NET global tool, runs as a child process over stdio
      - Individual developers and power users on their own machine
