@@ -44,7 +44,7 @@ Example prompts:
 
 * ``Show me all active subscriptions for subscriber 10042``
 * ``Find the invoice with number 88321 and summarise what was billed``
-* ``Which subscribers have cancelled the last 30 days?``
+* ``Which subscribers have cancelled in the last 30 days?``
 * ``List all packages available for organization X``
 * ``What is the full renewal history for subscriber 10042?``
 
