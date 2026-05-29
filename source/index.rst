@@ -56,7 +56,7 @@ Already familiar with the basics? Explore these advanced topics to get the most 
 * :ref:`Webhooks and Event Handling <events>` – Automate workflows with event-driven integrations
 * :ref:`Reporting and Analytics <reporting-intro>` – Access and analyze subscription data
 * :doc:`OData Querying <reporting-analytics/odata-primer>` – Advanced querying techniques for analytics data
-* :doc:`INFO-Subscription MCP <general/mcp-server>` – Connect AI assistants to live tenant data
+* :doc:`MCP Server <general/mcp-server>` – Connect AI assistants to live tenant data
 * `API Reference <https://api.info-subscription.com/swagger/>`_ – Full technical details for all endpoints
 * :ref:`Follow the changelog <changelog>` – Stay up to date with the latest changes
 * :ref:`Testing <testing-experimenting>` – Use our testing and experimentation tenant for testing your integration and getting to know the platform.

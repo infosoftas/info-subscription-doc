@@ -1,8 +1,10 @@
 .. _mcp-server:
 
-*****************************************
-INFO-Subscription MCP for AI Assistants
-*****************************************
+**********
+MCP Server
+**********
+
+This page explains what MCP is in the context of INFO-Subscription and how to connect your AI tools quickly.
 
 What is the INFO-Subscription MCP?
 ==================================
@@ -18,12 +20,12 @@ The INFO-Subscription MCP server is available in two flavours:
    * - Flavour
      - How it runs
      - Intended audience
+   * - Remote server
+     - Hosted HTTP endpoint, secured with Azure AD B2C JWT bearer auth
+     - Teams and organisations wanting a shared, always-on connection (**preferred**)
    * - Local tool (``s4mcp``)
      - Installed as a .NET global tool, runs as a child process over stdio
      - Individual developers and power users on their own machine
-   * - Remote server
-     - Hosted HTTP endpoint, secured with Azure AD B2C JWT bearer auth
-     - Teams and organisations wanting a shared, always-on connection
 
 What can you do with it?
 ========================
@@ -42,7 +44,7 @@ Example prompts:
 
 * ``Show me all active subscriptions for subscriber 10042``
 * ``Find the invoice with number 88321 and summarise what was billed``
-* ``Which subscribers in Oslo have cancelled in the last 30 days?``
+* ``Which subscribers have cancelled the last 30 days?``
 * ``List all packages available for organization X``
 * ``What is the full renewal history for subscriber 10042?``
 
@@ -53,8 +55,56 @@ Prerequisites
 * An INFO-Subscription tenant ID (GUID)
 * A B2C client ID (provided by Infosoft; the production default is pre-configured in the tool)
 
-Getting started — VS Code (GitHub Copilot)
+Getting started — Remote server (preferred)
 ===========================================
+
+A hosted HTTP endpoint is available for teams who want a shared, always-on connection without installing the local tool.
+
+Production endpoint:
+
+.. code-block:: text
+
+   https://mcp.info-subscription.com
+
+Tenant-specific endpoint (recommended for users with access to multiple tenants):
+
+.. code-block:: text
+
+   https://mcp.info-subscription.com/<YOUR_TENANT_ID>
+
+Point your MCP client to the server URL and use ``http`` transport. Example:
+
+.. code-block:: json
+
+   {
+     "mcpServers": {
+       "s4": {
+         "url": "https://mcp.info-subscription.com",
+         "transport": "http"
+       }
+     }
+   }
+
+.. note::
+
+   The remote server requires a valid Azure AD B2C access token.
+   You can use the public client_id ``09ddd06c-dd1b-4782-8716-820ce6077e41``.
+   If your client is not pre-configured, contact Infosoft to configure redirect URLs.
+   You can also request a private client_id.
+   A client_secret is not required; if a tool requires one, it is not supported at this time.
+   MCP clients that support OAuth 2.0 Protected Resource Metadata can discover the authorization server automatically from ``https://mcp.info-subscription.com/.well-known/oauth-protected-resource``.
+   Contact Infosoft to obtain the required scope and client registration details.
+
+Getting started — Claude Desktop (remote MCP)
+=============================================
+
+Claude Desktop setup is UI-driven (not config-file-driven).
+Use the connector flow in Claude Desktop to add a remote MCP server URL.
+For current step-by-step instructions, see the official Claude guide:
+`Get started with custom connectors using remote MCP <https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp>`_.
+
+Getting started — Local tool (optional)
+=======================================
 
 Install the tool from NuGet.org:
 
@@ -92,64 +142,9 @@ Or add a workspace-level ``.vscode/mcp.json``:
 
 Replace ``<YOUR_TENANT_ID>`` with your INFO-Subscription tenant GUID.
 
-Getting started — Claude Desktop
-================================
-
-Install the tool (same command as above), then edit the Claude Desktop config file:
-
-* **macOS:** ``~/Library/Application Support/Claude/claude_desktop_config.json``
-* **Windows:** ``%APPDATA%\\Claude\\claude_desktop_config.json``
-
-.. code-block:: json
-
-   {
-     "mcpServers": {
-       "s4": {
-         "command": "s4mcp",
-         "args": ["--tenant", "<YOUR_TENANT_ID>"]
-       }
-     }
-   }
-
 Authentication note
 ===================
 
 On first use, the local tool opens a browser window for sign-in via Azure AD B2C (PKCE flow).
 After successful sign-in, the token is cached in the platform config folder.
 Subsequent invocations are silent until the token expires, so no manual token management is required.
-
-Remote server (optional / advanced)
-===================================
-
-A hosted HTTP endpoint is available for teams who want a shared, always-on connection without installing the local tool.
-
-Production endpoint:
-
-.. code-block:: text
-
-   https://mcp.info-subscription.com
-
-Tenant-specific endpoint (recommended for users with access to multiple tenants):
-
-.. code-block:: text
-
-   https://mcp.info-subscription.com/<YOUR_TENANT_ID>
-
-Example Claude Desktop configuration using HTTP transport:
-
-.. code-block:: json
-
-   {
-     "mcpServers": {
-       "s4": {
-         "url": "https://mcp.info-subscription.com",
-         "transport": "http"
-       }
-     }
-   }
-
-.. note::
-
-   The remote server requires a valid Azure AD B2C access token.
-   MCP clients that support OAuth 2.0 Protected Resource Metadata can discover the authorization server automatically from ``https://mcp.info-subscription.com/.well-known/oauth-protected-resource``.
-   Contact Infosoft to obtain the required scope and client registration details.
