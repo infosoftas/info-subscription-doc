@@ -103,7 +103,7 @@ Assume the subscriber paid **€90.00** for the 30-day period.
     Credit Amount = (16 / 30) × €90.00
     Credit Amount = €48.00
 
-The subscriber receives a **€48.00** allowance for the unused portion of the period.
+The subscriber receives a **€48.00** allowance for the unused portion of the period. That allowance is carried on the billing account and can be applied in a later settlement; see :ref:`Billing Account Role <billing-account-role>`.
 
 Visual Timeline: No Proration (Paid Period)
 --------------------------------------------
@@ -334,6 +334,7 @@ Related Documentation
 =====================
 
 - :ref:`Billing Overview <billing-cycle>` – Understand the overall billing cycle and how cancellations fit in
+- :ref:`Payment Matching, Settlement, and Billing Account Reconciliation <payment-matching-settlement>` – See how allowances and charges flow through later settlements
 - :ref:`Subscription Cancellation Event <subscription-cancelled-event>` – Details on the cancellation event
 - :ref:`Dunning Process <Billing_Dunning_Timeline>` – How dunning processes work with billing
 - `ProrationPolicy API <https://api.info-subscription.com/swagger/index.html#/ProrationPolicy/CreateProrationPolicy>`_ – API reference for creating and managing proration policies

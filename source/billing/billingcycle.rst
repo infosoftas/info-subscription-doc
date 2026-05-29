@@ -143,7 +143,7 @@ This hybrid approach is particularly useful for:
 - Adjustments, credits, or refunds that need to be applied to future invoices
 - Scenarios combining fixed subscription fees with variable consumption charges
 
-For more details on creating transactional invoices that settle account balances, see :ref:`Transaction (Non-Recurring) Invoices <standalone-paymentdemands>`.
+For more details on creating transactional invoices that settle account balances, see :ref:`Transaction (Non-Recurring) Invoices <standalone-paymentdemands>`. For details on how payments consume allowances, generate charges, and settle invoices, see :ref:`Payment Matching, Settlement, and Billing Account Reconciliation <payment-matching-settlement>`.
 
 .. tip::
     When designing your billing model, consider how the timing of invoice issuance and payment due dates align with your subscribers' payment cycles and cash flow. The minimum due days configuration is key to ensuring subscribers have adequate time to review invoices and arrange payment.
@@ -186,6 +186,7 @@ For more details on creating transactional invoices that settle account balances
 9. **Invoice Paid**
 	- Payment is received and the invoice is settled.
 	- Integration: Listen for :ref:`InvoicePaid <invoice-paid-event>` events to unlock services or update accounting systems.
+	- Details: See :ref:`Payment Matching, Settlement, and Billing Account Reconciliation <payment-matching-settlement>` for how ``PaymentCompleted`` leads to demand matching, settlement, and billing account updates.
 
 10. **Reminder Issued (Repeatable)**
 	- If payment is not received, reminders may be issued repeatedly.
