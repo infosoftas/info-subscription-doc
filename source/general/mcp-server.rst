@@ -22,7 +22,7 @@ The INFO-Subscription MCP server is available in two flavours:
      - Installed as a .NET global tool, runs as a child process over stdio
      - Individual developers and power users on their own machine
    * - Remote server
-     - Hosted HTTP endpoint, secured with ADB2C JWT bearer auth
+     - Hosted HTTP endpoint, secured with Azure AD B2C JWT bearer auth
      - Teams and organisations wanting a shared, always-on connection
 
 What can you do with it?
@@ -150,7 +150,6 @@ Example Claude Desktop configuration using HTTP transport:
 
 .. note::
 
-   The remote server requires a valid ADB2C access token.
-   MCP clients that support OAuth 2.0 Protected Resource Metadata can discover the authorization server automatically from
-   ``https://mcp.info-subscription.com/.well-known/oauth-protected-resource``.
+   The remote server requires a valid Azure AD B2C access token.
+   MCP clients that support OAuth 2.0 Protected Resource Metadata can discover the authorization server automatically from ``https://mcp.info-subscription.com/.well-known/oauth-protected-resource``.
    Contact Infosoft to obtain the required scope and client registration details.
