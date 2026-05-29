@@ -61,7 +61,7 @@ When a payment is registered, the caller chooses a matching type that tells the 
      - Resolves only the subscriber from ``externalInvoiceIdentifier``. The payment is not matched to the invoice automatically.
      - ``externalInvoiceIdentifier``
    * - ``NoInvoiceMatch``
-     - Attaches the payment to a subscriber or billing account only. No invoice match is attempted during identification.
+     - Attaches the payment to a subscriber or billing account only. No invoice match is attempted during identification. This matching type is on a deprecation path.
      - ``subscriberId``
    * - ``UseBillingAccount``
      - Identifies the payment through a specific billing account and uses the most recent issued invoice on that account
@@ -99,17 +99,12 @@ Matching policies are managed through the Payment API:
 Payment Matching in Billing
 ===========================
 
-Once ``PaymentCompleted`` arrives in the billing service, the system attempts to match the payment to an outstanding demand.
-
-The primary matching identifiers are:
-
-* ``invoiceId``
-* ``subscriberId``
+Once ``PaymentCompleted`` arrives in the billing service, the system attempts to match the payment to an outstanding demand. The primary matching identifiers are ``invoiceId`` and ``subscriberId``.
 
 A demand is eligible only when:
 
-* ``settleDate == null``
-* ``isCredited == false``
+* there is no settle date (``settleDate == null``)
+* the demand is not credited (``isCredited == false``)
 
 .. mermaid::
 
@@ -144,7 +139,7 @@ After a demand is matched, billing evaluates whether the payment settles the dem
 Settlement Policies
 -------------------
 
-Two settlement policy types exist, and they can be combined:
+Two settlement policy types exist:
 
 .. list-table::
    :header-rows: 1
@@ -265,7 +260,7 @@ An Enterprise Plan groups multiple subscriptions into one billing arrangement fo
      - Not applicable
    * - Settlement policy
      - Configurable per billing plan
-     - Handled directly by the Enterprise Plan actor
+     - Requires full payment of the invoice amount
 
 For Enterprise Plan customers, the invoice is settled atomically: either the full invoice amount is paid, or it is not. Integrations should not expect billing account allowances or charges to top up or carry forward Enterprise Plan settlement.
 
