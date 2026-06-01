@@ -102,4 +102,6 @@ This is easily achievable by setting the parameter `SettleAccountBalance` to `tr
 This will generate a new payment demand with account charges and allowances included in the total.
 This can be combined with single transactions as shown above. 
 
+For details on how billing accounts accumulate charges and allowances between invoices, see :ref:`Billing Account Role <billing-account-role>`.
+
 Refer to the API specification to lookup details on which transactions are available on the account prior to generating the demand.

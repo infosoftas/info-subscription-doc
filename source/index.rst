@@ -103,6 +103,7 @@ For help, feedback, or to report issues, see :ref:`Support and Reporting Bugs <r
     :hidden:
 
     billing/billingcycle
+    billing/payment-matching-settlement
     billing/proration-policies
     billing/standalone
     billing/on-demand-reminder
