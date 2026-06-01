@@ -31,7 +31,7 @@ Before the billing service can settle anything, the payment service must identif
         B --> C[PaymentCompleted event]
         C --> D[Billing service: demand matching and settlement]
 
-Automatic approval is always enabled in practice, so ``AwaitingApproval`` is not relevant for normal integrations. If identification fails, the payment remains in ``AwaitingIdentification`` until it is corrected through the API.
+If identification fails, the payment remains in ``AwaitingIdentification`` until it is corrected through the API. Payments in this state never trigger settlement or accounting in billing, so the payment is not transitioned to completed, the demand is not settled, and the invoice is not marked as paid.
 
 Payments in this state:
 
@@ -61,7 +61,7 @@ When a payment is registered, the caller chooses a matching type that tells the 
      - Resolves only the subscriber from ``externalInvoiceIdentifier``. The payment is not matched to the invoice automatically.
      - ``externalInvoiceIdentifier``
    * - ``NoInvoiceMatch``
-     - Attaches the payment to a subscriber or billing account only. No invoice match is attempted during identification. This matching type is on a deprecation path.
+     - Attaches the payment to a subscriber or billing account only. No invoice match is attempted during identification. This matching type is deprecated and planned for removal.
      - ``subscriberId``
    * - ``UseBillingAccount``
      - Identifies the payment through a specific billing account and uses the most recent issued invoice on that account
