@@ -73,7 +73,7 @@ Changed
 Fixed
 -----
 
-* An issue where loosing the authenticated state would lead to a blank page with no indication of what went wrong. This is now handled with a prompt to re-authenticate.
+* An issue where losing the authenticated state would lead to a blank page with no indication of what went wrong. This is now handled with a prompt to re-authenticate.
 * An issue where changing subscriber information would sometimes prompt for a change of payment method when an Invoice Contact was associated.
 * Removed the option for registering payments on a draft/open invoice.
 * Removed the option for crediting already settled Enterprise Plan Payment Demands, as this is not a supported flow and can lead to confusion.
