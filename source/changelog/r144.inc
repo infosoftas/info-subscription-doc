@@ -76,8 +76,8 @@ Added
     * Displaying existing schedules.
     * Registering new scheduled cancellations.
 
-* **Preview** New checkout journey type for trial subscriptions. Requires subscription plans to be marked for automatic cancellation.
-* **Preview** Support for SmartResponse (https://smartresponse.dk/ ) activity tracking in checkout.
+* **[Preview]** New checkout journey type for trial subscriptions. Requires subscription plans to be marked for automatic cancellation.
+* **[Preview]** Support for SmartResponse (https://smartresponse.dk/) activity tracking in checkout.
 
 Changed
 -------
