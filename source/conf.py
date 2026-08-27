@@ -48,7 +48,8 @@ extensions = [
     'sphinx_rtd_theme',
     'sphinx_copybutton',
     'sphinxcontrib.mermaid',
-    'sphinx_llm.txt'
+    'sphinx_llm.txt',
+    'sphinx_sitemap'
     ]
 # extensions = ['sphinx_tabs.tabs']
 
@@ -75,6 +76,7 @@ language = 'en'
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path .
 exclude_patterns = []
+html_extra_path = ['robots.txt']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -128,7 +130,7 @@ html_context = {
 }
 
 # Define the canonical URL if using a custom domain on Read the Docs
-html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "")
+html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "https://docs.info-subscription.com")
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
@@ -275,3 +277,7 @@ llms_txt_exclude = [
     'genindex',
 ]
 
+
+
+# -- Options for sphinx-sitemap extension -------------------------------------
+sitemap_show_lastmod = True
