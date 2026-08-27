@@ -1,6 +1,22 @@
-build/
+
 .vscode/
+
+
+# Sphinx documentation
+docs/_build/
 source/_build/
 _build/
+build/
+output/
 
-.venv/
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# VS Code Extensions crap place the wrong place (the extension is weird!)
+pyproject.toml

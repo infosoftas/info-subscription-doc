@@ -1,0 +1,3 @@
+User-Agent: *
+
+Sitemap: https://docs.info-subscription.com/sitemap.xml
