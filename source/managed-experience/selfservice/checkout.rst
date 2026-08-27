@@ -11,6 +11,7 @@ Key features include:
 * **Comprehensive Purchase Journeys**: Prebuilt workflows for:
     * Simple, low-friction orders for digital/non-physical services.
     * Orders requiring customer details (e.g., name, phone, and address).
+    * Trial orders that end automatically after the initial subscription period.
     * **B2B orders**, including advanced invoicing options.
 * **Payment Options**: Built-in support for payment methods such as Vipps, MobilePay, CreditCard, EHF, OIO, Email invoicing as well as traditional invoicing.
 
@@ -33,6 +34,7 @@ The following as quick list of the journeys, details are available in the follow
 
 * Order
 * Order with Address and Personal Information
+* Trial with Address and Personal Information
 * B2B 
 
 #. Order (``order``)
@@ -69,6 +71,19 @@ The following as quick list of the journeys, details are available in the follow
         :alt: Personal Info and Address order journey interface
         :scale: 60%
 
+#. Trial with Address and Personal Information (``order-address-trial``)
+
+    * **Description**: A journey for trial orders that, like ``order-address``, requires the user to register name and address details before the order can be completed.
+      The journey only accepts template plans configured with :ref:`Automatic Stop <plans>`, so the subscription ends automatically after the initial subscription period without any renewal.
+      If the selected plan is not marked for automatic cancellation, the order is rejected and the user is presented with an error message.
+    * **Use Case**: Free or low priced introductory offers where the subscription must not continue beyond the trial period unless the subscriber places a new order.
+    * **Pre-conditions**: A template plan must be resolvable for the journey, either through the ``DefaultSubscriptionPlanId`` configured for the journey, or by supplying ``templatePlanId`` in the URL. See :ref:`checkout-configuration`.
+    * **How to use**:
+
+        .. code-block:: bash
+
+            https://{tenantName}-s4.azurewebsites.net/checkout?journey=order-address-trial&templatePlanId=1234567
+
 #. B2B (``order-business``)
 
     * **Description**: A journey tailored for business-to-business transactions. This includes options for e-invoicing and company-specific information.
@@ -89,6 +104,8 @@ The following as quick list of the journeys, details are available in the follow
 The journey parameter ensures the correct workflow is invoked, streamlining the process to match the needs of your specific subscription model.
 
 By specifying the journey type, you can provide users with a customized and optimized checkout experience that aligns with their unique requirements.
+
+.. _checkout-configuration:
 
 Configuration Options
 ---------------------
