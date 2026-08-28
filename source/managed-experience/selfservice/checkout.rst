@@ -74,9 +74,9 @@ The following as quick list of the journeys, details are available in the follow
 #. Trial with Address and Personal Information (``order-address-trial``)
 
     * **Description**: A journey for trial orders that, like ``order-address``, requires the user to register name and address details before the order can be completed.
-      The journey only accepts template plans configured with :ref:`Automatic Stop <plans>`, so the subscription ends automatically after the initial subscription period without any renewal.
-      If the selected plan is not marked for automatic cancellation, the order is rejected and the user is presented with an error message.
-    * **Use Case**: Free or low priced introductory offers where the subscription must not continue beyond the trial period unless the subscriber places a new order.
+      The journey only accepts template plans with ``automaticStop`` enabled (see :ref:`Plans and Template Plans <plans>`), so the subscription ends automatically after the initial subscription period without renewal.
+      If the selected plan does not have ``automaticStop`` enabled, the order is rejected and the user is presented with an error message.
+    * **Use Case**: Free or low-priced introductory offers where the subscription must not continue beyond the trial period unless the subscriber places a new order.
     * **Pre-conditions**: A template plan must be resolvable for the journey, either through the ``DefaultSubscriptionPlanId`` configured for the journey, or by supplying ``templatePlanId`` in the URL. See :ref:`checkout-configuration`.
     * **How to use**:
 
