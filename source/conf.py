@@ -77,7 +77,7 @@ language = 'en'
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path .
 exclude_patterns = []
-html_extra_path = ['robots.txt']
+html_extra_path = ['robots.txt', '_static/algolia-verify.html']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
