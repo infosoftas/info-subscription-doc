@@ -49,7 +49,8 @@ extensions = [
     'sphinx_copybutton',
     'sphinxcontrib.mermaid',
     'sphinx_llm.txt',
-    'sphinx_sitemap'
+    'sphinx_sitemap',
+    'sphinx_docsearch'
     ]
 # extensions = ['sphinx_tabs.tabs']
 
@@ -281,3 +282,9 @@ llms_txt_exclude = [
 
 # -- Options for sphinx-sitemap extension -------------------------------------
 sitemap_show_lastmod = True
+
+# -- Options for sphinx-docsearch extension -----------------------------------
+# Algolia Doc Search can be disabled by removing the extension (and removing it Requirements)
+docsearch_app_id = '7W92QQOOI0'
+docsearch_api_key = '284996aeaef271203a183012ee9f7b02'
+docsearch_index_name = 'Technical Documentation Site'
