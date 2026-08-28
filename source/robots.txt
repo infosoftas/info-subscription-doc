@@ -1,3 +1,5 @@
 User-Agent: *
 
 Sitemap: https://docs.info-subscription.com/sitemap.xml
+
+# Algolia-Crawler-Verif: 48B23366E4375586
