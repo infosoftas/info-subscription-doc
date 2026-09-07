@@ -193,7 +193,9 @@ epub_exclude_files = ['search.html']
 # -- Options for the mermaid extension
 
 mermaid_version='11.17.2'
-mermaid_cmd = ['npx', '--no-install', 'mmdc']
+mermaid_cmd_shell=True
+#mermaid_cmd = ['npx', '--no-install', 'mmdc']
+mermaid_cmd = 'npx mmdc'
 mermaid_params = ['--backgroundColor', 'transparent']
 mermaid_dark_theme = "neutral"
 mermaid_light_theme = "neutral"
