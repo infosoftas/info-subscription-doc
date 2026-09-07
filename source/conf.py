@@ -119,7 +119,7 @@ html_static_path = ['_static']
 html_logo = '_images/icon.png'
 html_favicon = '_images/favicon.ico'
 html_show_copyright = False
-html_use_opensearch = 'http//docs.info-subscription.com'
+html_use_opensearch = os.environ.get("READTHEDOCS_CANONICAL_URL", "https://docs.info-subscription.com")
 html_show_sphinx = False
 html_experimental_html5_writer = True
 
@@ -142,21 +142,6 @@ htmlhelp_basename = 'INFO-Subscriptiondoc'
 # -- Options for LaTeX output ------------------------------------------------
 
 latex_elements = {
-    # The paper size ('letterpaper' or 'a4paper').
-    #
-    # 'papersize': 'letterpaper',
-
-    # The font size ('10pt', '11pt' or '12pt').
-    #
-    # 'pointsize': '10pt',
-
-    # Additional stuff for the LaTeX preamble.
-    #
-    # 'preamble': '',
-
-    # Latex figure (float) alignment
-    #
-    # 'figure_align': 'htbp',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
@@ -185,7 +170,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, 'INFO-Subscription', 'INFO-Subscription Documentation',
-     author, 'INFO-Subscription', 'One line description of project.',
+     author, 'INFO-Subscription', 'Technical documentation for INFO-Subscription, mostly for developers.',
      'Miscellaneous'),
 ]
 
@@ -198,14 +183,6 @@ epub_author = author
 epub_publisher = author
 epub_copyright = copyright
 
-# The unique identifier of the text. This can be a ISBN number
-# or the project homepage.
-#
-# epub_identifier = ''
-
-# A unique identification for the text.
-#
-# epub_uid = ''
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
@@ -213,7 +190,7 @@ epub_exclude_files = ['search.html']
 
 # -- Extension configuration -------------------------------------------------
 
-mermaid_version='11.9.0'
+mermaid_version='11.17.2'
 
 # -- Options for todo extension ----------------------------------------------
 
@@ -278,10 +255,9 @@ llms_txt_exclude = [
     'genindex',
 ]
 
-
-
 # -- Options for sphinx-sitemap extension -------------------------------------
 sitemap_show_lastmod = True
+sitemap_url_scheme = "{lang}/{version}/{link}"
 
 # -- Options for sphinx-docsearch extension -----------------------------------
 # Algolia Doc Search can be disabled by removing the extension (and removing it Requirements)
