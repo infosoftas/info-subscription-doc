@@ -25,7 +25,7 @@ build:
   jobs:
     post_checkout:
       - git fetch --unshallow || true
-    post_install:
+#    post_install:
       # Install NPM packages. For mermaid generation
 #      - npm install -g @mermaid-js/mermaid-cli
 #  jobs:
