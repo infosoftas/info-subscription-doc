@@ -257,7 +257,7 @@ llms_txt_exclude = [
 
 # -- Options for sphinx-sitemap extension -------------------------------------
 sitemap_show_lastmod = True
-sitemap_url_scheme = "{lang}/{version}/{link}"
+sitemap_url_scheme = "{link}"
 
 # -- Options for sphinx-docsearch extension -----------------------------------
 # Algolia Doc Search can be disabled by removing the extension (and removing it Requirements)
