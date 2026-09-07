@@ -194,13 +194,13 @@ epub_exclude_files = ['search.html']
 
 mermaid_version='11.17.2' # Only used if output is not set (or set to raw).
 #mermaid_output_format='svg' # Force pre-rendering of svg output (produces a more predictable result)
-mermaid_width='50%' # Default mermaid container width, defaults to 100% which is rather insane on large display
+mermaid_width='80%' # Default mermaid container width, defaults to 100% which is rather insane on large display (for PNG/SVG output they should probably be reduced even more.)
 #mermaid_cmd_shell=True
 #mermaid_cmd = ['npx', '--no-install', 'mmdc']
 mermaid_cmd = 'mermaidx'
 #mermaid_params = ['--backgroundColor', 'transparent']
-mermaid_dark_theme = "neutral"
-mermaid_light_theme = "neutral"
+mermaid_dark_theme = "default"
+mermaid_light_theme = "default"
 
 # -- Options for todo extension ----------------------------------------------
 
