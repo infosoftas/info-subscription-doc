@@ -192,8 +192,9 @@ epub_exclude_files = ['search.html']
 
 # -- Options for the mermaid extension
 
-mermaid_version='11.17.2'
-mermaid_output_format='svg' # Force pre-rendering of svg output (produces a more predictable result)
+mermaid_version='11.17.2' # Only used if output is not set (or set to raw).
+#mermaid_output_format='svg' # Force pre-rendering of svg output (produces a more predictable result)
+mermaid_width='50%' # Default mermaid container width, defaults to 100% which is rather insane on large display
 #mermaid_cmd_shell=True
 #mermaid_cmd = ['npx', '--no-install', 'mmdc']
 mermaid_cmd = 'mermaidx'
