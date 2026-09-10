@@ -120,7 +120,7 @@ Multiply the returned ``price`` by the number of billable units from Step 2 to g
 If you need per-subscriber pricing, negotiated contract rates, tiered/volume pricing, or any other mechanism that doesn't fit a single published price per Product, maintain a separate price list in your own system instead. |projectName| doesn't need to know *how* the amount was calculated — only the final amount you want billed. This is also the right approach if the billable "product" is more of an internal accounting concept than something you want to expose through the |projectName| product catalog.
 
 .. important::
-    Even when the price itself comes from an external price list, you still need the ``id`` of a :term:`Product` in |projectName|. It has no bearing on the calculated price, but it is what ties the charge to a specific product for accounting, reporting, and subscriber-facing invoice detail — see :ref:`Step 4 <metered-billing-charging>` below.
+    Even when the price itself comes from an external price list, you still need the ``id`` of a :term:`Product` in |projectName|. It has no bearing on the calculated price, but it's a required field on a ``Purchase`` charge, and it's what ties the charge to a specific product for accounting, reporting, and subscriber-facing invoice detail — see :ref:`Step 4 <metered-billing-charging>` below.
 
 Either way, the outcome of this step is the same: a total **amount**, in a given **currency**, tied to a **Product**, that should be added to the subscriber's billing account.
 
@@ -162,7 +162,7 @@ With a calculated amount in hand, add it to the subscriber's billing account as 
 A few notes on the fields that matter most for a metered billing use case:
 
 - The top-level ``amount`` is the **total** amount for the entire charge (21.50 USD in this example) — it must equal ``taxDetails[].amount`` (or ``taxDetails[].taxableAmount`` if tax applies) **multiplied by** ``taxDetails[].quantity``, summed across all tax detail entries. Unlike the top-level field, ``taxDetails[].amount``/``taxDetails[].taxableAmount`` are **per-unit** amounts, not totals — get this backwards and the charge will be billed for the wrong amount.
-- ``taxDetails`` is where the actual billed **Product** is referenced, via ``productId`` on each entry — not on the charge itself. Without it, the charge is still billed, but it can't be tied back to a specific product for accounting, reporting, or itemized invoice detail, so treat ``productId`` as required in practice for a metered billing integration.
+- ``taxDetails`` is where the actual billed **Product** is referenced, via ``productId`` on each entry — not on the charge itself. For a ``Purchase`` charge, ``productId`` is **required**: omitting it fails validation, since it's what ties the charge to a specific product for accounting, reporting, and itemized invoice detail.
 - ``taxDetails[].quantity`` is a good place to record the number of billable units from Step 2 (43, in this example), separate from the human-readable ``description``.
 - ``taxDetails[].description`` is what typically ends up on the invoice line itself; the top-level ``description`` is a fallback if no tax details are provided.
 - ``startTime``/``endTime`` describe the usage period the charge covers, which is useful both for your own auditing and for subscriber-facing invoice detail.
@@ -180,7 +180,7 @@ When the subscriber's next payment demand is created, |projectName| includes any
 
 1. Each outstanding charge on the billing account is attached to the new payment demand as an entry in its ``charges`` collection, alongside the ``details`` generated for the subscription fee itself.
 2. Each of these demand charges carries forward the ``taxDetails`` (and therefore the ``productId``) you supplied when injecting the charge in Step 4.
-3. When the invoice is generated from the demand, each charge becomes its **own invoice line** — one line per charge entry, not one combined lump sum — so a subscriber who accumulated several charges during the period (for example, usage billed weekly instead of monthly) sees one line per charge rather than a single merged usage line.
+3. When the invoice is generated from the demand, each **Purchase** charge becomes its **own invoice line** — one line per charge entry, not one combined lump sum. This per-charge splitting is specific to the ``Purchase`` charge type; other charge types are bundled together onto a single invoice line today. It's precisely this behavior that makes ``Purchase`` charges well-suited for metered billing, since it lets several usage charges accumulated over a period (for example, usage injected weekly instead of monthly) show up as separate, itemized lines rather than one merged total.
 4. The ``productId`` on each charge's tax details is what lets the resulting invoice line reference the correct Product for tax, reporting, and subscriber-facing description purposes, in the same way a regular subscription fee line does.
 
 The result is a single invoice containing:
