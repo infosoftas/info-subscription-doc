@@ -147,7 +147,7 @@ This hybrid approach is particularly useful for:
 
 For more details on creating transactional invoices that settle account balances, see :ref:`Transaction (Non-Recurring) Invoices <standalone-paymentdemands>`. For details on how payments consume allowances, generate charges, and settle invoices, see :ref:`Payment Matching, Settlement, and Billing Account Reconciliation <payment-matching-settlement>`.
 
-For a worked, end-to-end example of using this hybrid model to build usage-based (metered) billing on top of a subscription, see :ref:`Building a Simplified Metered Billing Model <metered-billing-tutorial>`.
+For a worked, end-to-end example of using this hybrid model to build usage-based (metered) billing on top of a subscription, see :ref:`Building Your Own Metered Billing Solution <metered-billing-tutorial>`.
 
 .. tip::
     When designing your billing model, consider how the timing of invoice issuance and payment due dates align with your subscribers' payment cycles and cash flow. The minimum due days configuration is key to ensuring subscribers have adequate time to review invoices and arrange payment.

@@ -112,7 +112,7 @@ Additional Resources
 * :ref:`Proration Policies <proration-policies>` – How cancellations and mid-period plan changes are prorated
 * :ref:`Payment Matching, Settlement & Reconciliation <payment-matching-settlement>` – How incoming payments are matched to invoices and billing accounts reconciled
 * :ref:`Standalone Payment Demands <standalone-paymentdemands>` – Issuing one-off charges outside the regular billing cycle
-* :ref:`Building a Simplified Metered Billing Model <metered-billing-tutorial>` – Tutorial: billing for usage/consumption on top of a subscription
+* :ref:`Building Your Own Metered Billing Solution <metered-billing-tutorial>` – Tutorial: billing for usage/consumption on top of a subscription
 * :ref:`On-Demand Reminders <on-demand-reminder>` – Issuing reminders when an external collection agency controls the timeline
 
 **General**
