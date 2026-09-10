@@ -150,16 +150,16 @@ With a calculated amount in hand, add it to the subscriber's billing account as 
                 "productId": "4e9f6b1a-2c3d-4f5e-8a7b-9c0d1e2f3a4b",
                 "description": "API usage - January 2025 (43 x 1,000 calls @ 0.50 USD)",
                 "quantity": 43,
-                "taxableAmount": 21.50,
+                "taxableAmount": 0.50,
                 "taxPercent": 0,
-                "amount": 21.50
+                "amount": 0.50
             }
         ]
     }
 
 A few notes on the fields that matter most for a metered billing use case:
 
-- ``amount`` is the total you calculated in Step 3 — |projectName| does not recalculate or validate it against a Product price, but it should match the sum of the ``amount`` values across ``taxDetails``.
+- The top-level ``amount`` is the **total** amount for the entire charge (21.50 USD in this example) — it must equal ``taxDetails[].amount`` (or ``taxDetails[].taxableAmount`` if tax applies) **multiplied by** ``taxDetails[].quantity``, summed across all tax detail entries. Unlike the top-level field, ``taxDetails[].amount``/``taxDetails[].taxableAmount`` are **per-unit** amounts, not totals — get this backwards and the charge will be billed for the wrong amount.
 - ``taxDetails`` is where the actual billed **Product** is referenced, via ``productId`` on each entry — not on the charge itself. Without it, the charge is still billed, but it can't be tied back to a specific product for accounting, reporting, or itemized invoice detail, so treat ``productId`` as required in practice for a metered billing integration.
 - ``taxDetails[].quantity`` is a good place to record the number of billable units from Step 2 (43, in this example), separate from the human-readable ``description``.
 - ``taxDetails[].description`` is what typically ends up on the invoice line itself; the top-level ``description`` is a fallback if no tax details are provided.
