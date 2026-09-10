@@ -1,3 +1,9 @@
+.. image:: /_images/swedbankpay_logo.svg
+    :height: 90px
+    :align: right
+    :alt: Swedbank Pay logo
+    :class: no-scaled-link
+
 .. _provider-swedbank:
 
 Swedbank Pay (Card Payments)

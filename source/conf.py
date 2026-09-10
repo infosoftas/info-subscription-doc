@@ -226,6 +226,7 @@ rst_prolog = """
 .. |MobilePay| replace:: `MobilePay <https://www.vippsmobilepay.com/>`__
 .. |VippsMobilePay| replace:: `VippsMobilePay <https://www.vippsmobilepay.com/>`__
 .. |AutoGiro| replace:: `AutoGiro <https://www.autogiro.se/>`__
+.. |Mollie| replace:: `Mollie <https://www.mollie.com/>`__
 .. |adb2cAudience| replace:: 7bdcdd56-3ba6-4e6d-a841-db4816d7909d
 .. |adb2cMetadataUrl| replace:: https://prodlogins4.b2clogin.com/prodlogins4.onmicrosoft.com/B2C_1A_V2SIGNIN/v2.0/.well-known/openid-configuration
 .. |adb2cTokenUrl| replace:: https://prodlogins4.b2clogin.com/prodlogins4.onmicrosoft.com/B2C_1A_V2SIGNIN/oauth2/v2.0/token
@@ -270,7 +271,7 @@ sitemap_show_lastmod = True
 sitemap_url_scheme = "{link}"
 
 # -- Options for sphinx-docsearch extension -----------------------------------
-# Algolia Doc Search can be disabled by removing the extension (and removing it Requirements)
+# Algolia Doc Search can be disabled by removing the extension (and removing it Requirements)½
 docsearch_app_id = '7W92QQOOI0'
 docsearch_api_key = '284996aeaef271203a183012ee9f7b02'
 docsearch_index_name = 'Technical Documentation Site'

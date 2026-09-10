@@ -1,3 +1,9 @@
+.. image:: /_images/mastercard_symbol.svg
+    :width: 100px
+    :align: right
+    :alt: Mastercard Payment Services logo
+    :class: no-scaled-link
+
 .. _provider-efaktura:
 
 eFaktura
