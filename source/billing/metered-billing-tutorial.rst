@@ -1,10 +1,12 @@
 .. _metered-billing-tutorial:
 
-*******************************************
-Building a Simplified Metered Billing Model
-*******************************************
+***********************************************
+Building Your Own Metered Billing Solution
+***********************************************
 
-This tutorial walks through a simplified pattern for **usage-based (metered) billing** on top of a regular |projectName| subscription. It is aimed at integrators who already have subscribers and subscriptions in place and now want to bill for consumption — API calls, transactions, printed pages, or any other unit that scales with usage — instead of, or in addition to, a fixed subscription fee.
+|projectName| doesn't ship a dedicated "metering" feature — there's no built-in concept of reading a meter, tracking consumption, or converting usage into money. What it does provide are a small set of flexible billing primitives — Products, prices, and billing account charges — that you can combine to build usage-based (metered) billing yourself, on top of a regular subscription.
+
+This tutorial is a worked example of that: a case study in extending |projectName| with a capability it doesn't natively support, using the pieces it already gives you. It's aimed at integrators who already have subscribers and subscriptions in place and now want to bill for consumption — API calls, transactions, printed pages, or any other unit that scales with usage — instead of, or in addition to, a fixed subscription fee.
 
 .. note::
     |projectName| does not ingest raw meter readings itself. Instead, **you** are responsible for reading your own meters, converting the raw usage into whole payable units, and injecting the resulting cost as a charge on the subscriber's :term:`billing account <Billing Account>`. This tutorial describes that workflow end to end.

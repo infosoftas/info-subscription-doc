@@ -15,7 +15,7 @@ Common Scenarios
 
 Tutorials
 ---------
-* :ref:`Building a Simplified Metered Billing Model <metered-billing-tutorial>` Learn how to bill for usage/consumption on top of a regular subscription, from reading meters to converting usage into invoice charges.
+* :ref:`Building Your Own Metered Billing Solution <metered-billing-tutorial>` Learn how to bill for usage/consumption on top of a regular subscription, from reading meters to converting usage into invoice charges.
 
 Advanced & Conceptual Guides:
 --------------------------------
