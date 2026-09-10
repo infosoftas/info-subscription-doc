@@ -178,10 +178,10 @@ Step 5: How It Surfaces on the Invoice
 
 When the subscriber's next payment demand is created, |projectName| includes any outstanding charges from the billing account alongside the regular subscription fee — this is the :ref:`hybrid billing model <hybrid-billing>` in action. Concretely:
 
-1. Each outstanding charge on the billing account is attached to the new payment demand as an entry in its ``charges`` collection, alongside the ``details`` generated for the subscription fee itself.
-2. Each of these demand charges carries forward the ``taxDetails`` (and therefore the ``productId``) you supplied when injecting the charge in Step 4.
-3. When the invoice is generated from the demand, each **Purchase** charge becomes its **own invoice line** — one line per charge entry, not one combined lump sum. This per-charge splitting is specific to the ``Purchase`` charge type; other charge types are bundled together onto a single invoice line today. It's precisely this behavior that makes ``Purchase`` charges well-suited for metered billing, since it lets several usage charges accumulated over a period (for example, usage injected weekly instead of monthly) show up as separate, itemized lines rather than one merged total.
-4. The ``productId`` on each charge's tax details is what lets the resulting invoice line reference the correct Product for tax, reporting, and subscriber-facing description purposes, in the same way a regular subscription fee line does.
+1. Each outstanding **Purchase** charge on the billing account is converted into its own entry in the payment demand's ``details`` collection — the same collection used for the regular subscription/order details — rather than living in the demand's separate ``charges`` collection. It's structured just like a subscription detail, just without a ``subscriptionId`` or ``orderId``, since it isn't tied to either. Other charge types are *not* converted this way; they remain in ``charges`` and are bundled together onto a single invoice line today.
+2. Each of these converted details carries forward the ``taxDetails`` (and therefore the ``productId``) you supplied when injecting the charge in Step 4, along with the ``quantity`` of billable units.
+3. Because each **Purchase** charge becomes its own ``details`` entry, it also becomes its **own invoice line** when the invoice is generated — one line per charge, not one combined lump sum. It's precisely this conversion that makes ``Purchase`` charges well-suited for metered billing, since it lets several usage charges accumulated over a period (for example, usage injected weekly instead of monthly) show up as separate, itemized lines rather than one merged total.
+4. The ``productId`` on each detail's tax details is what lets the resulting invoice line reference the correct Product for tax, reporting, and subscriber-facing description purposes, in the same way a regular subscription fee line does.
 
 You can inspect this directly by :api-ref:`retrieving the payment demand <Demands/GetPaymentDemand>` once it has been generated:
 
@@ -208,6 +208,7 @@ A response for a demand carrying the example charge from Step 4, alongside the r
             {
                 "id": "2b3c4d5e-6f7a-4b8c-9d0e-1f2a3b4c5d6e",
                 "subscriptionId": "3c4d5e6f-7a8b-4c9d-0e1f-2a3b4c5d6e7f",
+                "orderId": null,
                 "amount": 100.00,
                 "currency": "USD",
                 "quantity": 1,
@@ -220,15 +221,18 @@ A response for a demand carrying the example charge from Step 4, alongside the r
                         "amount": 100.00
                     }
                 ]
-            }
-        ],
-        "charges": [
+            },
             {
                 "id": "6f7a8b9c-0d1e-4f2a-3b4c-5d6e7f8a9b0c",
+                "subscriptionId": null,
+                "orderId": null,
                 "amount": 21.50,
-                "startTime": "2025-01-01T00:00:00Z",
-                "endTime": "2025-01-31T23:59:59Z",
-                "chargeType": "Purchase",
+                "currency": "USD",
+                "quantity": 43,
+                "period": {
+                    "start": "2025-01-01T00:00:00Z",
+                    "end": "2025-01-31T23:59:59Z"
+                },
                 "taxDetails": [
                     {
                         "productId": "4e9f6b1a-2c3d-4f5e-8a7b-9c0d1e2f3a4b",
@@ -239,10 +243,11 @@ A response for a demand carrying the example charge from Step 4, alongside the r
                     }
                 ]
             }
-        ]
+        ],
+        "charges": []
     }
 
-The entry under ``charges`` mirrors what was injected in Step 4: the same ``productId``, ``description``, and ``chargeType``. Note that the returned ``taxDetails[].amount`` here is already the **total** for that entry (21.50) — unlike the request in Step 4, the demand/invoice representation doesn't carry a separate ``quantity``; the per-unit breakdown is only needed going in, not coming back out. When the invoice is generated from this demand, the ``details`` entry becomes the subscription fee line and the ``charges`` entry becomes its own itemized "API usage - January 2025" line, per the splitting behavior described above.
+The second ``details`` entry is the converted **Purchase** charge from Step 4 — notice it has the same shape as the subscription detail above it (``amount``, ``quantity``, ``taxDetails`` with the same ``productId`` and ``description``), just with ``subscriptionId``/``orderId`` left ``null`` since it isn't tied to a subscription or order, and a ``period`` reflecting the usage window instead. The demand's ``charges`` collection stays empty here, since the **Purchase** charge type is the one that gets converted into a ``details`` entry rather than staying there. When the invoice is generated from this demand, each ``details`` entry becomes its own invoice line — one for the subscription fee, one for the metered usage.
 
 The result is a single invoice containing:
 
