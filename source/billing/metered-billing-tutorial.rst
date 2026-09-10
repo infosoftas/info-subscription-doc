@@ -257,7 +257,7 @@ Real-World Example: How INFO-Subscription Bills Itself
 This pattern isn't just theoretical — it's how Infosoft bills our own tenants for their |projectName| services. Several independent consumption sources feed into the same billing account, each following the same steps described above:
 
 * **Payment service providers** — we read the transactions processed on the tenant's behalf (card payments, direct debits, mobile payments, etc.), then convert per-transaction or per-volume fees into a payable amount and inject it as a charge tied to the relevant PSP fee Product.
-* **Document/invoicing partners** — we read the number of documents produced and distributed (paper invoices printed and mailed, eInvoices, EHF/Peppol documents, and similar), then charge the resulting per-document fees against a Product representing that distribution channel.
+* **Document/invoicing partners** — we read the number of documents distributed (eInvoices, EHF/Peppol documents, and similar), then charge the resulting per-document fees against a Product representing that distribution channel.
 * **SMS/messaging providers** — we read the number of SMS messages delivered (for example, payment reminders or one-time codes), then aggregate and charge them per billing period against an SMS Product.
 * |projectName| **itself** — where a tenant's contract specifies usage-based pricing (for example, number of active subscribers), we read our own platform usage metrics and convert them the same way any other tenant would convert their own metered usage, charging against the relevant internal Product.
 
