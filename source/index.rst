@@ -11,16 +11,11 @@
     :class: no-scaled-link
 
 *****************************************************
-Welcome to the |projectName| Developer Documentation
+Building Subscription Businesses with |projectName|
 *****************************************************
 
-This documentation is designed for third-party developers and API consumers who want to integrate with the |projectName| platform. 
-Here you'll find comprehensive guides, API references, and practical examples to help you build, extend, and connect your solutions to |projectName| .
-
-Building Subscription Businesses with |projectName|
-====================================================
-
-|projectName| is a flexible platform for managing subscription-based businesses, offering robust APIs and managed experiences for seamless integration and automation. 
+|projectName| is a flexible platform for managing subscription-based businesses, offering robust APIs and managed experiences for seamless integration and automation.
+This documentation is designed for third-party developers and API consumers who want to integrate with the |projectName| platform, providing comprehensive guides, API references, and practical examples to help you build, extend, and connect your solutions.
 If you are new to the platform, visit the `product website <https://www.infosoft.as/info-subscription/>`_ for an overview.
 
 **Who Should Use This Documentation?**
