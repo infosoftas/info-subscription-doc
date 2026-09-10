@@ -1,13 +1,13 @@
+.. image:: /_images/vipps_mobilepay_logos.svg
+    :width: 220px
+    :align: right
+    :alt: Vipps and MobilePay logos
+    :class: no-scaled-link
+
 .. _provider-vipps:
 
 Vipps Recurring And MobilePay Recurring
 =======================================
-
-.. image:: /_images/vipps_mobilepay_logos.svg
-    :width: 220px
-    :align: center
-    :alt: Vipps and MobilePay logos
-    :class: no-scaled-link
 
 Vipps and MobilePay Recurring is a product provided by |VippsMobilePay| that allows organization operating in Norway, Denmark and Finland to offer mobile/app based recurring payment, for subscribers with a valid account.
 It is backed by a credit card, debit card or bank account managed by |VippsMobilePay|.
