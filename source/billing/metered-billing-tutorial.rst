@@ -129,7 +129,7 @@ Step 4: Injecting the Charge
 
 .. _metered-billing-charging:
 
-With a calculated amount in hand, add it to the subscriber's billing account as a charge with ``transactionType`` set to ``Purchase``:
+With a calculated amount in hand, add it to the subscriber's billing account as a charge with ``transactionType`` set to ``Purchase``. Here's a sample request for :api-ref:`adding a charge <BillingAccount/post_billing_accounts__id__charges>`:
 
 .. code-block:: http
     :name: Add a Purchase Charge to a Billing Account
