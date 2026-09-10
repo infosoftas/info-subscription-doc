@@ -5,15 +5,17 @@
     :alt: Infosoft Logo With Slogan Software for subscription businesses
     :target: https://www.infosoft.as
 
+.. |VippsMobilePayIcon| image:: _images/vipps_mobilepay_logo.ico
+    :height: 20
+    :alt: Vipps MobilePay
+    :class: no-scaled-link
+
 *****************************************************
-Welcome to the |projectName| Developer Documentation
+Building Subscription Businesses with |projectName|
 *****************************************************
 
-This documentation is designed for third-party developers and API consumers who want to integrate with the |projectName| platform. Here you'll find comprehensive guides, API references, and practical examples to help you build, extend, and connect your solutions to |projectName| .
-
-**What is INFO-Subscription?**
-
-|projectName| is a flexible platform for managing subscription-based businesses, offering robust APIs and managed experiences for seamless integration and automation. 
+|projectName| is a flexible platform for managing subscription-based businesses, offering robust APIs and managed experiences for seamless integration and automation.
+This documentation is designed for third-party developers and API consumers who want to integrate with the |projectName| platform, providing comprehensive guides, API references, and practical examples to help you build, extend, and connect your solutions.
 If you are new to the platform, visit the `product website <https://www.infosoft.as/info-subscription/>`_ for an overview.
 
 **Who Should Use This Documentation?**
@@ -24,16 +26,47 @@ If you are new to the platform, visit the `product website <https://www.infosoft
 
 If you are looking for end-user documentation, please visit the `user documentation <https://docs.infosoft.no/>`_.
 
+.. note::
+
+    New to the domain? The docs use terms like *subscriber*, *subscription*, and *payment agreement* throughout. See :ref:`Terminology <terminology>` before continuing if anything is unclear.
+
+Quick Start
+===========
+
+1. Read :ref:`Getting Started <getting-started>` for API onboarding
+2. Review API :ref:`Authentication <authorization>`, :ref:`Versioning <api-versioning>`, and perhaps the :ref:`Terminology <terminology>`
+3. Try out the API in our :ref:`testing and experimentation tenant <testing-experimenting>`, using the Swagger UI or your favorite API client
+4. Explore :ref:`common scenarios <common-scenarios>` and code samples
+
+
 Integration Options
 ===================
-|projectName| provides a powerful API available to all tenants. You can:
 
-- Explore the full API in the `Swagger UI <https://api.info-subscription.com/swagger/>`_
-- Download the `OpenAPI/Swagger definition <https://api.info-subscription.com/swagger/v1/swagger.json>`_
-- Start with our :ref:`Getting Started with the API <getting-started>` guide for a step-by-step introduction on how to authenticate and make your first API calls
+|projectName| gives you two building blocks that can be combined as needed:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 25 40 35
+
+   * - Path
+     - Choose this if
+     - Start here
+   * - Build your own
+     - You want full control over checkout, self-service, and authentication in your own frontend
+     - :ref:`Getting Started with the API <getting-started>`
+   * - Use the managed experience
+     - You want a turnkey ordering and self-service portal without building your own frontend
+     - :ref:`Introduction to the managed experience <managed-experience>`
+
+Most tenants mix the two: for example, using the managed self-service portal while still calling the API directly for custom reporting or ERP integration.
+
+**Building your own?** The full API is available to every tenant:
+
+- Explore it in the `Swagger UI <https://api.info-subscription.com/swagger/>`_
+- Download the `OpenAPI/Swagger definition <https://api.info-subscription.com/swagger/latest/swagger.json>`_
 - Review :ref:`integration guides <common-scenarios>` for common use cases and advanced scenarios.
 
-|projectName|  also offers a :ref:`managed subscriber experience <managed-experience>`, including:
+**Using the managed experience?** It includes:
 
 * A self-service portal for subscribers to manage their subscriptions
 * An ordering and registration process for new subscribers
@@ -41,16 +74,46 @@ Integration Options
 
 To integrate with the managed subscriber experience, see our :ref:`introduction to the managed experience <managed-experience>`.
 
-Quick Start
-===========
-1. Read :ref:`Getting Started <getting-started>` for API onboarding
-2. Review API :ref:`Authentication <authorization>`, :ref:`Versioning <api-versioning>`, and perhaps the :ref:`Terminology <terminology>`
-3. Try out the API using the Swagger UI or your favorite API client
-4. Explore :ref:`common scenarios <common-scenarios>` and code samples
+Explore Further
+===============
 
-Beyond The Basics
-=================
-Already familiar with the basics? Explore these advanced topics to get the most out of |projectName|:
+Ready to go deeper? Start with a goal below, or browse the reference material: 
+
+I want to build...
+-------------------
+
+Custom integrations against the raw API, for teams building their own checkout, portal, or workflows.
+
+* 🛒 :ref:`A custom subscription checkout <subscription-orders>`
+* 🔌 :ref:`My own content into a CMS or portal <auth-quick-start>`
+* 💳 :ref:`Recurring payments into my own flow <payment-methods-overview>`
+* |VippsMobilePayIcon| :ref:`A Vipps or MobilePay integration <provider-vipps>`
+* 🔄 :ref:`Subscription change handling (upgrades/downgrades) <subscription-plan-changes>`
+* 🧾 :ref:`Billing and invoice handling <billing-cycle>`
+* ⚡ :ref:`Event-driven subscriptions <events>`
+* 📊 :ref:`Subscription analytics into my own tools <reporting-intro>`
+
+I want to set up...
+--------------------
+
+|projectName|'s turnkey, managed experiences — configured, not built from scratch.
+
+* 🛒 :ref:`A managed subscription checkout <checkout>`
+* 👤 :ref:`A self-service portal for subscribers <managed-experience>`
+
+Additional Resources
+--------------------
+
+**Billing & Subscription Lifecycle** – in-depth guides for how the platform manages recurring billing:
+
+* :ref:`Subscription Lifecycle <subscription-lifecycle>` – How subscriptions are created, renewed, upgraded, and terminated
+* :ref:`Billing Cycle In Depth <billing-cycle>` – Payment demands, invoices, reminders, and dunning, stage by stage
+* :ref:`Proration Policies <proration-policies>` – How cancellations and mid-period plan changes are prorated
+* :ref:`Payment Matching, Settlement & Reconciliation <payment-matching-settlement>` – How incoming payments are matched to invoices and billing accounts reconciled
+* :ref:`Standalone Payment Demands <standalone-paymentdemands>` – Issuing one-off charges outside the regular billing cycle
+* :ref:`On-Demand Reminders <on-demand-reminder>` – Issuing reminders when an external collection agency controls the timeline
+
+**General**
 
 * :ref:`Common Integration Scenarios <common-scenarios>` – Real-world use cases
 * :ref:`Webhooks and Event Handling <events>` – Automate workflows with event-driven integrations
@@ -113,7 +176,7 @@ For help, feedback, or to report issues, see :ref:`Support and Reporting Bugs <r
     :glob:
     :hidden:
 
-    payments/index
+    payments/payment-agreements
 
 .. toctree::
     :caption: Events and Webhooks

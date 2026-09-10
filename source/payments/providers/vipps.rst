@@ -1,3 +1,9 @@
+.. image:: /_images/vipps_mobilepay_logos.svg
+    :width: 220px
+    :align: right
+    :alt: Vipps and MobilePay logos
+    :class: no-scaled-link
+
 .. _provider-vipps:
 
 Vipps Recurring And MobilePay Recurring
