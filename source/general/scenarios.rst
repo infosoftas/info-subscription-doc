@@ -13,10 +13,6 @@ Common Scenarios
 * :ref:`Authentication and Authorizing Subscribers <auth-quick-start>`
 * :ref:`Managing Subscriber Payment Agreements <manage-payment-agreement>`
 
-Tutorials
----------
-* :ref:`Building a Simplified Metered Billing Model <metered-billing-tutorial>` Learn how to bill for usage/consumption on top of a regular subscription, from reading meters to converting usage into invoice charges.
-
 Advanced & Conceptual Guides:
 --------------------------------
 * :ref:`Bring Your Own PSP <external_payment_provider_integration>` Learn about integrating third-party payment providers and how |projectName| fits into multi-party payment flows.
