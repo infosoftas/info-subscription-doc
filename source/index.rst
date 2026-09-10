@@ -63,7 +63,7 @@ Most tenants mix the two: for example, using the managed self-service portal whi
 **Building your own?** The full API is available to every tenant:
 
 - Explore it in the `Swagger UI <https://api.info-subscription.com/swagger/>`_
-- Download the `OpenAPI/Swagger definition <https://api.info-subscription.com/swagger/v1/swagger.json>`_
+- Download the `OpenAPI/Swagger definition <https://api.info-subscription.com/swagger/latest/swagger.json>`_
 - Review :ref:`integration guides <common-scenarios>` for common use cases and advanced scenarios.
 
 **Using the managed experience?** It includes:

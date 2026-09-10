@@ -42,7 +42,7 @@ Tenant Information
 
 The `Experimentation` tenant is pre-configured with the following information:
 
-* Tenant Id: `e02d3360-8a5f-4115-fef1-08d69bbc8a54` - Include this in the |tenantHeader| header as described in the `OpenAPI/Swagger definition <https://api.info-subscription.com/swagger/v1/swagger.json>`_
+* Tenant Id: `e02d3360-8a5f-4115-fef1-08d69bbc8a54` - Include this in the |tenantHeader| header as described in the `OpenAPI/Swagger definition <https://api.info-subscription.com/swagger/latest/swagger.json>`_
 * Client Id: `1b162230-180c-4648-9d0f-a313bb86510c`
 
 Contact :ref:`support <reporting-bugs>` for a `client_secret` to authenticate with the API and/or a set of management credentials to the `merchant client <https://merchant.info-subscription.com>`_.
