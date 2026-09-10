@@ -13,15 +13,12 @@ Common Scenarios
 * :ref:`Authentication and Authorizing Subscribers <auth-quick-start>`
 * :ref:`Managing Subscriber Payment Agreements <manage-payment-agreement>`
 
-Tutorials
----------
+Advanced Scenarios & Conceptual Guides
+---------------------------------------
 * :ref:`Building Your Own Metered Billing Solution <metered-billing-tutorial>` Learn how to bill for usage/consumption on top of a regular subscription, from reading meters to converting usage into invoice charges.
-
-Advanced & Conceptual Guides:
---------------------------------
 * :ref:`Bring Your Own PSP <external_payment_provider_integration>` Learn about integrating third-party payment providers and how |projectName| fits into multi-party payment flows.
 * :ref:`External Debt Collection — On-Demand Reminders <on-demand-reminder>` Issue reminders directly via the API when an external collection agency controls the collections timeline, bypassing the scheduled dunning flow.
- 
+
 .. * Multi-Tenant and White-Label Integrations: Architectural considerations for complex deployments.
 .. * Event-Driven Workflows: Using webhooks and external systems for automation.
 
