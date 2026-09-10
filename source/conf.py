@@ -106,6 +106,9 @@ html_theme_options = {
 #html_static_path = ['_static']
 html_static_path = ['_static']
 
+# Custom stylesheet overrides, loaded after the theme's own CSS.
+html_css_files = ['custom.css']
+
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
 #
