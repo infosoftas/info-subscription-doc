@@ -46,7 +46,7 @@ Integration Options
 
 .. list-table::
    :header-rows: 1
-   :widths: 25 40 35
+
 
    * - Path
      - Choose this if
