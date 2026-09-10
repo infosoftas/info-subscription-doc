@@ -188,6 +188,9 @@ The result is a single invoice containing:
 
 See :ref:`Payment Matching, Settlement, and Billing Account Reconciliation <payment-matching-settlement>` for what happens if a subscriber only partially pays such an invoice.
 
+.. tip::
+    **Want to see this in action?** The invoices |projectName|'s own tenants receive for their INFO-Subscription subscription are built on exactly this model. Behind the scenes, transactions sourced from PSPs, documents processed by our invoicing/document partners, SMS messages delivered, and (where the contract calls for it) usage data pulled from INFO-Subscription itself are all injected as charges onto a billing account in our internal INFO-Subscription tenant — the same tenant that then bills our own customers. It's metered billing, dogfooded.
+
 Edge Cases and Gotchas
 =======================
 
