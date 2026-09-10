@@ -183,6 +183,67 @@ When the subscriber's next payment demand is created, |projectName| includes any
 3. When the invoice is generated from the demand, each **Purchase** charge becomes its **own invoice line** — one line per charge entry, not one combined lump sum. This per-charge splitting is specific to the ``Purchase`` charge type; other charge types are bundled together onto a single invoice line today. It's precisely this behavior that makes ``Purchase`` charges well-suited for metered billing, since it lets several usage charges accumulated over a period (for example, usage injected weekly instead of monthly) show up as separate, itemized lines rather than one merged total.
 4. The ``productId`` on each charge's tax details is what lets the resulting invoice line reference the correct Product for tax, reporting, and subscriber-facing description purposes, in the same way a regular subscription fee line does.
 
+You can inspect this directly by :api-ref:`retrieving the payment demand <Demands/GetPaymentDemand>` once it has been generated:
+
+.. code-block:: http
+    :name: Get Payment Demand
+
+    GET https://api.info-subscription.com/paymentdemand/{id} HTTP/1.1
+    Host: api.info-subscription.com
+    S4-TenantId: 3fce3f93-97a7-4045-952d-f8af685a47cb
+    Authorization: ******
+
+A response for a demand carrying the example charge from Step 4, alongside the regular subscription fee, might look like this (trimmed to the relevant fields):
+
+.. code-block:: json
+    :name: Get Payment Demand - Response
+
+    {
+        "id": "8a1f2e3d-4c5b-4a6e-9d7f-8b9c0d1e2f3a",
+        "subscriberId": "1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
+        "amount": 121.50,
+        "currency": "USD",
+        "dueDate": "2025-02-14T00:00:00Z",
+        "details": [
+            {
+                "id": "2b3c4d5e-6f7a-4b8c-9d0e-1f2a3b4c5d6e",
+                "subscriptionId": "3c4d5e6f-7a8b-4c9d-0e1f-2a3b4c5d6e7f",
+                "amount": 100.00,
+                "currency": "USD",
+                "quantity": 1,
+                "taxDetails": [
+                    {
+                        "productId": "5e6f7a8b-9c0d-4e1f-2a3b-4c5d6e7f8a9b",
+                        "description": "Pro Plan - February 2025",
+                        "taxableAmount": 100.00,
+                        "taxPercent": 0,
+                        "amount": 100.00
+                    }
+                ]
+            }
+        ],
+        "charges": [
+            {
+                "id": "6f7a8b9c-0d1e-4f2a-3b4c-5d6e7f8a9b0c",
+                "amount": 21.50,
+                "startTime": "2025-01-01T00:00:00Z",
+                "endTime": "2025-01-31T23:59:59Z",
+                "chargeType": "Purchase",
+                "taxDetails": [
+                    {
+                        "productId": "4e9f6b1a-2c3d-4f5e-8a7b-9c0d1e2f3a4b",
+                        "description": "API usage - January 2025 (43 x 1,000 calls @ 0.50 USD)",
+                        "taxableAmount": 21.50,
+                        "taxPercent": 0,
+                        "amount": 21.50
+                    }
+                ]
+            }
+        ]
+    }
+
+The entry under ``charges`` mirrors what was injected in Step 4: the same ``productId``, ``description``, and ``chargeType``. Note that the returned ``taxDetails[].amount`` here is already the **total** for that entry (21.50) — unlike the request in Step 4, the demand/invoice representation doesn't carry a separate ``quantity``; the per-unit breakdown is only needed going in, not coming back out. When the invoice is generated from this demand, the ``details`` entry becomes the subscription fee line and the ``charges`` entry becomes its own itemized "API usage - January 2025" line, per the splitting behavior described above.
+
 The result is a single invoice containing:
 
 - The subscription fee for the **upcoming** period (in-advance)
