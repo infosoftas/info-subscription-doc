@@ -120,6 +120,8 @@ The subscriber is billed **before** the service period begins, receives the invo
 .. note::
     For a more comprehensive view of how billing and dunning work across multiple periods, including reminders and payment processing, see the :ref:`Billing and Dunning Timeline <Billing_Dunning_Timeline>` section below.
 
+.. _hybrid-billing:
+
 Hybrid Billing: In-Advance + In-Arrears
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -144,6 +146,8 @@ This hybrid approach is particularly useful for:
 - Scenarios combining fixed subscription fees with variable consumption charges
 
 For more details on creating transactional invoices that settle account balances, see :ref:`Transaction (Non-Recurring) Invoices <standalone-paymentdemands>`. For details on how payments consume allowances, generate charges, and settle invoices, see :ref:`Payment Matching, Settlement, and Billing Account Reconciliation <payment-matching-settlement>`.
+
+For a worked, end-to-end example of using this hybrid model to build usage-based (metered) billing on top of a subscription, see :ref:`Building a Simplified Metered Billing Model <metered-billing-tutorial>`.
 
 .. tip::
     When designing your billing model, consider how the timing of invoice issuance and payment due dates align with your subscribers' payment cycles and cash flow. The minimum due days configuration is key to ensuring subscribers have adequate time to review invoices and arrange payment.
