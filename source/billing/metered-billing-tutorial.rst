@@ -50,6 +50,8 @@ A few things to plan for when designing the read step:
 - **Idempotency**: Since a charge is a simple monetary entry, re-reading the same usage window twice and posting it twice will double-bill the subscriber. Keep track of which usage windows have already been converted into a charge (for example, by recording the ``endTime`` you last billed up to).
 - **Alignment with the billing cycle**: To keep the "in-arrears usage alongside in-advance subscription fee" story intuitive for subscribers, align your read/charge cadence with the subscriber's :ref:`billing cycle <billing-cycle>` so usage from period N appears on the invoice for period N+1, not scattered across unrelated invoices.
 
+.. _metered-billing-conversion:
+
 Step 2: Converting to Payable Units
 ====================================
 
@@ -188,8 +190,34 @@ The result is a single invoice containing:
 
 See :ref:`Payment Matching, Settlement, and Billing Account Reconciliation <payment-matching-settlement>` for what happens if a subscriber only partially pays such an invoice.
 
-.. tip::
-    **Want to see this in action?** The invoices |projectName|'s own tenants receive for their INFO-Subscription subscription are built on exactly this model. Behind the scenes, transactions sourced from PSPs, documents processed by our invoicing/document partners, SMS messages delivered, and (where the contract calls for it) usage data pulled from INFO-Subscription itself are all injected as charges onto a billing account in our internal INFO-Subscription tenant — the same tenant that then bills our own customers. It's metered billing, dogfooded.
+Real-World Example: How INFO-Subscription Bills Itself
+=========================================================
+
+This pattern isn't just theoretical — it's how |projectName| bills its own tenants for their INFO-Subscription subscription. Several independent consumption sources feed into the same billing account, each following the same steps described above:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 25 35 40
+
+   * - Consumption source
+     - What is "read" (Step 1)
+     - How it's converted and charged (Steps 2-4)
+   * - Payment service providers
+     - Transactions processed on the tenant's behalf (card payments, direct debits, mobile payments, etc.)
+     - Per-transaction or per-volume fees are converted into a payable amount and injected as a charge tied to the relevant PSP fee Product
+   * - Document/invoicing partners
+     - Documents produced and distributed (paper invoices printed and mailed, eInvoices, EHF/Peppol documents, and similar)
+     - Per-document fees are aggregated per tenant and charged against a Product representing that distribution channel
+   * - SMS/messaging providers
+     - Number of SMS messages delivered (for example, payment reminders or one-time codes)
+     - Aggregated per billing period and charged against an SMS Product
+   * - INFO-Subscription itself
+     - Platform usage metrics, where the tenant's contract specifies usage-based pricing (for example, API call volume or number of active subscribers)
+     - Converted the same way any other tenant would convert their own metered usage, and charged against the relevant internal Product
+
+Each of these sources is read on its own schedule, converted into whole payable units the same way described in :ref:`Step 2 <metered-billing-conversion>`, priced against a Product the same way described in :ref:`Step 3 <metered-billing-pricing>`, and injected as a ``Purchase`` charge the same way described in :ref:`Step 4 <metered-billing-charging>`. All of it lands on a single billing account in |projectName|'s own internal tenant, which then bills our tenants using the exact hybrid billing flow this tutorial describes.
+
+In other words: if you follow this tutorial, you're building the same kind of integration |projectName| itself relies on to invoice its customers.
 
 Edge Cases and Gotchas
 =======================
