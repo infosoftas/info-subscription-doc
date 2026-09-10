@@ -90,16 +90,40 @@ If a flat, published price per unit is enough for your model, create a :term:`Pr
     S4-TenantId: 3fce3f93-97a7-4045-952d-f8af685a47cb
     Authorization: ******
 
-This returns one or more ``ProductPriceView`` entries, each with a ``price`` and ``currency``. Multiply the returned price by the number of billable units from Step 2 to get the total charge amount.
+This returns an array of ``ProductPriceView`` entries:
+
+.. code-block:: json
+    :name: Get Product Price - Response
+
+    [
+        {
+            "id": "6b1b6f2a-df44-4b8e-9c8f-1c1d9a8e2b40",
+            "productId": "4e9f6b1a-2c3d-4f5e-8a7b-9c0d1e2f3a4b",
+            "billingFrequencyId": 1,
+            "numberOfEditions": null,
+            "priceTypeId": "0f1e2d3c-4b5a-6978-8f9e-0d1c2b3a4958",
+            "price": 0.50,
+            "currency": "USD",
+            "startDate": "2025-01-01T00:00:00Z",
+            "expiryDate": null
+        }
+    ]
+
+Multiply the returned ``price`` by the number of billable units from Step 2 to get the total charge amount — 43 units x 0.50 USD = 21.50 USD in this example.
 
 **Advanced: maintain your own price list**
 
 If you need per-subscriber pricing, negotiated contract rates, tiered/volume pricing, or any other mechanism that doesn't fit a single published price per Product, maintain a separate price list in your own system instead. |projectName| doesn't need to know *how* the amount was calculated — only the final amount you want billed. This is also the right approach if the billable "product" is more of an internal accounting concept than something you want to expose through the |projectName| product catalog.
 
-Either way, the outcome of this step is the same: a total **amount**, in a given **currency**, that should be added to the subscriber's billing account.
+.. important::
+    Even when the price itself comes from an external price list, you still need the ``id`` of a :term:`Product` in |projectName|. It has no bearing on the calculated price, but it is what ties the charge to a specific product for accounting, reporting, and subscriber-facing invoice detail — see :ref:`Step 4 <metered-billing-charging>` below.
+
+Either way, the outcome of this step is the same: a total **amount**, in a given **currency**, tied to a **Product**, that should be added to the subscriber's billing account.
 
 Step 4: Injecting the Charge
 =============================
+
+.. _metered-billing-charging:
 
 With a calculated amount in hand, add it to the subscriber's billing account as a charge with ``transactionType`` set to ``Purchase``:
 
@@ -116,17 +140,31 @@ With a calculated amount in hand, add it to the subscriber's billing account as 
         "amount": 21.50,
         "accountingTime": "2025-01-31T23:59:59Z",
         "transactionType": "Purchase",
-        "description": "API usage - January 2025 (43 x 1,000 calls @ 0.50 USD)",
+        "description": "API usage - January 2025",
         "startTime": "2025-01-01T00:00:00Z",
-        "endTime": "2025-01-31T23:59:59Z"
+        "endTime": "2025-01-31T23:59:59Z",
+        "taxDetails": [
+            {
+                "productId": "4e9f6b1a-2c3d-4f5e-8a7b-9c0d1e2f3a4b",
+                "description": "API usage - January 2025 (43 x 1,000 calls @ 0.50 USD)",
+                "quantity": 43,
+                "taxableAmount": 21.50,
+                "taxPercent": 0,
+                "amount": 21.50
+            }
+        ]
     }
 
 A few notes on the fields that matter most for a metered billing use case:
 
-- ``amount`` is the total you calculated in Step 3 — |projectName| does not recalculate or validate it against a Product price.
+- ``amount`` is the total you calculated in Step 3 — |projectName| does not recalculate or validate it against a Product price, but it should match the sum of the ``amount`` values across ``taxDetails``.
+- ``taxDetails`` is where the actual billed **Product** is referenced, via ``productId`` on each entry — not on the charge itself. Without it, the charge is still billed, but it can't be tied back to a specific product for accounting, reporting, or itemized invoice detail, so treat ``productId`` as required in practice for a metered billing integration.
+- ``taxDetails[].quantity`` is a good place to record the number of billable units from Step 2 (43, in this example), separate from the human-readable ``description``.
+- ``taxDetails[].description`` is what typically ends up on the invoice line itself; the top-level ``description`` is a fallback if no tax details are provided.
 - ``startTime``/``endTime`` describe the usage period the charge covers, which is useful both for your own auditing and for subscriber-facing invoice detail.
-- ``description`` ends up on the invoice line, so make it meaningful to the subscriber (avoid raw internal unit counts if they won't mean anything to them).
 - The charge is **not** billed immediately. It sits on the billing account until the next :ref:`payment demand <billing-cycle>` is generated, at which point it is billed in-arrears alongside the in-advance subscription fee.
+
+The request returns ``202 Accepted`` with no body — the charge is queued onto the billing account rather than returned as a finished resource.
 
 .. tip::
     If you need the usage charge billed **immediately** — for example a one-off purchase that shouldn't wait for the next renewal — use an :ref:`Account Payment Demand <standalone-paymentdemands>` instead, which creates an invoice right away rather than deferring to the next cycle.
@@ -134,10 +172,17 @@ A few notes on the fields that matter most for a metered billing use case:
 Step 5: How It Surfaces on the Invoice
 ========================================
 
-When the subscriber's next payment demand is created, |projectName| includes any outstanding charges from the billing account alongside the regular subscription fee — this is the :ref:`hybrid billing model <hybrid-billing>` in action. The result is a single invoice containing:
+When the subscriber's next payment demand is created, |projectName| includes any outstanding charges from the billing account alongside the regular subscription fee — this is the :ref:`hybrid billing model <hybrid-billing>` in action. Concretely:
+
+1. Each outstanding charge on the billing account is attached to the new payment demand as an entry in its ``charges`` collection, alongside the ``details`` generated for the subscription fee itself.
+2. Each of these demand charges carries forward the ``taxDetails`` (and therefore the ``productId``) you supplied when injecting the charge in Step 4.
+3. When the invoice is generated from the demand, each charge becomes its **own invoice line** — one line per charge entry, not one combined lump sum — so a subscriber who accumulated several charges during the period (for example, usage billed weekly instead of monthly) sees one line per charge rather than a single merged usage line.
+4. The ``productId`` on each charge's tax details is what lets the resulting invoice line reference the correct Product for tax, reporting, and subscriber-facing description purposes, in the same way a regular subscription fee line does.
+
+The result is a single invoice containing:
 
 - The subscription fee for the **upcoming** period (in-advance)
-- The metered usage charge(s) for the **previous** period (in-arrears)
+- One invoice line per metered usage charge for the **previous** period (in-arrears)
 
 See :ref:`Payment Matching, Settlement, and Billing Account Reconciliation <payment-matching-settlement>` for what happens if a subscriber only partially pays such an invoice.
 
