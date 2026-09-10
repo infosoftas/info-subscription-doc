@@ -5,6 +5,11 @@
     :alt: Infosoft Logo With Slogan Software for subscription businesses
     :target: https://www.infosoft.as
 
+.. |VippsMobilePayIcon| image:: _images/vipps_mobilepay_logo.ico
+    :height: 20
+    :alt: Vipps MobilePay
+    :class: no-scaled-link
+
 *****************************************************
 Welcome to the |projectName| Developer Documentation
 *****************************************************
@@ -87,7 +92,7 @@ Custom integrations against the raw API, for teams building their own checkout, 
 * 🛒 :ref:`A custom subscription checkout <subscription-orders>`
 * 🔌 :ref:`My own content into a CMS or portal <auth-quick-start>`
 * 💳 :ref:`Recurring payments into my own flow <payment-methods-overview>`
-* 📱 :ref:`A Vipps or MobilePay integration <provider-vipps>`
+* |VippsMobilePayIcon| :ref:`A Vipps or MobilePay integration <provider-vipps>`
 * 🔄 :ref:`Subscription change handling (upgrades/downgrades) <subscription-plan-changes>`
 * 🧾 :ref:`Billing and invoice handling <billing-cycle>`
 * ⚡ :ref:`Event-driven subscriptions <events>`
