@@ -193,7 +193,7 @@ See :ref:`Payment Matching, Settlement, and Billing Account Reconciliation <paym
 Real-World Example: How INFO-Subscription Bills Itself
 =========================================================
 
-This pattern isn't just theoretical — it's how |projectName| bills its own tenants for their INFO-Subscription subscription. Several independent consumption sources feed into the same billing account, each following the same steps described above:
+This pattern isn't just theoretical — it's how Infosoft bills our own tenants for their |projectName| services. Several independent consumption sources feed into the same billing account, each following the same steps described above:
 
 .. list-table::
    :header-rows: 1
@@ -215,9 +215,9 @@ This pattern isn't just theoretical — it's how |projectName| bills its own ten
      - Platform usage metrics, where the tenant's contract specifies usage-based pricing (for example, API call volume or number of active subscribers)
      - Converted the same way any other tenant would convert their own metered usage, and charged against the relevant internal Product
 
-Each of these sources is read on its own schedule, converted into whole payable units the same way described in :ref:`Step 2 <metered-billing-conversion>`, priced against a Product the same way described in :ref:`Step 3 <metered-billing-pricing>`, and injected as a ``Purchase`` charge the same way described in :ref:`Step 4 <metered-billing-charging>`. All of it lands on a single billing account in |projectName|'s own internal tenant, which then bills our tenants using the exact hybrid billing flow this tutorial describes.
+Each of these sources is read on its own schedule, converted into whole payable units the same way described in :ref:`Step 2 <metered-billing-conversion>`, priced against a Product the same way described in :ref:`Step 3 <metered-billing-pricing>`, and injected as a ``Purchase`` charge the same way described in :ref:`Step 4 <metered-billing-charging>`. All of it lands on a single billing account in Infosoft's own internal |projectName| tenant, which is what we then use to bill our tenants.
 
-In other words: if you follow this tutorial, you're building the same kind of integration |projectName| itself relies on to invoice its customers.
+In other words: if you follow this tutorial, you're building the same kind of integration we rely on to invoice our own customers.
 
 Edge Cases and Gotchas
 =======================
