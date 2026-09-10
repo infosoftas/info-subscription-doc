@@ -82,9 +82,9 @@ Step 3: Determining the Price
 
 Once you know how many billable units to charge for, you need a price per unit. There are two common approaches:
 
-**Simple: look up the price on the Product in |projectName|**
+**Simple: look up the price on the Product in** |projectName|
 
-If a flat, published price per unit is enough for your model, create a :term:`Product` representing the billable unit and fetch its price:
+If a flat, published price per unit is enough for your model, create a :term:`Product` representing the billable unit and :api-ref:`fetch its price <ProductPrice/GetProductPrice>`:
 
 .. code-block:: http
     :name: Get Product Price
@@ -198,7 +198,7 @@ This pattern isn't just theoretical — it's how Infosoft bills our own tenants 
 * **Payment service providers** — we read the transactions processed on the tenant's behalf (card payments, direct debits, mobile payments, etc.), then convert per-transaction or per-volume fees into a payable amount and inject it as a charge tied to the relevant PSP fee Product.
 * **Document/invoicing partners** — we read the number of documents produced and distributed (paper invoices printed and mailed, eInvoices, EHF/Peppol documents, and similar), then charge the resulting per-document fees against a Product representing that distribution channel.
 * **SMS/messaging providers** — we read the number of SMS messages delivered (for example, payment reminders or one-time codes), then aggregate and charge them per billing period against an SMS Product.
-* **|projectName| itself** — where a tenant's contract specifies usage-based pricing (for example, API call volume or number of active subscribers), we read our own platform usage metrics and convert them the same way any other tenant would convert their own metered usage, charging against the relevant internal Product.
+* |projectName| **itself** — where a tenant’s contract specifies usage-based pricing (for example, API call volume or number of active subscribers), we read our own platform usage metrics and convert them the same way any other tenant would convert their own metered usage, charging against the relevant internal Product.
 
 Each of these sources is read on its own schedule, converted into whole payable units the same way described in :ref:`Step 2 <metered-billing-conversion>`, priced against a Product the same way described in :ref:`Step 3 <metered-billing-pricing>`, and injected as a ``Purchase`` charge the same way described in :ref:`Step 4 <metered-billing-charging>`. All of it lands on a single billing account in Infosoft's own internal |projectName| tenant, which is what we then use to bill our tenants.
 
