@@ -1,6 +1,6 @@
-**********************
-Release April 27th
-**********************
+***********************
+2026 Release April 27th
+***********************
 
 Small hotfix to fix an issue related to session handling when completing orders in checkout.
 
@@ -14,9 +14,9 @@ Fixed
 
 .. _changelog-r141:
 
-**********************
-Release March 11th
-**********************
+************************
+2026 Release March 11th
+************************
 
 Welcome to the spring release. This time around we include a mix of fixes and improvements, with a focus on improving existing workflows and performance. 
 Most of the changes relate to handling edge cases by preventing the issue from occurring in the first place, or providing options to easily identify and fix the issue when it does occur. 

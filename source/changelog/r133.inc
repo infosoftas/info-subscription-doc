@@ -1,8 +1,8 @@
 .. _changelog-r133:
 
-******************
-Release April 1st
-******************
+**********************
+2025 Release April 1st
+**********************
 
 INFO-Subscription has closed shop - no further release will be made - ever.
 

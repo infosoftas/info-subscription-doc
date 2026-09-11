@@ -1,8 +1,8 @@
 .. _changelog-r144:
 
-**********************
-Release August 12th
-**********************
+*************************
+20206 Release August 12th
+*************************
 
 Summer vacations are officially over, and we are back with a new release. 
 Since we have been on vacation ourselves, this release is mostly a bug fixing and maintenance release.
@@ -82,7 +82,8 @@ Added
 
 
 Changed
-* Now prevents adding new shared users for a subscription with a future cancellation.
+* Now prevents adding new shared users for a subscription with a future cancellation.
+
 
 * Now prevents adding new shared users for a subscriptions with a future cancellation.
 

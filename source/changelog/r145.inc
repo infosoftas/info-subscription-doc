@@ -1,8 +1,8 @@
 .. _changelog-r145:
 
-**********************
-Release September 16th
-**********************
+****************************
+2026 Release September 16th
+****************************
 
 It is the autumn season again, days are getting shorter, darker and colder, lots of good excuses to stay indoors and bring you new features for |ProjectName|.
 

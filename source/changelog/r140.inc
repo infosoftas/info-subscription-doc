@@ -1,6 +1,6 @@
-**********************
-Release February 2nd
-**********************
+*************************
+2026 Release February 2nd
+*************************
 
 This is a minor/hotfix release to fix a few issues related to the order flow in the merchant and self-service (different issues), as well as a minor fix for quantity mapping in the billing engine for transactional invoices.
 
