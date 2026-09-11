@@ -4,6 +4,14 @@
 Release September 16th
 **********************
 
+It is the autumn season again, days are getting shorter, darker and colder, lots of good excuses to stay indoors and bring you new features for |ProjectName|.
+
+This release brings a big new feature, namely Mollie as a payment service provider (PSP), along with support for writing off bad debt and an improved experience when handling a specific type of account Charge records.
+
+On the UX side, we also bring you a much asked for feature: The option to schedule future cancellations beyond the current subscription period.
+
+Hope you enjoy the new features! As always, we welcome your feedback and suggestions.
+
 
 **[Preview]** Mollie as a PSP
 =============================
@@ -24,6 +32,11 @@ Tenants require a Mollie account to enable this integration.
 
 The feature is still in preview, and may undergo further changes before its general availability.
 Contact support if you want to know more.
+
+Known Issues
+------------
+
+* Support for Payment Type based Fees are still only partially implemented and orders will break if they are connected to a billing plan that includes such fees. This will be addressed in a future release.
 
 
 API and Backend
