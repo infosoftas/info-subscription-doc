@@ -1,7 +1,7 @@
 .. _changelog-r136:
 
-*******************
-Release August 18th
+*************************
+2025 Release August 18th
 *******************
 
 We are back after a long summer absence, with the 6th release of the year.

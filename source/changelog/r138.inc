@@ -1,8 +1,8 @@
 .. _changelog-r138:
 
-**********************
-Release November 17th
-**********************
+**************************
+2025 Release November 17th
+**************************
 
 We are ready with the november release. This time around we have quite a few UI adjustments and fixes. 
 Most of the work done in the API and Backend is under the hood and won't be directly visible. 

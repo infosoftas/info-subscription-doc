@@ -1,7 +1,7 @@
 .. _changelog-r143:
 
 **********************
-Release June 16th
+2026 Release June 16th
 **********************
 
 Another release before everyone starts thinking more about their vacations than about subscription management! 
