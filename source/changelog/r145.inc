@@ -63,6 +63,7 @@ Changed
 
 * Subscriber Contact information pulled from Vipps or MobilePay will now strip newline characters.
 * Creating Charges with type `Purchase` now requires Product information in the request payload. These Charges are now also converted to ProductDetails on the Payment Demand, so they get their own Invoice Lines with unique Periods, Amounts etc. This differs from system generated records due to proration actions, that are all put on a shared invoice line.
+* ``UserAuthorizationGranted`` and ``UserAuthorizationRevoked`` events now include additional context about the authorization change, specifically ``ProductsGranted`` and ``ProductsRevoked`` collections.
 
 Deprecated
 ----------
