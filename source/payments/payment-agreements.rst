@@ -22,7 +22,7 @@ Infosoft has partnered with multiple different service providers to bring you th
      - Recurring
      - One-off
      - Provider
-   * - :ref:`Vipps <provider-vipps>`
+   * - Vipps
      - ✅
      - —
      - —
@@ -30,8 +30,8 @@ Infosoft has partnered with multiple different service providers to bring you th
      - —
      - ✅
      - ✅
-     - |VippsMobilePay|
-   * - :ref:`MobilePay <provider-vipps>`
+     - :ref:`Vipps / MobilePay <provider-vipps>`
+   * - MobilePay
      - —
      - —
      - ✅
@@ -39,8 +39,8 @@ Infosoft has partnered with multiple different service providers to bring you th
      - —
      - ✅
      - ✅
-     - |VippsMobilePay|
-   * - :ref:`Card <provider-swedbank>`
+     - :ref:`Vipps / MobilePay <provider-vipps>`
+   * - Card
      - ✅
      - ✅
      - ✅
@@ -48,8 +48,8 @@ Infosoft has partnered with multiple different service providers to bring you th
      - ✅
      - ✅
      - ✅
-     - |SwedbankPay| / |Mollie|
-   * - :ref:`AvtaleGiro <provider-avtalegiro>`
+     - :ref:`Swedbank Pay <provider-swedbank>` / :ref:`Mollie <provider-mollie>`
+   * - AvtaleGiro
      - ✅
      - —
      - —
@@ -57,8 +57,8 @@ Infosoft has partnered with multiple different service providers to bring you th
      - —
      - ✅
      - —
-     - Mastercard Payment Services
-   * - :ref:`Autogiro <provider-autogiro>`
+     - :ref:`Mastercard Payment Services <provider-avtalegiro>`
+   * - Autogiro
      - —
      - ✅
      - —
@@ -66,8 +66,8 @@ Infosoft has partnered with multiple different service providers to bring you th
      - —
      - ✅
      - —
-     - Bankgirot
-   * - :ref:`BetalingsService <provider-betalingsservice>`
+     - :ref:`Bankgirot <provider-autogiro>`
+   * - BetalingsService
      - —
      - —
      - ✅
@@ -75,8 +75,8 @@ Infosoft has partnered with multiple different service providers to bring you th
      - —
      - ✅
      - —
-     - Mastercard Payment Services
-   * - :ref:`eFaktura <provider-efaktura>`
+     - :ref:`Mastercard Payment Services <provider-betalingsservice>`
+   * - eFaktura
      - ✅
      - —
      - —
@@ -84,7 +84,7 @@ Infosoft has partnered with multiple different service providers to bring you th
      - —
      - ✅
      - ✅
-     - Mastercard Payment Services
+     - :ref:`Mastercard Payment Services <provider-efaktura>`
    * - Google Pay
      - ✅
      - ✅
@@ -93,7 +93,7 @@ Infosoft has partnered with multiple different service providers to bring you th
      - ✅
      - ✅
      - ✅
-     - |Mollie|
+     - :ref:`Mollie <provider-mollie>`
    * - Apple Pay
      - ✅
      - ✅
@@ -102,7 +102,7 @@ Infosoft has partnered with multiple different service providers to bring you th
      - ✅
      - ✅
      - ✅
-     - |Mollie|
+     - :ref:`Mollie <provider-mollie>`
    * - SEPA Direct
      - —
      - —
@@ -111,8 +111,8 @@ Infosoft has partnered with multiple different service providers to bring you th
      - ✅
      - ✅
      - —
-     - |Mollie|
-   * - :ref:`EHF (PEPPOL) <provider-peppol>`
+     - :ref:`Mollie <provider-mollie>`
+   * - EHF (PEPPOL)
      - ✅
      - —
      - —
@@ -120,8 +120,8 @@ Infosoft has partnered with multiple different service providers to bring you th
      - —
      - ✅
      - ✅
-     - Native
-   * - :ref:`OIO/EAN (PEPPOL) <provider-peppol>`
+     - :ref:`PEPPOL BIS Billing <provider-peppol>`
+   * - OIO/EAN (PEPPOL)
      - —
      - —
      - ✅
@@ -129,8 +129,8 @@ Infosoft has partnered with multiple different service providers to bring you th
      - —
      - ✅
      - ✅
-     - Native
-   * - :ref:`PEPPOL Sweden <provider-peppol>`
+     - :ref:`PEPPOL BIS Billing <provider-peppol>`
+   * - PEPPOL Sweden
      - —
      - ✅
      - —
@@ -138,7 +138,7 @@ Infosoft has partnered with multiple different service providers to bring you th
      - —
      - ✅
      - ✅
-     - Native
+     - :ref:`PEPPOL BIS Billing <provider-peppol>`
    * - Invoice
      - ✅
      - ✅
@@ -157,7 +157,7 @@ Infosoft has partnered with multiple different service providers to bring you th
      - ✅
      - ✅
      - Native
-   * - :ref:`BYO <external_payment_provider_integration>`
+   * - BYO
      - —
      - —
      - —
@@ -165,7 +165,7 @@ Infosoft has partnered with multiple different service providers to bring you th
      - —
      - —
      - —
-     - Bring your own
+     - :ref:`Bring your own <external_payment_provider_integration>`
 
 ✅ indicates the method is available in that country/region, or supports that capability. — means it isn't.
 *Europe* covers the wider set of European countries reachable through the card and wallet rails, beyond the four Nordic countries broken out individually.
@@ -174,7 +174,7 @@ Infosoft has partnered with multiple different service providers to bring you th
 As a rule of thumb:
 
 * Use :ref:`Vipps <provider-vipps>` or :ref:`MobilePay <provider-vipps>` for mobile-first consumer checkouts in Norway, Denmark, and Finland.
-* Use :ref:`Card <provider-swedbank>` for the widest country coverage, spanning the Nordics and most of Europe, with both recurring and one-off charges; Google Pay, Apple Pay, and SEPA Direct extend the same |Mollie| coverage, subject to the subscriber's device, browser, or bank support.
+* Use Card with :ref:`Swedbank Pay <provider-swedbank>` or :ref:`Mollie <provider-mollie>` for broad European coverage and recurring charges; :ref:`Mollie <provider-mollie>` also surfaces Apple Pay, Google Pay, and SEPA Direct Debit where the subscriber's device, browser, and bank support them.
 * Use :ref:`AvtaleGiro <provider-avtalegiro>`, :ref:`Autogiro <provider-autogiro>`, or :ref:`BetalingsService <provider-betalingsservice>` for bank-mandated direct debit in Norway, Sweden, and Denmark respectively.
 * Use :ref:`eFaktura <provider-efaktura>` or :ref:`EHF/OIO (PEPPOL) <provider-peppol>` for consumer or business eInvoicing where a direct charge isn't possible or desired.
 * Use plain Invoice or Email when no automated collection is needed, or as the default fallback until a subscriber sets up another method.
@@ -253,7 +253,7 @@ All of the approaches share the same organization/abstraction model in |projectN
 2. A Payment Agreement is created pointing to the provider agreement.
 3. The Payment Agreement is registered for a subscription (sometimes this happens automatically).
 
-The idea here is that each Payment Provider, such as :ref:`Vipps <provider-vipps>`, :ref:`SwedbankPay <provider-swedbank>` or :ref:`AvtaleGiro <provider-avtalegiro>`, have their own peculiar details on how to register an agreement, and they have different terminology and different properties available on the agreements.
+The idea here is that each Payment Provider, such as :ref:`Vipps <provider-vipps>`, :ref:`Swedbank Pay <provider-swedbank>`, :ref:`Mollie <provider-mollie>`, or :ref:`AvtaleGiro <provider-avtalegiro>`, has its own peculiar details on how to register an agreement, and each exposes different terminology and properties on the agreements.
 To abstract away some of these details most of the time, the subscription points to a payment agreement, which in turn points to the provider.
 
 This allows most integrations to just query for the Subscription and Payment Agreement information without worrying too much about the various providers.
@@ -337,6 +337,7 @@ Payment Providers (PSPs)
 * :doc:`PEPPOL BIS Billing (EHF/OIO) <providers/peppol>` – business-to-business/government eInvoicing for Norway, Denmark, and Sweden.
 * :doc:`Vipps / MobilePay Recurring <providers/vipps>` – mobile app-based recurring payments for Norway, Denmark, and Finland.
 * :doc:`Swedbank Pay (Card Payments) <providers/swedbank>` – credit/debit card processing via Swedbank Pay.
+* :doc:`Mollie (Card, Wallets, and Mandates) <providers/mollie>` – card payments with Apple Pay, Google Pay, and SEPA Direct Debit support through Mollie-hosted checkout.
 * :doc:`Autogiro <providers/autogiro>` – Swedish Direct Debit via Bankgirot.
 * :doc:`BetalingsService <providers/betalingsservice>` – Danish Direct Debit via Mastercard Payment Services.
 * :doc:`Bring Your Own PSP <external-provider-integration>` – integrate a payment provider |projectName| doesn't natively support, using the public API and webhooks.
@@ -351,6 +352,7 @@ Payment Providers (PSPs)
     providers/peppol
     providers/vipps
     providers/swedbank
+    providers/mollie
     providers/autogiro
     providers/betalingsservice
     external-provider-integration
