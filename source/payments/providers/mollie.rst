@@ -86,7 +86,7 @@ The request body in the public API contains fields such as:
 Notes on the request:
 
 * ``methods`` uses the Swagger-defined Mollie mandate methods: ``Card``, ``Ideal``, and ``DirectDebit``.
-* ``amount`` may be ``0`` or higher. The published schema notes that zero-amount first payments are only accepted by Mollie for card and direct-debit mandate setups.
+* ``amount`` may be ``0`` or higher. Zero-amount first payments are only accepted by Mollie for card and direct-debit mandate setups.
 * ``accounting`` may also be supplied when you need to attach invoice, payment-demand, or payment identifiers to the Mollie-side request.
 
 The API responds with the platform mandate ID and the hosted checkout URL:
@@ -102,6 +102,8 @@ The API responds with the platform mandate ID and the hosted checkout URL:
 After the subscriber completes checkout, confirm the registration with ``POST /mollie/mandate/{id}/complete`` and retrieve the stored mandate details with ``GET /mollie/mandate/{id}``.
 
 The public API also exposes ``GET /mollie/mandate/{id}/remote`` when you need the live Mollie-side state, including fields such as ``status``, ``method``, ``cardLabel``, ``cardLastFour``, ``consumerName``, and ``consumerAccount``.
+
+For the mandate to be used by |projectName|'s automatic billing flows, a payment agreement must also be created in |projectName|. Any active subscriptions that should use the new mandate must then be :api-ref:`switched to that payment agreement <Subscription/post_Subscription__id__changePaymentAgreement>`.
 
 Recurring / Mandate Payments
 ----------------------------

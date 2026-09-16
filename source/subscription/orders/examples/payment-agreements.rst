@@ -48,6 +48,7 @@ To use SwedbankPay as the payment method, set the ``paymentAgreementParameters``
 
 - ``paymentMethod`` must be set to ``SwedbankPay``.
 - ``payExEcommerceParameters`` is an object with the following fields:
+
   - ``callbackUrl``: URL for payment status callbacks from SwedbankPay.
   - ``cancelUrl``: URL to redirect the user if the payment is cancelled.
   - ``completeUrl``: URL to redirect the user after successful payment.
@@ -75,6 +76,7 @@ To use Mollie as the payment method, set the ``paymentAgreementParameters`` as f
 
 - ``paymentMethod`` must be set to ``Mollie``.
 - ``mollieParameters`` is an object with the following fields:
+
   - ``accountId``: The Mollie account to use.
   - ``returnUrl``: URL to redirect the user back to after checkout.
   - ``cancelUrl`` (optional): URL to redirect the user to if the checkout is cancelled.
