@@ -253,7 +253,7 @@ All of the approaches share the same organization/abstraction model in |projectN
 2. A Payment Agreement is created pointing to the provider agreement.
 3. The Payment Agreement is registered for a subscription (sometimes this happens automatically).
 
-The idea here is that each Payment Provider, such as :ref:`Vipps <provider-vipps>`, :ref:`Swedbank Pay <provider-swedbank>`, :ref:`Mollie <provider-mollie>`, or :ref:`AvtaleGiro <provider-avtalegiro>`, have their own peculiar details on how to register an agreement, and they have different terminology and different properties available on the agreements.
+The idea here is that each Payment Provider, such as :ref:`Vipps <provider-vipps>`, :ref:`Swedbank Pay <provider-swedbank>`, :ref:`Mollie <provider-mollie>`, or :ref:`AvtaleGiro <provider-avtalegiro>`, has its own peculiar details on how to register an agreement, and each exposes different terminology and properties on the agreements.
 To abstract away some of these details most of the time, the subscription points to a payment agreement, which in turn points to the provider.
 
 This allows most integrations to just query for the Subscription and Payment Agreement information without worrying too much about the various providers.
