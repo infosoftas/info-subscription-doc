@@ -1,8 +1,8 @@
 .. _changelog-r139:
 
-**********************
-Release December 10th
-**********************
+**************************
+2025 Release December 10th
+**************************
 
 Last release of 2025, this is a minor release with a mix of fixes and small improvements.
 

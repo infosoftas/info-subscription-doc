@@ -1,8 +1,8 @@
 .. _changelog-r131:
 
-***********************
-Release January 30th
-***********************
+*************************
+2025 Release January 30th
+*************************
 
 Happy new year! 
 Another year has passed, and we are excited to announce the first release of 2025. We are a bit late due to holidays and some additional stabilizing, but hopefully we are back on track now.

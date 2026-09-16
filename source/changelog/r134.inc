@@ -1,8 +1,8 @@
 .. _changelog-r134:
 
-****************
-Release May 8th
-****************
+********************
+2025 Release May 8th
+********************
 
 A new release of INFO-Subscription is ready, we didn't make it in time for May 4th, so no Star Wars references this time.
 Contrary to the last release notes we would like to announce that the INFO-Subscription team is still here, and we are committed to providing you with the best possible service. 

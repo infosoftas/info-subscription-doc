@@ -1,8 +1,8 @@
 .. _changelog-r132:
 
-*******************
-Release March 6th
-*******************
+**********************
+2025 Release March 6th
+**********************
 
 Second release of the year, with just a few new features and improvements.
 We are chipping away at various UI related pain points and improving the overall user experience.

@@ -1,8 +1,8 @@
 .. _changelog-r135:
 
-******************
-Release June 17th
-******************
+***********************
+2025 Release June 17th
+***********************
 
 The 5th release of INFO-Subscription in 2025 is here, it also marks the last release before the summer holidays.
 

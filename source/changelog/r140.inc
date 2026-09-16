@@ -1,6 +1,6 @@
-**********************
-Release February 2nd
-**********************
+*************************
+2026 Release February 2nd
+*************************
 
 This is a minor/hotfix release to fix a few issues related to the order flow in the merchant and self-service (different issues), as well as a minor fix for quantity mapping in the billing engine for transactional invoices.
 
@@ -33,9 +33,9 @@ Fixed
 
 .. _changelog-r140:
 
-**********************
-Release January 28th
-**********************
+*************************
+2026 Release January 28th
+*************************
 
 Happy new year and welcome to 2026. We are ready with the first release of the year, bringing a mix of fixes and improvements. 
 As always under the covers we are continuing with stability and performance improvements across the board.
