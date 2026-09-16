@@ -10,7 +10,9 @@ For provider-side concepts and checkout behavior, see the official `Mollie API d
 Requirements for using Mollie
 -----------------------------
 
-In order to use Mollie, at least one Mollie account must be configured in |projectName|.
+In order to use Mollie, at least one Mollie account must be configured in |projectName|. Before onboarding that account, you must already have a working agreement with Mollie and a Mollie profile.
+
+Account onboarding is only required once per Mollie account, and it can be completed from the Merchant application.
 
 The public API exposes the account lifecycle under ``/mollie/account``:
 
