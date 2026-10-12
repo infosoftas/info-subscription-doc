@@ -41,9 +41,12 @@ tables. Update all of these together:
 - **Yearly table:** use `.. _feature-timeline-YYYY:` above the year heading,
   with columns **Feature**, **What it enables**, and **Release notes**.
   Each feature's first cell contains its target, a blank line, and the name.
-  Cite existing release labels with `:ref:` links.
-- **Coverage text:** update the introduction and partial-year notes to the
-  actual summary cutoff. A previous year's partial coverage does not become
+  Cite existing release labels with `:ref:` links. When a feature has no
+  release-note announcement, cite its documentation page instead, for
+  example :ref:`MCP Server <mcp-server>`.
+- **Coverage text:** update the partial-year note below the year heading to
+  the actual summary cutoff. The page has no introduction; do not add one.
+  A previous year's partial coverage does not become
   complete merely because a new year is added. Remove a partial-year note
   only when a full review supports that change.
 

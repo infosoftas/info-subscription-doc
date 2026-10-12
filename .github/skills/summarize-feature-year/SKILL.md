@@ -29,12 +29,23 @@ change the timeline unless the user also requests that step; use the
    from each source. Explain inferred dates and unresolved ambiguities.
    Establish the earliest and latest covered releases; do not claim a complete
    year if the evidence only covers part of it.
+6. Some launches, such as new APIs or developer tools, are documented without
+   a release-note announcement. Check documentation pages added or changed
+   during the year (`git log --diff-filter=A --since=YYYY-01-01
+   --until=YYYY-12-31 -- source`) and ask the user about known launches that
+   the evidence does not cover. Date such features from the user or the page's
+   git history, and cite the page's reference label.
 
 ## Select significant capabilities
 
 Include new capabilities and substantial expansions that enable a materially
 new customer workflow, business model, integration, market/payment reach,
 automation, checkout/self-service experience, or reporting outcome.
+
+Always include the first announcement of a new third-party integration (for
+example payment, distribution, identity, e-invoicing, address, analytics or
+tracking services), even when its scope is narrow. Later changes to an existing
+integration follow the normal rules.
 
 Exclude bug fixes, maintenance, styling/translations, performance/resilience
 without a new capability, removals, routine validation, and minor conveniences.

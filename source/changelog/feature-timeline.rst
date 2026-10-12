@@ -4,15 +4,6 @@
 Feature timeline
 ################
 
-This page shows significant capabilities added to INFO-Subscription each year, as announced in the public release notes.
-It includes new capabilities, integrations, and substantial expansions of existing capabilities. Bug fixes, minor adjustments, performance work and capabilities that were only made available in another client are not included.
-
-Features are grouped by the year they were first announced. The timeline uses year markers and alternating feature cards; the tables below link each feature to its release notes.
-The public release-note record starts in March 2019, and 2026 is shown up to the release on September 16, 2026.
-The timeline runs from the newest year at the top to the oldest at the bottom. Within each year, features are listed in announcement order.
-
-See the :ref:`changelog <changelog>` and :ref:`release notes archive <changelog-archive>` for the original announcements.
-
 .. raw:: html
 
    <style>
@@ -43,14 +34,14 @@ See the :ref:`changelog <changelog>` and :ref:`release notes archive <changelog-
 
    <div class="feature-history-summary" aria-label="Significant features by year">
    
-   <a href="#timeline-year-2026" aria-label="2026: 8 features"><strong>8</strong>2026</a>
+   <a href="#timeline-year-2026" aria-label="2026: 10 features"><strong>10</strong>2026</a>
    <a href="#timeline-year-2025" aria-label="2025: 6 features"><strong>6</strong>2025</a>
    <a href="#timeline-year-2024" aria-label="2024: 15 features"><strong>15</strong>2024</a>
    <a href="#timeline-year-2023" aria-label="2023: 6 features"><strong>6</strong>2023</a>
-   <a href="#timeline-year-2022" aria-label="2022: 7 features"><strong>7</strong>2022</a>
+   <a href="#timeline-year-2022" aria-label="2022: 8 features"><strong>8</strong>2022</a>
    <a href="#timeline-year-2021" aria-label="2021: 6 features"><strong>6</strong>2021</a>
    <a href="#timeline-year-2020" aria-label="2020: 15 features"><strong>15</strong>2020</a>
-   <a href="#timeline-year-2019" aria-label="2019: 13 features"><strong>13</strong>2019</a>
+   <a href="#timeline-year-2019" aria-label="2019: 16 features"><strong>16</strong>2019</a>
    </div>
    <div class="feature-history" aria-label="Significant INFO-Subscription features by year">
    
@@ -59,9 +50,11 @@ See the :ref:`changelog <changelog>` and :ref:`release notes archive <changelog-
    <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2026-retention-offers"><strong>Retention offers</strong></a></li>
    <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2026-tailor-made-subscription-plans"><strong>Tailor-made subscription plans</strong></a></li>
    <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2026-external-dunning"><strong>External dunning</strong></a></li>
-   <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2026-automated-gdpr-data-retention"><strong>Automated GDPR data retention</strong></a></li>
-   <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2026-trial-subscription-checkout"><strong>Trial subscription checkout</strong></a></li>
-   <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2026-scheduled-cancellations"><strong>Scheduled cancellations</strong></a></li>
+   <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2026-mcp-server"><strong>MCP server</strong></a></li>
+   <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2026-automated-gdpr-data-retention"><strong>Automated GDPR data retention</strong></a></li>
+   <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2026-trial-subscription-checkout"><strong>Trial subscription checkout</strong></a></li>
+   <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2026-scheduled-cancellations"><strong>Scheduled cancellations</strong></a></li>
+   <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2026-smartresponse-tracking"><strong>SmartResponse tracking</strong></a></li>
    <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2026-mollie-payments"><strong>Mollie payments</strong></a></li>
    <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2026-bad-debt-write-off"><strong>Bad debt write-off</strong></a></li>
    </ol>
@@ -69,7 +62,7 @@ See the :ref:`changelog <changelog>` and :ref:`release notes archive <changelog-
    <ol class="feature-history-items">
    <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2025-hosted-checkout"><strong>Hosted Checkout</strong></a></li>
    <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2025-odata-analytics-api"><strong>OData analytics API</strong></a></li>
-   <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2025-orders-sdk-for-javascript"><strong>Orders SDK for JavaScript</strong></a></li>
+   <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2025-simplified-order-api-and-sdk"><strong>Simplified Order API and SDK</strong></a></li>
    <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2025-add-ons-on-running-subscriptions"><strong>Add-ons on running subscriptions</strong></a></li>
    <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2025-billing-transaction-log"><strong>Billing transaction log</strong></a></li>
    <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2025-refunds-through-payment-providers"><strong>Refunds through payment providers</strong></a></li>
@@ -109,7 +102,8 @@ See the :ref:`changelog <changelog>` and :ref:`release notes archive <changelog-
    <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2022-subscriber-access-service"><strong>Subscriber access service</strong></a></li>
    <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2022-gdpr-right-to-erasure"><strong>GDPR right to erasure</strong></a></li>
    <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2022-refund-registration"><strong>Refund registration</strong></a></li>
-   <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2022-avtalegiro-via-mastercard-api"><strong>AvtaleGiro via Mastercard API</strong></a></li>
+   <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2022-peppol-directory-lookup"><strong>Peppol directory lookup</strong></a></li>
+   <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2022-avtalegiro-via-mastercard-api"><strong>AvtaleGiro via Mastercard API</strong></a></li>
    </ol>
    <div class="feature-history-year" id="timeline-year-2021"><span>2021</span></div>
    <ol class="feature-history-items">
@@ -149,10 +143,13 @@ See the :ref:`changelog <changelog>` and :ref:`release notes archive <changelog-
    <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2019-enterprise-plans"><strong>Enterprise plans</strong></a></li>
    <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2019-subscription-pausing"><strong>Subscription pausing</strong></a></li>
    <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2019-custom-deal-pricing"><strong>Custom deal pricing</strong></a></li>
-   <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2019-recurring-deliveries"><strong>Recurring deliveries</strong></a></li>
-   <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2019-automatic-credit-control"><strong>Automatic credit control</strong></a></li>
+   <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2019-auth0-subscriber-login"><strong>Auth0 subscriber login</strong></a></li>
+   <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2019-recurring-deliveries"><strong>Recurring deliveries</strong></a></li>
+   <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2019-automatic-credit-control"><strong>Automatic credit control</strong></a></li>
+   <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2019-kartverket-address-matching"><strong>Kartverket address matching</strong></a></li>
    <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2019-product-mix-reporting"><strong>Product-mix reporting</strong></a></li>
-   <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2019-plan-changes-with-proration"><strong>Plan changes with proration</strong></a></li>
+   <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2019-google-tag-manager"><strong>Google Tag Manager</strong></a></li>
+   <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2019-plan-changes-with-proration"><strong>Plan changes with proration</strong></a></li>
    </ol>
    </div>
 .. _feature-timeline-2026:
@@ -184,6 +181,11 @@ Coverage for 2026 is partial: this year is shown up to the release on September 
        External dunning
      - Reminders can be created on demand when dunning is handled by debt collectors or manually.
      - :ref:`r142 <changelog-r142>`
+   * - .. _feature-entry-2026-mcp-server:
+
+       MCP server
+     - AI assistants can work with subscription, billing, order, subscriber and catalogue data through the Model Context Protocol.
+     - :ref:`MCP Server <mcp-server>`
    * - .. _feature-entry-2026-automated-gdpr-data-retention:
 
        Automated GDPR data retention
@@ -199,6 +201,11 @@ Coverage for 2026 is partial: this year is shown up to the release on September 
        Scheduled cancellations
      - Merchants and subscribers can schedule a cancellation for a chosen future date, including beyond the current period.
      - :ref:`r144 <changelog-r144>`, :ref:`r145 <changelog-r145>`
+   * - .. _feature-entry-2026-smartresponse-tracking:
+
+       SmartResponse tracking
+     - Checkout activity can be tracked in SmartResponse.
+     - :ref:`r144 <changelog-r144>`
    * - .. _feature-entry-2026-mollie-payments:
 
        Mollie payments
@@ -232,10 +239,10 @@ Coverage for 2026 is partial: this year is shown up to the release on September 
        OData analytics API
      - Reporting and analytics data can be queried directly over the API using OData.
      - :ref:`r131 <changelog-r131>`
-   * - .. _feature-entry-2025-orders-sdk-for-javascript:
+   * - .. _feature-entry-2025-simplified-order-api-and-sdk:
 
-       Orders SDK for JavaScript
-     - A published JavaScript/TypeScript SDK for building custom order flows faster.
+       Simplified Order API and SDK
+     - A simplified Order API with a published JavaScript/TypeScript SDK, making it faster to build custom order flows.
      - :ref:`r131 <changelog-r131>`
    * - .. _feature-entry-2025-add-ons-on-running-subscriptions:
 
@@ -425,6 +432,11 @@ Coverage for 2026 is partial: this year is shown up to the release on September 
 
        Refund registration
      - Refunds can be registered, either linked to a payment or standalone.
+     - :ref:`r107 <changelog-r107>`
+   * - .. _feature-entry-2022-peppol-directory-lookup:
+
+       Peppol directory lookup
+     - The Peppol directory is checked automatically, so EHF e-invoices are sent only to registered recipients.
      - :ref:`r107 <changelog-r107>`
    * - .. _feature-entry-2022-avtalegiro-via-mastercard-api:
 
@@ -622,6 +634,11 @@ Coverage for 2019 is partial: the release-note record starts on March 15, 2019.
        Custom deal pricing
      - Orders can carry negotiated prices and a future start date, supporting custom sales deals and pre-sold subscriptions.
      - :ref:`r61 <changelog-r61>`, :ref:`r63 <changelog-r63>`, :ref:`r66 <changelog-r66>`
+   * - .. _feature-entry-2019-auth0-subscriber-login:
+
+       Auth0 subscriber login
+     - Subscribers sign in through Auth0, with subscriber information attached to their user and logins restricted to actual subscribers.
+     - :ref:`r61 <changelog-r61>`, :ref:`r67 <changelog-r67>`
    * - .. _feature-entry-2019-recurring-deliveries:
 
        Recurring deliveries
@@ -632,11 +649,21 @@ Coverage for 2019 is partial: the release-note record starts on March 15, 2019.
        Automatic credit control
      - New orders are denied automatically for subscribers whose account balance exceeds a configured limit.
      - :ref:`r63 <changelog-r63>`, :ref:`r64 <changelog-r64>`
+   * - .. _feature-entry-2019-kartverket-address-matching:
+
+       Kartverket address matching
+     - Norwegian delivery addresses are matched automatically against Kartverket, the Norwegian mapping authority.
+     - :ref:`r65 <changelog-r65>`
    * - .. _feature-entry-2019-product-mix-reporting:
 
        Product-mix reporting
      - Products can be grouped, for example as Digital or Freemium, so reports show performance by product type.
      - :ref:`r65 <changelog-r65>`, :ref:`r66 <changelog-r66>`
+   * - .. _feature-entry-2019-google-tag-manager:
+
+       Google Tag Manager
+     - Order and Self-Service pages can send events, such as completed orders, to Google Tag Manager for marketing analytics.
+     - :ref:`r66 <changelog-r66>`, :ref:`r85 <changelog-r85>`, :ref:`r145 <changelog-r145>`
    * - .. _feature-entry-2019-plan-changes-with-proration:
 
        Plan changes with proration
