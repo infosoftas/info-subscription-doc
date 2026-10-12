@@ -122,6 +122,7 @@ Additional Resources
 * :doc:`MCP Server <general/mcp-server>` – Connect AI assistants to live tenant data
 * `API Reference <https://api.info-subscription.com/swagger/>`_ – Full technical details for all endpoints
 * :ref:`Follow the changelog <changelog>` – Stay up to date with the latest changes
+* :ref:`Feature timeline <feature-timeline>` – See the significant capabilities added each year
 * :ref:`Testing <testing-experimenting>` – Use our testing and experimentation tenant for testing your integration and getting to know the platform.
 
 For more, see the sidebar or use the search to find specific guides and references.
@@ -222,5 +223,7 @@ For help, feedback, or to report issues, see :ref:`Support and Reporting Bugs <r
     :hidden:
 
     changelog/changelog
+    changelog/feature-timeline
+    changelog/archive
 
 :ref:`genindex`

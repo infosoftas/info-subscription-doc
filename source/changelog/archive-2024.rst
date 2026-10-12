@@ -1,0 +1,17 @@
+.. _changelog-archive-2024:
+
+##################
+Release notes 2024
+##################
+
+.. include:: r130.inc
+.. include:: r129.inc
+.. include:: r128.inc
+.. include:: r127.inc
+.. include:: r126.inc
+.. include:: r125.inc
+.. include:: r124.inc
+.. include:: r123.inc
+.. include:: r122.inc
+.. include:: r121.inc
+.. include:: r120.inc

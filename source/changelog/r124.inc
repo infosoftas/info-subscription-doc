@@ -109,7 +109,7 @@ Added
 * Option of assigning Name to shared users instead of just the Email address.
 
 Changed
------
+-------
 
 * Validations for contact updates related to requirements for the current active payment agreements.
 * Adjusted payment method selection for orders via the sales poster when adding invoice contacts, based on the available information on the subscriber.
