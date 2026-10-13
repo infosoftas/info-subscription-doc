@@ -1,4 +1,4 @@
-.. _changelog-r137:
+.. _changelog-r137-hotfix:
 
 *************************
 2025 Release October 27th
@@ -14,6 +14,8 @@ Fixed
 
 * An issue where chosen products would not flow to the next step in a chain of plans, causing the second and subsequent period to contain all available products instead of the chosen ones.
 * An issue where the overridden price for an order would not flow to the next step in a chain of plans, causing the second and subsequent period to use the list prices instead of the overridden one.
+
+.. _changelog-r137:
 
 ****************************
 2025 Release September 23rd

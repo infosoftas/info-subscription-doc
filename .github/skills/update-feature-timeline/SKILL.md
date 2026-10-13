@@ -81,8 +81,13 @@ visual year markers, not to the table headings.
 ## Release-note reachability
 
 Every cited release must be rendered by the current changelog or a reachable
-archive wrapper. If a source `.inc` is omitted, include it in the appropriate
-year wrapper; if that wrapper is new, add it to `archive.rst`'s toctree.
+archive wrapper, and each citation must use the label directly above the
+section containing the evidence. Hotfix sections sharing a file with their
+main release use `changelog-rNNN-hotfix`, for example
+:ref:`r140 hotfix <changelog-r140-hotfix>`. If a cited section is unlabeled,
+add a label following that convention. If a source `.inc` is omitted,
+include it in the appropriate year wrapper; if that wrapper is new, add it to
+`archive.rst`'s toctree.
 Follow existing include paths and avoid including the same release twice,
 which produces duplicate reference labels. Do not reorganize unrelated
 changelog content or alter release-note claims.

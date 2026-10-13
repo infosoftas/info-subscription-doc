@@ -25,8 +25,13 @@ change the timeline unless the user also requests that step; use the
 4. Read every release section for the requested year in full, including
    introductions, nested bullets, and all client/backend sections. Do not
    search only for "Added", or classify items solely by their heading.
-5. Record the actual release date and exact `changelog-rNNN` reference label
-   from each source. Explain inferred dates and unresolved ambiguities.
+5. Record the actual release date and exact reference label of each release
+   section. Every dated section must have its own label: `changelog-rNNN` for
+   the main release in `rNNN.inc`, and `changelog-rNNN-hotfix` for an
+   additional hotfix section in the same file (add a stable distinguishing
+   suffix if a file has more than one). If a section lacks a label, add one
+   using this convention rather than citing a label that points to a
+   different section. Explain inferred dates and unresolved ambiguities.
    Establish the earliest and latest covered releases; do not claim a complete
    year if the evidence only covers part of it.
 6. Some launches, such as new APIs or developer tools, are documented without
