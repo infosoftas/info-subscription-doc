@@ -39,7 +39,7 @@ Feature timeline
    <div class="feature-history-summary" aria-label="Significant features by year">
    
    <a href="#timeline-year-2026" aria-label="2026: 10 new features"><strong><span>+10</span> <small>features</small></strong>2026</a>
-   <a href="#timeline-year-2025" aria-label="2025: 6 new features"><strong><span>+6</span> <small>features</small></strong>2025</a>
+   <a href="#timeline-year-2025" aria-label="2025: 7 new features"><strong><span>+7</span> <small>features</small></strong>2025</a>
    <a href="#timeline-year-2024" aria-label="2024: 15 new features"><strong><span>+15</span> <small>features</small></strong>2024</a>
    <a href="#timeline-year-2023" aria-label="2023: 6 new features"><strong><span>+6</span> <small>features</small></strong>2023</a>
    <a href="#timeline-year-2022" aria-label="2022: 8 new features"><strong><span>+8</span> <small>features</small></strong>2022</a>
@@ -70,6 +70,7 @@ Feature timeline
    <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2025-add-ons-on-running-subscriptions"><strong>Add-ons on running subscriptions</strong></a></li>
    <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2025-billing-transaction-log"><strong>Billing transaction log</strong></a></li>
    <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2025-refunds-through-payment-providers"><strong>Refunds through payment providers</strong></a></li>
+   <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2025-bulk-crediting-and-write-off"><strong>Bulk crediting and write-off</strong></a></li>
    </ol>
    <div class="feature-history-year" id="timeline-year-2024"><span>2024</span></div>
    <ol class="feature-history-items">
@@ -218,7 +219,7 @@ Coverage for 2026 is partial: this year is shown up to the release on September 
    * - .. _feature-entry-2026-bad-debt-write-off:
 
        Bad debt write-off
-     - Unpaid invoices can be written off as bad debt without issuing a credit note.
+     - Collections stop and demands are written off in the general ledger without crediting the subscriber; later payments can still be accepted.
      - :ref:`r145 <changelog-r145>`
 
 .. _feature-timeline-2025:
@@ -263,6 +264,11 @@ Coverage for 2026 is partial: this year is shown up to the release on September 
        Refunds through payment providers
      - Vipps MobilePay charges can be refunded and Swedbank Pay transactions reversed directly from INFO-Subscription.
      - :ref:`r137 <changelog-r137>`, :ref:`r141 <changelog-r141>`
+   * - .. _feature-entry-2025-bulk-crediting-and-write-off:
+
+       Bulk crediting and write-off
+     - Outstanding demands are credited and residual billing-account charges are written off, with a general-ledger write-off when required.
+     - :ref:`r139 <changelog-r139>`, :ref:`r140 <changelog-r140>`
 
 .. _feature-timeline-2024:
 
