@@ -23,6 +23,8 @@ Feature timeline
    .feature-history-summary a:hover, .feature-history-card:hover { background: #eaf2f8; }
    .feature-history-summary a:focus-visible, .feature-history-card:focus-visible { outline: 3px solid #1f4e79; outline-offset: 3px; }
    .feature-history-year, [id^="feature-entry-"] { scroll-margin-top: 4rem; }
+   .feature-history-year:target span { outline: 3px solid #87a9c3; outline-offset: 3px; }
+   .rst-content table.docutils tbody tr:has([id^="feature-entry-"]:target) > td { background-color: #eaf2f8; }
    .feature-history-left .feature-history-card { grid-column: 1; text-align: right; margin-right: .8rem; }
    .feature-history-right .feature-history-card { grid-column: 3; margin-left: .8rem; }
    @media (max-width: 640px) {
