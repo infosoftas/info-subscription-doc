@@ -17,7 +17,7 @@ Feature timeline
    .feature-history-year { position: relative; z-index: 1; display: flex; justify-content: center; margin: 2.3rem 0 1rem; }
    .feature-history-year span { padding: .45rem 1.2rem; color: #fff; background: #1f4e79; border-radius: 2rem; font-size: 1.2rem; font-weight: 700; }
    .feature-history-items { list-style: none; margin: 0; padding: 0; }
-   .feature-history-item { display: grid; grid-template-columns: minmax(0, 1fr) 2.5rem minmax(0, 1fr); align-items: center; margin: .35rem 0; position: relative; }
+   .feature-history-item { display: grid; grid-template-columns: minmax(0, 1fr) 2.5rem minmax(0, 1fr); align-items: center; margin: .20rem 0; position: relative; }
    .feature-history-card { display: block; grid-row: 1; padding: .45rem .8rem; background: #fff; border: 1px solid #d4e0e8; border-radius: .55rem; box-shadow: 0 2px 8px rgba(24,59,86,.08); }
    .feature-history-card strong { color: #183b56; }
    .feature-history-summary a:hover, .feature-history-card:hover { background: #eaf2f8; }
