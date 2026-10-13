@@ -25,9 +25,9 @@ This allows developers to quickly create client libraries in their preferred pro
 
 Examples of tools that can be used for SDK generation include:
 
-* `OpenAPI Generator <https://openapi-generator.tech/`
-* `Swagger Codegen <https://swagger.io/tools/swagger-codegen/`
-* `Postman Code Generators <https://learning.postman.com/docs/developer/code-generators/`
+* `OpenAPI Generator <https://openapi-generator.tech/docs/>`_
+* `Swagger Codegen <https://swagger.io/docs/open-source-tools/swagger-codegen/>`_
+* `Postman SDK Generator <https://learning.postman.com/docs/sdk-generator/overview>`_
 * `Microsoft Kiota <https://github.com/microsoft/kiota>`_
 
 .. note:: 
