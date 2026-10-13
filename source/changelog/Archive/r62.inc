@@ -1,8 +1,8 @@
 .. _changelog-r62:
 
-************************
+**************************
 Release September 3rd 2019
-************************
+**************************
 The following changes were rolled out to production on September 3rd 2019
 
 API and Backend
