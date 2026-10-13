@@ -9,8 +9,9 @@ Feature timeline
    <style>
    .feature-history-summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .6rem; max-width: 960px; margin: 1.5rem auto 2.5rem; }
    .feature-history-summary a { padding: .7rem; text-align: center; background: #f1f5f9; border-radius: .45rem; color: #183b56; }
-   .feature-history-summary strong { display: block; font-size: 1.25rem; }
-   .feature-history-summary small { font-size: .75rem; font-weight: 400; color: #526575; }
+   .feature-history-summary strong { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: baseline; font-size: 1.25rem; }
+   .feature-history-summary strong span { grid-column: 2; }
+   .feature-history-summary small { grid-column: 3; margin-left: .3rem; text-align: left; font-size: .75rem; font-weight: 400; color: #526575; }
    .feature-history { --history-line: #87a9c3; max-width: 960px; margin: 0 auto 3rem; position: relative; }
    .feature-history::before { content: ""; position: absolute; top: 1.2rem; bottom: 1.2rem; left: 50%; width: 3px; transform: translateX(-50%); background: var(--history-line); }
    .feature-history-year { position: relative; z-index: 1; display: flex; justify-content: center; margin: 2.3rem 0 1rem; }
@@ -35,14 +36,14 @@ Feature timeline
 
    <div class="feature-history-summary" aria-label="Significant features by year">
    
-   <a href="#timeline-year-2026" aria-label="2026: 10 new features"><strong>+10 <small>features</small></strong>2026</a>
-   <a href="#timeline-year-2025" aria-label="2025: 6 new features"><strong>+6 <small>features</small></strong>2025</a>
-   <a href="#timeline-year-2024" aria-label="2024: 15 new features"><strong>+15 <small>features</small></strong>2024</a>
-   <a href="#timeline-year-2023" aria-label="2023: 6 new features"><strong>+6 <small>features</small></strong>2023</a>
-   <a href="#timeline-year-2022" aria-label="2022: 8 new features"><strong>+8 <small>features</small></strong>2022</a>
-   <a href="#timeline-year-2021" aria-label="2021: 6 new features"><strong>+6 <small>features</small></strong>2021</a>
-   <a href="#timeline-year-2020" aria-label="2020: 15 new features"><strong>+15 <small>features</small></strong>2020</a>
-   <a href="#timeline-year-2019" aria-label="2019: 16 new features"><strong>+16 <small>features</small></strong>2019</a>
+   <a href="#timeline-year-2026" aria-label="2026: 10 new features"><strong><span>+10</span> <small>features</small></strong>2026</a>
+   <a href="#timeline-year-2025" aria-label="2025: 6 new features"><strong><span>+6</span> <small>features</small></strong>2025</a>
+   <a href="#timeline-year-2024" aria-label="2024: 15 new features"><strong><span>+15</span> <small>features</small></strong>2024</a>
+   <a href="#timeline-year-2023" aria-label="2023: 6 new features"><strong><span>+6</span> <small>features</small></strong>2023</a>
+   <a href="#timeline-year-2022" aria-label="2022: 8 new features"><strong><span>+8</span> <small>features</small></strong>2022</a>
+   <a href="#timeline-year-2021" aria-label="2021: 6 new features"><strong><span>+6</span> <small>features</small></strong>2021</a>
+   <a href="#timeline-year-2020" aria-label="2020: 15 new features"><strong><span>+15</span> <small>features</small></strong>2020</a>
+   <a href="#timeline-year-2019" aria-label="2019: 16 new features"><strong><span>+16</span> <small>features</small></strong>2019</a>
    </div>
    <div class="feature-history" aria-label="Significant INFO-Subscription features by year">
    
