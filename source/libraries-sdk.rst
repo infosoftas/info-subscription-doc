@@ -9,10 +9,6 @@ SDK packages are available for .NET and TypeScript. They are generated from the 
 * **.NET**: `Infosoft.Info.Subscription.Dotnet on NuGet.org <https://www.nuget.org/packages/Infosoft.Info.Subscription.Dotnet>`_ (`.NET source code <https://github.com/infosoftas/info-subscription-sdk/tree/main/dotnet-sdk>`_)
 * **TypeScript**: `@infosoftas/info-subscription-ts on npmjs.org <https://www.npmjs.com/package/@infosoftas/info-subscription-ts>`_ (`TypeScript source code <https://github.com/infosoftas/info-subscription-sdk/tree/main/typescript-sdk>`_)
 
-These packages are unsupported and provided as-is. Contact Infosoft support for official support of the platform and API.
-
-You can also generate your own SDKs using community tools and libraries, or use other solutions to integrate with |projectName|.
-
 We encourage the community to contribute by creating and maintaining libraries in various programming languages.
 Refer to our `GitHub repository <https://www.github.com/infosoftas/info-subscription/>`_  if you are interested in contributing.
 
