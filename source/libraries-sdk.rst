@@ -11,6 +11,8 @@ SDK packages are available for .NET and TypeScript. They are generated from the 
 
 Both SDK projects include sample applications showing how to use the client. They also provide authentication components to simplify setup, including Azure AD B2C authentication and tenant configuration.
 
+These SDK packages are unsupported and provided as-is without warranties. For official API support, contact Infosoft support.
+
 We encourage the community to contribute by creating and maintaining libraries in various programming languages.
 Refer to our `GitHub repository <https://www.github.com/infosoftas/info-subscription/>`_  if you are interested in contributing.
 
