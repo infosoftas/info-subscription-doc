@@ -4,8 +4,14 @@
 Client Libraries and SDKs
 ***************************
 
-Currently we do not provide any official client libraries or SDKs for |projectName|. 
-There are options for generating SDKs using community tools and libraries, as well as other solutions to quickly integrate with |projectName|.
+SDK packages are available for .NET and TypeScript. They are generated from the OpenAPI specification using Microsoft Kiota and include only a subset of the API.
+
+* **.NET**: `Infosoft.Info.Subscription.Dotnet on NuGet.org <https://www.nuget.org/packages/Infosoft.Info.Subscription.Dotnet>`_ (`.NET source code <https://github.com/infosoftas/info-subscription-sdk/tree/main/dotnet-sdk>`_)
+* **TypeScript**: `@infosoftas/info-subscription-ts on npmjs.org <https://www.npmjs.com/package/@infosoftas/info-subscription-ts>`_ (`TypeScript source code <https://github.com/infosoftas/info-subscription-sdk/tree/main/typescript-sdk>`_)
+
+Both SDK projects include sample applications showing how to use the client. They also provide authentication components to simplify setup, including Azure AD B2C authentication and tenant configuration.
+
+These SDK packages are unsupported and provided as-is without warranties. For official API support, contact Infosoft support.
 
 We encourage the community to contribute by creating and maintaining libraries in various programming languages.
 Refer to our `GitHub repository <https://www.github.com/infosoftas/info-subscription/>`_  if you are interested in contributing.
@@ -23,9 +29,9 @@ This allows developers to quickly create client libraries in their preferred pro
 
 Examples of tools that can be used for SDK generation include:
 
-* `OpenAPI Generator <https://openapi-generator.tech/`
-* `Swagger Codegen <https://swagger.io/tools/swagger-codegen/`
-* `Postman Code Generators <https://learning.postman.com/docs/developer/code-generators/`
+* `OpenAPI Generator <https://openapi-generator.tech/docs/>`_
+* `Swagger Codegen <https://swagger.io/docs/open-source-tools/swagger-codegen/>`_
+* `Postman SDK Generator <https://learning.postman.com/docs/sdk-generator/overview>`_
 * `Microsoft Kiota <https://github.com/microsoft/kiota>`_
 
 .. note:: 
