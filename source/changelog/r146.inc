@@ -12,15 +12,15 @@ Hope you enjoy the new features! As always, we welcome your feedback and suggest
 Checkout UI Refresh
 ===================
 
-We are launching a refreshed UI for the checkout process. It aims to provide an even more neutral and visually appealing experience for users, without getting in the way for your company branding.
+We are launching a refreshed UI for the checkout process. It aims to provide an even more neutral and visually appealing experience for users, without getting in the way for your company's branding.
 It also enhances the signup and signin experience, so the transition between solutions is even more transparent for most users.
 
-We have incorporated multiple user feedback points to improve the overall checkout experience, and while we cannot provide a solution that is ideally for everyone, we are committed to making it more intuitive and user-friendly, and hope this is a step in the right direction for everyone.
+We have incorporated multiple user feedback points to improve the overall checkout experience, and while we cannot provide a solution that is ideal for everyone, we are committed to making it more intuitive and user-friendly, and hope this is a step in the right direction for everyone.
 
 INFO-Subscription SDKs
 ======================
 
-We are launching the first versions of the INFO-Subscription SDKs, providing developers with ready-to-use packages for integrating, including API authentication building blocks. 
+We are launching the first versions of the INFO-Subscription SDKs, providing developers with ready-to-use packages that simplify integrating with the INFO-Subscription API and include authentication building blocks. 
 The SDKs are available for JS/TS on https://www.npmjs.com/package/@infosoftas/info-subscription-ts and for dotnet/C# on https://www.nuget.org/packages/Infosoft.Info.Subscription.Dotnet.
 
 The source code is available on GitHub at https://github.com/infosoftas/info-subscription-sdk. Feel free to contribute and submit issues or pull requests.
@@ -31,7 +31,7 @@ API and Backend
 Added
 -----
 
-* Support for scheduled Subscription Pause, allowing users to plan temporary pauses in their subscriptions. Essentially pauses are pre-scheduled cancellations that take effect automatically at the specified time, followed by a subsequent resumption at a later date.
+* Support for scheduled Subscription Pause, allowing users to plan temporary pauses in their subscriptions. Essentially pauses are implemented as scheduled cancellations that take effect automatically at the specified time, followed by a subsequent resumption at a later date.
 * Unit Price and Quantity are now included in the Account Transaction API responses.
 * It is now possible to filter Enterprise Plans by Organization Id.
 
@@ -41,9 +41,9 @@ Fixed
 * An issue where Payment Type based Fees for orders would break for Mollie.
 * Minor resilience improvements for Mollie related to capture reconciliation of payments.
 * An edge case issue where malformed Reminder Settings would cause dunning to not progress if there were "holes" in the reminder sequence schedules.
-* An issue where re-issuing account invoices would loose their configured invoice fee.
+* An issue where re-issuing account invoices would lose their configured invoice fee.
 * An issue where cancelling Additional Products in the same period as they were added would not correctly be reflected for the next billing cycle.
-* An issue where it was not possible to create a non-zero amount Vipps or MobilePay agreement without an Initial Charge. For instance 1 week free, then 100 NOK a month.
+* An issue where it was not possible to create a non-zero amount Vipps or MobilePay agreement without an Initial Charge. For instance a campaign with 1 week free, then 100 NOK a month after that.
 * An issue where it was possible to schedule a cancellation on a historic subscription, now a validation prevents this.
 
 
@@ -71,12 +71,12 @@ Added
 * **[Preview]** Support for onboarding Mollie accounts/profiles from the Merchant.
 * It is possible to write-off payment demands without crediting them (marking them as bad debt/loss).
 * When searching/listing invoices it is now possible to filter by the "Write off" status.
-* Subscriber Ledger displays write-offs entries as its own type.
+* Subscriber Ledger displays write-off entries as its own type.
 
 Changed
 -------
 
-* Orders with custom price overrides now presents a slider for tax and quantity instead of a pure number.
+* Orders with custom price overrides now present a slider for tax and quantity instead of a pure number.
 
 Fixed
 -----
@@ -92,9 +92,9 @@ Added
 -----
 
 * Refreshed the UI for checkout.
-* In self-service adding new payment agreements to a subscription is now bounded by the subscription instead of a global agreements list. Prevents confusion on where the agreement is being added. List of agreements still show all agreements.
+* In self-service adding new payment agreements to a subscription is now bounded by the subscription instead of a global agreements list. Prevents confusion on where the agreement is being added. The list of agreements still shows all agreements.
 
 Changed
 -------
 
-* Moved configuration errors for Payment setup to warnings in the console to allow multi country configurations without blocking the user during checkout.
+* Moved configuration errors for Payment setup to warnings in the console to allow multi-country configurations without blocking the user during checkout.
