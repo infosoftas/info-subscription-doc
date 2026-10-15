@@ -52,6 +52,7 @@ Changed
 
 * Allow client generated Id for Vipps, MobilePay and SwedbankPay agreements, simplifying idempotency checks and streamlining the agreement creation process as much as possible between PSP integrations.
 * The `SubscriptionCancelled` event is now raised only when the cancellation has been processed entirely. Previously a small window existed where the event could be raised before the cancellation was fully completed, potentially causing inconsistencies in event handling for third parties not aware of this window.
+* In the previous release, we introduced conversion of charges with type `Purchase` into `AdditionalProductDetailLines` when billing. This had a few consequences in how they were handled in terms of being reverted to the billing account during credits. With this release, such converted detail lines are now reverted back into charges during credit (following the same logic as other charges and allowances).
 
 
 Deprecated
