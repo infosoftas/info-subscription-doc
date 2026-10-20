@@ -77,7 +77,7 @@ Added
 Changed
 -------
 
-* Orders with custom price overrides now present a slider for tax and quantity instead of a pure number.
+* Orders with custom price overrides now use sliders for tax and quantity instead of checkboxes, matching the layout used when changing packages.
 
 Fixed
 -----
