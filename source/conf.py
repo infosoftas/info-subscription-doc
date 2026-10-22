@@ -269,6 +269,9 @@ llms_txt_exclude = [
     'genindex',
 ]
 
+# sphinx-llm >= 1.0 no longer generates llms-full.txt by default
+llms_txt_full_build = True
+
 # -- Options for sphinx-sitemap extension -------------------------------------
 sitemap_show_lastmod = True
 sitemap_url_scheme = "{link}"
