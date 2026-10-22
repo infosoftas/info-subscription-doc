@@ -46,7 +46,7 @@ Integration Options
 
 .. list-table::
    :header-rows: 1
-   :widths: 25 40 35
+
 
    * - Path
      - Choose this if
@@ -90,6 +90,7 @@ Custom integrations against the raw API, for teams building their own checkout, 
 * |VippsMobilePayIcon| :ref:`A Vipps or MobilePay integration <provider-vipps>`
 * 🔄 :ref:`Subscription change handling (upgrades/downgrades) <subscription-plan-changes>`
 * 🧾 :ref:`Billing and invoice handling <billing-cycle>`
+* 📈 :ref:`Metered/usage-based billing on a subscription <metered-billing-tutorial>`
 * ⚡ :ref:`Event-driven subscriptions <events>`
 * 📊 :ref:`Subscription analytics into my own tools <reporting-intro>`
 
@@ -111,6 +112,7 @@ Additional Resources
 * :ref:`Proration Policies <proration-policies>` – How cancellations and mid-period plan changes are prorated
 * :ref:`Payment Matching, Settlement & Reconciliation <payment-matching-settlement>` – How incoming payments are matched to invoices and billing accounts reconciled
 * :ref:`Standalone Payment Demands <standalone-paymentdemands>` – Issuing one-off charges outside the regular billing cycle
+* :ref:`Building Your Own Metered Billing Solution <metered-billing-tutorial>` – Tutorial: billing for usage/consumption on top of a subscription
 * :ref:`On-Demand Reminders <on-demand-reminder>` – Issuing reminders when an external collection agency controls the timeline
 
 **General**
@@ -171,6 +173,7 @@ For help, feedback, or to report issues, see :ref:`Support and Reporting Bugs <r
     billing/proration-policies
     billing/standalone
     billing/on-demand-reminder
+    billing/metered-billing-tutorial
 
 .. toctree::
     :caption: Payments and Agreements
