@@ -1,5 +1,6 @@
 .. _changelog:
 
+.. include:: r147.inc
 .. include:: r146.inc
 .. include:: r145.inc
 .. include:: r144.inc
