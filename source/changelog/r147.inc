@@ -27,10 +27,10 @@ Each article can be configured with one of the following access modes:
 
 * **AllAccess** - the article is available to everyone.
 * **UserLoggedIn** - the article is available to all signed-in users.
-* **SelectedProducts** - the article is available to signed-in users with access to any one of the selected products, based on the `extension_Products` claim.
+* **SelectedProducts** - the article is available to signed-in users with access to any one of the selected products, based on the ``extension_Products`` claim.
 
 Visitors without access are shown a teaser with links to sign in or subscribe, or are redirected to a subscribe page.
 
 Editors pick the products for an article from a list loaded from the |ProjectName| API. To load the list, an administrator signs in interactively using the authorization code flow with PKCE. Tokens are never stored by the plugin, and product IDs can also be entered manually.
 
-The plugin requires WordPress 5.6 or newer, PHP 8.0 or newer and HTTPS. It is not yet available in the WordPress.org plugin directory; instead, an installable `infosub.zip` is attached to the v0.1.0 release on GitHub at https://github.com/infosoftas/info-subscription-wordpress. The plugin is licensed under the MIT licence.
+The plugin requires WordPress 5.6 or newer, PHP 8.0 or newer and HTTPS. It is not yet available in the WordPress.org plugin directory; instead, an installable ``infosub.zip`` is attached to the v0.1.0 release on GitHub at https://github.com/infosoftas/info-subscription-wordpress. The plugin is licensed under the MIT licence.
