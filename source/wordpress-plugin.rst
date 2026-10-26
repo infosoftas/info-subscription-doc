@@ -1,10 +1,10 @@
 .. _wordpress-access:
 
-*************************************
-|projectName| Access for WordPress
-*************************************
+************************
+WordPress Paywall Plugin
+************************
 
-|projectName| Access for WordPress is a plugin that lets visitors sign in with their |projectName| account and restricts articles to signed-in subscribers or subscribers with selected products.
+The WordPress Paywall Plugin lets visitors sign in with their subscriber account and restricts articles to signed-in subscribers or subscribers with selected products.
 Subscribers do not need WordPress accounts.
 
 The plugin is installed from `GitHub releases <https://github.com/infosoftas/info-subscription-wordpress/releases>`_ and is not yet listed in the WordPress.org plugin directory.
