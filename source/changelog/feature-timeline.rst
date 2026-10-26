@@ -163,7 +163,7 @@ Feature timeline
 2026
 ====
 
-Coverage for 2026 is partial: release-note coverage extends through the October 20, 2026 release.
+Coverage for 2026 is partial: this year is shown up to the release on September 16, 2026.
 
 .. list-table:: Features in 2026
    :header-rows: 1
