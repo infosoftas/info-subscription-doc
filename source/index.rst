@@ -101,7 +101,7 @@ I want to set up...
 
 * 🛒 :ref:`A managed subscription checkout <checkout>`
 * 👤 :ref:`A self-service portal for subscribers <managed-experience>`
-* 🔐 :ref:`WordPress paywall plugin <wordpress-access>`
+* 🔐 :ref:`WordPress paywall plugin <wordpress-paywall-plugin>`
 
 Additional Resources
 --------------------

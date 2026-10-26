@@ -1,4 +1,4 @@
-.. _wordpress-access:
+.. _wordpress-paywall-plugin:
 
 ************************
 WordPress Paywall Plugin

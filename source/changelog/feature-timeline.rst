@@ -61,7 +61,7 @@ Feature timeline
    <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2026-smartresponse-tracking"><strong>SmartResponse tracking</strong></a></li>
    <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2026-mollie-payments"><strong>Mollie payments</strong></a></li>
    <li class="feature-history-item feature-history-right"><a class="feature-history-card" href="#feature-entry-2026-bad-debt-write-off"><strong>Bad debt write-off</strong></a></li>
-   <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2026-wordpress-article-access"><strong>WordPress paywall plugin</strong></a></li>
+   <li class="feature-history-item feature-history-left"><a class="feature-history-card" href="#feature-entry-2026-wordpress-paywall-plugin"><strong>WordPress paywall plugin</strong></a></li>
    </ol>
    <div class="feature-history-year" id="timeline-year-2025"><span>2025</span></div>
    <ol class="feature-history-items">
@@ -222,11 +222,11 @@ Coverage for 2026 is partial: this year is shown up to the release on September 
        Bad debt write-off
      - Collections stop and demands are written off in the general ledger without crediting the subscriber; later payments can still be accepted.
      - :ref:`r145 <changelog-r145>`
-   * - .. _feature-entry-2026-wordpress-article-access:
+   * - .. _feature-entry-2026-wordpress-paywall-plugin:
 
        WordPress paywall plugin
      - WordPress publishers can gate articles by subscriber sign-in or ownership of any selected INFO-Subscription product.
-     - :ref:`WordPress Paywall Plugin <wordpress-access>`
+     - :ref:`WordPress Paywall Plugin <wordpress-paywall-plugin>`
 
 .. _feature-timeline-2025:
 
