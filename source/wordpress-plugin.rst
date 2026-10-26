@@ -4,18 +4,18 @@
 WordPress Paywall Plugin
 ************************
 
-The WordPress Paywall Plugin builds on INFO-Subscription's :ref:`managed subscriber
-experience <managed-experience>` and identity provider. It lets visitors sign in with
-their INFO-Subscription account and restricts individual WordPress articles to the
-appropriate audience. Visitors do not need WordPress accounts.
+The WordPress Paywall Plugin builds on
+INFO-Subscription's :ref:`managed subscriber experience <managed-experience>` and
+identity provider.
 
-For installation, application registration, configuration, and updates, follow the
+It lets visitors sign in with their INFO-Subscription account and restricts individual
+WordPress articles to the appropriate audience. Visitors do not need WordPress accounts.
+
+For installation, configuration, and updates, follow the
 `plugin README <https://github.com/infosoftas/info-subscription-wordpress#readme>`_.
-Download the installable ``infosub.zip`` from the
-`GitHub releases <https://github.com/infosoftas/info-subscription-wordpress/releases>`_.
-The README also lists the plugin requirements and the two application-registration
-callbacks. The repository is private, so contact INFO-Subscription support if you need
-access to the downloads or the registrations.
+There you can also read about the plugin requirements and application registrations,
+including the redirect URIs for subscriber sign-in and API product lookup.
+Contact INFO-Subscription support to request the application registrations.
 
 Article access
 ==============
