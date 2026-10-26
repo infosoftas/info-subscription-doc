@@ -86,7 +86,6 @@ Custom integrations against the raw API, for teams building their own checkout, 
 
 * 🛒 :ref:`A custom subscription checkout <subscription-orders>`
 * 🔌 :ref:`My own content into a CMS or portal <auth-quick-start>`
-* 🔐 :ref:`WordPress article access <wordpress-access>`
 * 💳 :ref:`Recurring payments into my own flow <payment-methods-overview>`
 * |VippsMobilePayIcon| :ref:`A Vipps or MobilePay integration <provider-vipps>`
 * 🔄 :ref:`Subscription change handling (upgrades/downgrades) <subscription-plan-changes>`
@@ -102,6 +101,7 @@ I want to set up...
 
 * 🛒 :ref:`A managed subscription checkout <checkout>`
 * 👤 :ref:`A self-service portal for subscribers <managed-experience>`
+* 🔐 :ref:`WordPress paywall plugin <wordpress-access>`
 
 Additional Resources
 --------------------
@@ -202,6 +202,7 @@ For help, feedback, or to report issues, see :ref:`Support and Reporting Bugs <r
     managed-experience/authentication-authorization/sessions
     managed-experience/authentication-authorization/user-management-authentication
     managed-experience/selfservice/custom-domain
+    wordpress-plugin
     
 .. toctree::
     :caption: Reporting and Analytics
@@ -218,7 +219,6 @@ For help, feedback, or to report issues, see :ref:`Support and Reporting Bugs <r
 
     testing-experimenting
     libraries-sdk
-    wordpress-plugin
     reporting-bugs
     API Reference/Swagger <https://api.info-subscription.com/swagger/>
     doc-contribution

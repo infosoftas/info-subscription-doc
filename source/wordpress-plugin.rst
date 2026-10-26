@@ -1,12 +1,13 @@
 .. _wordpress-access:
 
-**************************************
-INFO-Subscription Access for WordPress
-**************************************
+************************
+WordPress Paywall Plugin
+************************
 
-INFO-Subscription Access lets visitors sign in with their INFO-Subscription account and
-restricts individual WordPress articles to the appropriate audience. Visitors do not
-need WordPress accounts.
+The WordPress Paywall Plugin builds on INFO-Subscription's :ref:`managed subscriber
+experience <managed-experience>` and identity provider. It lets visitors sign in with
+their INFO-Subscription account and restricts individual WordPress articles to the
+appropriate audience. Visitors do not need WordPress accounts.
 
 For installation, application registration, configuration, and updates, follow the
 `plugin README <https://github.com/infosoftas/info-subscription-wordpress#readme>`_.
