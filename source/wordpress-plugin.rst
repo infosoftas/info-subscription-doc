@@ -6,10 +6,12 @@ WordPress Paywall Plugin
 
 The WordPress Paywall Plugin builds on
 INFO-Subscription's :ref:`managed subscriber experience <managed-experience>` and
-identity provider.
+identity provider. It puts articles behind an INFO-Subscription paywall without
+requiring you to write integration code.
 
-It lets visitors sign in with their INFO-Subscription account and restricts individual
-WordPress articles to the appropriate audience. Visitors do not need WordPress accounts.
+Visitors sign in with their INFO-Subscription account through your tenant's Azure AD B2C
+identity provider. Sign-in uses OpenID Connect's ``id_token`` flow and does not require a
+client secret. Subscribers do not need WordPress accounts.
 
 For installation, configuration, and updates, follow the
 `plugin README <https://github.com/infosoftas/info-subscription-wordpress#readme>`_.
@@ -30,10 +32,12 @@ Choose an access mode for each article:
   products. The plugin checks the subscriber's ``extension_Products`` claim; matching
   any one selected product is sufficient.
 
-Visitors without access can be shown a teaser and sign-in or subscription prompt, or be
-redirected to sign in or continue to checkout, depending on the site's configured
-behavior. Login-only articles use a sign-in prompt or redirect rather than a
-subscription prompt.
+Visitors without access can see a teaser with sign-in and subscribe links, or be
+redirected to a configurable subscribe page. Login-only articles show a sign-in prompt
+or redirect to sign-in rather than a subscription prompt.
+
+Editors and administrators who can edit an article can always preview it, including
+protected content.
 
 Selecting products
 ==================
@@ -43,6 +47,10 @@ administrator signs in interactively using authorization code with PKCE; no clie
 secret is used, and tokens are used once to load products and are never stored. The
 picker retrieves products through ``GET /product``. Editors can also enter product IDs
 manually, for example when the product list has not been loaded.
+
+Settings can be locked by defining the plugin's constants in ``wp-config.php``. See the
+`plugin README <https://github.com/infosoftas/info-subscription-wordpress#readme>`_ for
+the available constants and configuration details.
 
 Troubleshooting
 ===============
