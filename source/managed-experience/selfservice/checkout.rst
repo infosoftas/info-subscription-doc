@@ -45,7 +45,7 @@ The following as quick list of the journeys, details are available in the follow
     
         .. code-block:: bash
 
-            https://{tenantName}-s4.azurewebsites.net/checkout?journey=order
+            https://{tenantName}customer.info-subscription.com/checkout?journey=order
 
     **Screenshot:**
     
@@ -62,7 +62,7 @@ The following as quick list of the journeys, details are available in the follow
 
         .. code-block:: bash
 
-            https://{tenantName}-s4.azurewebsites.net/checkout?journey=order-address
+            https://{tenantName}customer.info-subscription.com/checkout?journey=order-address
     
     **Screenshot:**
 
@@ -82,7 +82,7 @@ The following as quick list of the journeys, details are available in the follow
 
         .. code-block:: bash
 
-            https://{tenantName}-s4.azurewebsites.net/checkout?journey=order-address-trial&templatePlanId=1234567
+            https://{tenantName}customer.info-subscription.com/checkout?journey=order-address-trial&templatePlanId=1234567
 
 #. B2B (``order-business``)
 
@@ -92,7 +92,7 @@ The following as quick list of the journeys, details are available in the follow
 
         .. code-block:: bash
 
-            https://{tenantName}-s4.azurewebsites.net/checkout?journey=order-business
+            https://{tenantName}customer.info-subscription.com/checkout?journey=order-business
 
     **Screenshot:**
 
@@ -128,7 +128,7 @@ For example:
 
 .. code-block:: bash
 
-    https://{tenantName}-s4.azurewebsites.net/checkout?journey=order&returnUrl=https://example.com/thank-you&source=google&templatePlanId=1234567
+    https://{tenantName}customer.info-subscription.com/checkout?journey=order&returnUrl=https://example.com/thank-you&source=google&templatePlanId=1234567
 
 
 2. Configuration and Default via Merchant Options
