@@ -5,7 +5,7 @@ Orders and User Registration
 
 |projectName| contains a turnkey Salesposter/Ordering solution that can get organizations up and running in no time.
 
-For tenants where the managed subscriber experience is enabled, the salesposter is available on a URL following the template: https://{tenantName}customer.info-subscription.com/salesposter, where *tenantName* is the name of the tenant.
+For tenants where the managed subscriber experience is enabled, the salesposter is available on a URL following the template: https://{tenantName.customer.info-subscription.com/salesposter, where *tenantName* is the name of the tenant.
 
 If the tenant is configured with a :ref:`custom domain <selfservice-custom-domain>` that domain may be used instead of the azurewebsites subdomain, such as https://subscription.example.com/salesposter
 
