@@ -325,7 +325,9 @@ By configuring these policies appropriately, you can balance customer satisfacti
 Integration with Events
 =======================
 
-The :ref:`SubscriptionCancelled <subscription-cancelled-event>` event reports cancellation registration or intention, for both ordinary and scheduled cancellations. It does not confirm that cancellation has taken effect, and it is not a billing event. Do not use it as an instruction to revoke access or as confirmation of a credit, charge, or invoice adjustment.
+The :ref:`SubscriptionCancelled <subscription-cancelled-event>` event reports cancellation registration or intention, for both ordinary and scheduled cancellations. It does not by itself confirm that cancellation has taken effect, and it is not a billing event. Do not treat it as confirmation of a credit, charge, or invoice adjustment.
+
+If ``CancellationTime`` is at or before the current time, you can use the event to initiate access revocation for an immediate cancellation. First poll the :api-ref:`subscription details </Subscription/get_subscription__id_>` and confirm that the subscription is actually marked as cancelled before revoking access. Do not revoke access based solely on the event or while ``CancellationTime`` is still in the future.
 
 Use :ref:`SubscriptionDeactivated <subscription-deactivated-event>` to detect when cancellation has taken effect, and :ref:`SubscriptionCancellationRemoved <subscription-cancellation-removed-event>` to track removal of a registered cancellation.
 
