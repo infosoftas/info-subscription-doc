@@ -63,7 +63,7 @@ Cancellation Details
 The event includes the following consumer-visible cancellation details:
 
 * ``CancellationType`` – The type of cancellation registered.
-* ``CancellationCause`` – A text field describing the reason for cancellation. In some cases, this text is user-provided.
+* ``CancellationCause`` – A text field describing the reason for cancellation; its value may be user-provided.
 * ``CancellationTime`` – The time at which the cancellation takes effect. For cancellation at renewal, this is the subscription end time.
 
 .. note::
