@@ -325,7 +325,11 @@ By configuring these policies appropriately, you can balance customer satisfacti
 Integration with Events
 =======================
 
-When a subscription is cancelled, the :ref:`SubscriptionCancelled <subscription-cancelled-event>` event is triggered. Developers integrating with |projectName| should listen for this event to keep external systems in sync with subscription and billing changes.
+The :ref:`SubscriptionCancelled <subscription-cancelled-event>` event reports cancellation registration or intention, for both ordinary and scheduled cancellations. It does not confirm that cancellation has taken effect, and it is not a billing event. Do not use it as an instruction to revoke access or as confirmation of a credit, charge, or invoice adjustment.
+
+Use :ref:`SubscriptionDeactivated <subscription-deactivated-event>` to detect when cancellation has taken effect, and :ref:`SubscriptionCancellationRemoved <subscription-cancellation-removed-event>` to track removal of a registered cancellation.
+
+Proration policies determine the financial impact of cancellation separately. Use the relevant billing and payment events to track financial changes; see the :ref:`Billing Overview <billing-cycle>`.
 
 For more details on events, see the :ref:`Events and Webhooks section <events>`.
 
