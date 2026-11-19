@@ -16,7 +16,7 @@ This alternative approach allows you to retrieve user authorization information 
 API Endpoint Overview
 =====================
 
-The endpoint ``/authorizations/identityprovider/{tenantId}/userclaims`` returns a dictionary of user claim names and string values. The available claims depend on the Identity Provider configuration.
+The endpoint ``/authorizations/identityprovider/{tenantId}/userclaims`` returns a dictionary of user claim names and string values.
 
 While this endpoint is designed to be consumed directly by ADB2C during custom policy execution, it can also be used by other authorization processes that need to retrieve user claims programmatically.
 
@@ -160,7 +160,7 @@ Parameters
 Response Format
 ---------------
 
-The endpoint returns a dictionary of claim names to string values. Claim names and values depend on the user's Identity Provider configuration.
+The endpoint returns the claims configured for the user in the Identity Provider, as a dictionary of claim names to string values.
 
 .. code-block:: json
     :caption: Sample Response
@@ -171,7 +171,7 @@ The endpoint returns a dictionary of claim names to string values. Claim names a
 
 .. note::
 
-    This is an illustrative example only. The claim names returned are determined by the Identity Provider configuration.
+    This is an illustrative example only.
 
 Complete Example
 ================
