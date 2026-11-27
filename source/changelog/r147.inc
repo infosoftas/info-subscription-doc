@@ -83,10 +83,10 @@ Fixed
 * An issue where missing data would lead to errors for eFaktura, a fallback description is now used to let the eInvoice be processed.
 * An issue where deactivated Agreements could be selected for automatic agreement fallback, fallback is invoked in cases where out of band deactivations forces an agreement to become inactive. The selection mechanism would not always verify if the agreement selected was active before switching.
 * Fixed an issue on payment demand details where the Quantity was always set to 1 regardless of actual input quantity.
-* Fixed an issue with consumption proration calculations during transition from DST to "standard" time. Affected calculations where the boundary was exactly on the DST transition date.
+* Fixed an issue with consumption proration calculations during transition from DST to "standard" time. Calculations were affected when the boundary was exactly on the DST transition date.
 * An API documentation issue where the account transactions endpoint documented an incorrect response type.
 * [Hotfix] Fixed an issue where Start Time was not considered in case of inline Subscription Plans on an order.
-* An issue where the ledger summary transactions where not correctly carrying subscriber information in case of multiple billing accounts.
+* An issue where the ledger summary transactions were not correctly carrying subscriber information in case of multiple billing accounts.
 
 Changed
 -------
@@ -100,7 +100,7 @@ Changed
 Removed
 -------
 
-* The TemplatePlan rule for percentage discounts based on number of products selected in dynamic packages have been removed. It was never used and is causing headaches for a new feature we are working on.
+* The TemplatePlan rule for percentage discounts based on number of products selected in dynamic packages has been removed. It was never used and is causing headaches for a new feature we are working on.
 * The last remnants of the PriceTypeId has been removed. It has not been used for years, but a few fields were still present with static values. These are now removed.
 
 Deprecated
@@ -147,7 +147,7 @@ Added
 -----
 
 * The JS-Order-SDK and the Checkout has been updated to support the no-wait mode for the Simple Order API, providing better overall feedback in cases where order processing takes a long time.
-* Verification token process in the checkout to prevent high jacking local orders.
+* Verification token process in the checkout to prevent hijacking local orders.
 * The self-service and checkout now comes with new info-subscription branded domains. Refer to the documentation for details.
 * CDN hosting for fast delivery of static assets in the self-service and checkout across different regions.
 
