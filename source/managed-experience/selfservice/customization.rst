@@ -5,14 +5,14 @@ Orders and User Registration
 
 |projectName| contains a turnkey Salesposter/Ordering solution that can get organizations up and running in no time.
 
-For tenants where the managed subscriber experience is enabled, the salesposter is available on a URL following the template: https://{tenantName}-s4.azurewebsites.net/salesposter, where *tenantName* is the name of the tenant.
+For tenants where the managed subscriber experience is enabled, the salesposter is available on a URL following the template: https://{tenantName.customer.info-subscription.com/salesposter, where *tenantName* is the name of the tenant.
 
 If the tenant is configured with a :ref:`custom domain <selfservice-custom-domain>` that domain may be used instead of the azurewebsites subdomain, such as https://subscription.example.com/salesposter
 
 Creating new subscriptions is as simple as providing the user with a link to the salesposter. 
 Afterwards a user will exist that can be :ref:`authenticated and authorized <auth-quick-start>` by external parties, and recurring billing will follow automatically until the subscription is cancelled.
 
-Try it out using our experimentation site https://experimentation-s4.azurewebsites.net/salesposter
+Try it out using our experimentation site https://experimentationcustomer.info-subscription.com/salesposter
 
 Configuration Parameters for the ordering process
 -------------------------------------------------

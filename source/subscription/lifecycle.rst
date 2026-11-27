@@ -233,14 +233,21 @@ Cancellations can be:
 - **Immediate** – The subscription ends right away, and proration may apply
 - **End of period** – The subscription continues until the current period ends, then stops
 
+Cancellation registration and cancellation taking effect are distinct signals. This applies to both ordinary and scheduled cancellations: ``SubscriptionCancelled`` reports registration, while ``SubscriptionDeactivated`` reports that cancellation has taken effect. Do not revoke service solely because you receive ``SubscriptionCancelled``. A registered cancellation can also be removed, signalled by ``SubscriptionCancellationRemoved``.
+
 **API Reference:**
 
-- :api-ref:`Cancel Subscription </Subscription/post_Subscription__subscriptionId__cancel>` – End a subscription
+- :api-ref:`Cancel Subscription </Subscription/post_subscription__id__cancel>` – Register an ordinary cancellation (``POST /subscription/{id}/cancel``)
+- :api-ref:`Create Scheduled Cancellation </Subscription/post_subscription__subscriptionId__scheduledcancellation>` – Register a scheduled cancellation
+- :api-ref:`List Scheduled Cancellations </Subscription/get_subscription_scheduledcancellation>` – View registered scheduled cancellations (``GET /subscription/scheduledcancellation``)
 
 **Events Triggered:**
 
 - :ref:`SubscriptionCancelled <subscription-cancelled-event>` – Fired when cancellation is registered
+- :ref:`SubscriptionCancellationRemoved <subscription-cancellation-removed-event>` – Fired when a registered ordinary or scheduled cancellation is removed
 - :ref:`SubscriptionDeactivated <subscription-deactivated-event>` – Fired when the cancellation takes effect
+
+Scheduled cancellations emit ``SubscriptionCancelled`` when registered, not a second time when they take effect. See the :ref:`event details <subscription-cancelled-event>` for ``CancellationType``, ``CancellationCause``, and ``CancellationTime``.
 
 **What Happens After Cancellation:**
 
@@ -288,6 +295,7 @@ Subscribe to relevant events to stay synchronized with subscription state change
 
 - :ref:`SubscriptionCreated <subscription-created-event>` – Monitor new periods and renewals
 - :ref:`SubscriptionCancelled <subscription-cancelled-event>` – Handle cancellation registration
+- :ref:`SubscriptionCancellationRemoved <subscription-cancellation-removed-event>` – Clear cancellation indicators when a registered cancellation is removed
 - :ref:`SubscriptionDeactivated <subscription-deactivated-event>` – React when cancellation takes effect
 - ``OrderProcessed`` – Track initial subscription creation from orders
 
@@ -313,7 +321,9 @@ Key API endpoints for subscription lifecycle management:
 - :api-ref:`List Subscriptions </Subscription/get_Subscription>` – Retrieve active and historical subscriptions
 - :api-ref:`Get Subscription Details </Subscription/get_Subscription__subscriptionId_>` – View a specific subscription
 - :api-ref:`View Scheduled Subscriptions </Subscription/get_Subscription_scheduled>` – See upcoming renewals
-- :api-ref:`Cancel Subscription </Subscription/post_Subscription__subscriptionId__cancel>` – End a subscription
+- :api-ref:`Cancel Subscription </Subscription/post_subscription__id__cancel>` – Register an ordinary cancellation
+- :api-ref:`Create Scheduled Cancellation </Subscription/post_subscription__subscriptionId__scheduledcancellation>` – Register a scheduled cancellation
+- :api-ref:`List Scheduled Cancellations </Subscription/get_subscription_scheduledcancellation>` – View registered scheduled cancellations
 - :api-ref:`Schedule Plan Change </Subscription/post_Subscription__subscriptionId__scheduledchange>` – Modify future renewals
 
 For a complete API reference, visit the `Swagger UI <https://api.info-subscription.com/swagger/>`_.
@@ -339,7 +349,8 @@ When payment processing fails:
 1. The billing cycle enters the :ref:`dunning process <billing-cycle>`, issuing reminders
 2. Subscribe to billing and payment events to stay informed of payment status
 3. After exhausting reminders, the system may automatically cancel the subscription
-4. Use the :ref:`SubscriptionCancelled <subscription-cancelled-event>` event to trigger follow-up actions (e.g., service revocation)
+4. Use :ref:`SubscriptionCancelled <subscription-cancelled-event>` to track cancellation registration, and :ref:`SubscriptionCancellationRemoved <subscription-cancellation-removed-event>` to clear it if removed
+5. Use :ref:`SubscriptionDeactivated <subscription-deactivated-event>` to trigger actions such as service revocation when cancellation takes effect
 
 Offering Upgrades and Downgrades
 ---------------------------------

@@ -199,7 +199,7 @@ For a worked, end-to-end example of using this hybrid model to build usage-based
 
 11. **Subscription Cancellation**
 	- If payment is not received after reminders, the subscription may be cancelled.
-	- Integration: Listen for :ref:`SubscriptionCancelled <subscription-cancelled-event>` and :ref:`SubscriptionDeactivated <subscription-deactivated-event>` events to clean up resources or notify users.
+	- Integration: Use :ref:`SubscriptionCancelled <subscription-cancelled-event>` for registration-related actions, such as notifying users that a cancellation has been registered. Use :ref:`SubscriptionDeactivated <subscription-deactivated-event>` to revoke access or clean up resources when cancellation takes effect. For immediate cancellations, you can also act on ``SubscriptionCancelled`` after verifying the subscription's cancelled status as described in :ref:`Proration Policies for Cancellations <proration-policies>`; do not clean up based on registration alone.
 	- For details on how cancellations affect billing and proration, see :ref:`Proration Policies for Cancellations <proration-policies>`.
 
 12. **End**

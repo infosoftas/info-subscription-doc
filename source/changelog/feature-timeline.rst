@@ -241,11 +241,13 @@ Feature timeline
        Scheduled subscription pauses
      - Temporary pauses can be planned in advance, with the subscription stopping and resuming automatically at the chosen dates.
      - :ref:`r146 <changelog-r146>`
-   * - .. _feature-entry-2026-wordpress-access-plugin:
+   * - .. _feature-entry-2026-wordpress-paywall-plugin:
+
+       .. _feature-entry-2026-wordpress-access-plugin:
 
        WordPress access plugin
      - WordPress articles can be restricted to signed-in subscribers or to subscribers of selected products, without WordPress user accounts.
-     - :ref:`r147 <changelog-r147>`
+     - :ref:`WordPress Paywall Plugin <wordpress-paywall-plugin>`, :ref:`r147 <changelog-r147>`
    * - .. _feature-entry-2026-merchant-readiness-checklist:
 
        Merchant readiness checklist

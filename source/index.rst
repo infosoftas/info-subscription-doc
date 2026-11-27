@@ -101,6 +101,7 @@ I want to set up...
 
 * 🛒 :ref:`A managed subscription checkout <checkout>`
 * 👤 :ref:`A self-service portal for subscribers <managed-experience>`
+* 🔐 :ref:`WordPress paywall plugin <wordpress-paywall-plugin>`
 
 Additional Resources
 --------------------
@@ -201,6 +202,7 @@ For help, feedback, or to report issues, see :ref:`Support and Reporting Bugs <r
     managed-experience/authentication-authorization/sessions
     managed-experience/authentication-authorization/user-management-authentication
     managed-experience/selfservice/custom-domain
+    wordpress-plugin
     
 .. toctree::
     :caption: Reporting and Analytics

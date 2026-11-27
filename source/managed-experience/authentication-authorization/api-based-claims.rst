@@ -16,9 +16,11 @@ This alternative approach allows you to retrieve user authorization information 
 API Endpoint Overview
 =====================
 
-The endpoint ``/authorizations/identityprovider/{tenantId}/userclaims`` returns user claims data that includes subscriber and product information.
+The endpoint ``/authorizations/identityprovider/{tenantId}/userclaims`` returns a dictionary of user claim names and string values.
 
 While this endpoint is designed to be consumed directly by ADB2C during custom policy execution, it can also be used by other authorization processes that need to retrieve user claims programmatically.
+
+This claims endpoint is distinct from the OAuth-authenticated product lookup ``GET /authorizations/identityprovider/{identityProviderId}/user/{externalId}``, which returns product IDs rather than claims.
 
 Authentication Requirements
 ===========================
@@ -134,9 +136,13 @@ Request Format
 .. code-block:: http
     :caption: HTTP Request
 
-    GET /authorizations/identityprovider/{tenantId}/userclaims?externalId={externalUserId} HTTP/1.1
+    POST /authorizations/identityprovider/{tenantId}/userclaims HTTP/1.1
     Host: api.info-subscription.com
+    S4-TenantId: {tenantId}
     Authorization: Basic {encodedCredentials}
+    Content-Type: application/json
+
+    {"objectId":"{externalUserId}"}
 
 Parameters
 ----------
@@ -146,32 +152,26 @@ Parameters
     =============  ========  ====================================================================
     Parameter      Location  Description
     =============  ========  ====================================================================
-    tenantId       Path      The Identity Provider tenant ID from |projectName|
-    externalId     Query     The external user ID as it exists in the Identity Provider
+    tenantId       Path and  The |projectName| tenant ID, supplied in both the URL path and the
+                   Header    ``S4-TenantId`` header
+    objectId       JSON body The user's identifier in the Identity Provider
     =============  ========  ====================================================================
 
 Response Format
 ---------------
 
-The endpoint returns user claims in a format suitable for ADB2C consumption as a continuation response. The response includes subscriber and product information as extensions.
+The endpoint returns the claims configured for the user in the Identity Provider, as a dictionary of claim names to string values.
 
 .. code-block:: json
     :caption: Sample Response
 
     {
-        "version": "1.0.0",
-        "action": "Continue",
-        "extension_SubscriberId": "73265483-0a64-4acc-9ccf-11359ef5ce9f",
-        "extension_Products": "[{\"Id\":\"70e75bc0-6c3d-4934-a2e8-08d80b92b721\",\"ValidFrom\":\"2022-06-29T05:37:25.8669071+00:00\",\"ValidTo\":\"2023-06-29T05:37:24.8669071+00:00\"}]"
+        "claimName": "string value"
     }
 
 .. note::
 
-    The response follows the `ADB2C continuation response format <https://learn.microsoft.com/en-us/azure/active-directory-b2c/add-api-connector-token-enrichment?pivots=b2c-user-flow#continuation-response>`_.
-    
-    The ``extension_SubscriberId`` may be empty for family members and other shared users.
-    
-    The ``extension_Products`` is a JSON string containing an array of products, matching the format used in tokens.
+    This is an illustrative example only.
 
 Complete Example
 ================
@@ -198,18 +198,16 @@ Complete Example
         # Make the request
         url = f"{api_base_url}/authorizations/identityprovider/{tenant_id}/userclaims"
         headers = {
-            "Authorization": auth_header
-        }
-        params = {
-            "externalId": external_user_id
+            "Authorization": auth_header,
+            "S4-TenantId": tenant_id,
+            "Content-Type": "application/json"
         }
 
-        response = requests.get(url, headers=headers, params=params)
+        response = requests.post(url, headers=headers, json={"objectId": external_user_id})
 
         if response.status_code == 200:
             user_claims = response.json()
-            print(f"Subscriber ID: {user_claims.get('extension_SubscriberId')}")
-            print(f"Products: {user_claims.get('extension_Products')}")
+            print(user_claims)
         else:
             print(f"Error: {response.status_code} - {response.text}")
 
@@ -232,18 +230,18 @@ Complete Example
         // Make the request
         const url = `${apiBaseUrl}/authorizations/identityprovider/${tenantId}/userclaims`;
 
-        axios.get(url, {
+        axios.post(url, {
+            objectId: externalUserId
+        }, {
             headers: {
-                'Authorization': authHeader
-            },
-            params: {
-                externalId: externalUserId
+                'Authorization': authHeader,
+                'S4-TenantId': tenantId,
+                'Content-Type': 'application/json'
             }
         })
         .then(response => {
             const userClaims = response.data;
-            console.log(`Subscriber ID: ${userClaims.extension_SubscriberId}`);
-            console.log(`Products:`, userClaims.extension_Products);
+            console.log(userClaims);
         })
         .catch(error => {
             console.error(`Error: ${error.response?.status} - ${error.message}`);
@@ -252,6 +250,7 @@ Complete Example
    .. code-tab:: csharp C#
 
         using System;
+        using System.Collections.Generic;
         using System.Net.Http;
         using System.Net.Http.Headers;
         using System.Text;
@@ -277,27 +276,25 @@ Complete Example
                     new AuthenticationHeaderValue("Basic", encodedCredentials);
             }
 
-            public async Task<UserClaims> GetUserClaimsAsync(
+            public async Task<Dictionary<string, string>> GetUserClaimsAsync(
                 string tenantId, 
                 string externalUserId)
             {
                 var url = $"{_apiBaseUrl}/authorizations/identityprovider/{tenantId}/userclaims";
-                url += $"?externalId={Uri.EscapeDataString(externalUserId)}";
+                var requestBody = JsonConvert.SerializeObject(new { objectId = externalUserId });
+                using var content = new StringContent(requestBody, Encoding.UTF8, "application/json");
+                using var request = new HttpRequestMessage(HttpMethod.Post, url)
+                {
+                    Content = content
+                };
+                request.Headers.Add("S4-TenantId", tenantId);
 
-                var response = await _httpClient.GetAsync(url);
+                var response = await _httpClient.SendAsync(request);
                 response.EnsureSuccessStatusCode();
 
                 var json = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<UserClaims>(json);
+                return JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
             }
-        }
-
-        public class UserClaims
-        {
-            public string Version { get; set; }
-            public string Action { get; set; }
-            public string Extension_SubscriberId { get; set; }
-            public string Extension_Products { get; set; }
         }
 
    .. code-tab:: php PHP
@@ -317,12 +314,14 @@ Complete Example
 
         // Make the request
         $url = $apiBaseUrl . "/authorizations/identityprovider/" . $tenantId . "/userclaims";
-        $url .= "?externalId=" . urlencode($externalUserId);
 
         $options = [
             'http' => [
-                'header'  => "Authorization: " . $authHeader . "\r\n",
-                'method'  => 'GET',
+                'header'  => "Authorization: " . $authHeader . "\r\n" .
+                    "S4-TenantId: " . $tenantId . "\r\n" .
+                    "Content-Type: application/json\r\n",
+                'method'  => 'POST',
+                'content' => json_encode(['objectId' => $externalUserId]),
             ]
         ];
 
@@ -331,8 +330,7 @@ Complete Example
 
         if ($result !== false) {
             $userClaims = json_decode($result, true);
-            echo "Subscriber ID: " . $userClaims['extension_SubscriberId'] . "\n";
-            echo "Products: " . $userClaims['extension_Products'] . "\n";
+            print_r($userClaims);
         } else {
             echo "Error fetching user claims\n";
         }

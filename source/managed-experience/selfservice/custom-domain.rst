@@ -3,7 +3,7 @@
 Custom Domain Support
 =====================
 
-By default all tenants utilizing the |projectName| self-service and salesposter solution will be hosted on a generic azure domain name in the form, `https://{tenantName}-s4.azurewebsites.net`.
+By default all tenants utilizing the |projectName| self-service and salesposter solution will be hosted on a generic azure domain name in the form, `https://{tenantName.customer.info-subscription.com`.
 
 While functional, it may be desirable to have a custom domain, which is possible but currently requires some manual work by Infosoft support.
 If a custom domain is required please :ref:`contact support <reporting-bugs>`.

@@ -23,6 +23,6 @@ Accessing Self-Service/Subscription Management
 ----------------------------------------------
 Once an end-user/subscriber has made a purchase and created a user, regardless of how that was achieved, the user may need to manage the subscription or just see the latest invoice.
 
-The self-service management solution can be access by navigating to https://{tenantName}-s4.azurewebsites.net where *tenantName* is the name of the tenant.
+The self-service management solution can be access by navigating to https://{tenantName.customer.info-subscription.com where *tenantName* is the name of the tenant.
 
 If the tenant is configured with a :ref:`custom domain <selfservice-custom-domain>` that domain may be used instead.
