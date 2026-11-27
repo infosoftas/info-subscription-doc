@@ -4,14 +4,14 @@
 Release notes 2024
 ##################
 
-.. include:: r130.inc
-.. include:: r129.inc
-.. include:: r128.inc
-.. include:: r127.inc
-.. include:: r126.inc
-.. include:: r125.inc
-.. include:: r124.inc
-.. include:: r123.inc
-.. include:: r122.inc
-.. include:: r121.inc
-.. include:: r120.inc
+.. include:: Archive/r130.inc
+.. include:: Archive/r129.inc
+.. include:: Archive/r128.inc
+.. include:: Archive/r127.inc
+.. include:: Archive/r126.inc
+.. include:: Archive/r125.inc
+.. include:: Archive/r124.inc
+.. include:: Archive/r123.inc
+.. include:: Archive/r122.inc
+.. include:: Archive/r121.inc
+.. include:: Archive/r120.inc
